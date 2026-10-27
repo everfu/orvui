@@ -1,0 +1,10 @@
+export type MorphSelectContentProps = InstanceType<(typeof import("./MorphSelectContent.vue"))["default"]>["$props"];
+export type MorphSelectItemProps = InstanceType<(typeof import("./MorphSelectItem.vue"))["default"]>["$props"];
+export type MorphSelectProps = InstanceType<(typeof import("./MorphSelect.vue"))["default"]>["$props"];
+export type MorphSelectTriggerProps = InstanceType<(typeof import("./MorphSelectTrigger.vue"))["default"]>["$props"];
+export type MorphSelectValueProps = InstanceType<(typeof import("./MorphSelectValue.vue"))["default"]>["$props"];
+export type SelectContentProps = InstanceType<(typeof import("./SelectContent.vue"))["default"]>["$props"];
+export type SelectItemProps = InstanceType<(typeof import("./SelectItem.vue"))["default"]>["$props"];
+export type SelectProps = InstanceType<(typeof import("./Select.vue"))["default"]>["$props"];
+export type SelectTriggerProps = InstanceType<(typeof import("./SelectTrigger.vue"))["default"]>["$props"];
+export type SelectValueProps = InstanceType<(typeof import("./SelectValue.vue"))["default"]>["$props"];

@@ -1,0 +1,26 @@
+[build]
+  command = "pnpm build"
+  publish = "apps/docs/.vitepress/dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+  PNPM_VERSION = "10.30.3"
+  ORVUI_REGISTRY_ORIGIN = "https://orvui.efu.me"
+
+[[headers]]
+  for = "/r/*.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"

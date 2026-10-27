@@ -1,0 +1,145 @@
+---
+title: "Bottom Sheet"
+description: "从底部打开面板，并通过拖动在吸附位置之间移动。"
+category: "Components"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/components/motion/bottom-sheet"
+markdown: "https://orvui.efu.me/components/motion/bottom-sheet.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# Bottom Sheet
+
+> 从底部打开面板，并通过拖动在吸附位置之间移动。
+
+## 安装
+
+### Bottom Sheet — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/bottom-sheet.json
+```
+
+通过注册表安装后，在应用样式入口导入一次 `src/components/orvui/styles.css`。
+
+### 组件包
+
+npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## 依赖
+
+- `clsx@^2.1.1`
+- `motion-v@^1.10.0`
+- `tailwind-merge@^3.0.0`
+- `tailwindcss@^4.0.0`
+
+## 用法
+
+### Bottom Sheet
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { BottomSheet } from "@/components/orvui/motion/bottom-sheet";
+const open = ref(false);
+const actions = ["Share", "Duplicate", "Move to folder", "Rename", "Archive", "Delete"];
+</script>
+<template><div>
+  <button type="button" @click="open = true" class="inline-flex h-10 items-center rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground press hover:border-(--color-border-strong)">Open bottom sheet</button>
+  <BottomSheet v-model:open="open" :snap-points="[0.4, 0.85]" title="Quick actions" description="Move the handle or flick downward to close."><ul class="divide-y divide-border"><li v-for="action in actions" :key="action" class="py-3 text-sm text-foreground">{{ action }}</li></ul><div class="py-12 text-center text-xs text-muted-foreground">Flick up for more room, or down to close.</div></BottomSheet>
+</div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { BottomSheet } from "@orvui/vue/motion/bottom-sheet";
+const open = ref(false);
+const actions = ["Share", "Duplicate", "Move to folder", "Rename", "Archive", "Delete"];
+</script>
+<template><div>
+  <button type="button" @click="open = true" class="inline-flex h-10 items-center rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground press hover:border-(--color-border-strong)">Open bottom sheet</button>
+  <BottomSheet v-model:open="open" :snap-points="[0.4, 0.85]" title="Quick actions" description="Move the handle or flick downward to close."><ul class="divide-y divide-border"><li v-for="action in actions" :key="action" class="py-3 text-sm text-foreground">{{ action }}</li></ul><div class="py-12 text-center text-xs text-muted-foreground">Flick up for more room, or down to close.</div></BottomSheet>
+</div></template>
+```
+
+## API 参考
+
+### BottomSheet
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `open` | `boolean` | `false` | 是 | — |
+| `snapPoints` | `(number \| "auto")[]` | `() => [0.5, 0.92]` | 否 | — |
+| `defaultSnap` | `number` | `0` | 否 | — |
+| `title` | `string` | — | 否 | — |
+| `description` | `string` | — | 否 | — |
+| `dismissThreshold` | `number` | `120` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+## 关于 Bottom Sheet
+
+从底部打开面板，并通过拖动在吸附位置之间移动。
+
+### 适用场景
+
+- 当界面需要以下行为时使用 Bottom Sheet：从底部打开面板，并通过拖动在吸附位置之间移动。
+
+### 无障碍
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### 常见问题
+
+**如何配置 Bottom Sheet？**
+
+通过 open、snapPoints、defaultSnap、title、description、dismissThreshold 配置 Bottom Sheet；API 表列出其类型与默认值。
+
+**如何连接到应用状态？**
+
+监听 update:open，将组件连接到应用状态。
+
+**可以在服务端渲染吗？**
+
+可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
+
+## 源码
+
+- 注册表详情: https://orvui.efu.me/r/bottom-sheet.json
+- 文档: https://orvui.efu.me/components/motion/bottom-sheet
+- `packages/vue/src/motion/bottom-sheet/src/BottomSheet.vue`
+
+Copyright (c) 2026 everfu。版权声明及第三方条款见 LICENSE 与 NOTICE。
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

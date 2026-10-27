@@ -1,0 +1,10 @@
+import { type NotFoundProps } from "./types";
+type __VLS_Props = Pick<NotFoundProps, "homeHref" | "homeLabel" | "browseHref" | "browseLabel">;
+declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
+    browseLabel: string;
+    homeHref: string;
+    homeLabel: string;
+    browseHref: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;

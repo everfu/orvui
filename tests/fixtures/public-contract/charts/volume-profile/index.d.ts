@@ -1,0 +1,10 @@
+export { default as VolumeProfile } from "./VolumeProfile.vue";
+export { default as VolumeProfilePlot } from "./VolumeProfilePlot.vue";
+export { default as VolumeProfileSummary } from "./VolumeProfileSummary.vue";
+export { default as VolumeProfileTooltip } from "./VolumeProfileTooltip.vue";
+export { useVolumeProfile } from "./context";
+export type { VolumeProfileProps } from "./context";
+export type { VolumeProfileBin, VolumeProfileRow } from "./model";
+export type VolumeProfileTooltipProps = InstanceType<(typeof import("./VolumeProfileTooltip.vue"))["default"]>["$props"];
+export type VolumeProfilePlotProps = InstanceType<(typeof import("./VolumeProfilePlot.vue"))["default"]>["$props"];
+export type VolumeProfileSummaryProps = InstanceType<(typeof import("./VolumeProfileSummary.vue"))["default"]>["$props"];

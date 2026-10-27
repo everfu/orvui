@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.dev/
+**/.vitepress/cache/
+**/.vitepress/dist/
+*.tgz
+.DS_Store
+
+.netlify/
+artifacts/
+.env
+.env.*
+!.env.example

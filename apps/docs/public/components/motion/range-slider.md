@@ -1,0 +1,457 @@
+---
+title: "Range Slider"
+description: "通过拖动手势或键盘步进，在轨道上调整数值。"
+category: "Components"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/components/motion/range-slider"
+markdown: "https://orvui.efu.me/components/motion/range-slider.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# Range Slider
+
+> 通过拖动手势或键盘步进，在轨道上调整数值。
+
+## 安装
+
+### Range Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider.json
+```
+
+### Inline Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider-inline.json
+```
+
+### Range Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider.json
+```
+
+### Fluid Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider-fluid.json
+```
+
+### Wave Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider-wave.json
+```
+
+### Bubble Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider-bubble.json
+```
+
+### Ruler Slider — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/range-slider-ruler.json
+```
+
+通过注册表安装后，在应用样式入口导入一次 `src/components/orvui/styles.css`。
+
+### 组件包
+
+npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## 依赖
+
+- `clsx@^2.1.1`
+- `motion-v@^1.10.0`
+- `tailwind-merge@^3.0.0`
+- `tailwindcss@^4.0.0`
+
+## 用法
+
+### Range Slider
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { RangeSlider } from "@/components/orvui/motion/range-slider";
+const amount = ref(40);
+</script>
+<template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { RangeSlider } from "@orvui/vue/motion/range-slider";
+const amount = ref(40);
+</script>
+<template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
+```
+
+### Inline Slider
+
+把标签和数值放在轨道内部，附近刻度为手柄让出空间。
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { InlineSlider } from "@/components/orvui/motion/range-slider";
+const spokenPixels = (value: number) => `${value} pixels`;
+</script>
+<template><div class="w-full max-w-sm"><InlineSlider :default-value="48" :min="8" :max="128" :step="8" label="Icon size" aria-label="Icon size" :format-value-text="spokenPixels" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { InlineSlider } from "@orvui/vue/motion/range-slider";
+const spokenPixels = (value: number) => `${value} pixels`;
+</script>
+<template><div class="w-full max-w-sm"><InlineSlider :default-value="48" :min="8" :max="128" :step="8" label="Icon size" aria-label="Icon size" :format-value-text="spokenPixels" /></div></template>
+```
+
+### Range Slider
+
+让窄手柄在标记步进之间吸附，并强调每次落定。
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { RangeSlider } from "@/components/orvui/motion/range-slider";
+const amount = ref(40);
+</script>
+<template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { RangeSlider } from "@orvui/vue/motion/range-slider";
+const amount = ref(40);
+</script>
+<template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
+```
+
+### Fluid Slider
+
+使用圆润的移动填充表示数值，替代独立手柄。
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { FluidSlider } from "@/components/orvui/motion/range-slider";
+const brightness = ref(35);
+</script>
+<template><div class="w-full max-w-sm"><FluidSlider v-model="brightness" label="Brightness" aria-label="Brightness" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { FluidSlider } from "@orvui/vue/motion/range-slider";
+const brightness = ref(35);
+</script>
+<template><div class="w-full max-w-sm"><FluidSlider v-model="brightness" label="Brightness" aria-label="Brightness" /></div></template>
+```
+
+### Wave Slider
+
+抬高手柄附近的竖条，形成随位置移动的波形。
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { WaveSlider } from "@/components/orvui/motion/range-slider";
+const gain = ref(45);
+</script>
+<template><div class="flex w-full max-w-md flex-col gap-2"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Gain</span><span class="tabular-nums text-foreground">{{ gain }}</span></div><WaveSlider v-model="gain" aria-label="Gain" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { WaveSlider } from "@orvui/vue/motion/range-slider";
+const gain = ref(45);
+</script>
+<template><div class="flex w-full max-w-md flex-col gap-2"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Gain</span><span class="tabular-nums text-foreground">{{ gain }}</span></div><WaveSlider v-model="gain" aria-label="Gain" /></div></template>
+```
+
+### Bubble Slider
+
+拖动时抬起数值气泡，让其倾斜随移动变化。
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { BubbleSlider } from "@/components/orvui/motion/range-slider";
+const amount = ref(28);
+</script>
+<template><div class="flex w-full max-w-sm flex-col gap-1"><span class="text-sm text-muted-foreground">Drag fast and the bubble leans</span><BubbleSlider v-model="amount" aria-label="Value" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { BubbleSlider } from "@orvui/vue/motion/range-slider";
+const amount = ref(28);
+</script>
+<template><div class="flex w-full max-w-sm flex-col gap-1"><span class="text-sm text-muted-foreground">Drag fast and the bubble leans</span><BubbleSlider v-model="amount" aria-label="Value" /></div></template>
+```
+
+### Ruler Slider
+
+指针固定在原位，带刻度的标尺在其下方移动。
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { RulerSlider } from "@/components/orvui/motion/range-slider";
+const weight = ref(72.5);
+</script>
+<template><div class="w-full max-w-sm"><RulerSlider v-model="weight" :min="40" :max="120" :step=".5" :gap="12" :major-every="10" unit="kg" aria-label="Weight" /></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { RulerSlider } from "@orvui/vue/motion/range-slider";
+const weight = ref(72.5);
+</script>
+<template><div class="w-full max-w-sm"><RulerSlider v-model="weight" :min="40" :max="120" :step=".5" :gap="12" :major-every="10" unit="kg" aria-label="Weight" /></div></template>
+```
+
+## API 参考
+
+### RangeSlider
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `number` | — | 否 | — |
+| `defaultValue` | `number` | `0` | 否 | — |
+| `min` | `number` | `0` | 否 | — |
+| `max` | `number` | `100` | 否 | — |
+| `step` | `number` | — | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `ariaLabel` | `string` | — | 否 | — |
+| `formatValueText` | `(value: number) => string` | — | 否 | — |
+| `showTicks` | `boolean` | `true` | 否 | — |
+| `name` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | — | — |
+| `change` | — | — |
+| `valueCommit` | — | — |
+
+### InlineSlider
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `number` | — | 否 | — |
+| `defaultValue` | `number` | — | 否 | — |
+| `min` | `number` | — | 否 | — |
+| `max` | `number` | — | 否 | — |
+| `step` | `number` | `1` | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `ariaLabel` | `string` | — | 否 | — |
+| `formatValueText` | `(value: number) => string` | — | 否 | — |
+| `label` | `string` | — | 是 | — |
+| `format` | `(v: number) => string` | `String` | 否 | — |
+| `showTicks` | `boolean` | `true` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | — | — |
+| `change` | — | — |
+| `valueCommit` | — | — |
+
+### FluidSlider
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `number` | — | 否 | — |
+| `defaultValue` | `number` | `0` | 否 | — |
+| `min` | `number` | `0` | 否 | — |
+| `max` | `number` | `100` | 否 | — |
+| `step` | `number` | — | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `ariaLabel` | `string` | — | 否 | — |
+| `formatValueText` | `(value: number) => string` | — | 否 | — |
+| `label` | `string` | — | 否 | — |
+| `format` | `(v: number) => string` | `` (v: number) => `${v}%` `` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | — | — |
+| `change` | — | — |
+| `valueCommit` | — | — |
+
+### WaveSlider
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `number` | — | 否 | — |
+| `defaultValue` | `number` | `0` | 否 | — |
+| `min` | `number` | `0` | 否 | — |
+| `max` | `number` | `100` | 否 | — |
+| `step` | `number` | — | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `ariaLabel` | `string` | — | 否 | — |
+| `formatValueText` | `(value: number) => string` | — | 否 | — |
+| `bars` | `number` | `32` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | — | — |
+| `change` | — | — |
+| `valueCommit` | — | — |
+
+### BubbleSlider
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `number` | — | 否 | — |
+| `defaultValue` | `number` | `0` | 否 | — |
+| `min` | `number` | `0` | 否 | — |
+| `max` | `number` | `100` | 否 | — |
+| `step` | `number` | — | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `ariaLabel` | `string` | — | 否 | — |
+| `formatValueText` | `(value: number) => string` | — | 否 | — |
+| `format` | `(v: number) => string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | — | — |
+| `change` | — | — |
+| `valueCommit` | — | — |
+
+### RulerSlider
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `number` | — | 否 | — |
+| `defaultValue` | `number` | — | 否 | — |
+| `min` | `number` | — | 否 | — |
+| `max` | `number` | — | 否 | — |
+| `step` | `number` | `1` | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `ariaLabel` | `string` | — | 否 | — |
+| `formatValueText` | `(value: number) => string` | ``(props.unit ? (value: number) => `${value.toFixed(decimals.value)} ${props.unit}` : undefined)`` | 否 | — |
+| `gap` | `number` | `14` | 否 | — |
+| `majorEvery` | `number` | `5` | 否 | — |
+| `unit` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | — | — |
+| `change` | — | — |
+| `valueCommit` | — | — |
+
+## 关于 Range Slider
+
+通过拖动手势或键盘步进，在轨道上调整数值。
+
+### 适用场景
+
+- 当界面需要以下行为时使用 Range Slider：通过拖动手势或键盘步进，在轨道上调整数值。
+
+### 无障碍
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### 常见问题
+
+**如何配置 Range Slider？**
+
+通过 modelValue 与 update:modelValue 控制数值；defaultValue 只初始化非受控滑块。
+
+**如何连接到应用状态？**
+
+监听 update:modelValue、change、valueCommit，将组件连接到应用状态。
+
+**可以在服务端渲染吗？**
+
+可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
+
+## 源码
+
+- 注册表详情: https://orvui.efu.me/r/range-slider.json
+- 文档: https://orvui.efu.me/components/motion/range-slider
+- `packages/vue/src/motion/range-slider/src/RangeSlider.vue`
+- `packages/vue/src/motion/range-slider/src/InlineSlider.vue`
+- `packages/vue/src/motion/range-slider/src/FluidSlider.vue`
+- `packages/vue/src/motion/range-slider/src/WaveSlider.vue`
+- `packages/vue/src/motion/range-slider/src/BubbleSlider.vue`
+- `packages/vue/src/motion/range-slider/src/RulerSlider.vue`
+
+Copyright (c) 2026 everfu。版权声明及第三方条款见 LICENSE 与 NOTICE。
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

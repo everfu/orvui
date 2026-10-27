@@ -1,0 +1,195 @@
+---
+title: "Voice Orb"
+description: "呈现运动球形场，其表面响应活动强度或音频输入。"
+category: "AI Agents"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/components/agents/voice-orb"
+markdown: "https://orvui.efu.me/components/agents/voice-orb.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# Voice Orb
+
+> 呈现运动球形场，其表面响应活动强度或音频输入。
+
+## 安装
+
+### Voice Orb — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/voice-orb.json
+```
+
+通过注册表安装后，在应用样式入口导入一次 `src/components/orvui/styles.css`。
+
+### 组件包
+
+npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## 依赖
+
+- `motion-v@^1.10.0`
+- `tailwindcss@^4.0.0`
+
+## 用法
+
+### Voice Orb
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import { VoiceOrb } from "@/components/orvui/agents/voice-orb";
+const activity = ref(0);
+let animation: number | undefined, preference: MediaQueryList | undefined;
+let alive = false;
+function paint(time: number) {
+  if (!alive) return;
+  const seconds = time / 1000;
+  const phrase = Math.max(0, Math.sin(seconds * 0.85));
+  const syllable = Math.max(
+    0,
+    Math.sin(seconds * 9.3 + Math.sin(seconds * 2.1)),
+  );
+  activity.value = preference?.matches
+    ? 0
+    : phrase * (0.12 + syllable * syllable * 0.72);
+  animation = requestAnimationFrame(paint);
+}
+onMounted(() => {
+  alive = true;
+  preference = matchMedia("(prefers-reduced-motion: reduce)");
+  animation = requestAnimationFrame(paint);
+});
+onBeforeUnmount(() => {
+  alive = false;
+  if (animation !== undefined) cancelAnimationFrame(animation);
+});
+</script>
+<template>
+  <VoiceOrb
+    :activity="activity"
+    aria-label="Voice visualization"
+    class="w-64 sm:w-72"
+  />
+</template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import { VoiceOrb } from "@orvui/vue/agents/voice-orb";
+const activity = ref(0);
+let animation: number | undefined, preference: MediaQueryList | undefined;
+let alive = false;
+function paint(time: number) {
+  if (!alive) return;
+  const seconds = time / 1000;
+  const phrase = Math.max(0, Math.sin(seconds * 0.85));
+  const syllable = Math.max(
+    0,
+    Math.sin(seconds * 9.3 + Math.sin(seconds * 2.1)),
+  );
+  activity.value = preference?.matches
+    ? 0
+    : phrase * (0.12 + syllable * syllable * 0.72);
+  animation = requestAnimationFrame(paint);
+}
+onMounted(() => {
+  alive = true;
+  preference = matchMedia("(prefers-reduced-motion: reduce)");
+  animation = requestAnimationFrame(paint);
+});
+onBeforeUnmount(() => {
+  alive = false;
+  if (animation !== undefined) cancelAnimationFrame(animation);
+});
+</script>
+<template>
+  <VoiceOrb
+    :activity="activity"
+    aria-label="Voice visualization"
+    class="w-64 sm:w-72"
+  />
+</template>
+```
+
+## API 参考
+
+### VoiceOrb
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `activity` | `number \| MotionValue<number>` | `0` | 否 | — |
+| `analyser` | `null \| AnalyserNode` | `null` | 否 | — |
+| `colors` | `readonly [string, string, string]` | `() => ["#e8754d", "#ffe0ac", "#346b52"] as const` | 否 | — |
+| `active` | `boolean` | `true` | 否 | — |
+| `speed` | `number` | `1` | 否 | — |
+| `label` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `error` | `[error: Error]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `fallback` | `() => VNodeChild` | — | — |
+
+## 关于 Voice Orb
+
+呈现运动球形场，其表面响应活动强度或音频输入。
+
+### 适用场景
+
+- 当界面需要以下行为时使用 Voice Orb：呈现运动球形场，其表面响应活动强度或音频输入。
+
+### 无障碍
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### 常见问题
+
+**如何配置 Voice Orb？**
+
+通过 activity、analyser、colors、active、speed、label 配置 Voice Orb；API 表列出其类型与默认值。
+
+**如何连接到应用状态？**
+
+监听 error，将组件连接到应用状态。
+
+**可以在服务端渲染吗？**
+
+可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
+
+## 源码
+
+- 注册表详情: https://orvui.efu.me/r/voice-orb.json
+- 文档: https://orvui.efu.me/components/agents/voice-orb
+- `packages/vue/src/agents/voice-orb/src/VoiceOrb.vue`
+
+Copyright (c) 2026 everfu。版权声明及第三方条款见 LICENSE 与 NOTICE。
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

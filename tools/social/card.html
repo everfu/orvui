@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>orvui · Share image source</title>
+    <style>
+      /* Geist is served from the project's Fontsource assets. Retain their OFL. */
+      @font-face {
+        font-family: Geist;
+        font-style: normal;
+        font-weight: 400;
+        src: url("../../apps/docs/public/fonts/source/geist-latin-400-normal.woff2");
+      }
+      @font-face {
+        font-family: Geist;
+        font-style: normal;
+        font-weight: 600;
+        src: url("../../apps/docs/public/fonts/source/geist-latin-600-normal.woff2");
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+      }
+      body {
+        position: relative;
+        overflow: hidden;
+        padding: 64px 72px;
+        background: #151515;
+        color: #f4f4f4;
+        font-family: Geist, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: "";
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        right: -190px;
+        top: -160px;
+        background: radial-gradient(circle, #0285f71c, transparent 65%);
+        pointer-events: none;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .mark {
+        position: relative;
+        flex: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: #f4f4f4;
+      }
+      .mark::after {
+        content: "";
+        position: absolute;
+        inset: 10.5px;
+        border-radius: 1.5px;
+        background: #151515;
+      }
+      header span {
+        color: #b0b0b0;
+        font-size: 21px;
+        letter-spacing: -0.4px;
+      }
+      h1 {
+        margin: 49px 0 10px -5px;
+        font-size: 128px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -8px;
+      }
+      p {
+        margin: 24px 0 0;
+        font-size: 46px;
+        line-height: 1.22;
+        letter-spacing: -1.8px;
+      }
+      p span {
+        color: #a8a8a8;
+      }
+      .symbol {
+        position: absolute;
+        right: 112px;
+        top: 184px;
+        width: 240px;
+        height: 240px;
+      }
+      .symbol::before,
+      .symbol::after {
+        content: "";
+        position: absolute;
+        inset: -24px;
+        border: 1px solid #ffffff14;
+        border-radius: 96px;
+        transform: rotate(-15deg);
+      }
+      .symbol::after {
+        inset: -48px;
+        border-color: #ffffff0a;
+        transform: rotate(-30deg);
+      }
+      .symbol .mark {
+        width: 240px;
+        height: 240px;
+        border-radius: 80px;
+        box-shadow: 0 0 100px #0285f712;
+      }
+      .symbol .mark::after {
+        inset: 70px;
+        border-radius: 10px;
+      }
+      footer {
+        position: absolute;
+        inset: auto 72px 56px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #ffffff14;
+        padding-top: 24px;
+        color: #a8a8a8;
+        font-size: 18px;
+        letter-spacing: -0.3px;
+      }
+      footer span:last-child {
+        color: #d4d4d4;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="mark" aria-hidden="true"></div>
+      <span>Vue component library</span>
+    </header>
+    <h1>orvui</h1>
+    <p>Animated components<br /><span>for Vue.</span></p>
+    <div class="symbol" aria-hidden="true"><div class="mark"></div></div>
+    <footer>
+      <span
+        >Motion &nbsp;·&nbsp; Blocks &nbsp;·&nbsp; AI Agents &nbsp;·&nbsp;
+        Charts</span
+      ><span>orvui.efu.me</span>
+    </footer>
+  </body>
+</html>

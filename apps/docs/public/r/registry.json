@@ -1,0 +1,930 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry.json",
+  "name": "orvui",
+  "homepage": "https://orvui.efu.me",
+  "items": [
+    {
+      "name": "timeline",
+      "type": "registry:component",
+      "title": "Timeline",
+      "description": "Browse dated milestones on a draggable track that keeps the selected event in focus."
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Animated Alert",
+      "description": "Present feedback in a compact message row with optional actions and dismissal."
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Animated Collapsible",
+      "description": "Connect a trigger to an expandable region while preserving the surrounding layout."
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "Reserve a chosen width-to-height ratio for media and animate changes to that ratio."
+    },
+    {
+      "name": "arc-picker",
+      "type": "registry:component",
+      "title": "Arc Picker",
+      "description": "Move a curved list of labels through a fixed selection point using gestures or keys."
+    },
+    {
+      "name": "sortable-stack",
+      "type": "registry:component",
+      "title": "Sortable List",
+      "description": "Reorder a list with pointer or keyboard input and offer an undo operation."
+    },
+    {
+      "name": "image-viewer",
+      "type": "registry:component",
+      "title": "Image Viewer",
+      "description": "Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view."
+    },
+    {
+      "name": "morphing-lightbox",
+      "type": "registry:component",
+      "title": "Morphing",
+      "description": "Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view."
+    },
+    {
+      "name": "date-range-picker",
+      "type": "registry:component",
+      "title": "Date Range Picker",
+      "description": "Choose the beginning and end of a date interval in an inline or floating calendar."
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "Assemble a card from heading, content, actions and footer parts with optional selection."
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "title": "Color Picker",
+      "description": "Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper."
+    },
+    {
+      "name": "color-selector",
+      "type": "registry:component",
+      "title": "Animated Color Selector",
+      "description": "Choose one named swatch with a moving selection outline and native radio behavior."
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Animated Breadcrumb",
+      "description": "Show the current location in a hierarchy and collapse intermediate links when space is limited."
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:component",
+      "title": "Tilt Card",
+      "description": "Tilt a card toward the pointer and move a highlight over its surface."
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Use a pressable action surface with magnetic, stateful and metallic alternatives."
+    },
+    {
+      "name": "button-metallic",
+      "type": "registry:component",
+      "title": "Metallic Button",
+      "description": "Use a pressable action surface with magnetic, stateful and metallic alternatives."
+    },
+    {
+      "name": "button-base",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Use a pressable action surface with magnetic, stateful and metallic alternatives."
+    },
+    {
+      "name": "button-stateful",
+      "type": "registry:component",
+      "title": "Stateful Button",
+      "description": "Use a pressable action surface with magnetic, stateful and metallic alternatives."
+    },
+    {
+      "name": "button-magnetic",
+      "type": "registry:component",
+      "title": "Magnetic Button",
+      "description": "Use a pressable action surface with magnetic, stateful and metallic alternatives."
+    },
+    {
+      "name": "expanding-arrow-button",
+      "type": "registry:component",
+      "title": "Animated CTA Buttons",
+      "description": "Confirm an action through an expanding arrow, a deliberate hold or a slide gesture."
+    },
+    {
+      "name": "hold-action-button",
+      "type": "registry:component",
+      "title": "Hold Action Button",
+      "description": "Confirm an action through an expanding arrow, a deliberate hold or a slide gesture."
+    },
+    {
+      "name": "slide-action-button",
+      "type": "registry:component",
+      "title": "Slide Action Button",
+      "description": "Confirm an action through an expanding arrow, a deliberate hold or a slide gesture."
+    },
+    {
+      "name": "expandable-control",
+      "type": "registry:component",
+      "title": "Expandable Control",
+      "description": "Expand a compact control to reveal a label or trailing action without losing its position."
+    },
+    {
+      "name": "adaptive-stepper",
+      "type": "registry:component",
+      "title": "Adaptive Stepper",
+      "description": "Adjust a bounded number while the value uses the space released by unavailable actions."
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "Repeat a horizontal or vertical content strip with optional pause on hover."
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Switch between associated panels using a moving indicator and accessible tab controls."
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "Toggle a binary setting with a moving thumb and optional descriptive label."
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "Edit text with optional labels, icons and validation feedback in a single field."
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Choose from a floating list whose panel can expand continuously from its trigger."
+    },
+    {
+      "name": "select-morph",
+      "type": "registry:component",
+      "title": "Morph Select",
+      "description": "Choose from a floating list whose panel can expand continuously from its trigger."
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "Filter a grouped option list from an input while keeping keyboard focus in the field."
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:component",
+      "title": "Multi Select",
+      "description": "Select several options and manage the resulting tags inside a searchable control."
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "Represent checked, unchecked and mixed values with an animated check mark."
+    },
+    {
+      "name": "radio",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Choose one value from a keyboard-navigable group of labeled options."
+    },
+    {
+      "name": "bottom-sheet",
+      "type": "registry:component",
+      "title": "Bottom Sheet",
+      "description": "Open a panel from the lower edge and move it between snap positions with a drag."
+    },
+    {
+      "name": "pull-to-refresh",
+      "type": "registry:component",
+      "title": "Pull to Refresh",
+      "description": "Turn a downward pull into a deliberate asynchronous refresh with visible progress."
+    },
+    {
+      "name": "shared-layout-bg",
+      "type": "registry:component",
+      "title": "Shared Layout Background",
+      "description": "Move one background surface between registered items to indicate a current selection."
+    },
+    {
+      "name": "bounce-sidebar",
+      "type": "registry:component",
+      "title": "Bounce Sidebar",
+      "description": "Navigate a vertical list while an active marker follows a curved path between rows."
+    },
+    {
+      "name": "animated-sidebar",
+      "type": "registry:component",
+      "title": "Animated Sidebar",
+      "description": "Compose nested navigation with expanded, icon-only and mobile drawer presentations."
+    },
+    {
+      "name": "file-tree",
+      "type": "registry:component",
+      "title": "File Tree",
+      "description": "Explore nested files and folders with expandable branches and keyboard selection."
+    },
+    {
+      "name": "preview-rail",
+      "type": "registry:component",
+      "title": "Preview Rail",
+      "description": "Preview navigation targets from a compact rail that expands around the focused item."
+    },
+    {
+      "name": "dock",
+      "type": "registry:component",
+      "title": "Dock",
+      "description": "Group compact navigation actions around an indicator that follows the active item."
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Reveal a short contextual label on hover or focus without displacing nearby content."
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Animated Context Menu",
+      "description": "Open a menu at a pointer position with checkbox, radio and submenu compositions."
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "Attach a floating surface to a trigger with conventional or continuous morphing transitions."
+    },
+    {
+      "name": "popover-morph",
+      "type": "registry:component",
+      "title": "Morph Popover",
+      "description": "Attach a floating surface to a trigger with conventional or continuous morphing transitions."
+    },
+    {
+      "name": "morphing-modal",
+      "type": "registry:component",
+      "title": "Morphing Modal",
+      "description": "Change a dialog's content and height together while preserving the outer surface."
+    },
+    {
+      "name": "center-morph-modal",
+      "type": "registry:component",
+      "title": "Center Morph Modal",
+      "description": "Expand a modal evenly around its center and return it to the same point on close."
+    },
+    {
+      "name": "text-animation",
+      "type": "registry:component",
+      "title": "Text Animation",
+      "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading."
+    },
+    {
+      "name": "text-scramble",
+      "type": "registry:component",
+      "title": "Text Scramble",
+      "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading."
+    },
+    {
+      "name": "chromatic-text-reveal",
+      "type": "registry:component",
+      "title": "Dia Text Animation",
+      "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading."
+    },
+    {
+      "name": "text-reveal",
+      "type": "registry:component",
+      "title": "Text Reveal",
+      "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading."
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:component",
+      "title": "Text Shimmer",
+      "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading."
+    },
+    {
+      "name": "text-cascade",
+      "type": "registry:component",
+      "title": "Text Cascade",
+      "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading."
+    },
+    {
+      "name": "number",
+      "type": "registry:component",
+      "title": "Number Animation",
+      "description": "Animate numeric values with counting, rolling or position-preserving digit changes."
+    },
+    {
+      "name": "digit-swap",
+      "type": "registry:component",
+      "title": "Digit Swap",
+      "description": "Animate numeric values with counting, rolling or position-preserving digit changes."
+    },
+    {
+      "name": "number-ticker",
+      "type": "registry:component",
+      "title": "Number Ticker",
+      "description": "Animate numeric values with counting, rolling or position-preserving digit changes."
+    },
+    {
+      "name": "animated-number",
+      "type": "registry:component",
+      "title": "Animated Number",
+      "description": "Animate numeric values with counting, rolling or position-preserving digit changes."
+    },
+    {
+      "name": "animated-badge",
+      "type": "registry:component",
+      "title": "Animated Badge",
+      "description": "Pair a compact status label with an icon and optional pulse feedback."
+    },
+    {
+      "name": "action-swap",
+      "type": "registry:component",
+      "title": "Action Swap",
+      "description": "Replace short action text or icons using blur, rolling or staggered transitions."
+    },
+    {
+      "name": "action-swap-cascade",
+      "type": "registry:component",
+      "title": "Cascade",
+      "description": "Replace short action text or icons using blur, rolling or staggered transitions."
+    },
+    {
+      "name": "action-swap-blur",
+      "type": "registry:component",
+      "title": "Blur",
+      "description": "Replace short action text or icons using blur, rolling or staggered transitions."
+    },
+    {
+      "name": "action-swap-roll",
+      "type": "registry:component",
+      "title": "Roll",
+      "description": "Replace short action text or icons using blur, rolling or staggered transitions."
+    },
+    {
+      "name": "animated-toast-stack",
+      "type": "registry:component",
+      "title": "Animated Toast Stack",
+      "description": "Manage transient notifications in a stack with actions and gesture dismissal."
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:component",
+      "title": "Theme Toggle",
+      "description": "Reveal a new page theme with a circle, rectangle or blinds transition."
+    },
+    {
+      "name": "bouncy-accordion",
+      "type": "registry:component",
+      "title": "Bouncy Accordion",
+      "description": "Expand a section in a single-open group with connected spring layout movement."
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "Present a dialog from either side of the viewport with focus and scroll management."
+    },
+    {
+      "name": "scroll-animation",
+      "type": "registry:component",
+      "title": "Scroll Animation",
+      "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation."
+    },
+    {
+      "name": "smooth-scroll",
+      "type": "registry:component",
+      "title": "Smooth Scroll",
+      "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation."
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:component",
+      "title": "Scroll Progress",
+      "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation."
+    },
+    {
+      "name": "parallax",
+      "type": "registry:component",
+      "title": "Parallax",
+      "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation."
+    },
+    {
+      "name": "scroll-to",
+      "type": "registry:component",
+      "title": "Scroll To",
+      "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation."
+    },
+    {
+      "name": "scroll-reveal",
+      "type": "registry:component",
+      "title": "Scroll Reveal",
+      "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation."
+    },
+    {
+      "name": "range-slider",
+      "type": "registry:component",
+      "title": "Range Slider",
+      "description": "Adjust a numeric value on a track using drag gestures or keyboard steps."
+    },
+    {
+      "name": "range-slider-inline",
+      "type": "registry:component",
+      "title": "Inline Slider",
+      "description": "Adjust a numeric value on a track using drag gestures or keyboard steps."
+    },
+    {
+      "name": "range-slider-fluid",
+      "type": "registry:component",
+      "title": "Fluid Slider",
+      "description": "Adjust a numeric value on a track using drag gestures or keyboard steps."
+    },
+    {
+      "name": "range-slider-wave",
+      "type": "registry:component",
+      "title": "Wave Slider",
+      "description": "Adjust a numeric value on a track using drag gestures or keyboard steps."
+    },
+    {
+      "name": "range-slider-bubble",
+      "type": "registry:component",
+      "title": "Bubble Slider",
+      "description": "Adjust a numeric value on a track using drag gestures or keyboard steps."
+    },
+    {
+      "name": "range-slider-ruler",
+      "type": "registry:component",
+      "title": "Ruler Slider",
+      "description": "Adjust a numeric value on a track using drag gestures or keyboard steps."
+    },
+    {
+      "name": "wheel-picker",
+      "type": "registry:component",
+      "title": "Wheel Picker",
+      "description": "Select a value from a rotating wheel with momentum and row snapping."
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns."
+    },
+    {
+      "name": "table-editable",
+      "type": "registry:component",
+      "title": "Editable Table",
+      "description": "Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns."
+    },
+    {
+      "name": "table-async",
+      "type": "registry:component",
+      "title": "Async Table",
+      "description": "Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns."
+    },
+    {
+      "name": "shader-background",
+      "type": "registry:component",
+      "title": "Shader Background",
+      "description": "Render an animated background through a Vue adapter for the Paper Design shader runtime."
+    },
+    {
+      "name": "cylinder-carousel",
+      "type": "registry:component",
+      "title": "Cylinder Carousel",
+      "description": "Arrange gallery items on a concave or convex cylinder controlled by dragging."
+    },
+    {
+      "name": "loader",
+      "type": "registry:component",
+      "title": "Loader",
+      "description": "Choose a compact animated indicator for an operation whose result is still pending."
+    },
+    {
+      "name": "sankey-chart",
+      "type": "registry:component",
+      "title": "Sankey Chart",
+      "description": "Trace weighted flows across stages using connected nodes and proportional ribbons."
+    },
+    {
+      "name": "treemap",
+      "type": "registry:component",
+      "title": "Treemap",
+      "description": "Compare hierarchical values using nested rectangles whose area follows each value."
+    },
+    {
+      "name": "candlestick-chart",
+      "type": "registry:component",
+      "title": "Candlestick Chart",
+      "description": "Inspect open, high, low, close and volume values with pointer or keyboard crosshairs."
+    },
+    {
+      "name": "donut-chart",
+      "type": "registry:component",
+      "title": "Donut Chart",
+      "description": "Compare parts of a total with a ring, selectable legend and central value."
+    },
+    {
+      "name": "volume-profile",
+      "type": "registry:component",
+      "title": "Volume Profile",
+      "description": "Compare traded volume by price level with horizontal bidirectional bars."
+    },
+    {
+      "name": "status-bar",
+      "type": "registry:component",
+      "title": "Status Bar",
+      "description": "Summarize counts across named states in a proportional segmented bar."
+    },
+    {
+      "name": "composition-chart",
+      "type": "registry:component",
+      "title": "Composition Chart",
+      "description": "Compare contributions across categories with normalized bars or stacked areas."
+    },
+    {
+      "name": "funnel-chart",
+      "type": "registry:component",
+      "title": "Funnel Chart",
+      "description": "Follow successive stages and inspect conversion or loss between adjacent steps."
+    },
+    {
+      "name": "liquidity-heatmap",
+      "type": "registry:component",
+      "title": "Liquidity Heatmap",
+      "description": "Inspect liquidity across time and price through a grid with selectable intensity bands."
+    },
+    {
+      "name": "bump-chart",
+      "type": "registry:component",
+      "title": "Bump Chart",
+      "description": "Follow changes in series rank over time and pin a series for closer inspection."
+    },
+    {
+      "name": "order-book",
+      "type": "registry:component",
+      "title": "Order Book",
+      "description": "Inspect bid and ask levels, cumulative depth and price selections in a live book."
+    },
+    {
+      "name": "heat-calendar",
+      "type": "registry:component",
+      "title": "Heat Calendar",
+      "description": "Show daily activity in a compact calendar grid with exact values available on inspection."
+    },
+    {
+      "name": "returns-calendar",
+      "type": "registry:component",
+      "title": "Returns Calendar",
+      "description": "Compare signed daily returns with a calendar, month totals and optional day content."
+    },
+    {
+      "name": "price-target-fan",
+      "type": "registry:component",
+      "title": "Price Target Fan",
+      "description": "Compare price forecasts around a shared origin using projected target paths."
+    },
+    {
+      "name": "voice-orb",
+      "type": "registry:component",
+      "title": "Voice Orb",
+      "description": "Display a moving spherical field whose surface responds to activity or audio input."
+    },
+    {
+      "name": "message-bubble",
+      "type": "registry:component",
+      "title": "Message Bubble",
+      "description": "Render a compact conversation bubble with an avatar, metadata and optional controls."
+    },
+    {
+      "name": "message",
+      "type": "registry:component",
+      "title": "Message",
+      "description": "Build a conversation entry from content, attachments, sources and action parts."
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:component",
+      "title": "Message Scroller",
+      "description": "Follow appended messages while letting readers leave and return to the latest content."
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:component",
+      "title": "Prompt Input",
+      "description": "Compose and submit a prompt with a growing textarea, attachments and keyboard handling."
+    },
+    {
+      "name": "todo-list",
+      "type": "registry:component",
+      "title": "Todo List",
+      "description": "Show a sequence of work items with expandable details and explicit task states."
+    },
+    {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "Present highlighted code with line controls, file labels and a copy operation."
+    },
+    {
+      "name": "approval-card",
+      "type": "registry:component",
+      "title": "Approval Card",
+      "description": "Guide a person through one or more decisions before an assistant proceeds."
+    },
+    {
+      "name": "file-diff",
+      "type": "registry:component",
+      "title": "File Diff",
+      "description": "Inspect additions and removals with aligned line numbers and expandable context."
+    },
+    {
+      "name": "tool-result",
+      "type": "registry:component",
+      "title": "Tool Result",
+      "description": "Present a tool call's status, summary and expandable result in one surface."
+    },
+    {
+      "name": "streaming-response",
+      "type": "registry:component",
+      "title": "Streaming Response",
+      "description": "Compose a changing assistant response with text, attachments, references and actions."
+    },
+    {
+      "name": "image-generation",
+      "type": "registry:component",
+      "title": "Image Generation",
+      "description": "Show image creation states, preview the output and offer result actions."
+    },
+    {
+      "name": "tool-approval",
+      "type": "registry:component",
+      "title": "Tool Approval",
+      "description": "Ask for an explicit decision on a pending tool action with explanatory context."
+    },
+    {
+      "name": "citations",
+      "type": "registry:component",
+      "title": "Citations",
+      "description": "Connect inline reference markers to inspectable source entries and links."
+    },
+    {
+      "name": "agent-activity",
+      "type": "registry:component",
+      "title": "Agent Activity",
+      "description": "Group changing assistant activity into expandable steps and a completed summary."
+    },
+    {
+      "name": "loading-states",
+      "type": "registry:component",
+      "title": "Agent Loading States",
+      "description": "Communicate pending assistant work with progress, reasoning and shimmer displays."
+    },
+    {
+      "name": "reasoning-text",
+      "type": "registry:component",
+      "title": "Reasoning Text",
+      "description": "Communicate pending assistant work with progress, reasoning and shimmer displays."
+    },
+    {
+      "name": "thinking-shimmer",
+      "type": "registry:component",
+      "title": "Thinking Shimmer",
+      "description": "Communicate pending assistant work with progress, reasoning and shimmer displays."
+    },
+    {
+      "name": "agent-progress",
+      "type": "registry:component",
+      "title": "Agent Progress",
+      "description": "Communicate pending assistant work with progress, reasoning and shimmer displays."
+    },
+    {
+      "name": "ai-sidebar",
+      "type": "registry:component",
+      "title": "AI Sidebar",
+      "description": "Organize assistant resources in a searchable tree with selection and move operations."
+    },
+    {
+      "name": "chat-app",
+      "type": "registry:component",
+      "title": "Chat App",
+      "description": "Compose navigation, conversation content and a prompt area into an assistant workspace."
+    },
+    {
+      "name": "infinite-masonry",
+      "type": "registry:block",
+      "title": "Infinite Masonry",
+      "description": "Lay out variable-height items in columns and request more as the visible range advances."
+    },
+    {
+      "name": "notification-stack",
+      "type": "registry:block",
+      "title": "Notification Stack",
+      "description": "Expand a compact stack of notifications into separately readable entries."
+    },
+    {
+      "name": "project-folder",
+      "type": "registry:block",
+      "title": "Project Folder",
+      "description": "Fan out document previews and expand a selected folder into a focused surface."
+    },
+    {
+      "name": "card-folder",
+      "type": "registry:block",
+      "title": "Card Folder",
+      "description": "Reveal a group of cards from a folded pocket with a coordinated opening movement."
+    },
+    {
+      "name": "knockout-bracket",
+      "type": "registry:block",
+      "title": "Fixtures",
+      "description": "Browse elimination rounds or a radial bracket with team and match metadata."
+    },
+    {
+      "name": "knockout-wheel",
+      "type": "registry:block",
+      "title": "Knockout Wheel",
+      "description": "Browse elimination rounds or a radial bracket with team and match metadata."
+    },
+    {
+      "name": "availability-scheduler",
+      "type": "registry:block",
+      "title": "Availability Scheduler",
+      "description": "Edit weekly availability as time ranges and copy a schedule to selected days."
+    },
+    {
+      "name": "swap",
+      "type": "registry:block",
+      "title": "Multi-chain Swap",
+      "description": "Compose an asset exchange with token choices, amounts and destination information."
+    },
+    {
+      "name": "dynamic-island",
+      "type": "registry:block",
+      "title": "Dynamic Island",
+      "description": "Switch a compact capsule between live activity views without changing its identity."
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:block",
+      "title": "Command Palette",
+      "description": "Find and activate grouped commands in a keyboard-operated search panel."
+    },
+    {
+      "name": "morphing-search",
+      "type": "registry:block",
+      "title": "Morphing Search",
+      "description": "Expand a search field into suggestions, recent items or editable filter chips."
+    },
+    {
+      "name": "morphing-search-chips",
+      "type": "registry:block",
+      "title": "Chip Search",
+      "description": "Expand a search field into suggestions, recent items or editable filter chips."
+    },
+    {
+      "name": "expandable-action-bar",
+      "type": "registry:block",
+      "title": "Expandable Action Bar",
+      "description": "Reveal labels around the active action in a compact row of icon controls."
+    },
+    {
+      "name": "overflow-actions",
+      "type": "registry:block",
+      "title": "Overflow Actions",
+      "description": "Expand a compact action track to expose controls that do not fit its resting width."
+    },
+    {
+      "name": "expandable-tabs",
+      "type": "registry:block",
+      "title": "Expandable Tabs",
+      "description": "Navigate an icon strip whose selected item expands to display its label."
+    },
+    {
+      "name": "morphing-tabs",
+      "type": "registry:block",
+      "title": "Morphing Tabs",
+      "description": "Switch and reorder tabs while their surfaces follow a continuous layout transition."
+    },
+    {
+      "name": "swipeable-list",
+      "type": "registry:block",
+      "title": "Swipeable List",
+      "description": "Reveal actions on either side of a list row with pointer or keyboard input."
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:block",
+      "title": "File Upload",
+      "description": "Manage files, previews, progress and retry actions in a queue or attachment workspace."
+    },
+    {
+      "name": "attachment-upload",
+      "type": "registry:block",
+      "title": "Attachment Upload",
+      "description": "Manage files, previews, progress and retry actions in a queue or attachment workspace."
+    },
+    {
+      "name": "prediction-market",
+      "type": "registry:block",
+      "title": "Prediction Market",
+      "description": "Inspect a market and compose a buy or sell ticket with outcomes and return estimates."
+    },
+    {
+      "name": "prediction-market-card",
+      "type": "registry:block",
+      "title": "Market Cards",
+      "description": "Inspect a market and compose a buy or sell ticket with outcomes and return estimates."
+    },
+    {
+      "name": "wallet-card",
+      "type": "registry:block",
+      "title": "Wallet Card",
+      "description": "Inspect an account balance, change accounts and hide sensitive amounts in a compact card."
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:block",
+      "title": "OTP Input",
+      "description": "Enter or paste a fixed-length code through grouped fields with completion feedback."
+    },
+    {
+      "name": "signup-form",
+      "type": "registry:block",
+      "title": "Sign Up Form",
+      "description": "Move through registration fields with local validation and explicit submission states."
+    },
+    {
+      "name": "bloom-menu",
+      "type": "registry:block",
+      "title": "Bloom Menu",
+      "description": "Open a group of actions around a shared center and restore focus when it closes."
+    },
+    {
+      "name": "feedback-widget",
+      "type": "registry:block",
+      "title": "Feedback Widget",
+      "description": "Expand a feedback trigger into a form with sending, success and retry states."
+    },
+    {
+      "name": "not-found",
+      "type": "registry:block",
+      "title": "404 / Not Found",
+      "description": "Present a missing destination with an animated visual and a route back to useful content."
+    },
+    {
+      "name": "not-found-glitch",
+      "type": "registry:block",
+      "title": "Glitch",
+      "description": "Present a missing destination with an animated visual and a route back to useful content."
+    },
+    {
+      "name": "not-found-magnetic",
+      "type": "registry:block",
+      "title": "Magnetic",
+      "description": "Present a missing destination with an animated visual and a route back to useful content."
+    },
+    {
+      "name": "not-found-spotlight",
+      "type": "registry:block",
+      "title": "Spotlight",
+      "description": "Present a missing destination with an animated visual and a route back to useful content."
+    },
+    {
+      "name": "not-found-stacked",
+      "type": "registry:block",
+      "title": "Stacked",
+      "description": "Present a missing destination with an animated visual and a route back to useful content."
+    },
+    {
+      "name": "not-found-terminal",
+      "type": "registry:block",
+      "title": "Terminal",
+      "description": "Present a missing destination with an animated visual and a route back to useful content."
+    },
+    {
+      "name": "orvui-theme",
+      "type": "registry:style",
+      "title": "orvui theme"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+import type { AnimatedNumberProps } from "./types";
+declare const __VLS_export: import("vue").DefineComponent<AnimatedNumberProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<AnimatedNumberProps> & Readonly<{}>, {
+    duration: number;
+    startOnView: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;

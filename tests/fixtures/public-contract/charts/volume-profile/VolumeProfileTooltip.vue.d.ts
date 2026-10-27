@@ -1,0 +1,33 @@
+type __VLS_Props = {
+    side?: "top" | "right" | "bottom" | "left";
+};
+declare var __VLS_9: {
+    row: {
+        price: number;
+        top: number;
+        height: number;
+        center: number;
+        proportion: number;
+        share: number;
+        isPoc: boolean;
+        inValueArea: boolean;
+        id: string;
+        priceLow: number;
+        priceHigh: number;
+        volume: number;
+    };
+};
+type __VLS_Slots = {} & {
+    default?: (props: typeof __VLS_9) => any;
+};
+declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
+    side: "top" | "left" | "right" | "bottom";
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};

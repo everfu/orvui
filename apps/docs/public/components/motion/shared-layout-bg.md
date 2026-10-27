@@ -1,0 +1,134 @@
+---
+title: "Shared Layout Background"
+description: "在注册选项之间移动同一个背景表面，表示当前选择。"
+category: "Components"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/components/motion/shared-layout-bg"
+markdown: "https://orvui.efu.me/components/motion/shared-layout-bg.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# Shared Layout Background
+
+> 在注册选项之间移动同一个背景表面，表示当前选择。
+
+## 安装
+
+### Shared Layout Background — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/shared-layout-bg.json
+```
+
+此示例还需要：
+
+```bash
+pnpm add lucide-vue-next@^0.468.0
+```
+
+通过注册表安装后，在应用样式入口导入一次 `src/components/orvui/styles.css`。
+
+### 组件包
+
+npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```bash
+pnpm add lucide-vue-next@^0.468.0
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## 依赖
+
+- `clsx@^2.1.1`
+- `motion-v@^1.10.0`
+- `tailwind-merge@^3.0.0`
+- `tailwindcss@^4.0.0`
+
+## 用法
+
+### Shared Layout Background
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { ArrowUpRight } from "lucide-vue-next";
+import { SharedLayoutBg } from "@/components/orvui/motion/shared-layout-bg";
+const entries = [
+  { title: "Inbox", body: "12 unread threads and 3 mentions today." }, { title: "Drafts", body: "4 posts are ready for a final review." },
+  { title: "Releases", body: "Version 0.4.1 was released 2 days ago." }, { title: "Billing", body: "Your plan renews on the first next month." },
+];
+</script>
+<template><div class="w-full max-w-lg px-2"><SharedLayoutBg>
+  <button v-for="entry in entries" :key="entry.title" type="button" class="group flex flex-col gap-1 px-2 py-3 text-left"><div class="flex items-center justify-between gap-3"><span class="text-sm font-medium text-foreground">{{ entry.title }}</span><ArrowUpRight class="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground group-focus-visible:text-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></div><p class="text-sm text-muted-foreground">{{ entry.body }}</p></button>
+</SharedLayoutBg></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { ArrowUpRight } from "lucide-vue-next";
+import { SharedLayoutBg } from "@orvui/vue/motion/shared-layout-bg";
+const entries = [
+  { title: "Inbox", body: "12 unread threads and 3 mentions today." }, { title: "Drafts", body: "4 posts are ready for a final review." },
+  { title: "Releases", body: "Version 0.4.1 was released 2 days ago." }, { title: "Billing", body: "Your plan renews on the first next month." },
+];
+</script>
+<template><div class="w-full max-w-lg px-2"><SharedLayoutBg>
+  <button v-for="entry in entries" :key="entry.title" type="button" class="group flex flex-col gap-1 px-2 py-3 text-left"><div class="flex items-center justify-between gap-3"><span class="text-sm font-medium text-foreground">{{ entry.title }}</span><ArrowUpRight class="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground group-focus-visible:text-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></div><p class="text-sm text-muted-foreground">{{ entry.body }}</p></button>
+</SharedLayoutBg></div></template>
+```
+
+## API 参考
+
+### SharedLayoutBg
+
+## 关于 Shared Layout Background
+
+在注册选项之间移动同一个背景表面，表示当前选择。
+
+### 适用场景
+
+- 当界面需要以下行为时使用 Shared Layout Background：在注册选项之间移动同一个背景表面，表示当前选择。
+
+### 无障碍
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### 常见问题
+
+**如何配置 Shared Layout Background？**
+
+Shared Layout Background 通过插槽与原生元素属性组合。
+
+**如何连接到应用状态？**
+
+通过文档中的组合方式提供内容，应用副作用由调用方管理。
+
+**可以在服务端渲染吗？**
+
+可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
+
+## 源码
+
+- 注册表详情: https://orvui.efu.me/r/shared-layout-bg.json
+- 文档: https://orvui.efu.me/components/motion/shared-layout-bg
+- `packages/vue/src/motion/shared-layout-bg/src/SharedLayoutBg.vue`
+
+Copyright (c) 2026 everfu。版权声明及第三方条款见 LICENSE 与 NOTICE。
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

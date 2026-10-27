@@ -1,0 +1,3334 @@
+{
+  "schemaVersion": 1,
+  "components": {
+    "AISidebar": {
+      "defaultItems": {
+        "kind": "value",
+        "value": []
+      },
+      "defaultActiveId": {
+        "kind": "value",
+        "value": null
+      },
+      "defaultExpandedIds": {
+        "kind": "value",
+        "value": []
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Resources"
+      }
+    },
+    "ActionSwapBlurButton": {
+      "cycle": {
+        "kind": "undefined"
+      }
+    },
+    "ActionSwapButton": {
+      "animation": {
+        "kind": "value",
+        "value": "blur"
+      },
+      "variant": {
+        "kind": "value",
+        "value": "secondary"
+      },
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "iconOnly": {
+        "kind": "undefined"
+      },
+      "cycle": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ActionSwapCascadeButton": {
+      "cycle": {
+        "kind": "undefined"
+      }
+    },
+    "ActionSwapIcon": {
+      "animation": {
+        "kind": "value",
+        "value": "blur"
+      }
+    },
+    "ActionSwapRollButton": {
+      "cycle": {
+        "kind": "undefined"
+      }
+    },
+    "ActionSwapText": {
+      "animation": {
+        "kind": "value",
+        "value": "blur"
+      }
+    },
+    "AdaptiveStepper": {
+      "defaultValue": {
+        "kind": "value",
+        "value": 0
+      },
+      "min": {
+        "kind": "value",
+        "value": 0
+      },
+      "max": {
+        "kind": "value",
+        "value": 10
+      },
+      "step": {
+        "kind": "value",
+        "value": 1
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Quantity"
+      }
+    },
+    "AgentActivity": {
+      "status": {
+        "kind": "value",
+        "value": "working"
+      },
+      "duration": {
+        "kind": "value",
+        "value": 0
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "collapseOnComplete": {
+        "kind": "value",
+        "value": true
+      },
+      "activeLabel": {
+        "kind": "undefined"
+      },
+      "summary": {
+        "kind": "undefined"
+      },
+      "maxHeight": {
+        "kind": "value",
+        "value": 208
+      }
+    },
+    "AgentCode": {
+      "language": {
+        "kind": "value",
+        "value": "bash"
+      },
+      "showLineNumbers": {
+        "kind": "value",
+        "value": false
+      },
+      "highlightLines": {
+        "kind": "value",
+        "value": []
+      },
+      "wrap": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "AgentProgress": {
+      "label": {
+        "kind": "value",
+        "value": "Churning"
+      },
+      "initialSeconds": {
+        "kind": "value",
+        "value": 0
+      },
+      "running": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Alert": {
+      "variant": {
+        "kind": "value",
+        "value": "default"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "AnimatedBadge": {
+      "status": {
+        "kind": "value",
+        "value": "neutral"
+      },
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "showIcon": {
+        "kind": "value",
+        "value": true
+      },
+      "pulse": {
+        "kind": "undefined"
+      }
+    },
+    "AnimatedNumber": {
+      "duration": {
+        "kind": "value",
+        "value": 1.2
+      },
+      "startOnView": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "AnimatedSidebar": {
+      "side": {
+        "kind": "value",
+        "value": "left"
+      },
+      "variant": {
+        "kind": "value",
+        "value": "sidebar"
+      },
+      "collapsible": {
+        "kind": "value",
+        "value": "icon"
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Sidebar"
+      }
+    },
+    "AnimatedSidebarMenuButton": {
+      "ariaExpanded": {
+        "kind": "undefined"
+      },
+      "closeOnSelect": {
+        "kind": "undefined"
+      }
+    },
+    "AnimatedSidebarMenuSubButton": {
+      "closeOnSelect": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "AnimatedSidebarProvider": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": true
+      },
+      "openMobile": {
+        "kind": "undefined"
+      },
+      "defaultOpenMobile": {
+        "kind": "undefined"
+      },
+      "mobileOpen": {
+        "kind": "undefined"
+      },
+      "defaultMobileOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "shortcut": {
+        "kind": "value",
+        "value": true
+      },
+      "expandedWidth": {
+        "kind": "value",
+        "value": 256
+      },
+      "collapsedWidth": {
+        "kind": "value",
+        "value": 68
+      }
+    },
+    "AnimatedToastStack": {
+      "position": {
+        "kind": "value",
+        "value": "bottom-right"
+      },
+      "portal": {
+        "kind": "undefined"
+      },
+      "maxVisible": {
+        "kind": "value",
+        "value": 4
+      }
+    },
+    "ApprovalCard": {
+      "title": {
+        "kind": "value",
+        "value": "Approval required"
+      },
+      "questions": {
+        "kind": "value",
+        "value": []
+      },
+      "status": {
+        "kind": "value",
+        "value": "pending"
+      },
+      "defaultAnswers": {
+        "kind": "value",
+        "value": {}
+      },
+      "defaultStep": {
+        "kind": "value",
+        "value": 0
+      },
+      "approveLabel": {
+        "kind": "value",
+        "value": "Approve"
+      },
+      "submitLabel": {
+        "kind": "value",
+        "value": "Submit response"
+      },
+      "result": {
+        "kind": "undefined"
+      }
+    },
+    "ArcPicker": {
+      "side": {
+        "kind": "value",
+        "value": "right"
+      },
+      "radius": {
+        "kind": "value",
+        "value": 280
+      },
+      "itemHeight": {
+        "kind": "value",
+        "value": 48
+      },
+      "visibleCount": {
+        "kind": "value",
+        "value": 7
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Choose an option"
+      }
+    },
+    "AspectRatio": {
+      "ratio": {
+        "kind": "value",
+        "value": 1
+      },
+      "animated": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "AttachmentUpload": {
+      "defaultValue": {
+        "kind": "value",
+        "value": []
+      },
+      "multiple": {
+        "kind": "value",
+        "value": true
+      },
+      "maxFiles": {
+        "kind": "value",
+        "value": 12
+      },
+      "maxFileSize": {
+        "kind": "value",
+        "value": 524288000
+      },
+      "disabled": {
+        "kind": "value",
+        "value": false
+      },
+      "title": {
+        "kind": "value",
+        "value": "Drag and drop or browse files"
+      },
+      "attachmentsLabel": {
+        "kind": "value",
+        "value": "Attachments"
+      }
+    },
+    "AvailabilityScheduler": {
+      "step": {
+        "kind": "value",
+        "value": 30
+      }
+    },
+    "BloomMenu": {
+      "items": {
+        "kind": "value",
+        "value": [
+          {
+            "label": "Doc",
+            "icon": {
+              "__orvuiType": "function"
+            }
+          },
+          {
+            "label": "Board",
+            "icon": {
+              "__orvuiType": "function"
+            }
+          },
+          {
+            "label": "Table",
+            "icon": {
+              "__orvuiType": "function"
+            }
+          },
+          {
+            "label": "Folder",
+            "icon": {
+              "__orvuiType": "function"
+            }
+          },
+          {
+            "label": "Reminder",
+            "icon": {
+              "__orvuiType": "function"
+            }
+          },
+          {
+            "label": "Link",
+            "icon": {
+              "__orvuiType": "function"
+            }
+          }
+        ]
+      }
+    },
+    "BottomSheet": {
+      "snapPoints": {
+        "kind": "value",
+        "value": [
+          0.5,
+          0.92
+        ]
+      },
+      "defaultSnap": {
+        "kind": "value",
+        "value": 0
+      },
+      "dismissThreshold": {
+        "kind": "value",
+        "value": 120
+      }
+    },
+    "BounceSidebar": {
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Sidebar navigation"
+      }
+    },
+    "BouncyAccordion": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      },
+      "collapsible": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Breadcrumb": {
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Breadcrumb"
+      }
+    },
+    "BreadcrumbEllipsis": {
+      "label": {
+        "kind": "value",
+        "value": "Show hidden paths"
+      }
+    },
+    "BreadcrumbList": {
+      "maxItems": {
+        "kind": "value",
+        "value": 4
+      },
+      "overflowLabel": {
+        "kind": "value",
+        "value": "Show hidden paths"
+      }
+    },
+    "Button": {
+      "variant": {
+        "kind": "value",
+        "value": "primary"
+      },
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "pressScale": {
+        "kind": "value",
+        "value": 0.93
+      },
+      "type": {
+        "kind": "value",
+        "value": "button"
+      }
+    },
+    "ButtonLink": {
+      "variant": {
+        "kind": "value",
+        "value": "primary"
+      },
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "pressScale": {
+        "kind": "value",
+        "value": 0.93
+      }
+    },
+    "CandlestickChartPlot": {
+      "height": {
+        "kind": "value",
+        "value": 320
+      }
+    },
+    "Card": {
+      "variant": {
+        "kind": "value",
+        "value": "outlined"
+      },
+      "size": {
+        "kind": "value",
+        "value": "default"
+      }
+    },
+    "CardFolder": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "detailsVisible": {
+        "kind": "undefined"
+      },
+      "defaultDetailsVisible": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "CardTitle": {
+      "as": {
+        "kind": "value",
+        "value": "div"
+      }
+    },
+    "CenterMorphModal": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "CenterMorphModalContent": {
+      "dismissible": {
+        "kind": "value",
+        "value": true
+      },
+      "showCloseButton": {
+        "kind": "value",
+        "value": true
+      },
+      "closeButtonLabel": {
+        "kind": "value",
+        "value": "Close modal"
+      }
+    },
+    "ChatApp": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": true
+      },
+      "openMobile": {
+        "kind": "undefined"
+      },
+      "defaultOpenMobile": {
+        "kind": "undefined"
+      },
+      "mobileOpen": {
+        "kind": "undefined"
+      },
+      "defaultMobileOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "sidebarWidth": {
+        "kind": "value",
+        "value": "17rem"
+      },
+      "collapseSidebarBelow": {
+        "kind": "value",
+        "value": 600
+      },
+      "shortcut": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Checkbox": {
+      "modelValue": {
+        "kind": "undefined"
+      },
+      "defaultValue": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "ChromaticTextReveal": {
+      "colors": {
+        "kind": "value",
+        "value": [
+          "#60a5fa",
+          "#818cf8",
+          "#c084fc",
+          "#fb7185",
+          "#fbbf24"
+        ]
+      },
+      "foregroundColor": {
+        "kind": "value",
+        "value": "var(--foreground)"
+      },
+      "duration": {
+        "kind": "value",
+        "value": 1.2
+      },
+      "delay": {
+        "kind": "value",
+        "value": 0
+      },
+      "pauseDuration": {
+        "kind": "value",
+        "value": 0.8
+      },
+      "loop": {
+        "kind": "value",
+        "value": true
+      },
+      "startOnView": {
+        "kind": "value",
+        "value": true
+      },
+      "once": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "CitationStack": {
+      "limit": {
+        "kind": "value",
+        "value": 3
+      }
+    },
+    "Citations": {
+      "title": {
+        "kind": "value",
+        "value": "Sources"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "CodeBlock": {
+      "language": {
+        "kind": "value",
+        "value": "typescript"
+      },
+      "status": {
+        "kind": "value",
+        "value": "complete"
+      },
+      "showLineNumbers": {
+        "kind": "value",
+        "value": true
+      },
+      "highlightLines": {
+        "kind": "value",
+        "value": []
+      },
+      "maxHeight": {
+        "kind": "value",
+        "value": 280
+      },
+      "wrap": {
+        "kind": "value",
+        "value": false
+      },
+      "copyable": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Collapsible": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "ColorPicker": {
+      "defaultValue": {
+        "kind": "value",
+        "value": "#3478f6"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "alpha": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ColorPickerAlpha": {
+      "label": {
+        "kind": "value",
+        "value": "Opacity"
+      }
+    },
+    "ColorPickerArea": {
+      "label": {
+        "kind": "value",
+        "value": "Saturation and brightness"
+      }
+    },
+    "ColorPickerChannels": {
+      "format": {
+        "kind": "value",
+        "value": "rgb"
+      }
+    },
+    "ColorPickerContent": {
+      "align": {
+        "kind": "value",
+        "value": "start"
+      }
+    },
+    "ColorPickerHue": {
+      "label": {
+        "kind": "value",
+        "value": "Hue"
+      }
+    },
+    "ColorSelector": {
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      }
+    },
+    "Combobox": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "defaultQuery": {
+        "kind": "value",
+        "value": ""
+      }
+    },
+    "ComboboxContent": {
+      "side": {
+        "kind": "value",
+        "value": "bottom"
+      },
+      "align": {
+        "kind": "value",
+        "value": "start"
+      },
+      "sideOffset": {
+        "kind": "value",
+        "value": 6
+      },
+      "avoidCollisions": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ComboboxInput": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Search…"
+      },
+      "showIcon": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ComboboxItem": {
+      "keywords": {
+        "kind": "value",
+        "value": []
+      }
+    },
+    "ComboboxList": {
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Options"
+      }
+    },
+    "ComboboxValue": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Select an option"
+      }
+    },
+    "CommandPalette": {
+      "shortcut": {
+        "kind": "value",
+        "value": "k"
+      },
+      "placeholder": {
+        "kind": "value",
+        "value": "Type a command or search…"
+      },
+      "emptyMessage": {
+        "kind": "value",
+        "value": "No results found."
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "ContextMenu": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "ContextMenuCheckboxItem": {
+      "modelValue": {
+        "kind": "undefined"
+      },
+      "checked": {
+        "kind": "undefined"
+      },
+      "closeOnSelect": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ContextMenuContent": {
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Context menu"
+      }
+    },
+    "ContextMenuItem": {
+      "closeOnSelect": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ContextMenuRadioGroup": {
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      }
+    },
+    "ContextMenuRadioItem": {
+      "closeOnSelect": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "CylinderCarousel": {
+      "itemSize": {
+        "kind": "value",
+        "value": 200
+      },
+      "visibleItems": {
+        "kind": "value",
+        "value": 5
+      },
+      "variant": {
+        "kind": "value",
+        "value": "concave"
+      },
+      "minScale": {
+        "kind": "value",
+        "value": 0.55
+      },
+      "dragSpeed": {
+        "kind": "value",
+        "value": 1.5
+      },
+      "snap": {
+        "kind": "value",
+        "value": true
+      },
+      "autoRotate": {
+        "kind": "value",
+        "value": false
+      },
+      "autoRotateSpeed": {
+        "kind": "value",
+        "value": 0.4
+      },
+      "defaultIndex": {
+        "kind": "value",
+        "value": 0
+      }
+    },
+    "DateRangePicker": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      },
+      "locale": {
+        "kind": "value",
+        "value": "en-US"
+      },
+      "label": {
+        "kind": "value",
+        "value": "Choose a date range"
+      },
+      "showSummary": {
+        "kind": "value",
+        "value": true
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "closeOnSelect": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "DateRangePickerCalendar": {
+      "showSummary": {
+        "kind": "undefined"
+      }
+    },
+    "DateRangePickerContent": {
+      "autoFocus": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "DateRangePickerDropdown": {
+      "autoFocus": {
+        "kind": "value",
+        "value": true
+      },
+      "showSummary": {
+        "kind": "value",
+        "value": false
+      },
+      "open": {
+        "kind": "undefined"
+      }
+    },
+    "DateRangePickerTrigger": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Select dates"
+      }
+    },
+    "DigitSwap": {
+      "direction": {
+        "kind": "value",
+        "value": "up"
+      },
+      "duration": {
+        "kind": "value",
+        "value": 0.18
+      },
+      "stagger": {
+        "kind": "value",
+        "value": 0.006
+      },
+      "suffixLength": {
+        "kind": "value",
+        "value": 0
+      }
+    },
+    "Dock": {
+      "size": {
+        "kind": "value",
+        "value": 44
+      }
+    },
+    "DonutChartCenter": {
+      "totalLabel": {
+        "kind": "value",
+        "value": "Total"
+      }
+    },
+    "Drawer": {
+      "side": {
+        "kind": "value",
+        "value": "right"
+      },
+      "dismissable": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ExpandableActionBar": {
+      "expanded": {
+        "kind": "undefined"
+      },
+      "defaultExpanded": {
+        "kind": "value",
+        "value": false
+      },
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "expandOnHover": {
+        "kind": "value",
+        "value": true
+      },
+      "expandOnFocus": {
+        "kind": "value",
+        "value": true
+      },
+      "collapseDelay": {
+        "kind": "value",
+        "value": 90
+      }
+    },
+    "ExpandableButton": {
+      "expanded": {
+        "kind": "undefined"
+      },
+      "defaultExpanded": {
+        "kind": "value",
+        "value": false
+      },
+      "label": {
+        "kind": "value",
+        "value": "Create new"
+      },
+      "type": {
+        "kind": "value",
+        "value": "button"
+      }
+    },
+    "ExpandableChip": {
+      "expanded": {
+        "kind": "undefined"
+      },
+      "defaultExpanded": {
+        "kind": "value",
+        "value": false
+      },
+      "actionLabel": {
+        "kind": "value",
+        "value": "Remove"
+      },
+      "collapseOnAction": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ExpandableTabs": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      }
+    },
+    "FeedbackWidget": {
+      "position": {
+        "kind": "value",
+        "value": "bottom-right"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Help us improve"
+      },
+      "placeholder": {
+        "kind": "value",
+        "value": "Share an idea or report a bug"
+      },
+      "icon": {
+        "kind": "undefined"
+      }
+    },
+    "FileDiff": {
+      "status": {
+        "kind": "value",
+        "value": "streaming"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": true
+      },
+      "collapseOnComplete": {
+        "kind": "value",
+        "value": true
+      },
+      "maxHeight": {
+        "kind": "value",
+        "value": 220
+      },
+      "language": {
+        "kind": "value",
+        "value": "typescript"
+      }
+    },
+    "FileTree": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      },
+      "defaultExpandedIds": {
+        "kind": "value",
+        "value": []
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Files"
+      },
+      "indent": {
+        "kind": "value",
+        "value": 18
+      }
+    },
+    "FileUpload": {
+      "defaultValue": {
+        "kind": "value",
+        "value": []
+      },
+      "multiple": {
+        "kind": "value",
+        "value": true
+      },
+      "disabled": {
+        "kind": "value",
+        "value": false
+      },
+      "variant": {
+        "kind": "value",
+        "value": "default"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Drop files here"
+      },
+      "description": {
+        "kind": "value",
+        "value": "Add files to the upload queue"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse"
+      }
+    },
+    "FluidSlider": {
+      "format": {
+        "kind": "function"
+      }
+    },
+    "HoldActionButton": {
+      "type": {
+        "kind": "value",
+        "value": "vertical"
+      },
+      "holdingLabel": {
+        "kind": "value",
+        "value": "Keep holding"
+      },
+      "completeLabel": {
+        "kind": "value",
+        "value": "Done"
+      },
+      "holdDuration": {
+        "kind": "value",
+        "value": 1600
+      }
+    },
+    "ImageGeneration": {
+      "status": {
+        "kind": "value",
+        "value": "generating"
+      },
+      "resolution": {
+        "kind": "value",
+        "value": "1024 × 1024"
+      },
+      "aspectRatio": {
+        "kind": "value",
+        "value": "1 / 1"
+      },
+      "size": {
+        "kind": "value",
+        "value": "compact"
+      },
+      "interactive": {
+        "kind": "value",
+        "value": true
+      },
+      "showStatus": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ImageViewer": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      },
+      "label": {
+        "kind": "value",
+        "value": "Image gallery"
+      }
+    },
+    "InfiniteMasonry": {
+      "error": {
+        "kind": "undefined"
+      },
+      "minColumnWidth": {
+        "kind": "value",
+        "value": 208
+      },
+      "maxColumns": {
+        "kind": "value",
+        "value": 4
+      },
+      "gap": {
+        "kind": "value",
+        "value": 12
+      },
+      "overscan": {
+        "kind": "value",
+        "value": 4
+      },
+      "prefetch": {
+        "kind": "value",
+        "value": 3
+      },
+      "animateItems": {
+        "kind": "value",
+        "value": true
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Infinite masonry feed"
+      }
+    },
+    "InlineSlider": {
+      "format": {
+        "kind": "function"
+      },
+      "showTicks": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Input": {
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      },
+      "type": {
+        "kind": "value",
+        "value": "text"
+      }
+    },
+    "KnockoutBracket": {
+      "initialRound": {
+        "kind": "value",
+        "value": 1
+      },
+      "thirdPlaceLabel": {
+        "kind": "value",
+        "value": "Third place play-off"
+      }
+    },
+    "KnockoutWheel": {
+      "initialRound": {
+        "kind": "value",
+        "value": 0
+      }
+    },
+    "Loader": {
+      "variant": {
+        "kind": "value",
+        "value": "spinner"
+      },
+      "size": {
+        "kind": "value",
+        "value": 32
+      },
+      "speed": {
+        "kind": "value",
+        "value": 1
+      },
+      "label": {
+        "kind": "value",
+        "value": "Loading"
+      }
+    },
+    "MagneticButton": {
+      "strength": {
+        "kind": "value",
+        "value": 0.25
+      }
+    },
+    "Marquee": {
+      "direction": {
+        "kind": "value",
+        "value": "left"
+      },
+      "speed": {
+        "kind": "value",
+        "value": 30
+      },
+      "pauseOnHover": {
+        "kind": "value",
+        "value": true
+      },
+      "gap": {
+        "kind": "value",
+        "value": "1rem"
+      },
+      "fade": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Message": {
+      "animateIn": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "MessageAvatar": {
+      "placeholder": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "MessageBubble": {
+      "variant": {
+        "kind": "value",
+        "value": "soft"
+      },
+      "animateIn": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "MessageBubbleCollapsible": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "collapsedLines": {
+        "kind": "value",
+        "value": 4
+      },
+      "moreLabel": {
+        "kind": "value",
+        "value": "Show more"
+      },
+      "lessLabel": {
+        "kind": "value",
+        "value": "Show less"
+      }
+    },
+    "MessageBubbleContent": {
+      "as": {
+        "kind": "value",
+        "value": "div"
+      }
+    },
+    "MessageBubbleGroup": {
+      "spacing": {
+        "kind": "value",
+        "value": "compact"
+      }
+    },
+    "MessageGroup": {
+      "spacing": {
+        "kind": "value",
+        "value": "compact"
+      }
+    },
+    "MessageScroller": {
+      "followOutput": {
+        "kind": "value",
+        "value": true
+      },
+      "followThreshold": {
+        "kind": "value",
+        "value": 56
+      },
+      "smooth": {
+        "kind": "value",
+        "value": true
+      },
+      "label": {
+        "kind": "value",
+        "value": "Conversation"
+      },
+      "navigationLabel": {
+        "kind": "value",
+        "value": "Message navigation"
+      }
+    },
+    "MessageTyping": {
+      "label": {
+        "kind": "value",
+        "value": "Responding"
+      }
+    },
+    "MetallicButton": {
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "paused": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "MorphPopover": {
+      "open": {
+        "kind": "undefined"
+      }
+    },
+    "MorphPopoverContent": {
+      "side": {
+        "kind": "value",
+        "value": "bottom"
+      },
+      "align": {
+        "kind": "value",
+        "value": "end"
+      },
+      "sideOffset": {
+        "kind": "value",
+        "value": 8
+      },
+      "radius": {
+        "kind": "value",
+        "value": 16
+      },
+      "shadow": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "MorphSelect": {
+      "open": {
+        "kind": "undefined"
+      }
+    },
+    "MorphingLightbox": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      },
+      "label": {
+        "kind": "value",
+        "value": "Image gallery"
+      }
+    },
+    "MorphingModal": {
+      "placement": {
+        "kind": "value",
+        "value": "bottom"
+      }
+    },
+    "MorphingSearch": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Search"
+      },
+      "shortcut": {
+        "kind": "value",
+        "value": "f"
+      },
+      "emptyMessage": {
+        "kind": "value",
+        "value": "No results found."
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "MorphingSearchChips": {
+      "defaultChips": {
+        "kind": "value",
+        "value": []
+      },
+      "defaultQuery": {
+        "kind": "value",
+        "value": ""
+      },
+      "defaultRecents": {
+        "kind": "value",
+        "value": []
+      },
+      "maxRecents": {
+        "kind": "value",
+        "value": 5
+      },
+      "suggestions": {
+        "kind": "value",
+        "value": []
+      },
+      "filter": {
+        "kind": "undefined"
+      },
+      "maxSuggestions": {
+        "kind": "value",
+        "value": 6
+      },
+      "emptyState": {
+        "kind": "undefined"
+      },
+      "side": {
+        "kind": "value",
+        "value": "top"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "placeholder": {
+        "kind": "value",
+        "value": "Search"
+      },
+      "label": {
+        "kind": "value",
+        "value": "Search"
+      },
+      "actions": {
+        "kind": "undefined"
+      }
+    },
+    "MorphingTabs": {
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Tabs"
+      }
+    },
+    "MultiChainSwap": {
+      "chains": {
+        "kind": "value",
+        "value": [
+          {
+            "id": "eth",
+            "name": "Ethereum",
+            "tone": "bg-primary text-primary-foreground",
+            "symbol": "Ξ"
+          },
+          {
+            "id": "sol",
+            "name": "Solana",
+            "tone": "bg-secondary text-secondary-foreground",
+            "symbol": "◎"
+          },
+          {
+            "id": "base",
+            "name": "Base",
+            "tone": "bg-accent text-accent-foreground",
+            "symbol": "B"
+          },
+          {
+            "id": "arb",
+            "name": "Arbitrum",
+            "tone": "bg-muted text-muted-foreground",
+            "symbol": "A"
+          },
+          {
+            "id": "op",
+            "name": "Optimism",
+            "tone": "bg-destructive text-primary-foreground",
+            "symbol": "O"
+          },
+          {
+            "id": "poly",
+            "name": "Polygon",
+            "tone": "bg-primary/80 text-primary-foreground",
+            "symbol": "P"
+          },
+          {
+            "id": "bnb",
+            "name": "BNB",
+            "tone": "bg-secondary text-secondary-foreground",
+            "symbol": "B"
+          },
+          {
+            "id": "avax",
+            "name": "Avalanche",
+            "tone": "bg-destructive/80 text-primary-foreground",
+            "symbol": "A"
+          }
+        ]
+      },
+      "tokens": {
+        "kind": "value",
+        "value": [
+          {
+            "id": "eth-eth",
+            "symbol": "ETH",
+            "name": "Ether",
+            "chainId": "eth",
+            "balance": 1.245,
+            "usd": 3142,
+            "popular": true
+          },
+          {
+            "id": "eth-weth",
+            "symbol": "WETH",
+            "name": "Wrapped Ether",
+            "chainId": "eth",
+            "balance": 0.5,
+            "usd": 3142,
+            "popular": true
+          },
+          {
+            "id": "eth-usdc",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "chainId": "eth",
+            "balance": 4521,
+            "usd": 1,
+            "popular": true
+          },
+          {
+            "id": "eth-usdt",
+            "symbol": "USDT",
+            "name": "Tether",
+            "chainId": "eth",
+            "balance": 2100,
+            "usd": 1,
+            "popular": true
+          },
+          {
+            "id": "eth-dai",
+            "symbol": "DAI",
+            "name": "Dai Stablecoin",
+            "chainId": "eth",
+            "balance": 800,
+            "usd": 1,
+            "popular": true
+          },
+          {
+            "id": "eth-wbtc",
+            "symbol": "WBTC",
+            "name": "Wrapped Bitcoin",
+            "chainId": "eth",
+            "balance": 0.04,
+            "usd": 96000,
+            "popular": true
+          },
+          {
+            "id": "eth-link",
+            "symbol": "LINK",
+            "name": "ChainLink Token",
+            "chainId": "eth",
+            "balance": 120,
+            "usd": 22,
+            "address": "0x51...86ca",
+            "trending": true
+          },
+          {
+            "id": "eth-aztec",
+            "symbol": "AZTEC",
+            "name": "AZTEC",
+            "chainId": "eth",
+            "balance": 0,
+            "address": "0xa2...62d2",
+            "trending": true
+          },
+          {
+            "id": "eth-cfg",
+            "symbol": "CFG",
+            "name": "Centrifuge",
+            "chainId": "eth",
+            "balance": 0,
+            "address": "0xcc...8a94",
+            "trending": true
+          },
+          {
+            "id": "eth-ondo",
+            "symbol": "ONDO",
+            "name": "Ondo",
+            "chainId": "eth",
+            "balance": 0,
+            "address": "0xfa...9be3",
+            "trending": true
+          },
+          {
+            "id": "sol-sol",
+            "symbol": "SOL",
+            "name": "Solana",
+            "chainId": "sol",
+            "balance": 12.4,
+            "usd": 168
+          },
+          {
+            "id": "sol-usdc",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "chainId": "sol",
+            "balance": 985.32,
+            "usd": 1
+          },
+          {
+            "id": "base-eth",
+            "symbol": "ETH",
+            "name": "Ether",
+            "chainId": "base",
+            "balance": 0.65,
+            "usd": 3142
+          },
+          {
+            "id": "base-usdc",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "chainId": "base",
+            "balance": 1200,
+            "usd": 1
+          },
+          {
+            "id": "arb-arb",
+            "symbol": "ARB",
+            "name": "Arbitrum",
+            "chainId": "arb",
+            "balance": 800,
+            "usd": 0.95
+          },
+          {
+            "id": "arb-eth",
+            "symbol": "ETH",
+            "name": "Ether",
+            "chainId": "arb",
+            "balance": 0.32,
+            "usd": 3142
+          },
+          {
+            "id": "op-op",
+            "symbol": "OP",
+            "name": "Optimism",
+            "chainId": "op",
+            "balance": 450,
+            "usd": 2.8
+          },
+          {
+            "id": "poly-matic",
+            "symbol": "MATIC",
+            "name": "Polygon",
+            "chainId": "poly",
+            "balance": 1500,
+            "usd": 0.75
+          },
+          {
+            "id": "bnb-bnb",
+            "symbol": "BNB",
+            "name": "BNB",
+            "chainId": "bnb",
+            "balance": 0,
+            "usd": 620
+          },
+          {
+            "id": "avax-avax",
+            "symbol": "AVAX",
+            "name": "Avalanche",
+            "chainId": "avax",
+            "balance": 0,
+            "usd": 38
+          }
+        ]
+      },
+      "defaultFromId": {
+        "kind": "value",
+        "value": "eth-eth"
+      },
+      "defaultToId": {
+        "kind": "value",
+        "value": "sol-sol"
+      }
+    },
+    "MultiSelect": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "defaultQuery": {
+        "kind": "value",
+        "value": ""
+      }
+    },
+    "MultiSelectContent": {
+      "side": {
+        "kind": "value",
+        "value": "bottom"
+      },
+      "align": {
+        "kind": "value",
+        "value": "start"
+      },
+      "sideOffset": {
+        "kind": "value",
+        "value": 6
+      },
+      "avoidCollisions": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "MultiSelectInput": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Search…"
+      },
+      "showIcon": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "MultiSelectItem": {
+      "keywords": {
+        "kind": "value",
+        "value": []
+      }
+    },
+    "MultiSelectList": {
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Options"
+      }
+    },
+    "MultiSelectValue": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Select options"
+      }
+    },
+    "NotFoundActions": {
+      "homeHref": {
+        "kind": "value",
+        "value": "/"
+      },
+      "homeLabel": {
+        "kind": "value",
+        "value": "Back home"
+      },
+      "browseHref": {
+        "kind": "value",
+        "value": "/components/motion"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse components"
+      }
+    },
+    "NotFoundGlitch": {
+      "code": {
+        "kind": "value",
+        "value": "404"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Page not found"
+      },
+      "description": {
+        "kind": "value",
+        "value": "The page you are looking for moved, vanished, or never existed."
+      },
+      "homeHref": {
+        "kind": "value",
+        "value": "/"
+      },
+      "homeLabel": {
+        "kind": "value",
+        "value": "Back home"
+      },
+      "browseHref": {
+        "kind": "value",
+        "value": "/components/motion"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse components"
+      }
+    },
+    "NotFoundMagnetic": {
+      "code": {
+        "kind": "value",
+        "value": "404"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Page not found"
+      },
+      "description": {
+        "kind": "value",
+        "value": "The page you are looking for moved, vanished, or never existed."
+      },
+      "homeHref": {
+        "kind": "value",
+        "value": "/"
+      },
+      "homeLabel": {
+        "kind": "value",
+        "value": "Back home"
+      },
+      "browseHref": {
+        "kind": "value",
+        "value": "/components/motion"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse components"
+      }
+    },
+    "NotFoundSpotlight": {
+      "code": {
+        "kind": "value",
+        "value": "404"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Page not found"
+      },
+      "description": {
+        "kind": "value",
+        "value": "The page you are looking for moved, vanished, or never existed."
+      },
+      "homeHref": {
+        "kind": "value",
+        "value": "/"
+      },
+      "homeLabel": {
+        "kind": "value",
+        "value": "Back home"
+      },
+      "browseHref": {
+        "kind": "value",
+        "value": "/components/motion"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse components"
+      }
+    },
+    "NotFoundStacked": {
+      "code": {
+        "kind": "value",
+        "value": "404"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Page not found"
+      },
+      "description": {
+        "kind": "value",
+        "value": "The page you are looking for moved, vanished, or never existed."
+      },
+      "homeHref": {
+        "kind": "value",
+        "value": "/"
+      },
+      "homeLabel": {
+        "kind": "value",
+        "value": "Back home"
+      },
+      "browseHref": {
+        "kind": "value",
+        "value": "/components/motion"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse components"
+      }
+    },
+    "NotFoundTerminal": {
+      "code": {
+        "kind": "value",
+        "value": "404"
+      },
+      "title": {
+        "kind": "value",
+        "value": "Page not found"
+      },
+      "description": {
+        "kind": "value",
+        "value": "The page you are looking for moved, vanished, or never existed."
+      },
+      "homeHref": {
+        "kind": "value",
+        "value": "/"
+      },
+      "homeLabel": {
+        "kind": "value",
+        "value": "Back home"
+      },
+      "browseHref": {
+        "kind": "value",
+        "value": "/components/motion"
+      },
+      "browseLabel": {
+        "kind": "value",
+        "value": "Browse components"
+      }
+    },
+    "NotificationStack": {
+      "expanded": {
+        "kind": "undefined"
+      },
+      "defaultExpanded": {
+        "kind": "value",
+        "value": false
+      },
+      "maxVisible": {
+        "kind": "value",
+        "value": 3
+      },
+      "collapsedLabel": {
+        "kind": "value",
+        "value": "Notifications"
+      },
+      "expandedLabel": {
+        "kind": "value",
+        "value": "View all"
+      },
+      "emptyLabel": {
+        "kind": "value",
+        "value": "All caught up"
+      }
+    },
+    "NumberTicker": {
+      "duration": {
+        "kind": "value",
+        "value": 0.9
+      },
+      "stagger": {
+        "kind": "value",
+        "value": 0.04
+      },
+      "startOnView": {
+        "kind": "value",
+        "value": true
+      },
+      "blur": {
+        "kind": "value",
+        "value": false
+      },
+      "locale": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "OTPInput": {
+      "length": {
+        "kind": "value",
+        "value": 6
+      },
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      },
+      "status": {
+        "kind": "value",
+        "value": "idle"
+      },
+      "mask": {
+        "kind": "value",
+        "value": false
+      },
+      "disabled": {
+        "kind": "value",
+        "value": false
+      },
+      "autoFocus": {
+        "kind": "value",
+        "value": false
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "One-time passcode"
+      }
+    },
+    "OrderBookDepthSummary": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Hover a level to see the cost of filling up to it"
+      }
+    },
+    "OverflowActions": {
+      "expanded": {
+        "kind": "undefined"
+      },
+      "defaultExpanded": {
+        "kind": "value",
+        "value": false
+      },
+      "collapseOnAction": {
+        "kind": "value",
+        "value": false
+      },
+      "size": {
+        "kind": "value",
+        "value": "md"
+      },
+      "openLabel": {
+        "kind": "value",
+        "value": "Show extra actions"
+      },
+      "closeLabel": {
+        "kind": "value",
+        "value": "Hide extra actions"
+      }
+    },
+    "Parallax": {
+      "speed": {
+        "kind": "value",
+        "value": 0.3
+      },
+      "axis": {
+        "kind": "value",
+        "value": "y"
+      },
+      "spring": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Popover": {
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "trigger": {
+        "kind": "value",
+        "value": "click"
+      },
+      "side": {
+        "kind": "value",
+        "value": "bottom"
+      },
+      "align": {
+        "kind": "value",
+        "value": "center"
+      },
+      "sideOffset": {
+        "kind": "value",
+        "value": 14
+      },
+      "panelRadius": {
+        "kind": "value",
+        "value": 16
+      },
+      "gooStrength": {
+        "kind": "value",
+        "value": 8
+      }
+    },
+    "PredictionMarket": {
+      "outcomes": {
+        "kind": "value",
+        "value": [
+          {
+            "id": "up",
+            "label": "Up",
+            "price": 0.09
+          },
+          {
+            "id": "down",
+            "label": "Down",
+            "price": 0.91
+          }
+        ]
+      },
+      "authenticated": {
+        "kind": "value",
+        "value": true
+      },
+      "orderTypeLabel": {
+        "kind": "value",
+        "value": "Market"
+      },
+      "balance": {
+        "kind": "value",
+        "value": 500
+      },
+      "positions": {
+        "kind": "value",
+        "value": {
+          "up": 24,
+          "down": 16
+        }
+      },
+      "quickAmounts": {
+        "kind": "value",
+        "value": [
+          10,
+          50,
+          100,
+          500
+        ]
+      },
+      "minTrade": {
+        "kind": "value",
+        "value": 1
+      }
+    },
+    "PredictionMarketCard": {
+      "volumeHistory": {
+        "kind": "value",
+        "value": []
+      },
+      "live": {
+        "kind": "value",
+        "value": false
+      },
+      "bookmarked": {
+        "kind": "undefined"
+      },
+      "defaultBookmarked": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "PreviewRail": {
+      "label": {
+        "kind": "value",
+        "value": "Section navigation"
+      },
+      "orientation": {
+        "kind": "value",
+        "value": "vertical"
+      },
+      "showPreview": {
+        "kind": "value",
+        "value": true
+      },
+      "previewSide": {
+        "kind": "value",
+        "value": "after"
+      },
+      "highlightActive": {
+        "kind": "value",
+        "value": false
+      },
+      "itemSize": {
+        "kind": "value",
+        "value": 24
+      }
+    },
+    "ProjectFolder": {
+      "description": {
+        "kind": "value",
+        "value": "Updated recently"
+      },
+      "previews": {
+        "kind": "value",
+        "value": []
+      },
+      "itemLabel": {
+        "kind": "value",
+        "value": "file"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "expanded": {
+        "kind": "undefined"
+      },
+      "defaultExpanded": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "PromptInput": {
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      },
+      "models": {
+        "kind": "value",
+        "value": []
+      },
+      "actions": {
+        "kind": "value",
+        "value": []
+      },
+      "loading": {
+        "kind": "value",
+        "value": false
+      },
+      "minRows": {
+        "kind": "value",
+        "value": 2
+      },
+      "maxRows": {
+        "kind": "value",
+        "value": 8
+      },
+      "placeholder": {
+        "kind": "value",
+        "value": "Ask the agent to do something…"
+      }
+    },
+    "PullToRefresh": {
+      "threshold": {
+        "kind": "value",
+        "value": 76
+      },
+      "maxPull": {
+        "kind": "value",
+        "value": 132
+      },
+      "holdDistance": {
+        "kind": "value",
+        "value": 68
+      },
+      "pullingLabel": {
+        "kind": "value",
+        "value": "Pull to refresh"
+      },
+      "releaseLabel": {
+        "kind": "value",
+        "value": "Release to refresh"
+      },
+      "refreshingLabel": {
+        "kind": "value",
+        "value": "Refreshing"
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Refreshable content"
+      }
+    },
+    "RadioGroup": {
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      },
+      "orientation": {
+        "kind": "value",
+        "value": "vertical"
+      }
+    },
+    "RangeSlider": {
+      "showTicks": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "ReasoningText": {
+      "phrases": {
+        "kind": "value",
+        "value": [
+          "Thinking",
+          "Reading the context",
+          "Connecting the details",
+          "Forming a response"
+        ]
+      },
+      "variant": {
+        "kind": "value",
+        "value": "cascade"
+      },
+      "interval": {
+        "kind": "value",
+        "value": 1800
+      },
+      "shimmerDuration": {
+        "kind": "value",
+        "value": 2.2
+      },
+      "indicator": {
+        "kind": "undefined"
+      }
+    },
+    "RulerSlider": {
+      "gap": {
+        "kind": "value",
+        "value": 14
+      },
+      "majorEvery": {
+        "kind": "value",
+        "value": 5
+      }
+    },
+    "SankeyChartPlot": {
+      "showValues": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "SankeyChartTooltip": {
+      "side": {
+        "kind": "value",
+        "value": "top"
+      }
+    },
+    "ScrollProgress": {
+      "variant": {
+        "kind": "value",
+        "value": "bar"
+      },
+      "spring": {
+        "kind": "value",
+        "value": true
+      },
+      "position": {
+        "kind": "value",
+        "value": "top"
+      },
+      "height": {
+        "kind": "value",
+        "value": 2
+      },
+      "fixed": {
+        "kind": "value",
+        "value": true
+      },
+      "size": {
+        "kind": "value",
+        "value": 40
+      },
+      "thickness": {
+        "kind": "value",
+        "value": 3
+      }
+    },
+    "ScrollReveal": {
+      "y": {
+        "kind": "value",
+        "value": 16
+      },
+      "blur": {
+        "kind": "value",
+        "value": 8
+      },
+      "duration": {
+        "kind": "value",
+        "value": 0.6
+      },
+      "delay": {
+        "kind": "value",
+        "value": 0
+      },
+      "once": {
+        "kind": "value",
+        "value": true
+      },
+      "amount": {
+        "kind": "value",
+        "value": 0.3
+      }
+    },
+    "Select": {
+      "open": {
+        "kind": "undefined"
+      }
+    },
+    "SelectItem": {
+      "disabled": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "SelectValue": {
+      "placeholder": {
+        "kind": "value",
+        "value": "Select"
+      }
+    },
+    "ShaderBackground": {
+      "variant": {
+        "kind": "value",
+        "value": "mesh-gradient"
+      },
+      "fallback": {
+        "kind": "value",
+        "value": "linear-gradient(135deg,#e0eaff,#9f50d3,#f75092)"
+      }
+    },
+    "SharedLayoutBg": {
+      "as": {
+        "kind": "value",
+        "value": "div"
+      },
+      "inset": {
+        "kind": "value",
+        "value": 20
+      }
+    },
+    "SignUpForm": {
+      "title": {
+        "kind": "value",
+        "value": "Create your account"
+      },
+      "description": {
+        "kind": "value",
+        "value": "Start building in under a minute."
+      },
+      "submitLabel": {
+        "kind": "value",
+        "value": "Create account"
+      },
+      "strengthMeter": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "SlideActionButton": {
+      "completeLabel": {
+        "kind": "value",
+        "value": "Complete"
+      },
+      "threshold": {
+        "kind": "value",
+        "value": 0.82
+      },
+      "resetDelay": {
+        "kind": "value",
+        "value": 1200
+      }
+    },
+    "SmoothScroll": {
+      "root": {
+        "kind": "value",
+        "value": true
+      },
+      "lerp": {
+        "kind": "value",
+        "value": 0.1
+      },
+      "duration": {
+        "kind": "value",
+        "value": 1.2
+      },
+      "orientation": {
+        "kind": "value",
+        "value": "vertical"
+      },
+      "wheelMultiplier": {
+        "kind": "value",
+        "value": 1
+      },
+      "touch": {
+        "kind": "value",
+        "value": false
+      },
+      "enabled": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "SortableList": {
+      "defaultItems": {
+        "kind": "value",
+        "value": []
+      },
+      "label": {
+        "kind": "value",
+        "value": "Sortable items"
+      },
+      "showUndo": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "SortableStack": {
+      "defaultItems": {
+        "kind": "value",
+        "value": []
+      },
+      "label": {
+        "kind": "value",
+        "value": "Sortable items"
+      },
+      "showUndo": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "StatefulButton": {
+      "state": {
+        "kind": "value",
+        "value": "idle"
+      },
+      "loadingText": {
+        "kind": "value",
+        "value": "Loading"
+      },
+      "successText": {
+        "kind": "value",
+        "value": "Done"
+      },
+      "errorText": {
+        "kind": "value",
+        "value": "Try again"
+      }
+    },
+    "StatusBarLegend": {
+      "showCounts": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "StatusBarPlot": {
+      "showLabels": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "StatusBarTooltip": {
+      "side": {
+        "kind": "value",
+        "value": "top"
+      }
+    },
+    "StreamingResponse": {
+      "status": {
+        "kind": "value",
+        "value": "streaming"
+      },
+      "sources": {
+        "kind": "value",
+        "value": []
+      },
+      "sourcesOpen": {
+        "kind": "undefined"
+      },
+      "defaultSourcesOpen": {
+        "kind": "value",
+        "value": false
+      },
+      "defaultFeedback": {
+        "kind": "value",
+        "value": null
+      },
+      "announce": {
+        "kind": "value",
+        "value": true
+      },
+      "showActions": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Swap": {
+      "chains": {
+        "kind": "value",
+        "value": [
+          {
+            "id": "eth",
+            "name": "Ethereum",
+            "tone": "bg-primary text-primary-foreground",
+            "symbol": "Ξ"
+          },
+          {
+            "id": "sol",
+            "name": "Solana",
+            "tone": "bg-secondary text-secondary-foreground",
+            "symbol": "◎"
+          },
+          {
+            "id": "base",
+            "name": "Base",
+            "tone": "bg-accent text-accent-foreground",
+            "symbol": "B"
+          },
+          {
+            "id": "arb",
+            "name": "Arbitrum",
+            "tone": "bg-muted text-muted-foreground",
+            "symbol": "A"
+          },
+          {
+            "id": "op",
+            "name": "Optimism",
+            "tone": "bg-destructive text-primary-foreground",
+            "symbol": "O"
+          },
+          {
+            "id": "poly",
+            "name": "Polygon",
+            "tone": "bg-primary/80 text-primary-foreground",
+            "symbol": "P"
+          },
+          {
+            "id": "bnb",
+            "name": "BNB",
+            "tone": "bg-secondary text-secondary-foreground",
+            "symbol": "B"
+          },
+          {
+            "id": "avax",
+            "name": "Avalanche",
+            "tone": "bg-destructive/80 text-primary-foreground",
+            "symbol": "A"
+          }
+        ]
+      },
+      "tokens": {
+        "kind": "value",
+        "value": [
+          {
+            "id": "eth-eth",
+            "symbol": "ETH",
+            "name": "Ether",
+            "chainId": "eth",
+            "balance": 1.245,
+            "usd": 3142,
+            "popular": true
+          },
+          {
+            "id": "eth-weth",
+            "symbol": "WETH",
+            "name": "Wrapped Ether",
+            "chainId": "eth",
+            "balance": 0.5,
+            "usd": 3142,
+            "popular": true
+          },
+          {
+            "id": "eth-usdc",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "chainId": "eth",
+            "balance": 4521,
+            "usd": 1,
+            "popular": true
+          },
+          {
+            "id": "eth-usdt",
+            "symbol": "USDT",
+            "name": "Tether",
+            "chainId": "eth",
+            "balance": 2100,
+            "usd": 1,
+            "popular": true
+          },
+          {
+            "id": "eth-dai",
+            "symbol": "DAI",
+            "name": "Dai Stablecoin",
+            "chainId": "eth",
+            "balance": 800,
+            "usd": 1,
+            "popular": true
+          },
+          {
+            "id": "eth-wbtc",
+            "symbol": "WBTC",
+            "name": "Wrapped Bitcoin",
+            "chainId": "eth",
+            "balance": 0.04,
+            "usd": 96000,
+            "popular": true
+          },
+          {
+            "id": "eth-link",
+            "symbol": "LINK",
+            "name": "ChainLink Token",
+            "chainId": "eth",
+            "balance": 120,
+            "usd": 22,
+            "address": "0x51...86ca",
+            "trending": true
+          },
+          {
+            "id": "eth-aztec",
+            "symbol": "AZTEC",
+            "name": "AZTEC",
+            "chainId": "eth",
+            "balance": 0,
+            "address": "0xa2...62d2",
+            "trending": true
+          },
+          {
+            "id": "eth-cfg",
+            "symbol": "CFG",
+            "name": "Centrifuge",
+            "chainId": "eth",
+            "balance": 0,
+            "address": "0xcc...8a94",
+            "trending": true
+          },
+          {
+            "id": "eth-ondo",
+            "symbol": "ONDO",
+            "name": "Ondo",
+            "chainId": "eth",
+            "balance": 0,
+            "address": "0xfa...9be3",
+            "trending": true
+          },
+          {
+            "id": "sol-sol",
+            "symbol": "SOL",
+            "name": "Solana",
+            "chainId": "sol",
+            "balance": 12.4,
+            "usd": 168
+          },
+          {
+            "id": "sol-usdc",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "chainId": "sol",
+            "balance": 985.32,
+            "usd": 1
+          },
+          {
+            "id": "base-eth",
+            "symbol": "ETH",
+            "name": "Ether",
+            "chainId": "base",
+            "balance": 0.65,
+            "usd": 3142
+          },
+          {
+            "id": "base-usdc",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "chainId": "base",
+            "balance": 1200,
+            "usd": 1
+          },
+          {
+            "id": "arb-arb",
+            "symbol": "ARB",
+            "name": "Arbitrum",
+            "chainId": "arb",
+            "balance": 800,
+            "usd": 0.95
+          },
+          {
+            "id": "arb-eth",
+            "symbol": "ETH",
+            "name": "Ether",
+            "chainId": "arb",
+            "balance": 0.32,
+            "usd": 3142
+          },
+          {
+            "id": "op-op",
+            "symbol": "OP",
+            "name": "Optimism",
+            "chainId": "op",
+            "balance": 450,
+            "usd": 2.8
+          },
+          {
+            "id": "poly-matic",
+            "symbol": "MATIC",
+            "name": "Polygon",
+            "chainId": "poly",
+            "balance": 1500,
+            "usd": 0.75
+          },
+          {
+            "id": "bnb-bnb",
+            "symbol": "BNB",
+            "name": "BNB",
+            "chainId": "bnb",
+            "balance": 0,
+            "usd": 620
+          },
+          {
+            "id": "avax-avax",
+            "symbol": "AVAX",
+            "name": "Avalanche",
+            "chainId": "avax",
+            "balance": 0,
+            "usd": 38
+          }
+        ]
+      },
+      "defaultFromId": {
+        "kind": "value",
+        "value": "eth-eth"
+      },
+      "defaultToId": {
+        "kind": "value",
+        "value": "sol-sol"
+      }
+    },
+    "SwipeableList": {
+      "defaultValue": {
+        "kind": "value",
+        "value": null
+      },
+      "actionWidth": {
+        "kind": "value",
+        "value": 56
+      },
+      "revealThreshold": {
+        "kind": "value",
+        "value": 34
+      },
+      "closeOnAction": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Switch": {
+      "modelValue": {
+        "kind": "undefined"
+      },
+      "defaultValue": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "Table": {
+      "selectable": {
+        "kind": "value",
+        "value": false
+      },
+      "defaultSelectedRowIds": {
+        "kind": "value",
+        "value": []
+      },
+      "defaultSort": {
+        "kind": "value",
+        "value": null
+      },
+      "resizable": {
+        "kind": "value",
+        "value": false
+      },
+      "minColumnWidth": {
+        "kind": "value",
+        "value": 64
+      },
+      "reorderable": {
+        "kind": "value",
+        "value": false
+      },
+      "rowHeight": {
+        "kind": "value",
+        "value": 48
+      },
+      "height": {
+        "kind": "value",
+        "value": 440
+      },
+      "overscan": {
+        "kind": "value",
+        "value": 10
+      },
+      "loading": {
+        "kind": "value",
+        "value": false
+      },
+      "skeletonRows": {
+        "kind": "value",
+        "value": 3
+      },
+      "emptyState": {
+        "kind": "value",
+        "value": "No data"
+      }
+    },
+    "Tabs": {
+      "defaultValue": {
+        "kind": "value",
+        "value": ""
+      },
+      "variant": {
+        "kind": "value",
+        "value": "pill"
+      },
+      "icons": {
+        "kind": "value",
+        "value": "always"
+      }
+    },
+    "TextReveal": {
+      "as": {
+        "kind": "value",
+        "value": "span"
+      },
+      "split": {
+        "kind": "value",
+        "value": "word"
+      },
+      "stagger": {
+        "kind": "value",
+        "value": 0.09
+      },
+      "delay": {
+        "kind": "value",
+        "value": 0
+      },
+      "blur": {
+        "kind": "value",
+        "value": 12
+      },
+      "yOffset": {
+        "kind": "value",
+        "value": "40%"
+      },
+      "once": {
+        "kind": "value",
+        "value": true
+      },
+      "whileInView": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "TextScramble": {
+      "glyphs": {
+        "kind": "value",
+        "value": "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&@$?/"
+      }
+    },
+    "TextShimmer": {
+      "as": {
+        "kind": "value",
+        "value": "span"
+      },
+      "duration": {
+        "kind": "value",
+        "value": 2
+      },
+      "spread": {
+        "kind": "value",
+        "value": 2
+      }
+    },
+    "ThemeToggle": {
+      "variant": {
+        "kind": "value",
+        "value": "rectangle"
+      },
+      "start": {
+        "kind": "value",
+        "value": "bottom-up"
+      }
+    },
+    "ThinkingShimmer": {
+      "duration": {
+        "kind": "value",
+        "value": 1.8
+      }
+    },
+    "TiltCard": {
+      "max": {
+        "kind": "value",
+        "value": 12
+      },
+      "glare": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "Timeline": {
+      "itemWidth": {
+        "kind": "value",
+        "value": 340
+      },
+      "height": {
+        "kind": "value",
+        "value": 600
+      },
+      "years": {
+        "kind": "value",
+        "value": true
+      },
+      "ruler": {
+        "kind": "value",
+        "value": true
+      },
+      "cables": {
+        "kind": "value",
+        "value": true
+      },
+      "ariaLabel": {
+        "kind": "value",
+        "value": "Timeline"
+      }
+    },
+    "TodoList": {
+      "title": {
+        "kind": "value",
+        "value": "To-dos"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": true
+      },
+      "collapseOnComplete": {
+        "kind": "value",
+        "value": true
+      },
+      "maxHeight": {
+        "kind": "value",
+        "value": 248
+      }
+    },
+    "ToolApproval": {
+      "title": {
+        "kind": "value",
+        "value": "Allow this tool to run?"
+      },
+      "parameters": {
+        "kind": "value",
+        "value": []
+      },
+      "status": {
+        "kind": "value",
+        "value": "pending"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "ToolApprovalCode": {
+      "language": {
+        "kind": "value",
+        "value": "bash"
+      }
+    },
+    "ToolResult": {
+      "status": {
+        "kind": "value",
+        "value": "running"
+      },
+      "kind": {
+        "kind": "value",
+        "value": "custom"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": true
+      },
+      "collapseOnComplete": {
+        "kind": "value",
+        "value": true
+      },
+      "maxHeight": {
+        "kind": "value",
+        "value": 220
+      }
+    },
+    "ToolResultOutput": {
+      "language": {
+        "kind": "value",
+        "value": "bash"
+      }
+    },
+    "Tooltip": {
+      "content": {
+        "kind": "undefined"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "TooltipContent": {
+      "side": {
+        "kind": "value",
+        "value": "top"
+      },
+      "align": {
+        "kind": "value",
+        "value": "center"
+      },
+      "arrow": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "TooltipRoot": {
+      "content": {
+        "kind": "undefined"
+      },
+      "open": {
+        "kind": "undefined"
+      },
+      "defaultOpen": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "TreemapLegend": {
+      "showValues": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "TreemapTooltip": {
+      "side": {
+        "kind": "value",
+        "value": "top"
+      }
+    },
+    "VoiceOrb": {
+      "activity": {
+        "kind": "value",
+        "value": 0
+      },
+      "analyser": {
+        "kind": "value",
+        "value": null
+      },
+      "colors": {
+        "kind": "value",
+        "value": [
+          "#e8754d",
+          "#ffe0ac",
+          "#346b52"
+        ]
+      },
+      "active": {
+        "kind": "value",
+        "value": true
+      },
+      "speed": {
+        "kind": "value",
+        "value": 1
+      }
+    },
+    "VolumeProfile": {
+      "valueArea": {
+        "kind": "undefined"
+      }
+    },
+    "VolumeProfilePlot": {
+      "showAxes": {
+        "kind": "value",
+        "value": true
+      }
+    },
+    "VolumeProfileTooltip": {
+      "side": {
+        "kind": "value",
+        "value": "top"
+      }
+    },
+    "WalletCard": {
+      "balancePrefix": {
+        "kind": "value",
+        "value": "$"
+      },
+      "defaultBalanceHidden": {
+        "kind": "value",
+        "value": false
+      },
+      "searchRecent": {
+        "kind": "value",
+        "value": []
+      },
+      "hasNotifications": {
+        "kind": "value",
+        "value": false
+      }
+    },
+    "WaveSlider": {
+      "bars": {
+        "kind": "value",
+        "value": 32
+      }
+    },
+    "WheelPicker": {
+      "visibleCount": {
+        "kind": "value",
+        "value": 5
+      },
+      "itemHeight": {
+        "kind": "value",
+        "value": 36
+      }
+    }
+  }
+}

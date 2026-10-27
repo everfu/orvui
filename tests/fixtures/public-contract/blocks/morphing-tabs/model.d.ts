@@ -1,0 +1,14 @@
+export declare const DRAG_THRESHOLD = 5;
+export declare const MAX_TAB_WIDTH = 176;
+export declare const MIN_TAB_WIDTH = 96;
+export declare const TAB_HEIGHT = 56;
+export declare const TAB_TOP = 24;
+export declare const TAB_RADIUS = 24;
+export declare const RAIL_HEIGHT = 80;
+export declare const SURFACE_INSET = 16;
+export declare const LIQUID_JOIN = 24;
+export declare const PANEL_RADIUS = 28;
+export declare function sameOrder(a: string[], b: string[]): boolean;
+export declare function safeId(value: string): string;
+export declare function moveItem(order: string[], from: number, to: number): string[];
+export declare function liquidTabPath(tabLeft: number, surfaceWidth: number, tabWidth: number): string;

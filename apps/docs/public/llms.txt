@@ -1,0 +1,128 @@
+# orvui
+
+> An independent Vue 3.5 UI system with expressive motion, composable APIs and copyable source.
+
+## Guides
+- [Introduction to Vue Web](https://orvui.efu.me/guide.md)
+- [Installation](https://orvui.efu.me/docs/installation.md)
+- [Theme setup](https://orvui.efu.me/docs/theme.md)
+- [For AI agents](https://orvui.efu.me/docs/ai-agents.md)
+- [Use orvui with OpenUI](https://orvui.efu.me/docs/openui.md)
+- [Motion that explains, not distracts](https://orvui.efu.me/docs/motion-patterns.md)
+- [orvui updates](https://orvui.efu.me/changelog.md)
+
+## Registry
+- [Registry index](https://orvui.efu.me/r/registry.json)
+- [shadcn-vue catalog](https://orvui.efu.me/registry.json)
+- [Local agent instructions](https://orvui.efu.me/orvui-agent/SKILL.md)
+
+## Components
+- [Timeline](https://orvui.efu.me/components/motion/timeline.md): Browse dated milestones on a draggable track that keeps the selected event in focus.
+- [Animated Alert](https://orvui.efu.me/components/motion/alert.md): Present feedback in a compact message row with optional actions and dismissal.
+- [Animated Collapsible](https://orvui.efu.me/components/motion/collapsible.md): Connect a trigger to an expandable region while preserving the surrounding layout.
+- [Aspect Ratio](https://orvui.efu.me/components/motion/aspect-ratio.md): Reserve a chosen width-to-height ratio for media and animate changes to that ratio.
+- [Arc Picker](https://orvui.efu.me/components/motion/arc-picker.md): Move a curved list of labels through a fixed selection point using gestures or keys.
+- [Sortable List](https://orvui.efu.me/components/motion/sortable-stack.md): Reorder a list with pointer or keyboard input and offer an undo operation.
+- [Image Viewer](https://orvui.efu.me/components/motion/image-viewer.md): Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+- [Date Range Picker](https://orvui.efu.me/components/motion/date-range-picker.md): Choose the beginning and end of a date interval in an inline or floating calendar.
+- [Card](https://orvui.efu.me/components/motion/card.md): Assemble a card from heading, content, actions and footer parts with optional selection.
+- [Color Picker](https://orvui.efu.me/components/motion/color-picker.md): Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+- [Animated Color Selector](https://orvui.efu.me/components/motion/color-selector.md): Choose one named swatch with a moving selection outline and native radio behavior.
+- [Animated Breadcrumb](https://orvui.efu.me/components/motion/breadcrumb.md): Show the current location in a hierarchy and collapse intermediate links when space is limited.
+- [Tilt Card](https://orvui.efu.me/components/motion/tilt-card.md): Tilt a card toward the pointer and move a highlight over its surface.
+- [Button](https://orvui.efu.me/components/motion/button.md): Use a pressable action surface with magnetic, stateful and metallic alternatives.
+- [Animated CTA Buttons](https://orvui.efu.me/components/motion/expanding-arrow-button.md): Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
+- [Expandable Control](https://orvui.efu.me/components/motion/expandable-control.md): Expand a compact control to reveal a label or trailing action without losing its position.
+- [Adaptive Stepper](https://orvui.efu.me/components/motion/adaptive-stepper.md): Adjust a bounded number while the value uses the space released by unavailable actions.
+- [Marquee](https://orvui.efu.me/components/motion/marquee.md): Repeat a horizontal or vertical content strip with optional pause on hover.
+- [Tabs](https://orvui.efu.me/components/motion/tabs.md): Switch between associated panels using a moving indicator and accessible tab controls.
+- [Switch](https://orvui.efu.me/components/motion/switch.md): Toggle a binary setting with a moving thumb and optional descriptive label.
+- [Input](https://orvui.efu.me/components/motion/input.md): Edit text with optional labels, icons and validation feedback in a single field.
+- [Select](https://orvui.efu.me/components/motion/select.md): Choose from a floating list whose panel can expand continuously from its trigger.
+- [Combobox](https://orvui.efu.me/components/motion/combobox.md): Filter a grouped option list from an input while keeping keyboard focus in the field.
+- [Multi Select](https://orvui.efu.me/components/motion/multi-select.md): Select several options and manage the resulting tags inside a searchable control.
+- [Checkbox](https://orvui.efu.me/components/motion/checkbox.md): Represent checked, unchecked and mixed values with an animated check mark.
+- [Radio Group](https://orvui.efu.me/components/motion/radio.md): Choose one value from a keyboard-navigable group of labeled options.
+- [Bottom Sheet](https://orvui.efu.me/components/motion/bottom-sheet.md): Open a panel from the lower edge and move it between snap positions with a drag.
+- [Pull to Refresh](https://orvui.efu.me/components/motion/pull-to-refresh.md): Turn a downward pull into a deliberate asynchronous refresh with visible progress.
+- [Shared Layout Background](https://orvui.efu.me/components/motion/shared-layout-bg.md): Move one background surface between registered items to indicate a current selection.
+- [Bounce Sidebar](https://orvui.efu.me/components/motion/bounce-sidebar.md): Navigate a vertical list while an active marker follows a curved path between rows.
+- [Animated Sidebar](https://orvui.efu.me/components/motion/animated-sidebar.md): Compose nested navigation with expanded, icon-only and mobile drawer presentations.
+- [File Tree](https://orvui.efu.me/components/motion/file-tree.md): Explore nested files and folders with expandable branches and keyboard selection.
+- [Preview Rail](https://orvui.efu.me/components/motion/preview-rail.md): Preview navigation targets from a compact rail that expands around the focused item.
+- [Dock](https://orvui.efu.me/components/motion/dock.md): Group compact navigation actions around an indicator that follows the active item.
+- [Tooltip](https://orvui.efu.me/components/motion/tooltip.md): Reveal a short contextual label on hover or focus without displacing nearby content.
+- [Animated Context Menu](https://orvui.efu.me/components/motion/context-menu.md): Open a menu at a pointer position with checkbox, radio and submenu compositions.
+- [Popover](https://orvui.efu.me/components/motion/popover.md): Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+- [Morphing Modal](https://orvui.efu.me/components/motion/morphing-modal.md): Change a dialog's content and height together while preserving the outer surface.
+- [Center Morph Modal](https://orvui.efu.me/components/motion/center-morph-modal.md): Expand a modal evenly around its center and return it to the same point on close.
+- [Text Animation](https://orvui.efu.me/components/motion/text-animation.md): Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+- [Number Animation](https://orvui.efu.me/components/motion/number.md): Animate numeric values with counting, rolling or position-preserving digit changes.
+- [Animated Badge](https://orvui.efu.me/components/motion/animated-badge.md): Pair a compact status label with an icon and optional pulse feedback.
+- [Action Swap](https://orvui.efu.me/components/motion/action-swap.md): Replace short action text or icons using blur, rolling or staggered transitions.
+- [Animated Toast Stack](https://orvui.efu.me/components/motion/animated-toast-stack.md): Manage transient notifications in a stack with actions and gesture dismissal.
+- [Theme Toggle](https://orvui.efu.me/components/motion/theme-toggle.md): Reveal a new page theme with a circle, rectangle or blinds transition.
+- [Bouncy Accordion](https://orvui.efu.me/components/motion/bouncy-accordion.md): Expand a section in a single-open group with connected spring layout movement.
+- [Drawer](https://orvui.efu.me/components/motion/drawer.md): Present a dialog from either side of the viewport with focus and scroll management.
+- [Scroll Animation](https://orvui.efu.me/components/motion/scroll-animation.md): Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+- [Range Slider](https://orvui.efu.me/components/motion/range-slider.md): Adjust a numeric value on a track using drag gestures or keyboard steps.
+- [Wheel Picker](https://orvui.efu.me/components/motion/wheel-picker.md): Select a value from a rotating wheel with momentum and row snapping.
+- [Table](https://orvui.efu.me/components/motion/table.md): Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
+- [Shader Background](https://orvui.efu.me/components/motion/shader-background.md): Render an animated background through a Vue adapter for the Paper Design shader runtime.
+- [Cylinder Carousel](https://orvui.efu.me/components/motion/cylinder-carousel.md): Arrange gallery items on a concave or convex cylinder controlled by dragging.
+- [Loader](https://orvui.efu.me/components/motion/loader.md): Choose a compact animated indicator for an operation whose result is still pending.
+- [Sankey Chart](https://orvui.efu.me/charts/sankey-chart.md): Trace weighted flows across stages using connected nodes and proportional ribbons.
+- [Treemap](https://orvui.efu.me/charts/treemap.md): Compare hierarchical values using nested rectangles whose area follows each value.
+- [Candlestick Chart](https://orvui.efu.me/charts/candlestick-chart.md): Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
+- [Donut Chart](https://orvui.efu.me/charts/donut-chart.md): Compare parts of a total with a ring, selectable legend and central value.
+- [Volume Profile](https://orvui.efu.me/charts/volume-profile.md): Compare traded volume by price level with horizontal bidirectional bars.
+- [Status Bar](https://orvui.efu.me/charts/status-bar.md): Summarize counts across named states in a proportional segmented bar.
+- [Composition Chart](https://orvui.efu.me/charts/composition-chart.md): Compare contributions across categories with normalized bars or stacked areas.
+- [Funnel Chart](https://orvui.efu.me/charts/funnel-chart.md): Follow successive stages and inspect conversion or loss between adjacent steps.
+- [Liquidity Heatmap](https://orvui.efu.me/charts/liquidity-heatmap.md): Inspect liquidity across time and price through a grid with selectable intensity bands.
+- [Bump Chart](https://orvui.efu.me/charts/bump-chart.md): Follow changes in series rank over time and pin a series for closer inspection.
+- [Order Book](https://orvui.efu.me/charts/order-book.md): Inspect bid and ask levels, cumulative depth and price selections in a live book.
+- [Heat Calendar](https://orvui.efu.me/charts/heat-calendar.md): Show daily activity in a compact calendar grid with exact values available on inspection.
+- [Returns Calendar](https://orvui.efu.me/charts/returns-calendar.md): Compare signed daily returns with a calendar, month totals and optional day content.
+- [Price Target Fan](https://orvui.efu.me/charts/price-target-fan.md): Compare price forecasts around a shared origin using projected target paths.
+- [Voice Orb](https://orvui.efu.me/components/agents/voice-orb.md): Display a moving spherical field whose surface responds to activity or audio input.
+- [Message Bubble](https://orvui.efu.me/components/agents/message-bubble.md): Render a compact conversation bubble with an avatar, metadata and optional controls.
+- [Message](https://orvui.efu.me/components/agents/message.md): Build a conversation entry from content, attachments, sources and action parts.
+- [Message Scroller](https://orvui.efu.me/components/agents/message-scroller.md): Follow appended messages while letting readers leave and return to the latest content.
+- [Prompt Input](https://orvui.efu.me/components/agents/prompt-input.md): Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
+- [Todo List](https://orvui.efu.me/components/agents/todo-list.md): Show a sequence of work items with expandable details and explicit task states.
+- [Code Block](https://orvui.efu.me/components/agents/code-block.md): Present highlighted code with line controls, file labels and a copy operation.
+- [Approval Card](https://orvui.efu.me/components/agents/approval-card.md): Guide a person through one or more decisions before an assistant proceeds.
+- [File Diff](https://orvui.efu.me/components/agents/file-diff.md): Inspect additions and removals with aligned line numbers and expandable context.
+- [Tool Result](https://orvui.efu.me/components/agents/tool-result.md): Present a tool call's status, summary and expandable result in one surface.
+- [Streaming Response](https://orvui.efu.me/components/agents/streaming-response.md): Compose a changing assistant response with text, attachments, references and actions.
+- [Image Generation](https://orvui.efu.me/components/agents/image-generation.md): Show image creation states, preview the output and offer result actions.
+- [Tool Approval](https://orvui.efu.me/components/agents/tool-approval.md): Ask for an explicit decision on a pending tool action with explanatory context.
+- [Citations](https://orvui.efu.me/components/agents/citations.md): Connect inline reference markers to inspectable source entries and links.
+- [Agent Activity](https://orvui.efu.me/components/agents/agent-activity.md): Group changing assistant activity into expandable steps and a completed summary.
+- [Agent Loading States](https://orvui.efu.me/components/agents/loading-states.md): Communicate pending assistant work with progress, reasoning and shimmer displays.
+- [AI Sidebar](https://orvui.efu.me/components/agents/ai-sidebar.md): Organize assistant resources in a searchable tree with selection and move operations.
+- [Chat App](https://orvui.efu.me/components/agents/chat-app.md): Compose navigation, conversation content and a prompt area into an assistant workspace.
+- [Infinite Masonry](https://orvui.efu.me/components/blocks/infinite-masonry.md): Lay out variable-height items in columns and request more as the visible range advances.
+- [Notification Stack](https://orvui.efu.me/components/blocks/notification-stack.md): Expand a compact stack of notifications into separately readable entries.
+- [Project Folder](https://orvui.efu.me/components/blocks/project-folder.md): Fan out document previews and expand a selected folder into a focused surface.
+- [Card Folder](https://orvui.efu.me/components/blocks/card-folder.md): Reveal a group of cards from a folded pocket with a coordinated opening movement.
+- [Fixtures](https://orvui.efu.me/components/blocks/knockout-bracket.md): Browse elimination rounds or a radial bracket with team and match metadata.
+- [Availability Scheduler](https://orvui.efu.me/components/blocks/availability-scheduler.md): Edit weekly availability as time ranges and copy a schedule to selected days.
+- [Multi-chain Swap](https://orvui.efu.me/components/blocks/swap.md): Compose an asset exchange with token choices, amounts and destination information.
+- [Dynamic Island](https://orvui.efu.me/components/blocks/dynamic-island.md): Switch a compact capsule between live activity views without changing its identity.
+- [Command Palette](https://orvui.efu.me/components/blocks/command-palette.md): Find and activate grouped commands in a keyboard-operated search panel.
+- [Morphing Search](https://orvui.efu.me/components/blocks/morphing-search.md): Expand a search field into suggestions, recent items or editable filter chips.
+- [Expandable Action Bar](https://orvui.efu.me/components/blocks/expandable-action-bar.md): Reveal labels around the active action in a compact row of icon controls.
+- [Overflow Actions](https://orvui.efu.me/components/blocks/overflow-actions.md): Expand a compact action track to expose controls that do not fit its resting width.
+- [Expandable Tabs](https://orvui.efu.me/components/blocks/expandable-tabs.md): Navigate an icon strip whose selected item expands to display its label.
+- [Morphing Tabs](https://orvui.efu.me/components/blocks/morphing-tabs.md): Switch and reorder tabs while their surfaces follow a continuous layout transition.
+- [Swipeable List](https://orvui.efu.me/components/blocks/swipeable-list.md): Reveal actions on either side of a list row with pointer or keyboard input.
+- [File Upload](https://orvui.efu.me/components/blocks/file-upload.md): Manage files, previews, progress and retry actions in a queue or attachment workspace.
+- [Prediction Market](https://orvui.efu.me/components/blocks/prediction-market.md): Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
+- [Wallet Card](https://orvui.efu.me/components/blocks/wallet-card.md): Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+- [OTP Input](https://orvui.efu.me/components/blocks/otp-input.md): Enter or paste a fixed-length code through grouped fields with completion feedback.
+- [Sign Up Form](https://orvui.efu.me/components/blocks/signup-form.md): Move through registration fields with local validation and explicit submission states.
+- [Bloom Menu](https://orvui.efu.me/components/blocks/bloom-menu.md): Open a group of actions around a shared center and restore focus when it closes.
+- [Feedback Widget](https://orvui.efu.me/components/blocks/feedback-widget.md): Expand a feedback trigger into a form with sending, success and retry states.
+- [404 / Not Found](https://orvui.efu.me/components/blocks/not-found.md): Present a missing destination with an animated visual and a route back to useful content.

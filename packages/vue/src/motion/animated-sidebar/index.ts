@@ -1,0 +1,21 @@
+export { default as AnimatedSidebarProvider } from "./src/AnimatedSidebarProvider.vue";
+export { default as AnimatedSidebar } from "./src/AnimatedSidebar.vue";
+export { default as AnimatedSidebarTrigger } from "./src/AnimatedSidebarTrigger.vue";
+export { default as AnimatedSidebarClose } from "./src/AnimatedSidebarClose.vue";
+export { default as AnimatedSidebarRail } from "./src/AnimatedSidebarRail.vue";
+export { default as AnimatedSidebarInset } from "./src/AnimatedSidebarInset.vue";
+export { default as AnimatedSidebarHeader } from "./src/AnimatedSidebarHeader.vue";
+export { default as AnimatedSidebarContent } from "./src/AnimatedSidebarContent.vue";
+export { default as AnimatedSidebarFooter } from "./src/AnimatedSidebarFooter.vue";
+export { default as AnimatedSidebarGroup } from "./src/AnimatedSidebarGroup.vue";
+export { default as AnimatedSidebarGroupContent } from "./src/AnimatedSidebarGroupContent.vue";
+export { default as AnimatedSidebarMenu } from "./src/AnimatedSidebarMenu.vue";
+export { default as AnimatedSidebarMenuItem } from "./src/AnimatedSidebarMenuItem.vue";
+export { default as AnimatedSidebarMenuSub } from "./src/AnimatedSidebarMenuSub.vue";
+export { default as AnimatedSidebarMenuSubItem } from "./src/AnimatedSidebarMenuSubItem.vue";
+export { default as AnimatedSidebarGroupLabel } from "./src/AnimatedSidebarGroupLabel.vue";
+export { default as AnimatedSidebarMenuButton } from "./src/AnimatedSidebarMenuButton.vue";
+export { default as AnimatedSidebarMenuSubButton } from "./src/AnimatedSidebarMenuSubButton.vue";
+export * from "./src/useAnimatedSidebar";
+
+export type * from "./src/api-types";

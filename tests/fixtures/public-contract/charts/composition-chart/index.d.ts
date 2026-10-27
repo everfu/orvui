@@ -1,0 +1,10 @@
+export { default as CompositionChart } from "./CompositionChart.vue";
+export { default as CompositionChartLegend } from "./CompositionChartLegend.vue";
+export { default as CompositionChartPlot } from "./CompositionChartPlot.vue";
+export { default as CompositionTooltipContent } from "./CompositionTooltipContent.vue";
+export { useCompositionChart } from "./context";
+export type { CompositionChartProps } from "./context";
+export type { CompositionSeries as CompositionChartSeries } from "./model";
+export type CompositionChartPlotProps = InstanceType<(typeof import("./CompositionChartPlot.vue"))["default"]>["$props"];
+export type CompositionChartLegendProps = InstanceType<(typeof import("./CompositionChartLegend.vue"))["default"]>["$props"];
+export type CompositionTooltipContentProps = InstanceType<(typeof import("./CompositionTooltipContent.vue"))["default"]>["$props"];

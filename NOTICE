@@ -1,0 +1,32 @@
+orvui component library
+
+Copyright (c) 2026 everfu. orvui source is distributed under MIT.
+Public signatures, numeric palette values and visual compatibility inputs are
+maintained as the product contract. Third-party material remains separately
+licensed; the orvui MIT license does not replace the terms below.
+
+The documentation hero uses the framework-neutral border-beam 1.4.1 generator,
+Copyright (c) 2026 Jakub Antalik, MIT licensed. Its license is retained at
+apps/docs/public/licenses/border-beam-MIT.txt.
+
+Paper Design GPU programs and @paper-design/shaders remain under PolyForm
+Shield 1.0.0. See src/motion/shader-background/LICENSE.paper-design in the
+package and /licenses/paper-design-PolyForm-Shield.txt in the documentation.
+
+Geist and Geist Mono come from installed Fontsource packages. Their SIL Open
+Font License texts are retained in the documentation licenses directory.
+Lucide icons retain their ISC license. Simple Icons brand assets come from
+@iconify-json/simple-icons 1.2.100 and retain CC0 1.0 Universal; see the
+adjacent LICENSE.simple-icons files and /licenses/simple-icons-CC0.txt.
+
+Demo photography is separate third-party material served by Unsplash and
+Lorem Picsum, under the provider's terms: https://unsplash.com/license .
+DiceBear Glass avatars are CC0: https://www.dicebear.com/styles/glass/ .
+Country flag images come from Flagpedia's documented CDN service:
+https://flagpedia.net/download/api . These media are not relicensed as orvui code.
+Consumer-level source records are in tools/catalog/media-provenance.json;
+the documentation serves a copy at /media-provenance.json.
+
+Synthetic club badges, terrain illustrations and demonstration copy authored
+in this implementation use the orvui MIT license. No institutional or sports
+team marks are bundled with the synthetic market-card example.

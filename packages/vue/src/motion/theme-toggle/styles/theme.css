@@ -1,0 +1,33 @@
+html:is([data-orvui-vt="rect"], [data-orvui-vt="circle"], [data-orvui-vt="circle-blur"], [data-orvui-vt="blinds"])::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html:is([data-orvui-vt="rect"], [data-orvui-vt="circle"], [data-orvui-vt="circle-blur"], [data-orvui-vt="blinds"])::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+html[data-orvui-vt="rect"]::view-transition-new(root) { animation: orvui-rect-reveal 400ms ease-out; }
+html[data-orvui-vt="circle"]::view-transition-new(root) { animation: orvui-circle-reveal 700ms cubic-bezier(0.4, 0, 0.2, 1); }
+html[data-orvui-vt="circle-blur"]::view-transition-new(root) { animation: orvui-circle-blur-reveal 700ms cubic-bezier(0.4, 0, 0.2, 1); }
+@property --orvui-vt-slat { syntax: "<length>"; inherits: false; initial-value: 72px; }
+html[data-orvui-vt="blinds"]::view-transition-new(root) {
+  mask-image: linear-gradient(90deg, #000 0 var(--orvui-vt-slat), transparent calc(var(--orvui-vt-slat) + 20px));
+  mask-size: 72px 100%;
+  mask-repeat: repeat;
+  animation: orvui-blinds-reveal 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes orvui-rect-reveal {
+  from { clip-path: var(--orvui-vt-from, inset(100% 0 0 0)); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes orvui-circle-reveal {
+  from { clip-path: circle(0% at var(--orvui-vt-origin, 50% 100%)); }
+  to { clip-path: circle(150% at var(--orvui-vt-origin, 50% 100%)); }
+}
+@keyframes orvui-circle-blur-reveal {
+  from { clip-path: circle(0% at var(--orvui-vt-origin, 50% 100%)); filter: blur(8px); }
+  to { clip-path: circle(150% at var(--orvui-vt-origin, 50% 100%)); filter: blur(0px); }
+}
+@keyframes orvui-blinds-reveal {
+  from { --orvui-vt-slat: -20px; }
+  to { --orvui-vt-slat: 72px; }
+}

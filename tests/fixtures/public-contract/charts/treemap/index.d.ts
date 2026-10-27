@@ -1,0 +1,12 @@
+export { default as Treemap } from "./Treemap.vue";
+export { default as TreemapCell } from "./TreemapCell.vue";
+export { default as TreemapLegend } from "./TreemapLegend.vue";
+export { default as TreemapPlot } from "./TreemapPlot.vue";
+export { default as TreemapTooltip } from "./TreemapTooltip.vue";
+export { useTreemap } from "./context";
+export type { TreemapProps } from "./context";
+export type { TreemapNode, TreemapLeaf, TreemapGroup, TreemapItem, TreemapTile, } from "./model";
+export type TreemapPlotProps = InstanceType<(typeof import("./TreemapPlot.vue"))["default"]>["$props"];
+export type TreemapTooltipProps = InstanceType<(typeof import("./TreemapTooltip.vue"))["default"]>["$props"];
+export type TreemapCellProps = InstanceType<(typeof import("./TreemapCell.vue"))["default"]>["$props"];
+export type TreemapLegendProps = InstanceType<(typeof import("./TreemapLegend.vue"))["default"]>["$props"];

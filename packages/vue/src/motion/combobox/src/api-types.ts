@@ -1,0 +1,34 @@
+// Vue public prop types, derived from the actual components.
+export type ComboboxContentProps = InstanceType<
+  (typeof import("./ComboboxContent.vue"))["default"]
+>["$props"];
+export type ComboboxEmptyProps = InstanceType<
+  (typeof import("./ComboboxEmpty.vue"))["default"]
+>["$props"];
+export type ComboboxGroupProps = InstanceType<
+  (typeof import("./ComboboxGroup.vue"))["default"]
+>["$props"];
+export type ComboboxInputProps = InstanceType<
+  (typeof import("./ComboboxInput.vue"))["default"]
+>["$props"];
+export type ComboboxItemProps = InstanceType<
+  (typeof import("./ComboboxItem.vue"))["default"]
+>["$props"];
+export type ComboboxLabelProps = InstanceType<
+  (typeof import("./ComboboxLabel.vue"))["default"]
+>["$props"];
+export type ComboboxListProps = InstanceType<
+  (typeof import("./ComboboxList.vue"))["default"]
+>["$props"];
+export type ComboboxProps = InstanceType<
+  (typeof import("./Combobox.vue"))["default"]
+>["$props"];
+export type ComboboxSeparatorProps = InstanceType<
+  (typeof import("./ComboboxSeparator.vue"))["default"]
+>["$props"];
+export type ComboboxTriggerProps = InstanceType<
+  (typeof import("./ComboboxTrigger.vue"))["default"]
+>["$props"];
+export type ComboboxValueProps = InstanceType<
+  (typeof import("./ComboboxValue.vue"))["default"]
+>["$props"];

@@ -1,0 +1,240 @@
+---
+title: "Animated Breadcrumb"
+description: "展示层级中的当前位置，在空间有限时折叠中间链接。"
+category: "Components"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/components/motion/breadcrumb"
+markdown: "https://orvui.efu.me/components/motion/breadcrumb.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# Animated Breadcrumb
+
+> 展示层级中的当前位置，在空间有限时折叠中间链接。
+
+## 安装
+
+### Animated Breadcrumb — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/breadcrumb.json
+```
+
+通过注册表安装后，在应用样式入口导入一次 `src/components/orvui/styles.css`。
+
+### 组件包
+
+npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```bash
+pnpm add lucide-vue-next@^0.468.0
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## 依赖
+
+- `clsx@^2.1.1`
+- `lucide-vue-next@^0.468.0`
+- `motion-v@^1.10.0`
+- `tailwind-merge@^3.0.0`
+- `tailwindcss@^4.0.0`
+
+## 用法
+
+### Animated Breadcrumb
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { nextTick, ref } from "vue";
+import { ArrowUpRight, Folder, Home } from "lucide-vue-next";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/orvui/motion/breadcrumb";
+const segments = "Workspace/Projects/Website/Design system/Components/Navigation/Breadcrumb".split("/");
+const current = ref(5), root = ref<HTMLElement | null>(null);
+async function navigate(index: number, event?: MouseEvent) {
+  if (event && (event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)) return;
+  event?.preventDefault(); current.value = index;
+  await nextTick(); root.value?.querySelector<HTMLElement>('[aria-current="page"]')?.focus();
+}
+</script>
+<template>
+  <div ref="root" class="w-full max-w-lg space-y-8 px-4">
+    <Breadcrumb class="min-h-[4.25rem] sm:min-h-8"><BreadcrumbList :max-items="3">
+      <BreadcrumbItem v-for="(segment, index) in segments.slice(0, current + 1)" :key="segment">
+        <BreadcrumbSeparator v-if="index > 0" />
+        <BreadcrumbPage v-if="index === current" :tabindex="-1"><Home v-if="index === 0" aria-hidden="true" />{{ segment }}</BreadcrumbPage>
+        <BreadcrumbLink v-else :href="`#${segment.toLowerCase()}`" @click="navigate(index, $event)"><Home v-if="index === 0" aria-hidden="true" />{{ segment }}</BreadcrumbLink>
+      </BreadcrumbItem>
+    </BreadcrumbList></Breadcrumb>
+    <div class="min-h-20 border-t border-border/60 pt-5">
+      <button v-if="current < segments.length - 1" type="button" @click="navigate(Math.min(current + 1, segments.length - 1))"
+        class="flex w-full items-center gap-3 rounded-lg border border-border/60 px-4 py-3 text-start text-sm transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <Folder aria-hidden="true" class="size-4 text-muted-foreground" /><span class="flex-1">{{ segments[current + 1] }}</span><ArrowUpRight aria-hidden="true" class="size-3.5 text-muted-foreground" />
+      </button>
+      <p v-else class="py-3 text-center text-sm text-muted-foreground">Choose a parent path to go back.</p>
+    </div>
+  </div>
+</template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { nextTick, ref } from "vue";
+import { ArrowUpRight, Folder, Home } from "lucide-vue-next";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@orvui/vue/motion/breadcrumb";
+const segments = "Workspace/Projects/Website/Design system/Components/Navigation/Breadcrumb".split("/");
+const current = ref(5), root = ref<HTMLElement | null>(null);
+async function navigate(index: number, event?: MouseEvent) {
+  if (event && (event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)) return;
+  event?.preventDefault(); current.value = index;
+  await nextTick(); root.value?.querySelector<HTMLElement>('[aria-current="page"]')?.focus();
+}
+</script>
+<template>
+  <div ref="root" class="w-full max-w-lg space-y-8 px-4">
+    <Breadcrumb class="min-h-[4.25rem] sm:min-h-8"><BreadcrumbList :max-items="3">
+      <BreadcrumbItem v-for="(segment, index) in segments.slice(0, current + 1)" :key="segment">
+        <BreadcrumbSeparator v-if="index > 0" />
+        <BreadcrumbPage v-if="index === current" :tabindex="-1"><Home v-if="index === 0" aria-hidden="true" />{{ segment }}</BreadcrumbPage>
+        <BreadcrumbLink v-else :href="`#${segment.toLowerCase()}`" @click="navigate(index, $event)"><Home v-if="index === 0" aria-hidden="true" />{{ segment }}</BreadcrumbLink>
+      </BreadcrumbItem>
+    </BreadcrumbList></Breadcrumb>
+    <div class="min-h-20 border-t border-border/60 pt-5">
+      <button v-if="current < segments.length - 1" type="button" @click="navigate(Math.min(current + 1, segments.length - 1))"
+        class="flex w-full items-center gap-3 rounded-lg border border-border/60 px-4 py-3 text-start text-sm transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <Folder aria-hidden="true" class="size-4 text-muted-foreground" /><span class="flex-1">{{ segments[current + 1] }}</span><ArrowUpRight aria-hidden="true" class="size-3.5 text-muted-foreground" />
+      </button>
+      <p v-else class="py-3 text-center text-sm text-muted-foreground">Choose a parent path to go back.</p>
+    </div>
+  </div>
+</template>
+```
+
+## API 参考
+
+### Breadcrumb
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `ariaLabel` | `string` | `"Breadcrumb"` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### BreadcrumbItem
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### BreadcrumbLink
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `href` | `string` | — | 否 | — |
+| `as` | `any` | `"a"` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### BreadcrumbList
+
+### BreadcrumbPage
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => any` | — | — |
+
+### BreadcrumbSeparator
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### BreadcrumbEllipsis
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `label` | `string` | `"Show hidden paths"` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+## 关于 Animated Breadcrumb
+
+展示层级中的当前位置，在空间有限时折叠中间链接。
+
+### 适用场景
+
+- 当界面需要以下行为时使用 Animated Breadcrumb：展示层级中的当前位置，在空间有限时折叠中间链接。
+
+### 无障碍
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### 常见问题
+
+**如何配置 Animated Breadcrumb？**
+
+通过 as 属性选择原生目标元素，并提供对应的链接属性。
+
+**如何连接到应用状态？**
+
+通过default 插槽提供内容，应用副作用由调用方管理。
+
+**可以在服务端渲染吗？**
+
+可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
+
+## 源码
+
+- 注册表详情: https://orvui.efu.me/r/breadcrumb.json
+- 文档: https://orvui.efu.me/components/motion/breadcrumb
+- `packages/vue/src/motion/breadcrumb/src/Breadcrumb.vue`
+- `packages/vue/src/motion/breadcrumb/src/BreadcrumbItem.vue`
+- `packages/vue/src/motion/breadcrumb/src/BreadcrumbLink.vue`
+- `packages/vue/src/motion/breadcrumb/src/BreadcrumbList.vue`
+- `packages/vue/src/motion/breadcrumb/src/BreadcrumbPage.vue`
+- `packages/vue/src/motion/breadcrumb/src/BreadcrumbSeparator.vue`
+- `packages/vue/src/motion/breadcrumb/src/BreadcrumbEllipsis.vue`
+
+Copyright (c) 2026 everfu。版权声明及第三方条款见 LICENSE 与 NOTICE。
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

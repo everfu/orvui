@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-26",
+  "scope": "Media used by local demonstrations and default placeholders; no historical source site is a runtime dependency.",
+  "retainedThirdParty": [
+    {
+      "consumer": "packages/vue/src/blocks/knockout-bracket/src/wheel-model.ts",
+      "kind": "third-party-media",
+      "provider": "Flagpedia",
+      "sourceUrl": "https://flagpedia.net/download/api",
+      "license": "Provider terms; separate from orvui MIT"
+    },
+    {
+      "consumer": "packages/vue/src/blocks/file-upload/examples/attachment-upload.vue",
+      "kind": "third-party-photography",
+      "provider": "Unsplash",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "photoIds": [
+        "1490750967868-88aa4486c946"
+      ],
+      "origin": "https://images.unsplash.com/"
+    },
+    {
+      "consumer": "packages/vue/src/blocks/infinite-masonry/demo.vue",
+      "kind": "third-party-photography",
+      "provider": "Unsplash",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "photoIds": [
+        "1497366754035-f200968a6e72",
+        "1500530855697-b586d89ba3ee",
+        "1504384308090-c894fdcc538d",
+        "1511818966892-d7d671e672a2",
+        "1521737711867-e3b97375f902",
+        "1524758631624-e2822e304c36"
+      ],
+      "origin": "https://images.unsplash.com/"
+    },
+    {
+      "consumer": "packages/vue/src/blocks/wallet-card/src/utils.ts",
+      "kind": "third-party-media",
+      "provider": "DiceBear Glass",
+      "sourceUrl": "https://www.dicebear.com/styles/glass/",
+      "license": "CC0-1.0"
+    },
+    {
+      "consumer": "packages/vue/src/motion/card/demo.vue",
+      "kind": "third-party-photography",
+      "provider": "Unsplash",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "photoIds": [
+        "1497366754035-f200968a6e72"
+      ],
+      "origin": "https://images.unsplash.com/"
+    },
+    {
+      "consumer": "packages/vue/src/motion/scroll-animation/examples/parallax.vue",
+      "kind": "third-party-media",
+      "provider": "Lorem Picsum / Unsplash",
+      "sourceUrl": "https://picsum.photos/",
+      "license": "Provider terms; separate from orvui MIT"
+    },
+    {
+      "consumer": "packages/vue/src/motion/image-viewer/demo.vue",
+      "kind": "third-party-photography",
+      "provider": "Unsplash",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "photoIds": [
+        "1497366754035-f200968a6e72",
+        "1500530855697-b586d89ba3ee",
+        "1511818966892-d7d671e672a2"
+      ],
+      "origin": "https://images.unsplash.com/"
+    },
+    {
+      "consumer": "packages/vue/src/motion/image-viewer/examples/morphing.vue",
+      "kind": "third-party-photography",
+      "provider": "Unsplash",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "photoIds": [
+        "1497366754035-f200968a6e72",
+        "1500530855697-b586d89ba3ee",
+        "1511818966892-d7d671e672a2"
+      ],
+      "origin": "https://images.unsplash.com/"
+    },
+    {
+      "consumer": "packages/vue/src/motion/aspect-ratio/demo.vue",
+      "kind": "third-party-photography",
+      "provider": "Unsplash",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "photoIds": [
+        "1470770841072-f978cf4d019e"
+      ],
+      "origin": "https://images.unsplash.com/"
+    }
+  ],
+  "newlyAuthored": [
+    {
+      "consumer": "packages/vue/src/blocks/prediction-market/examples/market-cards.vue",
+      "material": "Synthetic club and rate-board vector badges, replacing remote team marks and institutional seal",
+      "license": "MIT",
+      "copyright": "everfu"
+    }
+  ]
+}

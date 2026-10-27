@@ -1,0 +1,184 @@
+---
+title: "Center Morph Modal"
+description: "围绕中心向各方向展开模态框，关闭时回到同一点。"
+category: "Components"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/components/motion/center-morph-modal"
+markdown: "https://orvui.efu.me/components/motion/center-morph-modal.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# Center Morph Modal
+
+> 围绕中心向各方向展开模态框，关闭时回到同一点。
+
+## 安装
+
+### Center Morph Modal — 复制源码
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/center-morph-modal.json
+```
+
+通过注册表安装后，在应用样式入口导入一次 `src/components/orvui/styles.css`。
+
+### 组件包
+
+npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```bash
+pnpm add lucide-vue-next@^0.468.0
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## 依赖
+
+- `clsx@^2.1.1`
+- `lucide-vue-next@^0.468.0`
+- `motion-v@^1.10.0`
+- `tailwind-merge@^3.0.0`
+- `tailwindcss@^4.0.0`
+
+## 用法
+
+### Center Morph Modal
+
+**复制源码**
+
+```vue
+<script setup lang="ts">
+import { useId } from "vue";
+import { ArrowUpRight, Check } from "lucide-vue-next";
+import { CenterMorphModal, CenterMorphModalClose, CenterMorphModalContent, CenterMorphModalTrigger } from "@/components/orvui/motion/center-morph-modal";
+const descriptionId = `${useId()}-description`;
+const features = ["Animated Vue components", "Composition API and TypeScript", "Editable source and registry"];
+</script>
+<template><div class="flex min-h-[420px] w-full items-center justify-center"><CenterMorphModal>
+  <CenterMorphModalTrigger><button type="button" class="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-5 text-sm font-medium text-background press focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Open modal</button></CenterMorphModalTrigger>
+  <CenterMorphModalContent ariaLabel="orvui" :ariaDescribedBy="descriptionId"><div class="p-7 sm:p-8"><p class="text-sm font-medium text-muted-foreground">orvui</p>
+    <h2 class="mt-5 max-w-xs pr-8 text-2xl font-medium tracking-tight text-foreground">Ship the whole experience.</h2>
+    <p :id="descriptionId" class="mt-3 text-sm leading-relaxed text-muted-foreground">Create distinctive Vue interfaces with accessible controls and thoughtful movement throughout.</p>
+    <div class="mt-7 space-y-3 border-y border-border py-5"><div v-for="feature in features" :key="feature" class="flex items-center gap-3 text-sm text-foreground"><Check class="h-4 w-4 text-muted-foreground" aria-hidden="true" /><span>{{ feature }}</span></div></div>
+    <CenterMorphModalClose><button class="mt-7 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background press focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Start creating<ArrowUpRight class="h-4 w-4" aria-hidden="true" /></button></CenterMorphModalClose>
+  </div></CenterMorphModalContent>
+</CenterMorphModal></div></template>
+```
+
+**组件包**
+
+```vue
+<script setup lang="ts">
+import { useId } from "vue";
+import { ArrowUpRight, Check } from "lucide-vue-next";
+import { CenterMorphModal, CenterMorphModalClose, CenterMorphModalContent, CenterMorphModalTrigger } from "@orvui/vue/motion/center-morph-modal";
+const descriptionId = `${useId()}-description`;
+const features = ["Animated Vue components", "Composition API and TypeScript", "Editable source and registry"];
+</script>
+<template><div class="flex min-h-[420px] w-full items-center justify-center"><CenterMorphModal>
+  <CenterMorphModalTrigger><button type="button" class="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-5 text-sm font-medium text-background press focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Open modal</button></CenterMorphModalTrigger>
+  <CenterMorphModalContent ariaLabel="orvui" :ariaDescribedBy="descriptionId"><div class="p-7 sm:p-8"><p class="text-sm font-medium text-muted-foreground">orvui</p>
+    <h2 class="mt-5 max-w-xs pr-8 text-2xl font-medium tracking-tight text-foreground">Ship the whole experience.</h2>
+    <p :id="descriptionId" class="mt-3 text-sm leading-relaxed text-muted-foreground">Create distinctive Vue interfaces with accessible controls and thoughtful movement throughout.</p>
+    <div class="mt-7 space-y-3 border-y border-border py-5"><div v-for="feature in features" :key="feature" class="flex items-center gap-3 text-sm text-foreground"><Check class="h-4 w-4 text-muted-foreground" aria-hidden="true" /><span>{{ feature }}</span></div></div>
+    <CenterMorphModalClose><button class="mt-7 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background press focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Start creating<ArrowUpRight class="h-4 w-4" aria-hidden="true" /></button></CenterMorphModalClose>
+  </div></CenterMorphModalContent>
+</CenterMorphModal></div></template>
+```
+
+## API 参考
+
+### CenterMorphModal
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `false` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | — | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | — | `open: opened` | — |
+
+### CenterMorphModalClose
+
+### CenterMorphModalContent
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `ariaLabel` | `string` | — | 是 | — |
+| `ariaDescribedBy` | `string` | — | 否 | — |
+| `dismissible` | `boolean` | `true` | 否 | — |
+| `showCloseButton` | `boolean` | `true` | 否 | — |
+| `closeButtonLabel` | `string` | `"Close modal"` | 否 | — |
+| `backdropClassName` | `string` | — | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### CenterMorphModalTrigger
+
+## 关于 Center Morph Modal
+
+围绕中心向各方向展开模态框，关闭时回到同一点。
+
+### 适用场景
+
+- 当界面需要以下行为时使用 Center Morph Modal：围绕中心向各方向展开模态框，关闭时回到同一点。
+
+### 无障碍
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### 常见问题
+
+**如何配置 Center Morph Modal？**
+
+通过 open、defaultOpen 配置 Center Morph Modal；API 表列出其类型与默认值。
+
+**如何连接到应用状态？**
+
+监听 update:open，将组件连接到应用状态。
+
+**可以在服务端渲染吗？**
+
+可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
+
+## 源码
+
+- 注册表详情: https://orvui.efu.me/r/center-morph-modal.json
+- 文档: https://orvui.efu.me/components/motion/center-morph-modal
+- `packages/vue/src/motion/center-morph-modal/src/CenterMorphModal.vue`
+- `packages/vue/src/motion/center-morph-modal/src/CenterMorphModalClose.vue`
+- `packages/vue/src/motion/center-morph-modal/src/CenterMorphModalContent.vue`
+- `packages/vue/src/motion/center-morph-modal/src/CenterMorphModalTrigger.vue`
+
+Copyright (c) 2026 everfu。版权声明及第三方条款见 LICENSE 与 NOTICE。
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

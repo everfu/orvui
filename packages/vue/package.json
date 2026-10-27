@@ -1,0 +1,62 @@
+{
+  "name": "@orvui/vue",
+  "version": "0.1.0",
+  "description": "Animated Vue components with composable APIs, charts and copyable source.",
+  "type": "module",
+  "license": "MIT",
+  "author": "everfu",
+  "files": [
+    "dist",
+    "src",
+    "!src/**/tests/**",
+    "registry",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./tokens.css": "./src/tokens.css",
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly -p tsconfig.build.json && node scripts/finalize-types.mjs",
+    "prepack": "pnpm --dir ../.. package:build"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "motion-v": "^1.10.0",
+    "@floating-ui/dom": "^1.7.0",
+    "@tanstack/vue-virtual": "^3.13.0",
+    "@paper-design/shaders": "^0.0.76",
+    "lucide-vue-next": "^0.468.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.0.0",
+    "lenis": "^1.3.0",
+    "shiki": "^3.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

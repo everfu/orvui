@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "package": "@iconify-json/simple-icons@1.2.100",
+  "license": "CC0-1.0",
+  "licenseFile": "/licenses/simple-icons-CC0.txt",
+  "resources": [
+    {
+      "consumer": "CopyPage.vue",
+      "name": "v0",
+      "bodySha256": "e3618cd6f8faeda06cbb2c2792ac8bad240367027575a054f1507f7773305167"
+    },
+    {
+      "consumer": "CopyPage.vue",
+      "name": "openai",
+      "bodySha256": "ac02abdd85fd2075f645ca555a3a65b924e346578e27f15d2d4a6942ef458567"
+    },
+    {
+      "consumer": "CopyPage.vue",
+      "name": "claude",
+      "bodySha256": "dc1c82ef6f11ddd509e083ece30f088ffc4a9a751951916b8207985fc002b298"
+    }
+  ]
+}

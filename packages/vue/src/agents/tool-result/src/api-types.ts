@@ -1,0 +1,7 @@
+// Vue public prop types, derived from the actual components.
+export type ToolResultOutputProps = InstanceType<
+  (typeof import("./ToolResultOutput.vue"))["default"]
+>["$props"];
+export type ToolResultProps = InstanceType<
+  (typeof import("./ToolResult.vue"))["default"]
+>["$props"];

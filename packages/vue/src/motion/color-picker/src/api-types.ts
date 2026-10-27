@@ -1,0 +1,37 @@
+// Vue public prop types, derived from the actual components.
+export type ColorPickerAlphaProps = InstanceType<
+  (typeof import("./ColorPickerAlpha.vue"))["default"]
+>["$props"];
+export type ColorPickerAreaProps = InstanceType<
+  (typeof import("./ColorPickerArea.vue"))["default"]
+>["$props"];
+export type ColorPickerChannelsProps = InstanceType<
+  (typeof import("./ColorPickerChannels.vue"))["default"]
+>["$props"];
+export type ColorPickerContentProps = InstanceType<
+  (typeof import("./ColorPickerContent.vue"))["default"]
+>["$props"];
+export type ColorPickerEyeDropperProps = InstanceType<
+  (typeof import("./ColorPickerEyeDropper.vue"))["default"]
+>["$props"];
+export type ColorPickerHexInputProps = InstanceType<
+  (typeof import("./ColorPickerHexInput.vue"))["default"]
+>["$props"];
+export type ColorPickerHueProps = InstanceType<
+  (typeof import("./ColorPickerHue.vue"))["default"]
+>["$props"];
+export type ColorPickerPresetProps = InstanceType<
+  (typeof import("./ColorPickerPreset.vue"))["default"]
+>["$props"];
+export type ColorPickerPresetsProps = InstanceType<
+  (typeof import("./ColorPickerPresets.vue"))["default"]
+>["$props"];
+export type ColorPickerProps = InstanceType<
+  (typeof import("./ColorPicker.vue"))["default"]
+>["$props"];
+export type ColorPickerSwatchProps = InstanceType<
+  (typeof import("./ColorPickerSwatch.vue"))["default"]
+>["$props"];
+export type ColorPickerTriggerProps = InstanceType<
+  (typeof import("./ColorPickerTrigger.vue"))["default"]
+>["$props"];

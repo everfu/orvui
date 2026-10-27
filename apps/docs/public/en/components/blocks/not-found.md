@@ -1,0 +1,377 @@
+---
+title: "404 / Not Found"
+description: "Present a missing destination with an animated visual and a route back to useful content."
+category: "Blocks"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/en/components/blocks/not-found"
+markdown: "https://orvui.efu.me/en/components/blocks/not-found.md"
+license: "MIT"
+productVersion: "0.1.0"
+---
+
+# 404 / Not Found
+
+> Present a missing destination with an animated visual and a route back to useful content.
+
+## Install
+
+### 404 / Not Found — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/not-found.json
+```
+
+### Glitch — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/not-found-glitch.json
+```
+
+### Magnetic — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/not-found-magnetic.json
+```
+
+### Spotlight — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/not-found-spotlight.json
+```
+
+### Stacked — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/not-found-stacked.json
+```
+
+### Terminal — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/not-found-terminal.json
+```
+
+Import `src/components/orvui/styles.css` once in your application's stylesheet entry after a registry installation.
+
+### Component package
+
+After npm publication, use the package command below. Before publication, install the verified local archive.
+
+```bash
+pnpm add @orvui/vue
+```
+
+```bash
+pnpm add ./orvui-vue-0.1.0.tgz
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## Dependencies
+
+- `motion-v@^1.10.0`
+- `tailwindcss@^4.0.0`
+
+## Usage
+
+### 404 / Not Found
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { NotFoundStacked } from "@/components/orvui/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundStacked v-bind="navigation" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { NotFoundStacked } from "@orvui/vue/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundStacked v-bind="navigation" /></div>
+</template>
+```
+
+### Glitch
+
+Resolve an unstable character display into a missing-page status code.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { NotFoundGlitch } from "@/components/orvui/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundGlitch v-bind="navigation" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { NotFoundGlitch } from "@orvui/vue/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundGlitch v-bind="navigation" /></div>
+</template>
+```
+
+### Magnetic
+
+Let each status digit follow nearby pointer movement before returning to its place.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { NotFoundMagnetic } from "@/components/orvui/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundMagnetic v-bind="navigation" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { NotFoundMagnetic } from "@orvui/vue/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundMagnetic v-bind="navigation" /></div>
+</template>
+```
+
+### Spotlight
+
+Reveal the status code with a pointer-following light over a dark surface.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { NotFoundSpotlight } from "@/components/orvui/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundSpotlight v-bind="navigation" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { NotFoundSpotlight } from "@orvui/vue/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundSpotlight v-bind="navigation" /></div>
+</template>
+```
+
+### Stacked
+
+Fan out cards beneath the status panel when it is hovered or focused.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { NotFoundStacked } from "@/components/orvui/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundStacked v-bind="navigation" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { NotFoundStacked } from "@orvui/vue/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundStacked v-bind="navigation" /></div>
+</template>
+```
+
+### Terminal
+
+Type the failed navigation command and status code inside a terminal-like surface.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { NotFoundTerminal } from "@/components/orvui/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundTerminal v-bind="navigation" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { NotFoundTerminal } from "@orvui/vue/blocks/not-found";
+const navigation = { homeHref: "/", browseHref: "/components/motion" };
+</script>
+<template>
+  <div class="w-full"><NotFoundTerminal v-bind="navigation" /></div>
+</template>
+```
+
+## API Reference
+
+### NotFoundStacked
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | No | — |
+| `title` | `string` | — | No | — |
+| `description` | `string` | — | No | — |
+| `homeHref` | `string` | — | No | — |
+| `homeLabel` | `string` | — | No | — |
+| `browseHref` | `string` | — | No | — |
+| `browseLabel` | `string` | — | No | — |
+
+### NotFoundStage
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => unknown` | — | — |
+
+### NotFoundActions
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `browseLabel` | `string` | `NOT_FOUND_DEFAULTS.browseLabel` | No | — |
+| `homeHref` | `string` | `NOT_FOUND_DEFAULTS.homeHref` | No | — |
+| `homeLabel` | `string` | `NOT_FOUND_DEFAULTS.homeLabel` | No | — |
+| `browseHref` | `string` | `NOT_FOUND_DEFAULTS.browseHref` | No | — |
+
+### NotFoundGlitch
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | No | — |
+| `title` | `string` | — | No | — |
+| `description` | `string` | — | No | — |
+| `homeHref` | `string` | — | No | — |
+| `homeLabel` | `string` | — | No | — |
+| `browseHref` | `string` | — | No | — |
+| `browseLabel` | `string` | — | No | — |
+
+### NotFoundMagnetic
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | No | — |
+| `title` | `string` | — | No | — |
+| `description` | `string` | — | No | — |
+| `homeHref` | `string` | — | No | — |
+| `homeLabel` | `string` | — | No | — |
+| `browseHref` | `string` | — | No | — |
+| `browseLabel` | `string` | — | No | — |
+
+### NotFoundSpotlight
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | No | — |
+| `title` | `string` | — | No | — |
+| `description` | `string` | — | No | — |
+| `homeHref` | `string` | — | No | — |
+| `homeLabel` | `string` | — | No | — |
+| `browseHref` | `string` | — | No | — |
+| `browseLabel` | `string` | — | No | — |
+
+### NotFoundTerminal
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | No | — |
+| `title` | `string` | — | No | — |
+| `description` | `string` | — | No | — |
+| `homeHref` | `string` | — | No | — |
+| `homeLabel` | `string` | — | No | — |
+| `browseHref` | `string` | — | No | — |
+| `browseLabel` | `string` | — | No | — |
+
+## About 404 / Not Found
+
+Present a missing destination with an animated visual and a route back to useful content.
+
+### When to use it
+
+- Use 404 / Not Found when the interface needs this behavior: present a missing destination with an animated visual and a route back to useful content.
+
+### Accessibility
+
+Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
+
+### FAQ
+
+**How do I configure 404 / Not Found?**
+
+Configure 404 / Not Found through code, title, description, homeHref, homeLabel, browseHref, browseLabel. The API table describes their types and defaults.
+
+**How does it connect to application state?**
+
+Provide content through the documented composition; application effects remain with the consumer.
+
+**Can I render it on the server?**
+
+Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
+
+## Source
+
+- Registry detail: https://orvui.efu.me/r/not-found.json
+- Documentation: https://orvui.efu.me/en/components/blocks/not-found
+- `packages/vue/src/blocks/not-found/src/NotFoundStacked.vue`
+- `packages/vue/src/blocks/not-found/src/NotFoundStage.vue`
+- `packages/vue/src/blocks/not-found/src/NotFoundActions.vue`
+- `packages/vue/src/blocks/not-found/src/NotFoundGlitch.vue`
+- `packages/vue/src/blocks/not-found/src/NotFoundMagnetic.vue`
+- `packages/vue/src/blocks/not-found/src/NotFoundSpotlight.vue`
+- `packages/vue/src/blocks/not-found/src/NotFoundTerminal.vue`
+
+Copyright (c) 2026 everfu. Copyright notices and third-party terms are provided in LICENSE and NOTICE.
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)

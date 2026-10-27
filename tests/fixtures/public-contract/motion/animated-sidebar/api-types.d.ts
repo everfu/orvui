@@ -1,0 +1,9 @@
+export type AnimatedSidebarCloseProps = InstanceType<(typeof import("./AnimatedSidebarClose.vue"))["default"]>["$props"];
+export type AnimatedSidebarInsetProps = InstanceType<(typeof import("./AnimatedSidebarInset.vue"))["default"]>["$props"];
+export type AnimatedSidebarMenuButtonProps = InstanceType<(typeof import("./AnimatedSidebarMenuButton.vue"))["default"]>["$props"];
+export type AnimatedSidebarMenuSubButtonProps = InstanceType<(typeof import("./AnimatedSidebarMenuSubButton.vue"))["default"]>["$props"];
+export type AnimatedSidebarMenuSubProps = InstanceType<(typeof import("./AnimatedSidebarMenuSub.vue"))["default"]>["$props"];
+export type AnimatedSidebarProps = InstanceType<(typeof import("./AnimatedSidebar.vue"))["default"]>["$props"];
+export type AnimatedSidebarProviderProps = InstanceType<(typeof import("./AnimatedSidebarProvider.vue"))["default"]>["$props"];
+export type AnimatedSidebarRailProps = InstanceType<(typeof import("./AnimatedSidebarRail.vue"))["default"]>["$props"];
+export type AnimatedSidebarTriggerProps = InstanceType<(typeof import("./AnimatedSidebarTrigger.vue"))["default"]>["$props"];

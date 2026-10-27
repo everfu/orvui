@@ -1,0 +1,5 @@
+**/demo.vue
+**/examples/
+**/__tests__/
+**/*.test.*
+**/*.spec.*

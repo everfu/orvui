@@ -1,0 +1,2112 @@
+{
+  "schemaVersion": 2,
+  "product": {
+    "name": "orvui",
+    "version": "0.1.0",
+    "description": "An independent Vue UI system with precise surfaces, expressive motion and composable APIs."
+  },
+  "categories": [
+    {
+      "slug": "motion",
+      "name": "Components",
+      "description": "Composable Vue controls with expressive motion, accessible interactions and the orvui design system.",
+      "components": [
+        {
+          "slug": "timeline",
+          "name": "Timeline",
+          "description": "Browse dated milestones on a draggable track that keeps the selected event in focus.",
+          "badge": "new",
+          "launchedAt": "2026-10-20",
+          "keywords": [
+            "timeline",
+            "vue timeline",
+            "horizontal timeline",
+            "milestone timeline",
+            "release history",
+            "changelog timeline"
+          ],
+          "file": "packages/vue/src/motion/timeline/index.ts"
+        },
+        {
+          "slug": "alert",
+          "name": "Animated Alert",
+          "description": "Present feedback in a compact message row with optional actions and dismissal.",
+          "badge": "new",
+          "launchedAt": "2026-10-05",
+          "keywords": [
+            "alert",
+            "inline feedback",
+            "status message",
+            "dismissible alert"
+          ],
+          "file": "packages/vue/src/motion/alert/index.ts"
+        },
+        {
+          "slug": "collapsible",
+          "name": "Animated Collapsible",
+          "description": "Connect a trigger to an expandable region while preserving the surrounding layout.",
+          "badge": "new",
+          "launchedAt": "2026-10-05",
+          "keywords": [
+            "collapsible",
+            "disclosure",
+            "expandable content",
+            "animated collapse"
+          ],
+          "file": "packages/vue/src/motion/collapsible/index.ts"
+        },
+        {
+          "slug": "aspect-ratio",
+          "name": "Aspect Ratio",
+          "description": "Reserve a chosen width-to-height ratio for media and animate changes to that ratio.",
+          "badge": "new",
+          "launchedAt": "2026-10-05",
+          "keywords": [
+            "aspect ratio",
+            "responsive media",
+            "image container",
+            "video aspect ratio"
+          ],
+          "file": "packages/vue/src/motion/aspect-ratio/index.ts"
+        },
+        {
+          "slug": "arc-picker",
+          "name": "Arc Picker",
+          "description": "Move a curved list of labels through a fixed selection point using gestures or keys.",
+          "badge": "new",
+          "launchedAt": "2026-10-04",
+          "keywords": [
+            "radial picker",
+            "arc picker",
+            "curved text scroller",
+            "semicircle picker",
+            "momentum selection"
+          ],
+          "file": "packages/vue/src/motion/arc-picker/index.ts"
+        },
+        {
+          "slug": "sortable-stack",
+          "name": "Sortable List",
+          "description": "Reorder a list with pointer or keyboard input and offer an undo operation.",
+          "badge": "new",
+          "launchedAt": "2026-10-02",
+          "file": "packages/vue/src/motion/sortable-stack/index.ts"
+        },
+        {
+          "slug": "image-viewer",
+          "name": "Image Viewer",
+          "description": "Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.",
+          "badge": "new",
+          "launchedAt": "2026-10-02",
+          "examples": [
+            {
+              "slug": "morphing",
+              "name": "Morphing",
+              "description": "Keep the selected thumbnail connected to a full gallery view with navigation, zoom and pan.",
+              "installSlug": "morphing-lightbox",
+              "previewKey": "motion/morphing-lightbox",
+              "file": "packages/vue/src/motion/image-viewer/examples/morphing.vue",
+              "previewFile": "packages/vue/src/motion/image-viewer/examples/morphing.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/image-viewer/index.ts"
+        },
+        {
+          "slug": "date-range-picker",
+          "name": "Date Range Picker",
+          "description": "Choose the beginning and end of a date interval in an inline or floating calendar.",
+          "badge": "new",
+          "launchedAt": "2026-10-02",
+          "file": "packages/vue/src/motion/date-range-picker/index.ts"
+        },
+        {
+          "slug": "card",
+          "name": "Card",
+          "description": "Assemble a card from heading, content, actions and footer parts with optional selection.",
+          "badge": "new",
+          "launchedAt": "2026-10-10",
+          "keywords": [
+            "card",
+            "vue card component",
+            "selectable card",
+            "settings card",
+            "summary card"
+          ],
+          "file": "packages/vue/src/motion/card/index.ts"
+        },
+        {
+          "slug": "color-picker",
+          "name": "Color Picker",
+          "description": "Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.",
+          "badge": "new",
+          "launchedAt": "2026-10-10",
+          "keywords": [
+            "color picker",
+            "rgb color picker",
+            "hex color input",
+            "hsl picker",
+            "eyedropper"
+          ],
+          "file": "packages/vue/src/motion/color-picker/index.ts"
+        },
+        {
+          "slug": "color-selector",
+          "name": "Animated Color Selector",
+          "description": "Choose one named swatch with a moving selection outline and native radio behavior.",
+          "badge": "new",
+          "launchedAt": "2026-09-27",
+          "file": "packages/vue/src/motion/color-selector/index.ts"
+        },
+        {
+          "slug": "breadcrumb",
+          "name": "Animated Breadcrumb",
+          "description": "Show the current location in a hierarchy and collapse intermediate links when space is limited.",
+          "badge": "new",
+          "launchedAt": "2026-09-27",
+          "file": "packages/vue/src/motion/breadcrumb/index.ts"
+        },
+        {
+          "slug": "tilt-card",
+          "name": "Tilt Card",
+          "description": "Tilt a card toward the pointer and move a highlight over its surface.",
+          "file": "packages/vue/src/motion/tilt-card/index.ts"
+        },
+        {
+          "slug": "button",
+          "name": "Button",
+          "description": "Use a pressable action surface with magnetic, stateful and metallic alternatives.",
+          "badge": "new",
+          "launchedAt": "2026-08-25",
+          "examples": [
+            {
+              "slug": "metallic",
+              "name": "Metallic Button",
+              "description": "Move a straight highlight around a chrome-like rim on a neutral action surface.",
+              "badge": "new",
+              "launchedAt": "2026-08-25",
+              "installSlug": "button-metallic",
+              "previewKey": "motion/button-metallic",
+              "file": "packages/vue/src/motion/button/examples/metallic.vue",
+              "previewFile": "packages/vue/src/motion/button/examples/metallic.vue"
+            },
+            {
+              "slug": "base",
+              "name": "Button",
+              "description": "Compare button sizes and visual variants, including hover lift and press scale.",
+              "installSlug": "button-base",
+              "previewKey": "motion/button-base",
+              "file": "packages/vue/src/motion/button/examples/base.vue",
+              "previewFile": "packages/vue/src/motion/button/examples/base.vue"
+            },
+            {
+              "slug": "stateful",
+              "name": "Stateful Button",
+              "description": "Switch between idle, loading, success and failure while width follows the current content.",
+              "installSlug": "button-stateful",
+              "previewKey": "motion/button-stateful",
+              "file": "packages/vue/src/motion/button/examples/stateful.vue",
+              "previewFile": "packages/vue/src/motion/button/examples/stateful.vue"
+            },
+            {
+              "slug": "magnetic",
+              "name": "Magnetic Button",
+              "description": "Wrap the action in Magnetic so its surface follows nearby pointer movement.",
+              "installSlug": "button-magnetic",
+              "previewKey": "motion/button-magnetic",
+              "file": "packages/vue/src/motion/button/examples/magnetic.vue",
+              "previewFile": "packages/vue/src/motion/button/examples/magnetic.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/button/index.ts"
+        },
+        {
+          "slug": "expanding-arrow-button",
+          "name": "Animated CTA Buttons",
+          "description": "Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.",
+          "badge": "new",
+          "launchedAt": "2026-07-16",
+          "examples": [
+            {
+              "slug": "expanding-arrow",
+              "name": "Expanding Arrow Button",
+              "description": "Expand the accent end of the button and extend its dotted arrow path on focus or hover.",
+              "installSlug": "expanding-arrow-button",
+              "previewKey": "motion/expanding-arrow-button",
+              "file": "packages/vue/src/motion/expanding-arrow-button/examples/expanding-arrow.vue",
+              "previewFile": "packages/vue/src/motion/expanding-arrow-button/examples/expanding-arrow.vue"
+            },
+            {
+              "slug": "hold-action",
+              "name": "Hold Action Button",
+              "description": "Hold until the horizontal or vertical fill reaches its endpoint; release early to cancel.",
+              "installSlug": "hold-action-button",
+              "previewKey": "motion/hold-action-button",
+              "file": "packages/vue/src/motion/expanding-arrow-button/examples/hold-action.vue",
+              "previewFile": "packages/vue/src/motion/expanding-arrow-button/examples/hold-action.vue"
+            },
+            {
+              "slug": "slide-action",
+              "name": "Slide Action Button",
+              "description": "Drag the handle to confirm; an incomplete gesture springs back without submitting.",
+              "installSlug": "slide-action-button",
+              "previewKey": "motion/slide-action-button",
+              "file": "packages/vue/src/motion/expanding-arrow-button/examples/slide-action.vue",
+              "previewFile": "packages/vue/src/motion/expanding-arrow-button/examples/slide-action.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/expanding-arrow-button/index.ts"
+        },
+        {
+          "slug": "expandable-control",
+          "name": "Expandable Control",
+          "description": "Expand a compact control to reveal a label or trailing action without losing its position.",
+          "badge": "new",
+          "launchedAt": "2026-08-22",
+          "keywords": [
+            "expandable button vue",
+            "animated chip vue",
+            "click to expand",
+            "layout animation button",
+            "reveal action control"
+          ],
+          "file": "packages/vue/src/motion/expandable-control/index.ts"
+        },
+        {
+          "slug": "adaptive-stepper",
+          "name": "Adaptive Stepper",
+          "description": "Adjust a bounded number while the value uses the space released by unavailable actions.",
+          "badge": "new",
+          "launchedAt": "2026-08-31",
+          "keywords": [
+            "vue number stepper",
+            "animated quantity selector",
+            "adaptive counter",
+            "increment decrement control",
+            "compound stepper component",
+            "number input animation"
+          ],
+          "file": "packages/vue/src/motion/adaptive-stepper/index.ts"
+        },
+        {
+          "slug": "marquee",
+          "name": "Marquee",
+          "description": "Repeat a horizontal or vertical content strip with optional pause on hover.",
+          "file": "packages/vue/src/motion/marquee/index.ts"
+        },
+        {
+          "slug": "tabs",
+          "name": "Tabs",
+          "description": "Switch between associated panels using a moving indicator and accessible tab controls.",
+          "file": "packages/vue/src/motion/tabs/index.ts"
+        },
+        {
+          "slug": "switch",
+          "name": "Switch",
+          "description": "Toggle a binary setting with a moving thumb and optional descriptive label.",
+          "file": "packages/vue/src/motion/switch/index.ts"
+        },
+        {
+          "slug": "input",
+          "name": "Input",
+          "description": "Edit text with optional labels, icons and validation feedback in a single field.",
+          "keywords": [
+            "vue animated input",
+            "input error shake",
+            "floating label input",
+            "vue form input animation",
+            "animated text field"
+          ],
+          "file": "packages/vue/src/motion/input/index.ts"
+        },
+        {
+          "slug": "select",
+          "name": "Select",
+          "description": "Choose from a floating list whose panel can expand continuously from its trigger.",
+          "badge": "new",
+          "launchedAt": "2026-06-28",
+          "examples": [
+            {
+              "slug": "default",
+              "name": "Select",
+              "description": "Compose trigger, value and options around a detached panel that chooses the available side.",
+              "installSlug": "select",
+              "previewKey": "motion/select",
+              "file": "packages/vue/src/motion/select/examples/default.vue",
+              "previewFile": "packages/vue/src/motion/select/examples/default.vue"
+            },
+            {
+              "slug": "morph",
+              "name": "Morph Select",
+              "description": "Use matching shared-layout parts so the trigger grows into the option surface.",
+              "installSlug": "select-morph",
+              "previewKey": "motion/select-morph",
+              "file": "packages/vue/src/motion/select/examples/morph.vue",
+              "previewFile": "packages/vue/src/motion/select/examples/morph.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/select/index.ts"
+        },
+        {
+          "slug": "combobox",
+          "name": "Combobox",
+          "description": "Filter a grouped option list from an input while keeping keyboard focus in the field.",
+          "badge": "new",
+          "launchedAt": "2026-08-11",
+          "keywords": [
+            "vue combobox",
+            "animated combobox",
+            "searchable select vue",
+            "autocomplete component",
+            "command menu select",
+            "accessible listbox"
+          ],
+          "file": "packages/vue/src/motion/combobox/index.ts"
+        },
+        {
+          "slug": "multi-select",
+          "name": "Multi Select",
+          "description": "Select several options and manage the resulting tags inside a searchable control.",
+          "badge": "new",
+          "launchedAt": "2026-08-29",
+          "keywords": [
+            "vue multi select",
+            "animated multi select",
+            "searchable multi select",
+            "tag picker vue",
+            "multiple combobox",
+            "composable listbox"
+          ],
+          "file": "packages/vue/src/motion/multi-select/index.ts"
+        },
+        {
+          "slug": "checkbox",
+          "name": "Checkbox",
+          "description": "Represent checked, unchecked and mixed values with an animated check mark.",
+          "badge": "new",
+          "launchedAt": "2026-06-23",
+          "examples": [
+            {
+              "slug": "default",
+              "name": "Checkbox",
+              "description": "Inspect checked and mixed states with a drawn mark and spring press feedback.",
+              "previewKey": "motion/checkbox",
+              "file": "packages/vue/src/motion/checkbox/examples/default.vue",
+              "previewFile": "packages/vue/src/motion/checkbox/examples/default.vue"
+            },
+            {
+              "slug": "description",
+              "name": "With Description",
+              "description": "Add explanatory text below the label and connect it to the checkbox description.",
+              "previewKey": "motion/checkbox-description",
+              "file": "packages/vue/src/motion/checkbox/examples/description.vue",
+              "previewFile": "packages/vue/src/motion/checkbox/examples/description.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/checkbox/index.ts"
+        },
+        {
+          "slug": "radio",
+          "name": "Radio Group",
+          "description": "Choose one value from a keyboard-navigable group of labeled options.",
+          "badge": "new",
+          "launchedAt": "2026-06-23",
+          "examples": [
+            {
+              "slug": "default",
+              "name": "Radio Group",
+              "description": "Move the selected dot between native radio choices with press feedback.",
+              "previewKey": "motion/radio",
+              "file": "packages/vue/src/motion/radio/examples/default.vue",
+              "previewFile": "packages/vue/src/motion/radio/examples/default.vue"
+            },
+            {
+              "slug": "description",
+              "name": "With Description",
+              "description": "Give each radio choice supporting text in its accessible description.",
+              "previewKey": "motion/radio-description",
+              "file": "packages/vue/src/motion/radio/examples/description.vue",
+              "previewFile": "packages/vue/src/motion/radio/examples/description.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/radio/index.ts"
+        },
+        {
+          "slug": "bottom-sheet",
+          "name": "Bottom Sheet",
+          "description": "Open a panel from the lower edge and move it between snap positions with a drag.",
+          "file": "packages/vue/src/motion/bottom-sheet/index.ts"
+        },
+        {
+          "slug": "pull-to-refresh",
+          "name": "Pull to Refresh",
+          "description": "Turn a downward pull into a deliberate asynchronous refresh with visible progress.",
+          "badge": "new",
+          "launchedAt": "2026-07-17",
+          "keywords": [
+            "pull to refresh vue",
+            "swipe to refresh",
+            "mobile refresh gesture",
+            "touch refresh component",
+            "overscroll refresh"
+          ],
+          "file": "packages/vue/src/motion/pull-to-refresh/index.ts"
+        },
+        {
+          "slug": "shared-layout-bg",
+          "name": "Shared Layout Background",
+          "description": "Move one background surface between registered items to indicate a current selection.",
+          "file": "packages/vue/src/motion/shared-layout-bg/index.ts"
+        },
+        {
+          "slug": "bounce-sidebar",
+          "name": "Bounce Sidebar",
+          "description": "Navigate a vertical list while an active marker follows a curved path between rows.",
+          "badge": "new",
+          "launchedAt": "2026-07-22",
+          "keywords": [
+            "animated sidebar vue",
+            "bounce sidebar",
+            "sidebar navigation",
+            "spring navigation indicator",
+            "curved motion path",
+            "active navigation dot"
+          ],
+          "file": "packages/vue/src/motion/bounce-sidebar/index.ts"
+        },
+        {
+          "slug": "animated-sidebar",
+          "name": "Animated Sidebar",
+          "description": "Compose nested navigation with expanded, icon-only and mobile drawer presentations.",
+          "badge": "new",
+          "launchedAt": "2026-07-29",
+          "keywords": [
+            "animated sidebar vue",
+            "mobile sidebar",
+            "responsive sidebar",
+            "collapsible sidebar",
+            "icon sidebar",
+            "sidebar drawer",
+            "composable sidebar",
+            "nested sidebar navigation",
+            "accessible navigation menu"
+          ],
+          "file": "packages/vue/src/motion/animated-sidebar/index.ts"
+        },
+        {
+          "slug": "file-tree",
+          "name": "File Tree",
+          "description": "Explore nested files and folders with expandable branches and keyboard selection.",
+          "badge": "new",
+          "launchedAt": "2026-08-27",
+          "keywords": [
+            "animated file tree vue",
+            "file explorer component",
+            "folder tree",
+            "project tree",
+            "accessible tree view",
+            "vue tree component"
+          ],
+          "file": "packages/vue/src/motion/file-tree/index.ts"
+        },
+        {
+          "slug": "preview-rail",
+          "name": "Preview Rail",
+          "description": "Preview navigation targets from a compact rail that expands around the focused item.",
+          "badge": "new",
+          "launchedAt": "2026-07-11",
+          "keywords": [
+            "codex app navigation",
+            "codex style navigation",
+            "openai codex navigation",
+            "codex navigation vue",
+            "preview rail",
+            "navigation rail",
+            "hover navigation",
+            "navigation preview",
+            "vertical navigation vue",
+            "horizontal navigation vue"
+          ],
+          "file": "packages/vue/src/motion/preview-rail/index.ts"
+        },
+        {
+          "slug": "dock",
+          "name": "Dock",
+          "description": "Group compact navigation actions around an indicator that follows the active item.",
+          "file": "packages/vue/src/motion/dock/index.ts"
+        },
+        {
+          "slug": "tooltip",
+          "name": "Tooltip",
+          "description": "Reveal a short contextual label on hover or focus without displacing nearby content.",
+          "examples": [
+            {
+              "slug": "default",
+              "name": "Tooltip",
+              "description": "Wrap one trigger with a short content label and choose its side and arrow.",
+              "previewKey": "motion/tooltip",
+              "file": "packages/vue/src/motion/tooltip/examples/default.vue",
+              "previewFile": "packages/vue/src/motion/tooltip/examples/default.vue"
+            },
+            {
+              "slug": "toolbar",
+              "name": "Toolbar",
+              "description": "Share timing across toolbar hints and name icon-only controls from their labels.",
+              "previewKey": "motion/tooltip-toolbar",
+              "file": "packages/vue/src/motion/tooltip/examples/toolbar.vue",
+              "previewFile": "packages/vue/src/motion/tooltip/examples/toolbar.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/tooltip/index.ts"
+        },
+        {
+          "slug": "context-menu",
+          "name": "Animated Context Menu",
+          "description": "Open a menu at a pointer position with checkbox, radio and submenu compositions.",
+          "badge": "new",
+          "launchedAt": "2026-07-27",
+          "keywords": [
+            "vue context menu",
+            "animated context menu",
+            "right click menu",
+            "context menu keyboard navigation",
+            "long press menu vue",
+            "composable menu primitives"
+          ],
+          "file": "packages/vue/src/motion/context-menu/index.ts"
+        },
+        {
+          "slug": "popover",
+          "name": "Popover",
+          "description": "Attach a floating surface to a trigger with conventional or continuous morphing transitions.",
+          "badge": "new",
+          "launchedAt": "2026-07-07",
+          "keywords": [
+            "vue popover",
+            "gooey popover",
+            "animated popover",
+            "svg goo filter",
+            "metaball popover",
+            "hover popover vue",
+            "morph popover vue",
+            "dropdown menu vue"
+          ],
+          "examples": [
+            {
+              "slug": "gooey",
+              "name": "Gooey Popover",
+              "description": "Join the trigger and floating panel with a liquid neck while keeping the panel content sharp.",
+              "installSlug": "popover",
+              "previewKey": "motion/popover",
+              "file": "packages/vue/src/motion/popover/examples/gooey.vue",
+              "previewFile": "packages/vue/src/motion/popover/examples/gooey.vue"
+            },
+            {
+              "slug": "morph",
+              "name": "Morph Popover",
+              "description": "Reveal a full-size panel through an anchored clip path without scaling its text.",
+              "installSlug": "popover-morph",
+              "previewKey": "motion/popover-morph",
+              "file": "packages/vue/src/motion/popover/examples/morph.vue",
+              "previewFile": "packages/vue/src/motion/popover/examples/morph.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/popover/index.ts"
+        },
+        {
+          "slug": "morphing-modal",
+          "name": "Morphing Modal",
+          "description": "Change a dialog's content and height together while preserving the outer surface.",
+          "file": "packages/vue/src/motion/morphing-modal/index.ts"
+        },
+        {
+          "slug": "center-morph-modal",
+          "name": "Center Morph Modal",
+          "description": "Expand a modal evenly around its center and return it to the same point on close.",
+          "badge": "new",
+          "launchedAt": "2026-07-21",
+          "keywords": [
+            "vue morph modal",
+            "center expanding modal",
+            "animated modal vue",
+            "framer motion modal",
+            "radial modal animation"
+          ],
+          "file": "packages/vue/src/motion/center-morph-modal/index.ts"
+        },
+        {
+          "slug": "text-animation",
+          "name": "Text Animation",
+          "description": "Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.",
+          "badge": "new",
+          "launchedAt": "2026-07-25",
+          "examples": [
+            {
+              "slug": "text-scramble",
+              "name": "Text Scramble",
+              "description": "Resolve temporary characters into the target text and expose a stable accessible value.",
+              "badge": "new",
+              "launchedAt": "2026-08-14",
+              "installSlug": "text-scramble",
+              "previewKey": "motion/text-scramble",
+              "file": "packages/vue/src/motion/text-animation/examples/text-scramble.vue",
+              "previewFile": "packages/vue/src/motion/text-animation/examples/text-scramble.vue"
+            },
+            {
+              "slug": "chromatic-reveal",
+              "name": "Dia Text Animation",
+              "description": "Keep the sentence prefix still while a color sweep reveals each changing final word.",
+              "badge": "new",
+              "launchedAt": "2026-07-25",
+              "installSlug": "chromatic-text-reveal",
+              "previewKey": "motion/chromatic-text-reveal",
+              "file": "packages/vue/src/motion/text-animation/examples/chromatic-reveal.vue",
+              "previewFile": "packages/vue/src/motion/text-animation/examples/chromatic-reveal.vue"
+            },
+            {
+              "slug": "reveal",
+              "name": "Text Reveal",
+              "description": "Introduce words or characters with a short upward movement and fading blur.",
+              "installSlug": "text-reveal",
+              "previewKey": "motion/text-reveal",
+              "file": "packages/vue/src/motion/text-animation/examples/reveal.vue",
+              "previewFile": "packages/vue/src/motion/text-animation/examples/reveal.vue"
+            },
+            {
+              "slug": "shimmer",
+              "name": "Text Shimmer",
+              "description": "Move a highlight across existing text to indicate pending work or emphasize a label.",
+              "installSlug": "text-shimmer",
+              "previewKey": "motion/text-shimmer",
+              "file": "packages/vue/src/motion/text-animation/examples/shimmer.vue",
+              "previewFile": "packages/vue/src/motion/text-animation/examples/shimmer.vue"
+            },
+            {
+              "slug": "cascade",
+              "name": "Text Cascade",
+              "description": "Replace characters individually, letting the previous line leave before the next settles.",
+              "installSlug": "text-cascade",
+              "previewKey": "motion/text-cascade",
+              "file": "packages/vue/src/motion/text-animation/examples/cascade.vue",
+              "previewFile": "packages/vue/src/motion/text-animation/examples/cascade.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/text-animation/index.ts"
+        },
+        {
+          "slug": "number",
+          "name": "Number Animation",
+          "description": "Animate numeric values with counting, rolling or position-preserving digit changes.",
+          "badge": "new",
+          "launchedAt": "2026-09-04",
+          "examples": [
+            {
+              "slug": "digit-swap",
+              "name": "Digit Swap",
+              "description": "Keep digit positions fixed as changed digits roll with configurable direction and staggering.",
+              "badge": "new",
+              "launchedAt": "2026-09-04",
+              "installSlug": "digit-swap",
+              "previewKey": "motion/digit-swap",
+              "file": "packages/vue/src/motion/number/examples/digit-swap.vue",
+              "previewFile": "packages/vue/src/motion/number/examples/digit-swap.vue"
+            },
+            {
+              "slug": "ticker",
+              "name": "Number Ticker",
+              "description": "Roll numeric columns to a new value with staggered arrivals.",
+              "installSlug": "number-ticker",
+              "previewKey": "motion/number-ticker",
+              "file": "packages/vue/src/motion/number/examples/ticker.vue",
+              "previewFile": "packages/vue/src/motion/number/examples/ticker.vue"
+            },
+            {
+              "slug": "animated",
+              "name": "Animated Number",
+              "description": "Count toward the supplied number after the element enters the viewport.",
+              "installSlug": "animated-number",
+              "previewKey": "motion/animated-number",
+              "file": "packages/vue/src/motion/number/examples/animated.vue",
+              "previewFile": "packages/vue/src/motion/number/examples/animated.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/number/index.ts"
+        },
+        {
+          "slug": "animated-badge",
+          "name": "Animated Badge",
+          "description": "Pair a compact status label with an icon and optional pulse feedback.",
+          "file": "packages/vue/src/motion/animated-badge/index.ts"
+        },
+        {
+          "slug": "action-swap",
+          "name": "Action Swap",
+          "description": "Replace short action text or icons using blur, rolling or staggered transitions.",
+          "examples": [
+            {
+              "slug": "cascade",
+              "name": "Cascade",
+              "description": "Send the old label's characters out and bring the replacement in one character at a time.",
+              "installSlug": "action-swap-cascade",
+              "previewKey": "motion/action-swap-cascade",
+              "file": "packages/vue/src/motion/action-swap/examples/cascade.vue",
+              "previewFile": "packages/vue/src/motion/action-swap/examples/cascade.vue"
+            },
+            {
+              "slug": "blur",
+              "name": "Blur",
+              "description": "Crossfade action content with a short blur and scale transition.",
+              "installSlug": "action-swap-blur",
+              "previewKey": "motion/action-swap-blur",
+              "file": "packages/vue/src/motion/action-swap/examples/blur.vue",
+              "previewFile": "packages/vue/src/motion/action-swap/examples/blur.vue"
+            },
+            {
+              "slug": "roll",
+              "name": "Roll",
+              "description": "Bring the next label or icon upward into its existing space.",
+              "installSlug": "action-swap-roll",
+              "previewKey": "motion/action-swap-roll",
+              "file": "packages/vue/src/motion/action-swap/examples/roll.vue",
+              "previewFile": "packages/vue/src/motion/action-swap/examples/roll.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/action-swap/index.ts"
+        },
+        {
+          "slug": "animated-toast-stack",
+          "name": "Animated Toast Stack",
+          "description": "Manage transient notifications in a stack with actions and gesture dismissal.",
+          "file": "packages/vue/src/motion/animated-toast-stack/index.ts"
+        },
+        {
+          "slug": "theme-toggle",
+          "name": "Theme Toggle",
+          "description": "Reveal a new page theme with a circle, rectangle or blinds transition.",
+          "badge": "new",
+          "launchedAt": "2026-08-01",
+          "keywords": [
+            "theme toggle",
+            "dark mode toggle",
+            "view transition theme",
+            "clip path theme reveal",
+            "blinds transition"
+          ],
+          "file": "packages/vue/src/motion/theme-toggle/index.ts"
+        },
+        {
+          "slug": "bouncy-accordion",
+          "name": "Bouncy Accordion",
+          "description": "Expand a section in a single-open group with connected spring layout movement.",
+          "file": "packages/vue/src/motion/bouncy-accordion/index.ts"
+        },
+        {
+          "slug": "drawer",
+          "name": "Drawer",
+          "description": "Present a dialog from either side of the viewport with focus and scroll management.",
+          "file": "packages/vue/src/motion/drawer/index.ts"
+        },
+        {
+          "slug": "scroll-animation",
+          "name": "Scroll Animation",
+          "description": "Connect scrolling to progress, parallax, reveal effects and deliberate navigation.",
+          "keywords": [
+            "smooth scroll",
+            "lenis",
+            "scroll progress",
+            "reading progress",
+            "momentum scroll",
+            "scroll velocity"
+          ],
+          "examples": [
+            {
+              "slug": "smooth-scroll",
+              "name": "Smooth Scroll",
+              "description": "Provide Lenis scrolling and share offset, velocity and progress through useSmoothScroll.",
+              "installSlug": "smooth-scroll",
+              "previewKey": "motion/smooth-scroll",
+              "file": "packages/vue/src/motion/scroll-animation/examples/smooth-scroll.vue",
+              "previewFile": "packages/vue/src/motion/scroll-animation/examples/smooth-scroll.vue"
+            },
+            {
+              "slug": "scroll-progress",
+              "name": "Scroll Progress",
+              "description": "Render scrolling progress as a bar or ring, with optional spring smoothing.",
+              "installSlug": "scroll-progress",
+              "previewKey": "motion/scroll-progress",
+              "file": "packages/vue/src/motion/scroll-animation/examples/scroll-progress.vue",
+              "previewFile": "packages/vue/src/motion/scroll-animation/examples/scroll-progress.vue"
+            },
+            {
+              "slug": "parallax",
+              "name": "Parallax",
+              "description": "Offset content along either axis according to its position and configured speed.",
+              "installSlug": "parallax",
+              "previewKey": "motion/parallax",
+              "file": "packages/vue/src/motion/scroll-animation/examples/parallax.vue",
+              "previewFile": "packages/vue/src/motion/scroll-animation/examples/parallax.vue"
+            },
+            {
+              "slug": "scroll-to",
+              "name": "Scroll To",
+              "description": "Move the active scroll container to an element, selector or numeric offset.",
+              "installSlug": "scroll-to",
+              "previewKey": "motion/scroll-to",
+              "file": "packages/vue/src/motion/scroll-animation/examples/scroll-to.vue",
+              "previewFile": "packages/vue/src/motion/scroll-animation/examples/scroll-to.vue"
+            },
+            {
+              "slug": "scroll-reveal",
+              "name": "Scroll Reveal",
+              "description": "Reveal content when it crosses the viewport boundary, once or on each entry.",
+              "installSlug": "scroll-reveal",
+              "previewKey": "motion/scroll-reveal",
+              "file": "packages/vue/src/motion/scroll-animation/examples/scroll-reveal.vue",
+              "previewFile": "packages/vue/src/motion/scroll-animation/examples/scroll-reveal.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/scroll-animation/index.ts"
+        },
+        {
+          "slug": "range-slider",
+          "name": "Range Slider",
+          "description": "Adjust a numeric value on a track using drag gestures or keyboard steps.",
+          "badge": "new",
+          "launchedAt": "2026-09-09",
+          "keywords": [
+            "slider",
+            "range slider",
+            "range input",
+            "stepped slider",
+            "inline slider",
+            "ticks",
+            "volume slider",
+            "ruler picker"
+          ],
+          "examples": [
+            {
+              "slug": "inline",
+              "name": "Inline Slider",
+              "description": "Keep the label and value inside the track while nearby ticks move aside for the handle.",
+              "installSlug": "range-slider-inline",
+              "badge": "new",
+              "launchedAt": "2026-09-09",
+              "previewKey": "motion/range-slider-inline",
+              "file": "packages/vue/src/motion/range-slider/examples/inline.vue",
+              "previewFile": "packages/vue/src/motion/range-slider/examples/inline.vue"
+            },
+            {
+              "slug": "stepped",
+              "name": "Range Slider",
+              "description": "Snap a narrow handle between marked steps and emphasize each landing.",
+              "installSlug": "range-slider",
+              "previewKey": "motion/range-slider",
+              "file": "packages/vue/src/motion/range-slider/examples/stepped.vue",
+              "previewFile": "packages/vue/src/motion/range-slider/examples/stepped.vue"
+            },
+            {
+              "slug": "fluid",
+              "name": "Fluid Slider",
+              "description": "Represent the value with a rounded moving fill instead of a separate thumb.",
+              "installSlug": "range-slider-fluid",
+              "badge": "new",
+              "launchedAt": "2026-07-31",
+              "previewKey": "motion/range-slider-fluid",
+              "file": "packages/vue/src/motion/range-slider/examples/fluid.vue",
+              "previewFile": "packages/vue/src/motion/range-slider/examples/fluid.vue"
+            },
+            {
+              "slug": "wave",
+              "name": "Wave Slider",
+              "description": "Raise neighboring bars around the handle to form a traveling wave.",
+              "installSlug": "range-slider-wave",
+              "badge": "new",
+              "launchedAt": "2026-07-31",
+              "previewKey": "motion/range-slider-wave",
+              "file": "packages/vue/src/motion/range-slider/examples/wave.vue",
+              "previewFile": "packages/vue/src/motion/range-slider/examples/wave.vue"
+            },
+            {
+              "slug": "bubble",
+              "name": "Bubble Slider",
+              "description": "Lift a value bubble while dragging and let its tilt respond to movement.",
+              "installSlug": "range-slider-bubble",
+              "badge": "new",
+              "launchedAt": "2026-07-31",
+              "previewKey": "motion/range-slider-bubble",
+              "file": "packages/vue/src/motion/range-slider/examples/bubble.vue",
+              "previewFile": "packages/vue/src/motion/range-slider/examples/bubble.vue"
+            },
+            {
+              "slug": "ruler",
+              "name": "Ruler Slider",
+              "description": "Keep the pointer still while the marked ruler moves beneath it.",
+              "installSlug": "range-slider-ruler",
+              "badge": "new",
+              "launchedAt": "2026-07-31",
+              "previewKey": "motion/range-slider-ruler",
+              "file": "packages/vue/src/motion/range-slider/examples/ruler.vue",
+              "previewFile": "packages/vue/src/motion/range-slider/examples/ruler.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/range-slider/index.ts"
+        },
+        {
+          "slug": "wheel-picker",
+          "name": "Wheel Picker",
+          "description": "Select a value from a rotating wheel with momentum and row snapping.",
+          "badge": "new",
+          "launchedAt": "2026-07-09",
+          "keywords": [
+            "picker",
+            "wheel picker",
+            "ios picker",
+            "drum picker",
+            "spinner",
+            "time picker",
+            "date picker",
+            "scroll picker"
+          ],
+          "file": "packages/vue/src/motion/wheel-picker/index.ts"
+        },
+        {
+          "slug": "table",
+          "name": "Table",
+          "description": "Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.",
+          "badge": "new",
+          "launchedAt": "2026-07-01",
+          "keywords": [
+            "vue data table",
+            "virtualized table",
+            "sortable table",
+            "table row selection",
+            "vue table 10k rows",
+            "editable table vue"
+          ],
+          "examples": [
+            {
+              "slug": "data",
+              "name": "Data Table",
+              "description": "Browse virtualized rows with selection, sorting and adjustable column placement.",
+              "installSlug": "table",
+              "previewKey": "motion/table",
+              "file": "packages/vue/src/motion/table/examples/data.vue",
+              "previewFile": "packages/vue/src/motion/table/examples/data.vue"
+            },
+            {
+              "slug": "editable",
+              "name": "Editable Table",
+              "description": "Edit cell values while retaining the table's keyboard and row navigation.",
+              "installSlug": "table-editable",
+              "previewKey": "motion/table-editable",
+              "file": "packages/vue/src/motion/table/examples/editable.vue",
+              "previewFile": "packages/vue/src/motion/table/examples/editable.vue"
+            },
+            {
+              "slug": "async",
+              "name": "Async Table",
+              "description": "Load another page through onEndReached and retain explicit loading and failure states.",
+              "installSlug": "table-async",
+              "previewKey": "motion/table-async",
+              "file": "packages/vue/src/motion/table/examples/async.vue",
+              "previewFile": "packages/vue/src/motion/table/examples/async.vue"
+            }
+          ],
+          "file": "packages/vue/src/motion/table/index.ts"
+        },
+        {
+          "slug": "shader-background",
+          "name": "Shader Background",
+          "description": "Render an animated background through a Vue adapter for the Paper Design shader runtime.",
+          "badge": "new",
+          "launchedAt": "2026-07-02",
+          "keywords": [
+            "shader background vue",
+            "webgl background",
+            "mesh gradient vue",
+            "animated background vue",
+            "canvas shader",
+            "gradient background component"
+          ],
+          "file": "packages/vue/src/motion/shader-background/index.ts"
+        },
+        {
+          "slug": "cylinder-carousel",
+          "name": "Cylinder Carousel",
+          "description": "Arrange gallery items on a concave or convex cylinder controlled by dragging.",
+          "badge": "new",
+          "launchedAt": "2026-07-04",
+          "keywords": [
+            "3d carousel vue",
+            "cylinder carousel",
+            "coverflow vue",
+            "rolling carousel",
+            "draggable carousel vue"
+          ],
+          "file": "packages/vue/src/motion/cylinder-carousel/index.ts"
+        },
+        {
+          "slug": "loader",
+          "name": "Loader",
+          "description": "Choose a compact animated indicator for an operation whose result is still pending.",
+          "badge": "new",
+          "launchedAt": "2026-07-04",
+          "keywords": [
+            "loader vue",
+            "loading spinner",
+            "dot matrix loader",
+            "dithering loader",
+            "loading indicator"
+          ],
+          "file": "packages/vue/src/motion/loader/index.ts"
+        }
+      ]
+    },
+    {
+      "slug": "charts",
+      "name": "Charts",
+      "description": "Interactive Vue data visualizations with keyboard inspection, motion and configurable layouts.",
+      "components": [
+        {
+          "slug": "sankey-chart",
+          "name": "Sankey Chart",
+          "description": "Trace weighted flows across stages using connected nodes and proportional ribbons.",
+          "badge": "new",
+          "launchedAt": "2026-10-22",
+          "keywords": [
+            "sankey chart",
+            "sankey diagram",
+            "flow chart",
+            "income statement chart",
+            "alluvial chart"
+          ],
+          "file": "packages/vue/src/charts/sankey-chart/index.ts"
+        },
+        {
+          "slug": "treemap",
+          "name": "Treemap",
+          "description": "Compare hierarchical values using nested rectangles whose area follows each value.",
+          "badge": "new",
+          "launchedAt": "2026-10-07",
+          "keywords": [
+            "treemap",
+            "tree map chart",
+            "hierarchical chart",
+            "portfolio allocation",
+            "proportional tiles"
+          ],
+          "file": "packages/vue/src/charts/treemap/index.ts"
+        },
+        {
+          "slug": "candlestick-chart",
+          "name": "Candlestick Chart",
+          "description": "Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.",
+          "badge": "new",
+          "launchedAt": "2026-10-12",
+          "keywords": [
+            "candlestick chart",
+            "ohlc chart",
+            "trading chart",
+            "price chart",
+            "crypto chart"
+          ],
+          "file": "packages/vue/src/charts/candlestick-chart/index.ts"
+        },
+        {
+          "slug": "donut-chart",
+          "name": "Donut Chart",
+          "description": "Compare parts of a total with a ring, selectable legend and central value.",
+          "badge": "new",
+          "launchedAt": "2026-10-12",
+          "keywords": [
+            "donut chart",
+            "pie chart",
+            "share chart",
+            "allocation chart",
+            "breakdown chart"
+          ],
+          "file": "packages/vue/src/charts/donut-chart/index.ts"
+        },
+        {
+          "slug": "volume-profile",
+          "name": "Volume Profile",
+          "description": "Compare traded volume by price level with horizontal bidirectional bars.",
+          "badge": "new",
+          "launchedAt": "2026-10-07",
+          "keywords": [
+            "volume profile",
+            "volume by price",
+            "point of control",
+            "value area",
+            "trading chart"
+          ],
+          "file": "packages/vue/src/charts/volume-profile/index.ts"
+        },
+        {
+          "slug": "status-bar",
+          "name": "Status Bar",
+          "description": "Summarize counts across named states in a proportional segmented bar.",
+          "badge": "new",
+          "launchedAt": "2026-10-07",
+          "keywords": [
+            "status bars",
+            "uptime chart",
+            "status history",
+            "service status",
+            "status timeline"
+          ],
+          "file": "packages/vue/src/charts/status-bar/index.ts"
+        },
+        {
+          "slug": "composition-chart",
+          "name": "Composition Chart",
+          "description": "Compare contributions across categories with normalized bars or stacked areas.",
+          "badge": "new",
+          "launchedAt": "2026-09-25",
+          "keywords": [
+            "stacked bar chart",
+            "stacked area chart",
+            "composition",
+            "market share",
+            "percentage chart"
+          ],
+          "file": "packages/vue/src/charts/composition-chart/index.ts"
+        },
+        {
+          "slug": "funnel-chart",
+          "name": "Funnel Chart",
+          "description": "Follow successive stages and inspect conversion or loss between adjacent steps.",
+          "badge": "new",
+          "launchedAt": "2026-09-20",
+          "keywords": [
+            "funnel chart",
+            "conversion funnel",
+            "drop off",
+            "sales funnel"
+          ],
+          "file": "packages/vue/src/charts/funnel-chart/index.ts"
+        },
+        {
+          "slug": "liquidity-heatmap",
+          "name": "Liquidity Heatmap",
+          "description": "Inspect liquidity across time and price through a grid with selectable intensity bands.",
+          "badge": "new",
+          "launchedAt": "2026-09-20",
+          "keywords": [
+            "liquidity heatmap",
+            "market depth",
+            "order book heatmap",
+            "liquidity chart"
+          ],
+          "file": "packages/vue/src/charts/liquidity-heatmap/index.ts"
+        },
+        {
+          "slug": "bump-chart",
+          "name": "Bump Chart",
+          "description": "Follow changes in series rank over time and pin a series for closer inspection.",
+          "badge": "new",
+          "launchedAt": "2026-09-20",
+          "keywords": [
+            "bump chart",
+            "ranking chart",
+            "leaderboard",
+            "rank history",
+            "rankings over time"
+          ],
+          "file": "packages/vue/src/charts/bump-chart/index.ts"
+        },
+        {
+          "slug": "order-book",
+          "name": "Order Book",
+          "description": "Inspect bid and ask levels, cumulative depth and price selections in a live book.",
+          "badge": "new",
+          "launchedAt": "2026-09-20",
+          "keywords": [
+            "order book",
+            "market depth",
+            "bid ask",
+            "trading chart vue",
+            "depth ladder"
+          ],
+          "file": "packages/vue/src/charts/order-book/index.ts"
+        },
+        {
+          "slug": "heat-calendar",
+          "name": "Heat Calendar",
+          "description": "Show daily activity in a compact calendar grid with exact values available on inspection.",
+          "badge": "new",
+          "launchedAt": "2026-09-11",
+          "keywords": [
+            "heatmap vue",
+            "activity calendar",
+            "contribution graph",
+            "github contribution chart",
+            "heat map component"
+          ],
+          "file": "packages/vue/src/charts/heat-calendar/index.ts"
+        },
+        {
+          "slug": "returns-calendar",
+          "name": "Returns Calendar",
+          "description": "Compare signed daily returns with a calendar, month totals and optional day content.",
+          "badge": "new",
+          "launchedAt": "2026-09-11",
+          "keywords": [
+            "monthly returns heatmap",
+            "returns calendar",
+            "performance grid",
+            "portfolio returns chart",
+            "finance heatmap vue"
+          ],
+          "file": "packages/vue/src/charts/returns-calendar/index.ts"
+        },
+        {
+          "slug": "price-target-fan",
+          "name": "Price Target Fan",
+          "description": "Compare price forecasts around a shared origin using projected target paths.",
+          "badge": "new",
+          "launchedAt": "2026-09-11",
+          "keywords": [
+            "price target chart",
+            "analyst targets",
+            "forecast fan chart",
+            "svg line chart vue",
+            "stock projection chart"
+          ],
+          "file": "packages/vue/src/charts/price-target-fan/index.ts"
+        }
+      ]
+    },
+    {
+      "slug": "agents",
+      "name": "AI Agents",
+      "description": "Composable Vue interfaces for conversations, agent activity, tools and human decisions.",
+      "components": [
+        {
+          "slug": "voice-orb",
+          "name": "Voice Orb",
+          "description": "Display a moving spherical field whose surface responds to activity or audio input.",
+          "badge": "new",
+          "launchedAt": "2026-10-04",
+          "keywords": [
+            "voice orb",
+            "audio visualization",
+            "liquid orb",
+            "voice activity",
+            "webgl sphere"
+          ],
+          "file": "packages/vue/src/agents/voice-orb/index.ts"
+        },
+        {
+          "slug": "message-bubble",
+          "name": "Message Bubble",
+          "description": "Render a compact conversation bubble with an avatar, metadata and optional controls.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "message bubble Vue",
+            "chat bubble component",
+            "AI conversation bubble",
+            "expandable chat message",
+            "interactive chat suggestion",
+            "grouped message bubbles"
+          ],
+          "examples": [
+            {
+              "slug": "surfaces",
+              "name": "Animated Surfaces",
+              "description": "Compare bubble surfaces for incoming and outgoing messages.",
+              "previewKey": "agents/message-bubble",
+              "file": "packages/vue/src/agents/message-bubble/examples/surfaces.vue",
+              "previewFile": "packages/vue/src/agents/message-bubble/examples/surfaces.vue"
+            },
+            {
+              "slug": "avatars",
+              "name": "With Avatars",
+              "description": "Combine avatar choices with message content and sender metadata.",
+              "previewKey": "agents/message-bubble-avatars",
+              "file": "packages/vue/src/agents/message-bubble/examples/avatars.vue",
+              "previewFile": "packages/vue/src/agents/message-bubble/examples/avatars.vue"
+            },
+            {
+              "slug": "show-more",
+              "name": "Show More",
+              "description": "Expand a long bubble in place without moving the surrounding conversation controls.",
+              "previewKey": "agents/message-bubble-collapsible",
+              "file": "packages/vue/src/agents/message-bubble/examples/show-more.vue",
+              "previewFile": "packages/vue/src/agents/message-bubble/examples/show-more.vue"
+            }
+          ],
+          "file": "packages/vue/src/agents/message-bubble/index.ts"
+        },
+        {
+          "slug": "message",
+          "name": "Message",
+          "description": "Build a conversation entry from content, attachments, sources and action parts.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI message Vue",
+            "chat message component",
+            "streaming assistant message",
+            "LLM conversation UI",
+            "agent chat bubbles",
+            "AI chat interface Vue"
+          ],
+          "file": "packages/vue/src/agents/message/index.ts"
+        },
+        {
+          "slug": "message-scroller",
+          "name": "Message Scroller",
+          "description": "Follow appended messages while letting readers leave and return to the latest content.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "message scroller Vue",
+            "AI chat autoscroll",
+            "streaming conversation viewport",
+            "follow output chat UI",
+            "LLM message scroll",
+            "accessible chat transcript"
+          ],
+          "file": "packages/vue/src/agents/message-scroller/index.ts"
+        },
+        {
+          "slug": "prompt-input",
+          "name": "Prompt Input",
+          "description": "Compose and submit a prompt with a growing textarea, attachments and keyboard handling.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI prompt input Vue",
+            "model selector dropdown",
+            "chat composer component",
+            "agent input UI",
+            "AI textarea Vue",
+            "LLM model picker"
+          ],
+          "file": "packages/vue/src/agents/prompt-input/index.ts"
+        },
+        {
+          "slug": "todo-list",
+          "name": "Todo List",
+          "description": "Show a sequence of work items with expandable details and explicit task states.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI agent todo list Vue",
+            "agent task progress UI",
+            "LLM task plan component",
+            "AI checklist Vue",
+            "streaming todo list",
+            "agent workflow status"
+          ],
+          "file": "packages/vue/src/agents/todo-list/index.ts"
+        },
+        {
+          "slug": "code-block",
+          "name": "Code Block",
+          "description": "Present highlighted code with line controls, file labels and a copy operation.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI code block Vue",
+            "streaming code component",
+            "syntax highlighted code block",
+            "LLM code response UI",
+            "agent generated code",
+            "Shiki Vue code block"
+          ],
+          "file": "packages/vue/src/agents/code-block/index.ts"
+        },
+        {
+          "slug": "approval-card",
+          "name": "Approval Card",
+          "description": "Guide a person through one or more decisions before an assistant proceeds.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI approval card Vue",
+            "human in the loop UI",
+            "agent clarification question",
+            "AI multiple choice prompt",
+            "approve agent decision",
+            "agent review workflow"
+          ],
+          "examples": [
+            {
+              "slug": "questions",
+              "name": "Questions",
+              "description": "Move through decision questions and keep each selected answer available for review.",
+              "previewKey": "agents/approval-card-question",
+              "file": "packages/vue/src/agents/approval-card/examples/questions.vue",
+              "previewFile": "packages/vue/src/agents/approval-card/examples/questions.vue"
+            },
+            {
+              "slug": "review",
+              "name": "Review and Approve",
+              "description": "Review the collected answers before confirming the pending action.",
+              "previewKey": "agents/approval-card-review",
+              "file": "packages/vue/src/agents/approval-card/examples/review.vue",
+              "previewFile": "packages/vue/src/agents/approval-card/examples/review.vue"
+            }
+          ],
+          "file": "packages/vue/src/agents/approval-card/index.ts"
+        },
+        {
+          "slug": "file-diff",
+          "name": "File Diff",
+          "description": "Inspect additions and removals with aligned line numbers and expandable context.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI file diff Vue",
+            "agent code changes UI",
+            "streaming diff component",
+            "file edit result",
+            "code additions deletions"
+          ],
+          "file": "packages/vue/src/agents/file-diff/index.ts"
+        },
+        {
+          "slug": "tool-result",
+          "name": "Tool Result",
+          "description": "Present a tool call's status, summary and expandable result in one surface.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI tool result Vue",
+            "agent terminal output UI",
+            "streaming command result",
+            "agent API response",
+            "tool execution status"
+          ],
+          "examples": [
+            {
+              "slug": "terminal-output",
+              "name": "Terminal Output",
+              "description": "Show command output with its terminal framing and execution state.",
+              "previewKey": "agents/tool-result-terminal",
+              "file": "packages/vue/src/agents/tool-result/examples/terminal-output.vue",
+              "previewFile": "packages/vue/src/agents/tool-result/examples/terminal-output.vue"
+            },
+            {
+              "slug": "request-result",
+              "name": "Request Result",
+              "description": "Present request metadata and its returned content as an inspectable result.",
+              "previewKey": "agents/tool-result-request",
+              "file": "packages/vue/src/agents/tool-result/examples/request-result.vue",
+              "previewFile": "packages/vue/src/agents/tool-result/examples/request-result.vue"
+            }
+          ],
+          "file": "packages/vue/src/agents/tool-result/index.ts"
+        },
+        {
+          "slug": "streaming-response",
+          "name": "Streaming Response",
+          "description": "Compose a changing assistant response with text, attachments, references and actions.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI streaming response Vue",
+            "LLM token stream UI",
+            "chat response actions",
+            "AI response sources",
+            "AI answer component",
+            "streaming text Vue"
+          ],
+          "file": "packages/vue/src/agents/streaming-response/index.ts"
+        },
+        {
+          "slug": "image-generation",
+          "name": "Image Generation",
+          "description": "Show image creation states, preview the output and offer result actions.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI image generation Vue",
+            "generated image loading UI",
+            "AI image progress component",
+            "image generation animation",
+            "text to image interface",
+            "AI media result"
+          ],
+          "file": "packages/vue/src/agents/image-generation/index.ts"
+        },
+        {
+          "slug": "tool-approval",
+          "name": "Tool Approval",
+          "description": "Ask for an explicit decision on a pending tool action with explanatory context.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI tool approval UI",
+            "agent permission component",
+            "human in the loop Vue",
+            "approve agent action",
+            "AI tool confirmation"
+          ],
+          "file": "packages/vue/src/agents/tool-approval/index.ts"
+        },
+        {
+          "slug": "citations",
+          "name": "Citations",
+          "description": "Connect inline reference markers to inspectable source entries and links.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI citations Vue",
+            "LLM citations component",
+            "chat citation list",
+            "RAG citation UI",
+            "AI grounded response"
+          ],
+          "file": "packages/vue/src/agents/citations/index.ts"
+        },
+        {
+          "slug": "agent-activity",
+          "name": "Agent Activity",
+          "description": "Group changing assistant activity into expandable steps and a completed summary.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI agent activity component",
+            "agent tool calls UI",
+            "AI search results Vue",
+            "agent reasoning timeline",
+            "mixed agent activity stream",
+            "agent execution trace UI",
+            "collapsible AI activity"
+          ],
+          "examples": [
+            {
+              "slug": "streaming-text",
+              "name": "Streaming Text",
+              "description": "Append activity text as it arrives and retain completed steps in the group.",
+              "previewKey": "agents/agent-activity-text",
+              "file": "packages/vue/src/agents/agent-activity/examples/streaming-text.vue",
+              "previewFile": "packages/vue/src/agents/agent-activity/examples/streaming-text.vue"
+            },
+            {
+              "slug": "reasoning-steps",
+              "name": "Reasoning Steps",
+              "description": "Show a reasoning sequence as individual steps that can collapse into a summary.",
+              "previewKey": "agents/agent-activity-steps",
+              "file": "packages/vue/src/agents/agent-activity/examples/reasoning-steps.vue",
+              "previewFile": "packages/vue/src/agents/agent-activity/examples/reasoning-steps.vue"
+            },
+            {
+              "slug": "web-search",
+              "name": "Web Search",
+              "description": "Present searches and their source results with identifiable provider icons.",
+              "previewKey": "agents/agent-activity-search",
+              "file": "packages/vue/src/agents/agent-activity/examples/web-search.vue",
+              "previewFile": "packages/vue/src/agents/agent-activity/examples/web-search.vue"
+            },
+            {
+              "slug": "tool-calls",
+              "name": "Tool Calls",
+              "description": "Track tool invocations alongside their pending and completed states.",
+              "previewKey": "agents/agent-activity-tools",
+              "file": "packages/vue/src/agents/agent-activity/examples/tool-calls.vue",
+              "previewFile": "packages/vue/src/agents/agent-activity/examples/tool-calls.vue"
+            },
+            {
+              "slug": "mixed-activity",
+              "name": "Mixed Activity",
+              "description": "Combine reasoning, searches, messages and tools into one changing activity group.",
+              "previewKey": "agents/agent-activity-mixed",
+              "file": "packages/vue/src/agents/agent-activity/examples/mixed-activity.vue",
+              "previewFile": "packages/vue/src/agents/agent-activity/examples/mixed-activity.vue"
+            },
+            {
+              "slug": "agent-trace",
+              "name": "Agent Trace",
+              "description": "Summarize the trace with tool-call and message counts while preserving individual steps.",
+              "previewKey": "agents/agent-trace",
+              "file": "packages/vue/src/agents/agent-activity/examples/agent-trace.vue",
+              "previewFile": "packages/vue/src/agents/agent-activity/examples/agent-trace.vue"
+            }
+          ],
+          "file": "packages/vue/src/agents/agent-activity/index.ts"
+        },
+        {
+          "slug": "loading-states",
+          "name": "Agent Loading States",
+          "description": "Communicate pending assistant work with progress, reasoning and shimmer displays.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI agent loading state",
+            "agent thinking animation",
+            "Claude thinking animation",
+            "AI reasoning indicator",
+            "LLM loading component",
+            "chatbot thinking indicator"
+          ],
+          "examples": [
+            {
+              "slug": "reasoning-text",
+              "name": "Reasoning Text",
+              "description": "Present evolving reasoning text with a clear pending-work state.",
+              "badge": "new",
+              "launchedAt": "2026-08-03",
+              "installSlug": "reasoning-text",
+              "previewKey": "agents/reasoning-text",
+              "file": "packages/vue/src/agents/loading-states/examples/reasoning-text.vue",
+              "previewFile": "packages/vue/src/agents/loading-states/examples/reasoning-text.vue"
+            },
+            {
+              "slug": "thinking-shimmer",
+              "name": "Thinking Shimmer",
+              "description": "Keep a readable waiting label under a moving text highlight.",
+              "badge": "new",
+              "launchedAt": "2026-08-03",
+              "installSlug": "thinking-shimmer",
+              "previewKey": "agents/thinking-shimmer",
+              "file": "packages/vue/src/agents/loading-states/examples/thinking-shimmer.vue",
+              "previewFile": "packages/vue/src/agents/loading-states/examples/thinking-shimmer.vue"
+            },
+            {
+              "slug": "agent-progress",
+              "name": "Agent Progress",
+              "description": "Combine a progress indicator with labels describing the current stage.",
+              "badge": "new",
+              "launchedAt": "2026-08-03",
+              "installSlug": "agent-progress",
+              "previewKey": "agents/agent-progress",
+              "file": "packages/vue/src/agents/loading-states/examples/agent-progress.vue",
+              "previewFile": "packages/vue/src/agents/loading-states/examples/agent-progress.vue"
+            }
+          ],
+          "file": "packages/vue/src/agents/loading-states/index.ts"
+        },
+        {
+          "slug": "ai-sidebar",
+          "name": "AI Sidebar",
+          "description": "Organize assistant resources in a searchable tree with selection and move operations.",
+          "badge": "new",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI sidebar Vue",
+            "agent workspace sidebar",
+            "draggable resource tree",
+            "project file sidebar",
+            "collapsible AI navigation",
+            "folder tree Vue"
+          ],
+          "file": "packages/vue/src/agents/ai-sidebar/index.ts"
+        },
+        {
+          "slug": "chat-app",
+          "name": "Chat App",
+          "description": "Compose navigation, conversation content and a prompt area into an assistant workspace.",
+          "launchedAt": "2026-08-03",
+          "keywords": [
+            "AI chat app Vue",
+            "agent workspace example",
+            "complete AI chat interface",
+            "AI SDK compatible chat UI",
+            "agent conversation layout",
+            "LLM chat app component"
+          ],
+          "file": "packages/vue/src/agents/chat-app/index.ts"
+        }
+      ]
+    },
+    {
+      "slug": "blocks",
+      "name": "Blocks",
+      "description": "Ready-to-compose Vue interface patterns for product screens and workflows.",
+      "components": [
+        {
+          "slug": "infinite-masonry",
+          "name": "Infinite Masonry",
+          "description": "Lay out variable-height items in columns and request more as the visible range advances.",
+          "badge": "new",
+          "launchedAt": "2026-07-15",
+          "keywords": [
+            "vue masonry",
+            "infinite scroll masonry",
+            "virtualized masonry",
+            "masonry grid vue",
+            "infinite gallery"
+          ],
+          "file": "packages/vue/src/blocks/infinite-masonry/index.ts"
+        },
+        {
+          "slug": "notification-stack",
+          "name": "Notification Stack",
+          "description": "Expand a compact stack of notifications into separately readable entries.",
+          "badge": "new",
+          "launchedAt": "2026-07-14",
+          "keywords": [
+            "notification stack vue",
+            "hover notification cards",
+            "animated notification list",
+            "stacked cards vue",
+            "notification center component"
+          ],
+          "file": "packages/vue/src/blocks/notification-stack/index.ts"
+        },
+        {
+          "slug": "project-folder",
+          "name": "Project Folder",
+          "description": "Fan out document previews and expand a selected folder into a focused surface.",
+          "badge": "new",
+          "launchedAt": "2026-08-15",
+          "keywords": [
+            "vue folder card",
+            "animated project folder",
+            "file preview component",
+            "folder hover animation",
+            "project card vue"
+          ],
+          "file": "packages/vue/src/blocks/project-folder/index.ts"
+        },
+        {
+          "slug": "card-folder",
+          "name": "Card Folder",
+          "description": "Reveal a group of cards from a folded pocket with a coordinated opening movement.",
+          "badge": "new",
+          "launchedAt": "2026-09-04",
+          "keywords": [
+            "vue card folder",
+            "animated card sleeve",
+            "payment card component",
+            "credit card folder",
+            "interactive wallet card",
+            "card purse component"
+          ],
+          "file": "packages/vue/src/blocks/card-folder/index.ts"
+        },
+        {
+          "slug": "knockout-bracket",
+          "name": "Fixtures",
+          "description": "Browse elimination rounds or a radial bracket with team and match metadata.",
+          "badge": "new",
+          "launchedAt": "2026-07-27",
+          "examples": [
+            {
+              "slug": "knockout-wheel",
+              "name": "Knockout Wheel",
+              "description": "Arrange elimination matches around a radial wheel with the winner at its center.",
+              "badge": "new",
+              "launchedAt": "2026-07-27",
+              "installSlug": "knockout-wheel",
+              "previewKey": "blocks/knockout-wheel",
+              "file": "packages/vue/src/blocks/knockout-bracket/examples/knockout-wheel.vue",
+              "previewFile": "packages/vue/src/blocks/knockout-bracket/examples/knockout-wheel.vue"
+            },
+            {
+              "slug": "knockout-bracket",
+              "name": "Knockout Bracket",
+              "description": "Navigate tournament rounds with team metadata and an optional third-place match.",
+              "installSlug": "knockout-bracket",
+              "previewKey": "blocks/knockout-bracket",
+              "file": "packages/vue/src/blocks/knockout-bracket/examples/knockout-bracket.vue",
+              "previewFile": "packages/vue/src/blocks/knockout-bracket/examples/knockout-bracket.vue"
+            }
+          ],
+          "keywords": [
+            "tournament bracket vue",
+            "knockout bracket component",
+            "world cup bracket vue",
+            "single elimination bracket",
+            "playoff bracket vue",
+            "sports bracket animation"
+          ],
+          "file": "packages/vue/src/blocks/knockout-bracket/index.ts"
+        },
+        {
+          "slug": "availability-scheduler",
+          "name": "Availability Scheduler",
+          "description": "Edit weekly availability as time ranges and copy a schedule to selected days.",
+          "badge": "new",
+          "launchedAt": "2026-07-10",
+          "keywords": [
+            "availability scheduler vue",
+            "weekly hours picker vue",
+            "working hours component",
+            "cal.com availability component",
+            "time range picker vue",
+            "business hours editor"
+          ],
+          "file": "packages/vue/src/blocks/availability-scheduler/index.ts"
+        },
+        {
+          "slug": "swap",
+          "name": "Multi-chain Swap",
+          "description": "Compose an asset exchange with token choices, amounts and destination information.",
+          "file": "packages/vue/src/blocks/swap/index.ts"
+        },
+        {
+          "slug": "dynamic-island",
+          "name": "Dynamic Island",
+          "description": "Switch a compact capsule between live activity views without changing its identity.",
+          "file": "packages/vue/src/blocks/dynamic-island/index.ts"
+        },
+        {
+          "slug": "command-palette",
+          "name": "Command Palette",
+          "description": "Find and activate grouped commands in a keyboard-operated search panel.",
+          "file": "packages/vue/src/blocks/command-palette/index.ts"
+        },
+        {
+          "slug": "morphing-search",
+          "name": "Morphing Search",
+          "description": "Expand a search field into suggestions, recent items or editable filter chips.",
+          "badge": "new",
+          "launchedAt": "2026-10-11",
+          "examples": [
+            {
+              "slug": "chips",
+              "name": "Chip Search",
+              "description": "Convert submitted terms into removable chips while the search surface expands around them.",
+              "badge": "new",
+              "launchedAt": "2026-10-11",
+              "installSlug": "morphing-search-chips",
+              "previewKey": "blocks/morphing-search-chips",
+              "file": "packages/vue/src/blocks/morphing-search/examples/chips.vue",
+              "previewFile": "packages/vue/src/blocks/morphing-search/examples/chips.vue"
+            },
+            {
+              "slug": "overlay",
+              "name": "Morphing Search",
+              "description": "Open a larger search surface from a field or compact trigger using pointer or keyboard input.",
+              "installSlug": "morphing-search",
+              "previewKey": "blocks/morphing-search",
+              "file": "packages/vue/src/blocks/morphing-search/examples/overlay.vue",
+              "previewFile": "packages/vue/src/blocks/morphing-search/examples/overlay.vue"
+            }
+          ],
+          "keywords": [
+            "morphing search vue",
+            "animated search component",
+            "search overlay vue",
+            "keyboard search shortcut",
+            "command search ui"
+          ],
+          "file": "packages/vue/src/blocks/morphing-search/index.ts"
+        },
+        {
+          "slug": "expandable-action-bar",
+          "name": "Expandable Action Bar",
+          "description": "Reveal labels around the active action in a compact row of icon controls.",
+          "file": "packages/vue/src/blocks/expandable-action-bar/index.ts"
+        },
+        {
+          "slug": "overflow-actions",
+          "name": "Overflow Actions",
+          "description": "Expand a compact action track to expose controls that do not fit its resting width.",
+          "file": "packages/vue/src/blocks/overflow-actions/index.ts"
+        },
+        {
+          "slug": "expandable-tabs",
+          "name": "Expandable Tabs",
+          "description": "Navigate an icon strip whose selected item expands to display its label.",
+          "file": "packages/vue/src/blocks/expandable-tabs/index.ts"
+        },
+        {
+          "slug": "morphing-tabs",
+          "name": "Morphing Tabs",
+          "description": "Switch and reorder tabs while their surfaces follow a continuous layout transition.",
+          "badge": "new",
+          "launchedAt": "2026-08-06",
+          "keywords": [
+            "reorderable tabs vue",
+            "drag tabs vue",
+            "morphing tabs component",
+            "animated tab panel",
+            "shared layout tabs"
+          ],
+          "file": "packages/vue/src/blocks/morphing-tabs/index.ts"
+        },
+        {
+          "slug": "swipeable-list",
+          "name": "Swipeable List",
+          "description": "Reveal actions on either side of a list row with pointer or keyboard input.",
+          "file": "packages/vue/src/blocks/swipeable-list/index.ts"
+        },
+        {
+          "slug": "file-upload",
+          "name": "File Upload",
+          "description": "Manage files, previews, progress and retry actions in a queue or attachment workspace.",
+          "badge": "new",
+          "launchedAt": "2026-07-30",
+          "examples": [
+            {
+              "slug": "attachment-upload",
+              "name": "Attachment Upload",
+              "description": "Manage mixed attachments with previews, progress, retry actions and image inspection.",
+              "badge": "new",
+              "launchedAt": "2026-07-30",
+              "installSlug": "attachment-upload",
+              "previewKey": "blocks/attachment-upload",
+              "file": "packages/vue/src/blocks/file-upload/examples/attachment-upload.vue",
+              "previewFile": "packages/vue/src/blocks/file-upload/examples/attachment-upload.vue"
+            },
+            {
+              "slug": "upload-queue",
+              "name": "Upload Queue",
+              "description": "Queue selected or dropped files and manage their upload progress individually.",
+              "installSlug": "file-upload",
+              "previewKey": "blocks/file-upload",
+              "file": "packages/vue/src/blocks/file-upload/examples/upload-queue.vue",
+              "previewFile": "packages/vue/src/blocks/file-upload/examples/upload-queue.vue"
+            }
+          ],
+          "keywords": [
+            "attachment upload vue",
+            "file attachment component",
+            "mixed media upload",
+            "audio attachment waveform",
+            "drag and drop attachments"
+          ],
+          "file": "packages/vue/src/blocks/file-upload/index.ts"
+        },
+        {
+          "slug": "prediction-market",
+          "name": "Prediction Market",
+          "description": "Inspect a market and compose a buy or sell ticket with outcomes and return estimates.",
+          "badge": "new",
+          "launchedAt": "2026-09-10",
+          "examples": [
+            {
+              "slug": "market-cards",
+              "name": "Market Cards",
+              "description": "Compare listed markets, inspect odds and returns, and bookmark individual cards.",
+              "badge": "new",
+              "launchedAt": "2026-09-10",
+              "installSlug": "prediction-market-card",
+              "previewKey": "blocks/prediction-market-card",
+              "file": "packages/vue/src/blocks/prediction-market/examples/market-cards.vue",
+              "previewFile": "packages/vue/src/blocks/prediction-market/examples/market-cards.vue"
+            },
+            {
+              "slug": "trade-ticket",
+              "name": "Trade Ticket",
+              "description": "Choose an outcome and compose a buy or sell amount with visible order feedback.",
+              "installSlug": "prediction-market",
+              "previewKey": "blocks/prediction-market",
+              "file": "packages/vue/src/blocks/prediction-market/examples/trade-ticket.vue",
+              "previewFile": "packages/vue/src/blocks/prediction-market/examples/trade-ticket.vue"
+            }
+          ],
+          "file": "packages/vue/src/blocks/prediction-market/index.ts"
+        },
+        {
+          "slug": "wallet-card",
+          "name": "Wallet Card",
+          "description": "Inspect an account balance, change accounts and hide sensitive amounts in a compact card.",
+          "badge": "new",
+          "launchedAt": "2026-07-03",
+          "keywords": [
+            "wallet card vue",
+            "web3 wallet component",
+            "crypto balance component",
+            "account switcher vue",
+            "chain switcher vue"
+          ],
+          "file": "packages/vue/src/blocks/wallet-card/index.ts"
+        },
+        {
+          "slug": "otp-input",
+          "name": "OTP Input",
+          "description": "Enter or paste a fixed-length code through grouped fields with completion feedback.",
+          "file": "packages/vue/src/blocks/otp-input/index.ts"
+        },
+        {
+          "slug": "signup-form",
+          "name": "Sign Up Form",
+          "description": "Move through registration fields with local validation and explicit submission states.",
+          "badge": "new",
+          "launchedAt": "2026-08-08",
+          "keywords": [
+            "vue signup form",
+            "vue registration form component",
+            "animated form validation vue",
+            "password strength meter vue",
+            "tailwind sign up form"
+          ],
+          "file": "packages/vue/src/blocks/signup-form/index.ts"
+        },
+        {
+          "slug": "bloom-menu",
+          "name": "Bloom Menu",
+          "description": "Open a group of actions around a shared center and restore focus when it closes.",
+          "badge": "new",
+          "launchedAt": "2026-06-26",
+          "file": "packages/vue/src/blocks/bloom-menu/index.ts"
+        },
+        {
+          "slug": "feedback-widget",
+          "name": "Feedback Widget",
+          "description": "Expand a feedback trigger into a form with sending, success and retry states.",
+          "badge": "new",
+          "launchedAt": "2026-06-29",
+          "keywords": [
+            "vue feedback widget",
+            "feedback popover vue",
+            "in-app feedback component",
+            "feedback form animation",
+            "vue feedback button"
+          ],
+          "file": "packages/vue/src/blocks/feedback-widget/index.ts"
+        },
+        {
+          "slug": "not-found",
+          "name": "404 / Not Found",
+          "description": "Present a missing destination with an animated visual and a route back to useful content.",
+          "examples": [
+            {
+              "slug": "glitch",
+              "name": "Glitch",
+              "description": "Resolve an unstable character display into a missing-page status code.",
+              "installSlug": "not-found-glitch",
+              "previewKey": "blocks/not-found-glitch",
+              "file": "packages/vue/src/blocks/not-found/examples/glitch.vue",
+              "previewFile": "packages/vue/src/blocks/not-found/examples/glitch.vue"
+            },
+            {
+              "slug": "magnetic",
+              "name": "Magnetic",
+              "description": "Let each status digit follow nearby pointer movement before returning to its place.",
+              "installSlug": "not-found-magnetic",
+              "previewKey": "blocks/not-found-magnetic",
+              "file": "packages/vue/src/blocks/not-found/examples/magnetic.vue",
+              "previewFile": "packages/vue/src/blocks/not-found/examples/magnetic.vue"
+            },
+            {
+              "slug": "spotlight",
+              "name": "Spotlight",
+              "description": "Reveal the status code with a pointer-following light over a dark surface.",
+              "installSlug": "not-found-spotlight",
+              "previewKey": "blocks/not-found-spotlight",
+              "file": "packages/vue/src/blocks/not-found/examples/spotlight.vue",
+              "previewFile": "packages/vue/src/blocks/not-found/examples/spotlight.vue"
+            },
+            {
+              "slug": "stacked",
+              "name": "Stacked",
+              "description": "Fan out cards beneath the status panel when it is hovered or focused.",
+              "installSlug": "not-found-stacked",
+              "previewKey": "blocks/not-found-stacked",
+              "file": "packages/vue/src/blocks/not-found/examples/stacked.vue",
+              "previewFile": "packages/vue/src/blocks/not-found/examples/stacked.vue"
+            },
+            {
+              "slug": "terminal",
+              "name": "Terminal",
+              "description": "Type the failed navigation command and status code inside a terminal-like surface.",
+              "installSlug": "not-found-terminal",
+              "previewKey": "blocks/not-found-terminal",
+              "file": "packages/vue/src/blocks/not-found/examples/terminal.vue",
+              "previewFile": "packages/vue/src/blocks/not-found/examples/terminal.vue"
+            }
+          ],
+          "file": "packages/vue/src/blocks/not-found/index.ts"
+        }
+      ]
+    }
+  ]
+}

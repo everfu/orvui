@@ -1,0 +1,63 @@
+# orvui visual and compatibility contract
+
+## Product behavior
+
+Retain all 109 components and 72 registered examples, the existing Web routes, public exports, Vue props/events/slots/composables, and installation slugs. Chinese remains the default, with matching English routes. Nuxt and native platform support remain deferred.
+
+## Appearance
+
+Keep the current page and component geometry, typography, radii, spacing, borders, shadows, animation and responsive behavior. Preserve all eleven palette values exactly and retain semantic CSS override behavior. Fonts are Geist and Geist Mono, sourced from the project's declared font packages.
+
+The documentation shell uses one 56px header, animated category filters, a 240px left navigation and a 320px resource rail. Hide the resource rail on tablets and use BottomSheet navigation on phones. The theme control remains an anchored, animated popover with 24px corners, four columns of labeled round swatches, a selection ring and an icon-only trigger at every viewport. Localize its palette labels with the current locale and keep the panel to swatches and a concise CSS copy action, without placeholder icon settings or persistent helper text.
+
+Site actions use the shared private styles in `apps/docs/.vitepress/theme/site-controls.css`: pill shapes, 32/36/40px sizes, primary/secondary/ghost emphasis, matching icon sizes, focus rings and disabled states. Segmented controls use the same borders and contrasting selected surface. The language trigger shows only the current language's flag and opens a dropdown with Chinese and English names, flags and a current-language check. Keep category motion, the resource CTA's animated border, palette swatches and menu semantics. Apply these styles explicitly to the site shell; component previews and public package components retain their own variants and motion.
+
+## Component appearance
+
+Timeline's active card uses a 42% primary/border mix and a 4% primary/card mix; its demonstration accents the active chart and heart with semantic primary and an 8% primary chart area. Its release spring uses stiffness 120, damping 24 and mass 1. Alert uses a 1px inner outline at 24% of its semantic text color, with the default variant using semantic border. Collapsible's default expanded trigger uses a 4% primary/background mix and a primary-colored indicator; title color and custom asChild trigger styling are retained. Arc Picker's selection brackets use 1.5px primary strokes with 3px corner radii, keeping the original bracket occupancy and spring motion with a 6px vertical inset. Sortable List's default handle uses six filled 5px squares with 1.5px corners in a 24px viewBox, at columns 4/15 and rows 3/9.5/16, inside the original 18px icon and 36px button; fill inherits currentColor without a stroke, and custom handle slots and all reorder behavior are retained. Image Viewer's opening transition uses a 460ms thumbnail projection with a 280ms backdrop fade and 6px blur; footer controls enter after 120ms and zoom after 160ms, with the close action immediately available. Its 420ms return to the matching thumbnail locks the animation origin and measures the unprojected thumbnail image rectangle with opening projection disabled, while the backdrop fades for 460ms. Repeated thumbnails return to the actual clicked source when it still represents the current image, and any focused zoom control appears immediately. Reduced motion uses 100ms opacity transitions without blur or geometry motion. Per-session rendering and cleanup protect quick close/reopen. Date Range Picker's selected start/end date buttons use 9px corners inside their existing day-button geometry; all other dates and the range band retain their original shapes. Card's selected state uses its primary border without an extra default outer shadow; consumer-provided shadows and focus outlines are retained. Color Picker's static 18px thumbs use a 2px white border while retaining the loupe's 3px border; one-axis thumbs omit an undefined y transform so their initial hue and opacity positions match the current values. Color Selector's moving selection ring and its initial fallback use 85% of the selected swatch color, keeping the existing 2px stroke and geometry. Breadcrumb's default separator is a round-ended short slash in its existing 14px icon box, keeping the original color, RTL rule and custom separator slot. Tilt Card's existing pointer-tracked reflection uses 10% opacity, retaining its radial gradient, perspective, angle calculation and spring. Button and ButtonLink use the existing MetallicButton keyboard focus treatment: a 2px semantic ring with 2px offset and no native outline. Consumers can override the focus classes; MagneticButton and StatefulButton inherit the shared treatment without changing their motion. Expanding Arrow Button's expanded arrow trail uses alpha values 1, .82, .64, .46 and .28, retaining the idle accent, dot pattern, layout, delays and springs; Slide Action and Hold Action remain unchanged. Expandable Button and Chip use a 40% semantic primary color on the existing 1px border only while expanded and enabled, retaining neutral borders when collapsed or disabled and preserving transparent backgrounds and consumer class overrides.
+
+The following component details are also part of the current appearance contract. Components not listed retain their current appearance. Focus treatments use semantic colors and preserve consumer overrides.
+
+| Component | Current appearance |
+| --- | --- |
+| Tabs | Underline, pill and segment triggers use a 2px inset semantic focus ring. |
+| Switch; Input | Switch thumb uses `shadow-sm`; Input placeholder uses `muted-foreground/75`. |
+| Select; Combobox; Multi Select | Selection check, disclosure chevrons and value-removal cross use 2.5px strokes. |
+| Checkbox; Radio; Bottom Sheet | Unselected control borders use `muted-foreground/65`; the sheet handle uses `muted-foreground/60`. |
+| File Tree; Dock | Tree guides use semantic border; the active Dock surface has a 1px inset `primary/20` ring. |
+| Tooltip; Morphing Modal; Drawer | Tooltip uses `shadow-md`; modal and drawer use `shadow-xl`, retaining edge borders and backdrops. |
+| Context Menu; Center Morph Modal; Cylinder Carousel | Menu items have semantic keyboard focus; close and carousel controls keep focus indicators inside their clipped geometry. |
+| Animated Badge; Bouncy Accordion | Colored badge borders use 40% opacity, with neutral borders retained; expanded enabled accordion chevrons use primary. |
+| Action Swap; Theme Toggle; Animated Toast Stack | Action Swap variants and theme toggles use semantic keyboard rings; toast action/dismiss controls use inset rings. |
+| Range Slider; Table | Slider ticks use `foreground/35`; active sort headers and their direction glyphs use primary. |
+| Infinite Masonry; Notification Stack; Swap | Error card border uses `destructive/30`; notification card border uses `border/70`; swap shell border uses `border/30`. |
+| Project Folder; Card Folder; Knockout Bracket | Count text uses `foreground/80`; folder metadata uses `muted-foreground/75`; third-place caption uses `muted-foreground/80`. |
+| Availability Scheduler; File Upload; Prediction Market; Wallet Card; Sign Up Form | Day/Apply, file actions, quick amount/Max, balance visibility and password reveal controls have semantic keyboard focus rings. |
+| Command Palette; Expandable Action Bar | Menu options use a 2px semantic inset outline above their active background; toolbar buttons use inset rings. |
+| Overflow Actions; Morphing Tabs | Disabled actions use 50% opacity; focused active/inactive tab borders use `black/30` and `white/70`. |
+| Feedback Widget; Not Found | Textarea placeholder uses `muted-foreground/70`; navigation links use semantic focus rings with 2px background offsets. |
+| Message Bubble; Prompt Input | Expand/collapse focus ring has a 2px background offset; focused input border uses `foreground/40`. |
+| Todo List; Tool Result; Streaming Response | Disclosure chevrons use `muted-foreground/70`. |
+| Code Block; Agent Code; File Diff | Line numbers use `muted-foreground/55`, including both sides of a diff. |
+| Image Generation; Tool Approval | Resolution badge uses `foreground/80`; approval outer border uses 80% opacity. |
+| Citations; AI Sidebar | External-link icon uses `muted-foreground/65` and its hover color on keyboard focus; resource actions appear when their row has visible keyboard focus. |
+| Sankey Chart; Heat Calendar; Bump Chart | Node and intensity-legend focus rings have 2px semantic background offsets; the bump chart scroll-region outline has a 2px offset. |
+| Donut Chart; Composition Chart | Pressed legend state has a 1px semantic inset border ring; focusing the invisible period slider outlines the plot. |
+
+Demo-only details: Shared Layout Background's arrow uses foreground on group hover and visible keyboard focus; Popover's dimension fields use semantic focus color; Text Animation's Replay, Number's Change value and Scroll Animation's Scroll to top buttons use semantic keyboard focus rings. These demo styles do not alter the corresponding public primitives.
+
+## Implementation
+
+Maintain the public behavior contract across state, overlays, layout, renderers and examples. Preserve applicable copyright and license notices with the implementation and assets that use them. Documentation cleanup does not change implementation provenance.
+
+Builds and tests are self-contained within the project. Documentation describes current orvui behavior.
+
+Component organization follows the responsibility boundaries used by Naive UI while retaining this workspace and its four category paths. Each component keeps a stable root `index.ts` that exports implementations and types from `src/`. Existing standalone CSS lives in `styles/`; SFC styles stay with their components. The primary `demo.vue` and registered `examples/*.vue` remain at their existing paths and consume public component barrels. Demo-only helpers belong in `examples/internal/`.
+
+Single-component tests live in the component's `tests/`. Cross-component, documentation, distribution and SSR/hydration integration tests and frozen fixtures remain in the root test suite. Test files must not enter published source, emitted declarations, copy-source closures, documentation source panels or Tailwind scanning. Shared runtime helpers and canonical themes retain their existing locations. Internal source relocation does not change public package specifiers, export names, installation slugs or the frozen compatibility baselines.
+
+## Acceptance
+
+Validate at equal viewport, locale, theme and interaction state. Check keyboard use, focus, controlled/uncontrolled state, nested overlays, reduced motion and cleanup. Check declarations, API compatibility, SSR, hydration, real CLI installation and package consumption separately. Passing tests or file-presence coverage does not establish visual acceptance.
+
+All work is local. Publishing, pushing and deployment require a separate user request.

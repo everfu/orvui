@@ -1,0 +1,47 @@
+/* Restore the pinned documentation geometry; the shared site chrome and
+   component previews keep the original rules in style.css. */
+.site-shell[data-layout="docs"] .docs-frame {
+  display: block;
+}
+.site-shell[data-layout="docs"] .docs-resources {
+  position: fixed;
+  top: calc(var(--header-height) + 32px);
+  right: 32px;
+  width: 320px;
+  max-height: calc(100dvh - var(--header-height) - 64px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.site-shell[data-layout="docs"] .docs-resources::-webkit-scrollbar {
+  display: none;
+}
+.site-shell[data-layout="docs"] .docs-main [id] {
+  scroll-margin-top: calc(var(--header-height) + 32px);
+}
+.site-shell[data-layout="docs"] .docs-breadcrumb {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.site-shell[data-layout="docs"] .support-page {
+  max-width: none;
+}
+.site-shell[data-layout="docs"] .support-page > header h1,
+.site-shell[data-layout="docs"] .site-changelog > header h1 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.025em;
+}
+.site-shell[data-layout="docs"] .support-page > header > .guide-copy {
+  font-size: 16px;
+  line-height: 24px;
+}
+.site-shell[data-layout="docs"] .site-changelog {
+  max-width: none;
+  padding: 0;
+}
+@media (max-width: 1279px) {
+  .site-shell[data-layout="docs"] .docs-resources {
+    display: none;
+  }
+}
