@@ -1,113 +1,131 @@
-# orvui
+<p align="center">
+  <a href="https://orvui.efu.me">
+    <img src="./assets/readme-logo.svg" width="112" height="112" alt="orvui" />
+  </a>
+</p>
 
-A Vue 3.5 component library with motion controls, composed interfaces, assistant UI and charts. The Web catalog contains 109 components and 72 registered examples. Documentation is Chinese by default and includes English routes.
+<h1 align="center">orvui</h1>
 
-Public APIs, installation names, interaction behavior and all eleven color palettes are maintained as project contracts. Applicable copyright notices and third-party licenses remain with the components and assets that use them.
+<p align="center">一个 Vue 3.5 动效组件库</p>
+<p align="center"><b>组合式 API · 主题可调 · TypeScript · 组件级源码安装</b></p>
+<p align="center">让界面更生动，让开发更轻松。</p>
 
-## Local development
+<p align="center">
+  <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-3.5%2B-42b883?logo=vuedotjs&amp;logoColor=white" alt="Vue 3.5+" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&amp;logoColor=white" alt="TypeScript" /></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-18181b" alt="MIT License" /></a>
+</p>
 
-Use the pnpm version specified in `package.json`.
+<p align="center">简体中文 · <a href="./README.en.md">English</a></p>
+<p align="center">
+  <a href="https://orvui.efu.me">在线文档</a> ·
+  <a href="https://orvui.efu.me/docs/installation">开始使用</a> ·
+  <a href="./CONTRIBUTING.md">参与贡献</a>
+</p>
+
+## 文档
+
+[orvui.efu.me](https://orvui.efu.me) · [English documentation](https://orvui.efu.me/en/)
+
+从[安装指南](https://orvui.efu.me/docs/installation)开始，或了解[主题配置](https://orvui.efu.me/docs/theme)、[动效](https://orvui.efu.me/docs/motion-patterns)和 [AI 代理界面](https://orvui.efu.me/docs/ai-agents)。每个组件页面提供交互演示、使用代码、API 和可复制源码。
+
+## 特性
+
+### 从交互控件到完整界面
+
+109 个组件、72 个注册示例，覆盖四类常见界面需求。
+
+| 分类                                                | 内容                                 | 组件数 |
+| --------------------------------------------------- | ------------------------------------ | -----: |
+| [Motion](https://orvui.efu.me/components/motion)    | 按钮、选择器、浮层与动效交互         |     54 |
+| [Blocks](https://orvui.efu.me/components/blocks)    | 表单、文件上传、命令面板与组合模块   |     23 |
+| [AI Agents](https://orvui.efu.me/components/agents) | 消息、提示输入、工具调用与代理工作区 |     18 |
+| [Charts](https://orvui.efu.me/charts)               | 交互图表与数据可视化                 |     14 |
+
+### 主题可调，动效有回应
+
+内置 11 套配色，支持明暗主题和语义 CSS 变量覆盖。组件使用共享弹簧与过渡参数，并支持减少动态效果偏好。
+
+### 为 Vue 编写
+
+基于 Vue 3.5、Composition API 和 TypeScript，使用 `v-model`、slots 与组合函数组织交互。可以从包根入口、分类入口或组件入口导入；项目分别验证类型声明、SSR 和 hydration。
+
+### 按组件安装源码
+
+通过 shadcn-vue CLI 安装所需组件及其实际依赖，直接在项目中修改。组件包与源码注册表使用同一份 Vue 实现，保留适用的版权和许可证。
+
+## 安装
+
+### 组件源码
+
+在已配置 Tailwind CSS 4 和 `components.json` 的 Vue 项目中运行：
+
+```sh
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
+```
+
+从安装后的公共入口导入组件，并在应用入口导入一次主题样式：
+
+```vue
+<script setup lang="ts">
+import { Button } from "@/components/orvui/motion/button";
+import "@/components/orvui/styles.css";
+</script>
+
+<template>
+  <Button>开始使用</Button>
+</template>
+```
+
+其他组件的安装命令见各自文档页面，完整初始化步骤见[安装指南](https://orvui.efu.me/docs/installation)。
+
+### 本地组件包
+
+`@orvui/vue` 当前尚未发布到 npm。可以先在 orvui 仓库根目录打包：
+
+```sh
+pnpm install
+pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
+```
+
+然后在你的 Vue 项目中安装生成的归档，将路径替换为实际位置：
+
+```sh
+pnpm add /path/to/orvui-vue-0.1.0.tgz
+```
+
+使用组件包时导入一次预编译样式，无需在消费项目中配置 Tailwind：
+
+```vue
+<script setup lang="ts">
+import { Button } from "@orvui/vue/motion/button";
+import "@orvui/vue/style.css";
+</script>
+
+<template>
+  <Button>开始使用</Button>
+</template>
+```
+
+目前面向 Web，Nuxt 模块支持仍在后续计划中。
+
+## 本地开发
+
+使用 `package.json` 指定的 pnpm 版本：
 
 ```sh
 pnpm install
 pnpm dev
 ```
 
-The development script serves the documentation at `http://127.0.0.1:5173`. Confirm the actual port printed by the server before browser checks. The documentation's installation guide lives at `/docs/installation` and `/en/docs/installation`.
+文档站默认运行在 `http://127.0.0.1:5173`，以终端打印的实际地址为准。
 
-## Component organization
+## 贡献
 
-The workspace separates `packages/vue` (library), `apps/docs` (documentation) and `tools` (catalog, generation and verification). Within `packages/vue/src/{motion,blocks,agents,charts}/<slug>/`, `index.ts` is the stable public entry, `src/` contains implementation and types, and `styles/` contains existing standalone CSS when needed. The primary `demo.vue` and registered `examples/*.vue` remain alongside the entry. Single-component tests live in `tests/` beside their implementation; integration suites and frozen fixtures remain in the root `tests/`.
+欢迎改进组件、示例和文档。请先阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)，了解目录约定、兼容要求、构建检查与分发验证；外观和行为约定见 [design.md](./design.md)。
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for component, test and distribution conventions.
+## 许可
 
-## Build and checks
+Copyright (c) 2026 **everfu**。orvui 项目代码采用 [MIT](./LICENSE) 许可。
 
-```sh
-pnpm metadata:docs
-pnpm typecheck
-pnpm api:check
-pnpm test
-pnpm build
-pnpm exec tsx tools/registry/build.ts --strict
-```
-
-`pnpm build` regenerates metadata, emits the library and declarations, then builds the documentation and downloadable resources. `pnpm theme:build` generates CSS from the canonical palette contract; `pnpm theme:check` verifies that output.
-
-Public export compatibility, component member contracts and the type-only consumer fixture are separate checks. Tests also cover server rendering, hydration and representative interactions. Generated file presence and passing tests do not establish visual acceptance.
-
-## Install the component package
-
-After npm publication:
-
-```sh
-pnpm add @orvui/vue
-# or: npm install @orvui/vue
-```
-
-For local installation, pack from the repository root. The package's `prepack` step builds the library, declarations, themes and registry automatically:
-
-```sh
-pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
-pnpm add ./artifacts/packages/0.1.0/orvui-vue-0.1.0.tgz
-```
-
-`pnpm package:build` runs the package build without creating an archive. Local archives live under `artifacts/packages/<version>/`, which is ignored by Git. Run the consumer checks below against the resulting archive before using it in another project.
-
-Import from the package root or a documented component entry:
-
-```vue
-<script setup lang="ts">
-import { Button } from '@orvui/vue/motion/button'
-import '@orvui/vue/style.css'
-</script>
-
-<template><Button>Continue</Button></template>
-```
-
-Use `modelValue` / `update:modelValue` and `open` / `update:open` for controlled values. Omitting an optional controlled Boolean leaves it undefined. Slots and composables are part of the public interface.
-
-## Install source with the CLI
-
-The same Vue source backs package exports and the shadcn-vue registry served at https://orvui.efu.me/r/registry.json. Follow the installation guide for a full setup and import the installed `src/components/orvui/styles.css` once.
-
-```sh
-pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
-```
-
-Registry items contain their relative helpers, CSS dependencies and applicable license files. The CLI installs these files at their declared targets. Usage examples import from public component barrels.
-
-## Consumer verification
-
-After packing, run the local package and source-consumption checks:
-
-```sh
-node tools/verify-distribution.mjs
-node tools/verify-public-usage.mjs
-node tools/verify-registry-usage.mjs
-node tools/verify-component-install.mjs
-```
-
-These create isolated temporary projects. Evidence is written outside this repository, under the temporary `orvui-verification` directory by default. Set `ORVUI_VERIFICATION_DIR` to choose an output directory. `--archive /absolute/path.tgz`, `ORVUI_PACKAGE_ARCHIVE` or `ORVUI_USAGE_PACKAGE` selects an existing archive for any consumer check; otherwise the current version under `artifacts/packages/` is used. Existing `IUI_` environment aliases remain supported. Both registry checks serve local JSON and exercise the actual CLI.
-
-Registry and API coverage reports are generated under `artifacts/reports/`; they are not source files. The verification helpers live in `tools/verification/`. To run their focused checks, use `node --test tools/verification/metadata.test.mjs`.
-
-To also test updating an existing source installation, set `ORVUI_PREVIOUS_REGISTRY_DIRECTORY` to a local registry snapshot when running `node tools/verify-component-install.mjs`. This installs the old Button with the real CLI, updates it to the current source layout, and checks types, builds and retention of consumer files in an isolated temporary project.
-
-## Project contracts
-
-- `tools/catalog/components.json`: schema version 2 catalog, routes, component barrels and registered examples.
-- `tools/catalog/public-api.json`: frozen package and component export names and kinds.
-- `tools/catalog/component-contract.json`: frozen public component props, events, slots and controlled Boolean defaults.
-- `packages/vue/src/theme/palettes.ts`: canonical values for all eleven palettes and their semantic override relationships.
-- `design.md`: visual, behavior and compatibility requirements.
-
-Builds and tests use only this project. Web is the active platform; Nuxt module support remains deferred.
-
-## Licenses
-
-Copyright (c) 2026 everfu. orvui is distributed under MIT; see [LICENSE](./LICENSE) and [NOTICE](./NOTICE). Paper Design shaders, fonts, icons and other dependencies retain their own licenses. Local build commands do not publish, push or deploy the project. The private GitHub repository is https://github.com/everfu/orvui; Netlify builds the documentation and source registry for https://orvui.efu.me.
-
-## Hosting
-
-Netlify uses the root `netlify.toml`, runs `pnpm build`, and serves `apps/docs/.vitepress/dist`. The registry remains public over HTTPS so shadcn-vue can install source while the GitHub repository remains private.
+第三方代码和资源保留各自的版权及许可。Paper Design Shader 使用独立的 PolyForm Shield 许可，字体使用 SIL OFL；图标和演示素材的来源与条款见 [NOTICE](./NOTICE)。

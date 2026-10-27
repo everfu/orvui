@@ -2,6 +2,14 @@
 
 使用根目录 `package.json` 指定的 pnpm 版本。运行 `pnpm install` 和 `pnpm dev` 启动文档站，检查终端显示的实际地址。
 
+## 工作区
+
+| 目录           | 职责                                           |
+| -------------- | ---------------------------------------------- |
+| `packages/vue` | `@orvui/vue` 组件源码、样式、声明与组件包      |
+| `apps/docs`    | 中文和英文文档、交互演示及可下载资源           |
+| `tools`        | 产品目录、主题和文档生成、源码注册表及消费验证 |
+
 ## 组件目录
 
 组件放在 `packages/vue/src/{motion,blocks,agents,charts}/<slug>/`。保留四类目录和组件安装名称。
@@ -44,6 +52,47 @@ pnpm theme:check
 
 可以使用 `pnpm exec vitest run packages/vue/src/motion/button/tests` 检查单组件。组件测试必须从声明、发布源文件、注册表、文档源码面板和 Tailwind 扫描中排除。测试、构建、浏览器交互、视觉比较和真实消费是独立的验收层次。
 
-本地归档放在 `artifacts/packages/<version>/`，生成报告放在 `artifacts/reports/`。打包后按 README 执行包消费和实际 shadcn-vue CLI 安装验证；源码与包必须来自同一份实现。已有源码安装更新时，使用 CLI 覆盖公共入口和依赖文件；不要自动删除使用者目录中的旧文件或自定义内容。
+`pnpm build` 会生成文档元数据、组件库与类型声明，再构建文档站和下载资源。`pnpm theme:build` 根据配色约定生成 CSS，`pnpm theme:check` 检查生成结果是否一致。
+
+## 分发与消费验证
+
+在仓库根目录打包，`prepack` 会自动构建组件库、声明、主题和源码注册表：
+
+```sh
+pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
+```
+
+`pnpm package:build` 只构建分发内容，不生成归档。本地归档放在 `artifacts/packages/<version>/`，生成报告放在 `artifacts/reports/`，两者都不提交到 Git。
+
+打包后分别检查包消费、使用代码和实际 shadcn-vue CLI 安装：
+
+```sh
+node tools/verify-distribution.mjs
+node tools/verify-public-usage.mjs
+node tools/verify-registry-usage.mjs
+node tools/verify-component-install.mjs
+```
+
+验证脚本会创建隔离的临时项目，默认将证据写入系统临时目录下的 `orvui-verification`。使用 `ORVUI_VERIFICATION_DIR` 指定输出目录；`--archive /absolute/path.tgz`、`ORVUI_PACKAGE_ARCHIVE` 或 `ORVUI_USAGE_PACKAGE` 可选择归档，否则使用当前版本目录中的默认归档。已有 `IUI_` 环境变量别名继续兼容。两个源码安装验证脚本会启动本地注册表并调用真实 CLI。
+
+设置 `ORVUI_PREVIOUS_REGISTRY_DIRECTORY` 后，单组件安装验证还会从指定的旧注册表安装 Button，再更新到当前源码结构，检查类型、构建及使用者文件保留情况。更新源码时不要自动删除使用者目录中的旧文件或自定义内容。
+
+源码与包必须来自同一份实现。生成的注册表和 API 覆盖报告位于 `artifacts/reports/`。验证辅助模块位于 `tools/verification/`，可以独立运行其检查：
+
+```sh
+node --test tools/verification/metadata.test.mjs
+```
+
+## 项目约定的来源
+
+- `tools/catalog/components.json`：schema version 2 产品目录、路由、公共入口和注册示例
+- `tools/catalog/public-api.json`：冻结的包及组件导出名称与种类
+- `tools/catalog/component-contract.json`：冻结的 props、事件、slots 和受控 Boolean 默认值
+- `packages/vue/src/theme/palettes.ts`：11 套配色和语义覆盖关系
+- `design.md`：视觉、行为和兼容要求
+
+## 文档托管
+
+Netlify 使用根目录 `netlify.toml`，执行 `pnpm build`，发布目录为 `apps/docs/.vitepress/dist`。文档与源码注册表使用 `https://orvui.efu.me`；注册表通过 HTTPS 提供组件级源码安装，入口为 `/r/registry.json`。中英文安装指南分别位于 `/docs/installation` 和 `/en/docs/installation`。
 
 所有开发工作和验证均在本项目内自包含完成。发布 npm、推送代码或部署需要另行明确授权。
