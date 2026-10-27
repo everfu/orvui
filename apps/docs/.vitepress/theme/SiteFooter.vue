@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import SiteLogo from "./SiteLogo.vue";
 import catalog from "../../../../tools/catalog/components.json";
 import type { CatalogCategory } from "../../../../tools/registry/types";
 const props = withDefaults(defineProps<{ en?: boolean }>(), { en: false });
@@ -49,8 +50,7 @@ const links = computed(() => [
           class="orvui-site-footer-logo"
           :aria-label="en ? 'orvui home' : 'orvui 首页'"
         >
-          <span class="orvui-site-footer-mark" aria-hidden="true" />
-          <span>orvui</span>
+          <SiteLogo />
         </a>
         <p class="orvui-site-footer-description">
           {{
@@ -136,32 +136,11 @@ const links = computed(() => [
   max-width: 320px;
 }
 .orvui-site-footer-logo {
+  --orvui-logo-height: 30px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   color: var(--foreground);
-}
-.orvui-site-footer-logo > span:last-child {
-  font-size: 18px;
-  line-height: 28px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.orvui-site-footer-mark {
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--foreground);
-}
-.orvui-site-footer-mark::after {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border-radius: 1px;
-  background: var(--background);
 }
 .orvui-site-footer-description {
   margin: 16px 0 0;

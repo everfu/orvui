@@ -10,6 +10,7 @@ import SiteNavigation from "./SiteNavigation.vue";
 import SiteSearch from "./SiteSearch.vue";
 import SitePreferences from "./SitePreferences.vue";
 import SiteLanguageSwitch from "./SiteLanguageSwitch.vue";
+import SiteLogo from "./SiteLogo.vue";
 import { useSiteShell } from "./site-shell-state";
 const {
   category,
@@ -51,7 +52,7 @@ const sectionLabel = (section: string) =>
       <Menu :size="20" />
     </button>
     <a class="brand" :href="`${locale}/`" aria-label="orvui home"
-      ><span class="brand-mark" /><span>orvui</span></a
+      ><SiteLogo class="site-logo--header" /></a
     >
     <nav class="top-nav" :aria-label="t('主导航', 'Main navigation')">
       <a

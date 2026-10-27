@@ -126,7 +126,7 @@ describe("social metadata", () => {
           )?.[1].href,
         ).toBe(value(data, "og:url"));
         expect(value(data, "og:image")).toBe(
-          "https://orvui.efu.me/social/orvui-v1.png",
+          "https://orvui.efu.me/social/orvui-v2.png",
         );
         expect(value(data, "twitter:image")).toBe(value(data, "og:image"));
         expect(value(data, "twitter:card")).toBe("summary_large_image");

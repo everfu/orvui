@@ -8,7 +8,7 @@ import { notFoundRobots } from "./shared-head";
 export { notFoundRobots } from "./shared-head";
 
 export const socialImage = {
-  path: "/social/orvui-v1.png",
+  path: "/social/orvui-v2.png",
   width: 1200,
   height: 630,
   type: "image/png",

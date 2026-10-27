@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>orvui — Logo 设计探索</title>
+    <link rel="icon" href="../readme-logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./preview.js"></script>
+  </head>
+  <body>
+    <header class="masthead wrap">
+      <a href="#" class="studio-brand" aria-label="orvui Logo 方案总览">orvui<span class="brand-divider"></span><span class="studio-label">Identity studies</span></a>
+      <span class="edition">SOFT FORMS / ROUND 02</span>
+    </header>
+
+    <main class="wrap">
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow">第二轮 · 柔和灵动</p><h1 id="page-title">圆一点，灵动一点。</h1></div>
+        <p class="intro-note">圆润轮廓，轻微的不对称。<br />六个带一点性格的新方向。</p>
+      </section>
+
+      <div class="toolbar" aria-label="预览设置">
+        <div class="mode-switch" role="group" aria-label="查看方式">
+          <button type="button" id="overview" aria-pressed="true">全部方案 <span class="count">06</span></button>
+          <button type="button" id="compare" aria-pressed="false" disabled>并排对比 <span id="compare-count" class="count">0</span></button>
+        </div>
+        <div class="theme-switch" role="group" aria-label="背景颜色">
+          <button type="button" data-theme="light" aria-pressed="true"><span class="theme-dot light-dot" aria-hidden="true"></span>浅色</button>
+          <button type="button" data-theme="dark" aria-pressed="false"><span class="theme-dot dark-dot" aria-hidden="true"></span>深色</button>
+        </div>
+      </div>
+      <p id="view-note" class="view-note">勾选至少两款即可并排对比；点击图形查看完整应用效果。</p>
+      <div id="concepts" class="concept-grid" aria-label="Logo 设计方案"></div>
+      <noscript><p>请启用 JavaScript 查看六款方案，或直接打开目录中的 SVG 文件。</p></noscript>
+
+      <aside class="baseline" aria-label="现有 Logo 对照">
+        <div class="baseline-icon"><img src="../readme-logo.svg" width="40" height="40" alt="现有 orvui 圆角方环 Logo" /></div>
+        <div><h2>现有标志</h2><p>圆角方环 · 对照基准</p></div>
+        <p class="baseline-note">探索只发生在这里。<br />当前项目 Logo 保持原样。</p>
+      </aside>
+      <footer class="page-footer"><span>orvui / Soft forms · Round 02</span><span>柔软的形状，清晰的名字。</span></footer>
+    </main>
+
+    <dialog id="detail" aria-labelledby="detail-title" aria-describedby="detail-description">
+      <div class="dialog-heading"><p class="eyebrow" id="detail-number"></p><button type="button" class="close-button" id="close-detail" aria-label="关闭方案详情">关闭 <span aria-hidden="true">×</span></button></div>
+      <div id="detail-content"></div>
+    </dialog>
+    <p class="sr-only" role="status" id="status" aria-live="polite"></p>
+  </body>
+</html>

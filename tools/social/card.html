@@ -52,19 +52,10 @@
         gap: 16px;
       }
       .mark {
-        position: relative;
+        display: block;
         flex: none;
         width: 36px;
         height: 36px;
-        border-radius: 12px;
-        background: #f4f4f4;
-      }
-      .mark::after {
-        content: "";
-        position: absolute;
-        inset: 10.5px;
-        border-radius: 1.5px;
-        background: #151515;
       }
       header span {
         color: #b0b0b0;
@@ -77,6 +68,11 @@
         font-weight: 600;
         line-height: 1;
         letter-spacing: -8px;
+      }
+      h1 img {
+        display: block;
+        width: 600px;
+        height: auto;
       }
       p {
         margin: 24px 0 0;
@@ -111,12 +107,6 @@
       .symbol .mark {
         width: 240px;
         height: 240px;
-        border-radius: 80px;
-        box-shadow: 0 0 100px #0285f712;
-      }
-      .symbol .mark::after {
-        inset: 70px;
-        border-radius: 10px;
       }
       footer {
         position: absolute;
@@ -137,12 +127,12 @@
   </head>
   <body>
     <header>
-      <div class="mark" aria-hidden="true"></div>
+      <img class="mark" src="../../assets/brand/logo-mark-white.svg" alt="" />
       <span>Vue component library</span>
     </header>
-    <h1>orvui</h1>
+    <h1><img src="../../assets/brand/logo-horizontal-white.svg" alt="orvui" width="600" height="160" /></h1>
     <p>Animated components<br /><span>for Vue.</span></p>
-    <div class="symbol" aria-hidden="true"><div class="mark"></div></div>
+    <div class="symbol" aria-hidden="true"><img class="mark" src="../../assets/brand/logo-mark-white.svg" alt="" /></div>
     <footer>
       <span
         >Motion &nbsp;·&nbsp; Blocks &nbsp;·&nbsp; AI Agents &nbsp;·&nbsp;

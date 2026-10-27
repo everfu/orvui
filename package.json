@@ -4,7 +4,8 @@
   "type": "module",
   "packageManager": "pnpm@10.30.3",
   "scripts": {
-    "dev": "pnpm --filter @orvui/docs dev",
+    "dev": "pnpm brand:sync && pnpm --filter @orvui/docs dev",
+    "brand:sync": "node tools/branding/sync.mjs",
     "build": "pnpm metadata:docs && pnpm build:lib && pnpm docs:resources && pnpm --filter @orvui/docs build",
     "build:lib": "pnpm theme:build && pnpm --filter @orvui/vue build",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json",
@@ -16,7 +17,7 @@
     "docs:generate": "tsx tools/registry/docs.ts && pnpm metadata:docs",
     "docs:resources": "tsx tools/registry/site-pages.ts && tsx tools/registry/markdown-pages.ts",
     "usage:docs": "tsx tools/registry/public-usage.ts",
-    "metadata:docs": "pnpm theme:build && pnpm api:docs && pnpm registry:build && pnpm usage:docs",
+    "metadata:docs": "pnpm brand:sync && pnpm theme:build && pnpm api:docs && pnpm registry:build && pnpm usage:docs",
     "theme:build": "tsx tools/theme/build.ts",
     "theme:check": "tsx tools/theme/build.ts --check",
     "package:build": "pnpm build:lib && pnpm registry:build",

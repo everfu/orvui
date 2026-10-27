@@ -17,7 +17,7 @@ export default defineConfig({
   srcExclude: ["public/**"],
   lastUpdated: false,
   head: [
-    ["link", { rel: "icon", href: "/favicon.svg" }],
+    ["link", { rel: "icon", href: "/favicon.svg?v=2" }],
     // Virtual 404s bypass transformPageData; real pages override this fallback.
     notFoundRobots,
     ["script", {}, appearanceBootstrap],

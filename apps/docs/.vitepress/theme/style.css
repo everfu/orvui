@@ -86,21 +86,6 @@
   font-weight: 600;
   letter-spacing: -0.025em;
 }
-.brand-mark {
-  position: relative;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 8px;
-  background: var(--foreground);
-}
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border-radius: 1px;
-  background: var(--background);
-}
 .top-nav,
 .header-tools,
 .mobile-primary-nav {
@@ -763,9 +748,6 @@
   }
   .site-header .brand {
     gap: 0;
-  }
-  .site-header .brand > span:last-child {
-    display: none;
   }
   .header-tools {
     gap: 4px;
