@@ -3,11 +3,16 @@ import { motion } from "motion-v";
 import { EASE_IN_OUT } from "../../../lib/ease";
 import { BAYER_4, MORPH_PATHS, MORPH_ROT, MORPH_SCALE, MORPH_SEQ } from "./model";
 import { asciiFrames } from "./clock";
+import LoaderSvg from "./LoaderSvg.vue";
 interface LoaderVisualProps { variant: string; size: number; speed: number }
 interface LoaderVisualState { frame: number; text: string; percent: number; id: string }
 const px = (length: number) => `${length}px`;
 const indexes = (count: number) => Array.from({ length: count }, (_, index) => index);
 function moving(tag: string, props: Record<string, unknown>, children?: VNodeChild) {
+  if (tag === "svg" || tag === "circle" || tag === "path") {
+    const { animate: target, transition, ...attrs } = props;
+    return h(LoaderSvg, { ...attrs, as: tag, target, transition } as any, children === undefined ? undefined : { default: () => children });
+  }
   const component = (motion as any)[tag];
   return children === undefined ? h(component, props) : h(component, props, { default: () => children });
 }
