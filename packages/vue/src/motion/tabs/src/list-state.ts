@@ -27,7 +27,12 @@ export function useTabsList(state: TabsState, reduced: Ref<boolean>, root: Ref<H
     if (!indicator || !target || target.dataset.tabsValue !== state.value.value) { labels.forEach(label => label.style.clipPath = "inset(0 100% 0 0)"); cancelFrame(synchronizeClips); return; }
     const pill = (reduced.value ? target : indicator).getBoundingClientRect();
     for (const label of labels) { const bounds = label.getBoundingClientRect(); const left = clamp(pill.left - bounds.left, bounds.width); const right = clamp(bounds.right - pill.right, bounds.width); const clip = left + right >= bounds.width ? "inset(0 100% 0 0)" : `inset(0 ${right}px 0 ${left}px)`; if (label.style.clipPath !== clip) label.style.clipPath = clip; }
-    ticks++; still = previous && Math.abs(pill.left - previous.left) < .01 && Math.abs(pill.right - previous.right) < .01 ? still + 1 : 0; previous = { left: pill.left, right: pill.right }; if (reduced.value || ticks > 2 && still >= 2) cancelFrame(synchronizeClips);
+    const destination = target.getBoundingClientRect();
+    const arrived = Math.abs(pill.left - destination.left) < .1 && Math.abs(pill.right - destination.right) < .1;
+    ticks++; still = previous && Math.abs(pill.left - previous.left) < .01 && Math.abs(pill.right - previous.right) < .01 ? still + 1 : 0; previous = { left: pill.left, right: pill.right };
+    // Shared-layout projection can start after several still frames. Keep the
+    // contrast mask tracking until the indicator actually settles on its tab.
+    if (reduced.value || ticks > 10 && still >= 3 && arrived || ticks > 180) cancelFrame(synchronizeClips);
   }
   function clips() { ticks = 0; still = 0; previous = undefined; cancelFrame(synchronizeClips); frame.postRender(synchronizeClips, true); }
   // Edge updates and resize observations must preserve the user's scroll position.
