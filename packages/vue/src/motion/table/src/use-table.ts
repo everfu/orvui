@@ -124,7 +124,12 @@ export function useTable(
       getItemKey: (index: number) => rows.value[index]?.id ?? index,
     })),
   );
-  const virtualRows = computed(() => virtualizer.value.getVirtualItems()),
+  // A filtered data set can render before the virtualizer receives its new count.
+  const virtualRows = computed(() =>
+      virtualizer.value
+        .getVirtualItems()
+        .filter((item) => item.index < rows.value.length),
+    ),
     total = computed(() => virtualizer.value.getTotalSize()),
     paddingTop = computed(() => virtualRows.value[0]?.start ?? 0),
     paddingBottom = computed(() =>

@@ -70,6 +70,12 @@ const {
   activateRow,
   deactivateRow,
 } = useTable(props, emit);
+function rowRef(id: string) {
+  // Capture the rendered identity; unmount callbacks run after props.data changes.
+  return (node: unknown) => {
+    rowElements.value[id] = node as HTMLElement | null;
+  };
+}
 const alignment = (align?: string) =>
   align === "right"
     ? "text-right"
@@ -161,12 +167,7 @@ const alignment = (align?: string) =>
             <tr
               v-for="virtual in virtualRows"
               :key="String(virtual.key)"
-              :ref="
-                (node) => {
-                  rowElements[rows[virtual.index].id] =
-                    node as HTMLElement | null;
-                }
-              "
+              :ref="rowRef(rows[virtual.index].id)"
               :data-index="virtual.index"
               :data-selected="selectedSet.has(rows[virtual.index].id)"
               :aria-rowindex="virtual.index + 2"

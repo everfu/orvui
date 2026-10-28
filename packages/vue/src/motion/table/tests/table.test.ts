@@ -10,10 +10,7 @@ import {
 import { mount, flushPromises, type VueWrapper } from "@vue/test-utils";
 import { defineComponent, h, nextTick, ref } from "vue";
 import { Table } from "..";
-import {
-  useTableColumns,
-  absoluteColumnWidth,
-} from "../src/useTableColumns";
+import { useTableColumns, absoluteColumnWidth } from "../src/useTableColumns";
 const wrappers: VueWrapper[] = [];
 const nativeAnimate = Element.prototype.animate;
 beforeAll(() => {
@@ -89,6 +86,27 @@ const columns = [
   { key: "score", header: "Score", sortable: true },
 ];
 describe("native virtual table and business events", () => {
+  it("filters and restores a mounted table without reading removed virtual rows", async () => {
+    const entries = data.slice(0, 8);
+    const w = render({
+      data: entries,
+      columns,
+      getRowId: (row: any) => row.id,
+    });
+    await settle();
+    await w.setProps({ data: [entries[6]] });
+    await settle();
+    expect(w.findAll("tbody tr[data-index]")).toHaveLength(1);
+    expect((w.find("tbody input").element as HTMLInputElement).value).toBe(
+      "Person 6",
+    );
+    await w.setProps({ data: [] });
+    await settle();
+    expect(w.find("tbody").text()).toContain("No data");
+    await w.setProps({ data: entries });
+    await settle();
+    expect(w.findAll("tbody tr[data-index]")).toHaveLength(8);
+  });
   it("keeps ten thousand records virtual, scrolls to the last window, and retains native table semantics", async () => {
     const w = render({ data, columns, getRowId: (row: any) => row.id });
     await settle();
