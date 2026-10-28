@@ -20,7 +20,7 @@ function clear() {
       :aria-pressed="chart.pinned === segment.id"
       :class="[
         'flex min-h-12 min-w-0 items-center gap-2.5 rounded-md px-2 py-1.5 text-left text-xs transition-opacity duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
-        chart.pinned === segment.id ? 'bg-muted/60' : undefined,
+        chart.pinned === segment.id ? 'bg-muted/60 ring-1 ring-inset ring-border' : undefined,
         chart.highlight && chart.highlight !== segment.id
           ? 'opacity-40'
           : undefined,

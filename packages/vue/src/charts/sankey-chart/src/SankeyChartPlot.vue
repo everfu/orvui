@@ -193,10 +193,26 @@ function keydown(event: KeyboardEvent, node: PlacedNode) {
           </defs>
           <g v-for="{ link, gradient, opacity } in links" :key="link.id">
             <motion.path
+              :d="link.path"
+              :stroke-width="link.width"
               :stroke="`url(#${gradient})`"
               fill="none"
-              :initial="chart.reduce ? false : { pathLength: 0, opacity: 0 }"
-              :while-in-view="{ pathLength: 1, opacity }"
+              :initial="
+                chart.reduce
+                  ? { d: link.path, strokeWidth: link.width, opacity }
+                  : {
+                      d: link.path,
+                      strokeWidth: link.width,
+                      pathLength: 0,
+                      opacity: 0,
+                    }
+              "
+              :while-in-view="{
+                d: link.path,
+                strokeWidth: link.width,
+                pathLength: 1,
+                opacity,
+              }"
               :animate="{ d: link.path, strokeWidth: link.width, opacity }"
               :in-view-options="{ once: true }"
               :transition="
