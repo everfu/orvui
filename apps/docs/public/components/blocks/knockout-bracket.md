@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 浏览淘汰赛轮次或径向赛程，并查看队伍与比赛元数据。
 
+浏览淘汰赛轮次或径向赛程，并查看队伍与比赛元数据。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Fixtures：浏览淘汰赛轮次或径向赛程，并查看队伍与比赛元数据。
+
 ## 安装
 
 ### Fixtures — 复制源码
@@ -168,12 +174,6 @@ const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
 | `initialRound` | `number` | `0` | 否 | — |
 
 ## 关于 Fixtures
-
-浏览淘汰赛轮次或径向赛程，并查看队伍与比赛元数据。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Fixtures：浏览淘汰赛轮次或径向赛程，并查看队伍与比赛元数据。
 
 ### 无障碍
 

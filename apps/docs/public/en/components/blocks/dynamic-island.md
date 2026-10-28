@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Switch a compact capsule between live activity views without changing its identity.
 
+Switch a compact capsule between live activity views without changing its identity.
+
+## When to use it
+
+- Use Dynamic Island when the interface needs this behavior: switch a compact capsule between live activity views without changing its identity.
+
 ## Install
 
 ### Dynamic Island — Registry source
@@ -311,12 +317,6 @@ const clock = (seconds: number) =>
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Dynamic Island
-
-Switch a compact capsule between live activity views without changing its identity.
-
-### When to use it
-
-- Use Dynamic Island when the interface needs this behavior: switch a compact capsule between live activity views without changing its identity.
 
 ### Accessibility
 

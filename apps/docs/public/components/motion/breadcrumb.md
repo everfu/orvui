@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 展示层级中的当前位置，在空间有限时折叠中间链接。
 
+展示层级中的当前位置，在空间有限时折叠中间链接。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Breadcrumb：展示层级中的当前位置，在空间有限时折叠中间链接。
+
 ## 安装
 
 ### Animated Breadcrumb — 复制源码
@@ -198,12 +204,6 @@ async function navigate(index: number, event?: MouseEvent) {
 | `default` | `() => VNodeChild` | — | — |
 
 ## 关于 Animated Breadcrumb
-
-展示层级中的当前位置，在空间有限时折叠中间链接。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Breadcrumb：展示层级中的当前位置，在空间有限时折叠中间链接。
 
 ### 无障碍
 

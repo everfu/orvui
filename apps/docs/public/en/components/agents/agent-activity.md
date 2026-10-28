@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Group changing assistant activity into expandable steps and a completed summary.
 
+Group changing assistant activity into expandable steps and a completed summary.
+
+## When to use it
+
+- Use Agent Activity when the interface needs this behavior: group changing assistant activity into expandable steps and a completed summary.
+
 ## Install
 
 ### Agent Activity — Registry source
@@ -1716,40 +1722,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### AgentActivity
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `items` | `AgentActivityItem[]` | — | Yes | — |
-| `contentType` | `"step" \| "text" \| "search" \| "tool" \| "trace" \| "mixed"` | — | No | — |
-| `status` | `"complete" \| "working"` | `"working"` | No | — |
-| `duration` | `number` | `0` | No | — |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `false` | No | — |
-| `collapseOnComplete` | `boolean` | `true` | No | — |
-| `activeLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
-| `summary` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
-| `maxHeight` | `number` | `208` | No | — |
-| `contentClassName` | `string` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `working-status` | `(context: { label: Content; duration: number; }) => VNodeChild` | `label: label`, `duration: duration` | — |
-| `completed-status` | `(context: { summary: Content; duration: number; }) => VNodeChild` | `summary: summary`, `duration: duration` | — |
-
 ## Component Guide
 
 Group changing assistant activity into expandable steps and a completed summary.
@@ -1812,13 +1784,41 @@ The Usage section composes AgentActivity through Vue props, events and slots. Us
 - Use when: Use Agent Activity when the interface needs this behavior: group changing assistant activity into expandable steps and a completed summary.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### AgentActivity
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `items` | `AgentActivityItem[]` | — | Yes | — |
+| `contentType` | `"step" \| "text" \| "search" \| "tool" \| "trace" \| "mixed"` | — | No | — |
+| `status` | `"complete" \| "working"` | `"working"` | No | — |
+| `duration` | `number` | `0` | No | — |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `false` | No | — |
+| `collapseOnComplete` | `boolean` | `true` | No | — |
+| `activeLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
+| `summary` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
+| `maxHeight` | `number` | `208` | No | — |
+| `contentClassName` | `string` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `working-status` | `(context: { label: Content; duration: number; }) => VNodeChild` | `label: label`, `duration: duration` | — |
+| `completed-status` | `(context: { summary: Content; duration: number; }) => VNodeChild` | `summary: summary`, `duration: duration` | — |
+
 ## About Agent Activity
-
-Group changing assistant activity into expandable steps and a completed summary.
-
-### When to use it
-
-- Use Agent Activity when the interface needs this behavior: group changing assistant activity into expandable steps and a completed summary.
 
 ### Accessibility
 

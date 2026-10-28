@@ -4,6 +4,18 @@
 
 > Product version: 0.1.0
 
+<a id="workflow"></a>
+
+## Start with the workflow
+
+1. **Discover existing capabilities** — Read component names, APIs and dependencies from the documentation and registry.
+
+2. **Install and register explicitly** — Use actual registry items and public imports, then integrate with your application's framework.
+
+3. **Run and verify** — Check the generated output, interaction state and any required server capabilities.
+
+> **Tip**: Integration snippets explain composition. Your application provides model calls, permissions and backend behavior.
+
 <a id="install"></a>
 
 ## Install
@@ -203,6 +215,11 @@ orvui components own their files and ship through the registry, so the library a
 - [Defining components](https://www.openui.com/docs/api-reference/vue-lang): Full Vue defineComponent, createLibrary and Renderer reference.
 - [Vue chat example](https://github.com/thesysdev/openui/tree/main/examples/app-frameworks/vue): The official Vue example of the component-library pattern.
 Other generative UI frameworks that consume shadcn registries can pull orvui the same way—more integration guides to come.
+
+## Next steps
+
+- [For AI agents](/en/docs/ai-agents)
+- [Theme setup](/en/docs/theme)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

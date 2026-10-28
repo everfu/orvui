@@ -1,8 +1,6 @@
 node_modules/
 dist/
 .dev/
-**/.vitepress/cache/
-**/.vitepress/dist/
 *.tgz
 .DS_Store
 
@@ -11,3 +9,6 @@ artifacts/
 .env
 .env.*
 !.env.example
+
+**/.nuxt/
+**/.output/

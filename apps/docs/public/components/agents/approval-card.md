@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在助手继续工作前，引导用户完成一个或多个决策步骤。
 
+在助手继续工作前，引导用户完成一个或多个决策步骤。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Approval Card：在助手继续工作前，引导用户完成一个或多个决策步骤。
+
 ## 安装
 
 ### Approval Card — 复制源码
@@ -648,46 +654,6 @@ function replay() {
 </template>
 ```
 
-## API 参考
-
-### ApprovalCard
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approval required"` | 否 | — |
-| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
-| `questions` | `ApprovalCardQuestion[]` | `() => []` | 否 | — |
-| `status` | `"pending" \| "submitting" \| "approved" \| "rejected" \| "changes-requested" \| "answered"` | `"pending"` | 否 | — |
-| `answers` | `ApprovalCardAnswers` | — | 否 | — |
-| `defaultAnswers` | `ApprovalCardAnswers` | `() => ({})` | 否 | — |
-| `step` | `number` | — | 否 | — |
-| `defaultStep` | `number` | `0` | 否 | — |
-| `approveLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approve"` | 否 | — |
-| `submitLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Submit response"` | 否 | — |
-| `result` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:answers` | `[answers: ApprovalCardAnswers]` | — |
-| `answersChange` | `[answers: ApprovalCardAnswers]` | — |
-| `update:step` | `[step: number]` | — |
-| `stepChange` | `[step: number]` | — |
-| `submit` | `[answers: ApprovalCardAnswers]` | — |
-| `approve` | `[]` | — |
-| `reject` | `[]` | — |
-| `requestChanges` | `[]` | — |
-| `dismiss` | `[]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## 组件指南
 
 在助手继续工作前，引导用户完成一个或多个决策步骤。
@@ -750,13 +716,47 @@ Usage 区域通过 Vue props、事件与插槽组合 ApprovalCard，请选择与
 - 适用: 当界面需要以下行为时使用 Approval Card：在助手继续工作前，引导用户完成一个或多个决策步骤。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### ApprovalCard
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approval required"` | 否 | — |
+| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
+| `questions` | `ApprovalCardQuestion[]` | `() => []` | 否 | — |
+| `status` | `"pending" \| "submitting" \| "approved" \| "rejected" \| "changes-requested" \| "answered"` | `"pending"` | 否 | — |
+| `answers` | `ApprovalCardAnswers` | — | 否 | — |
+| `defaultAnswers` | `ApprovalCardAnswers` | `() => ({})` | 否 | — |
+| `step` | `number` | — | 否 | — |
+| `defaultStep` | `number` | `0` | 否 | — |
+| `approveLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approve"` | 否 | — |
+| `submitLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Submit response"` | 否 | — |
+| `result` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:answers` | `[answers: ApprovalCardAnswers]` | — |
+| `answersChange` | `[answers: ApprovalCardAnswers]` | — |
+| `update:step` | `[step: number]` | — |
+| `stepChange` | `[step: number]` | — |
+| `submit` | `[answers: ApprovalCardAnswers]` | — |
+| `approve` | `[]` | — |
+| `reject` | `[]` | — |
+| `requestChanges` | `[]` | — |
+| `dismiss` | `[]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## 关于 Approval Card
-
-在助手继续工作前，引导用户完成一个或多个决策步骤。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Approval Card：在助手继续工作前，引导用户完成一个或多个决策步骤。
 
 ### 无障碍
 

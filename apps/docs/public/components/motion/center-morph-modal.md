@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 围绕中心向各方向展开模态框，关闭时回到同一点。
 
+围绕中心向各方向展开模态框，关闭时回到同一点。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Center Morph Modal：围绕中心向各方向展开模态框，关闭时回到同一点。
+
 ## 安装
 
 ### Center Morph Modal — 复制源码
@@ -145,12 +151,6 @@ const features = ["Animated Vue components", "Composition API and TypeScript", "
 ### CenterMorphModalTrigger
 
 ## 关于 Center Morph Modal
-
-围绕中心向各方向展开模态框，关闭时回到同一点。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Center Morph Modal：围绕中心向各方向展开模态框，关闭时回到同一点。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Follow changes in series rank over time and pin a series for closer inspection.
 
+Follow changes in series rank over time and pin a series for closer inspection.
+
+## When to use it
+
+- Use Bump Chart when the interface needs this behavior: follow changes in series rank over time and pin a series for closer inspection.
+
 ## Install
 
 ### Bump Chart — Registry source
@@ -220,12 +226,6 @@ function shuffle() {
 | `className` | `string` | — | No | — |
 
 ## About Bump Chart
-
-Follow changes in series rank over time and pin a series for closer inspection.
-
-### When to use it
-
-- Use Bump Chart when the interface needs this behavior: follow changes in series rank over time and pin a series for closer inspection.
 
 ### Accessibility
 

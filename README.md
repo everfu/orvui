@@ -118,7 +118,9 @@ pnpm install
 pnpm dev
 ```
 
-文档站默认运行在 `http://127.0.0.1:5173`，以终端打印的实际地址为准。
+文档站使用 Nuxt SSR，固定运行在 `http://127.0.0.1:5174`。运行 `pnpm build` 构建生产产物，使用 `pnpm preview` 预览，或 `pnpm start` 启动独立 Node 服务。
+
+开发、测试与构建配置见 [文档站说明](./apps/docs/README.md)。
 
 ## 贡献
 

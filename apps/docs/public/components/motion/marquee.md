@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 连续重复水平或垂直内容带，并可在悬停时暂停。
 
+连续重复水平或垂直内容带，并可在悬停时暂停。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Marquee：连续重复水平或垂直内容带，并可在悬停时暂停。
+
 ## 安装
 
 ### Marquee — 复制源码
@@ -93,12 +99,6 @@ const names = "Vercel,Linear,Stripe,Figma,GitHub,Notion,Loom,Raycast".split(",")
 | `fade` | `boolean` | `true` | 否 | — |
 
 ## 关于 Marquee
-
-连续重复水平或垂直内容带，并可在悬停时暂停。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Marquee：连续重复水平或垂直内容带，并可在悬停时暂停。
 
 ### 无障碍
 

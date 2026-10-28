@@ -2,11 +2,11 @@ import { packageName, packageArchiveName } from "../distribution";
 import type { ApiComponent, ApiEntry } from "./component-docs-types";
 import type { CatalogEntry } from "./types";
 import catalog from "../catalog/components.json";
-import { getVariantDescription } from "../../apps/docs/.vitepress/theme/variant-descriptions";
+import { getVariantDescription } from "../../apps/docs/app/docs/variant-descriptions";
 import type {
   ComponentDetailBaseline,
   AgentGuide,
-} from "../../apps/docs/.vitepress/theme/details/types";
+} from "../../apps/docs/app/docs/details/types";
 
 export interface ComponentMarkdownInput {
   category: { slug: string; name: string };
@@ -56,7 +56,7 @@ function block(value: string, language: string) {
 }
 function registryUrl(base: string, slug: string) {
   const root = base.replace(/\/+$/, "");
-  return `${(root.endsWith("/r") || root.endsWith("/registry")) ? root : root + "/r"}/${encodeURIComponent(slug)}.json`;
+  return `${root.endsWith("/r") || root.endsWith("/registry") ? root : root + "/r"}/${encodeURIComponent(slug)}.json`;
 }
 
 export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
@@ -92,6 +92,18 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
       `## ${t("Install", "安装")}`,
       "",
     ];
+  if (details?.about) {
+    const installHeading = lines.splice(lines.length - 2, 2);
+    lines.push(
+      details.about.overview,
+      "",
+      `## ${t("When to use it", "适用场景")}`,
+      "",
+      ...details.about.useWhen.map((item) => `- ${item}`),
+      "",
+      ...installHeading,
+    );
+  }
   const targets =
     component.examples?.filter((example) => example.installSlug) ?? [];
   if (input.registryUsage) {
@@ -231,6 +243,7 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
       ...block(usage, "vue"),
     );
   }
+  if (details?.guide) guideMarkdown(details.guide, lines, t, pageUrl);
   const publicComponents = new Map<string, ApiComponent>();
   for (const composition of [api.default, ...Object.values(api.variants)])
     for (const component of composition.components)
@@ -281,17 +294,10 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
       lines.push("");
     }
   }
-  if (details?.guide) guideMarkdown(details.guide, lines, t, pageUrl);
   if (details?.about) {
     const about = details.about;
     lines.push(
       `## ${t("About", "关于")} ${component.name}`,
-      "",
-      about.overview,
-      "",
-      `### ${t("When to use it", "适用场景")}`,
-      "",
-      ...about.useWhen.map((item) => `- ${item}`),
       "",
       `### ${t("Accessibility", "无障碍")}`,
       "",

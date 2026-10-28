@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reveal a group of cards from a folded pocket with a coordinated opening movement.
 
+Reveal a group of cards from a folded pocket with a coordinated opening movement.
+
+## When to use it
+
+- Use Card Folder when the interface needs this behavior: reveal a group of cards from a folded pocket with a coordinated opening movement.
+
 ## Install
 
 ### Card Folder — Registry source
@@ -272,12 +278,6 @@ const rings = Array.from({ length: 18 }, (_, index) => ({
 | `card` | `() => VNodeChild` | — | — |
 
 ## About Card Folder
-
-Reveal a group of cards from a folded pocket with a coordinated opening movement.
-
-### When to use it
-
-- Use Card Folder when the interface needs this behavior: reveal a group of cards from a folded pocket with a coordinated opening movement.
 
 ### Accessibility
 

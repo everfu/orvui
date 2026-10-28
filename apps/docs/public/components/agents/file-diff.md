@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过对齐行号与可展开上下文检查新增及删除内容。
 
+通过对齐行号与可展开上下文检查新增及删除内容。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 File Diff：通过对齐行号与可展开上下文检查新增及删除内容。
+
 ## 安装
 
 ### File Diff — 复制源码
@@ -225,32 +231,6 @@ onMounted(replay);
 </template>
 ```
 
-## API 参考
-
-### FileDiff
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `file` | `Content` | — | 是 | — |
-| `lines` | `FileDiffLine[]` | — | 是 | — |
-| `status` | `"streaming" \| "complete"` | `"streaming"` | 否 | — |
-| `open` | `boolean` | `undefined` | 否 | — |
-| `defaultOpen` | `boolean` | `true` | 否 | — |
-| `collapseOnComplete` | `boolean` | `true` | 否 | — |
-| `maxHeight` | `number` | `220` | 否 | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | 否 | — |
-| `copyText` | `string` | `""` | 否 | — |
-| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
 ## 组件指南
 
 通过对齐行号与可展开上下文检查新增及删除内容。
@@ -313,13 +293,33 @@ Usage 区域通过 Vue props、事件与插槽组合 FileDiff，请选择与安�
 - 适用: 当界面需要以下行为时使用 File Diff：通过对齐行号与可展开上下文检查新增及删除内容。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### FileDiff
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `file` | `Content` | — | 是 | — |
+| `lines` | `FileDiffLine[]` | — | 是 | — |
+| `status` | `"streaming" \| "complete"` | `"streaming"` | 否 | — |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `true` | 否 | — |
+| `collapseOnComplete` | `boolean` | `true` | 否 | — |
+| `maxHeight` | `number` | `220` | 否 | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | 否 | — |
+| `copyText` | `string` | `""` | 否 | — |
+| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
 ## 关于 File Diff
-
-通过对齐行号与可展开上下文检查新增及删除内容。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 File Diff：通过对齐行号与可展开上下文检查新增及删除内容。
 
 ### 无障碍
 

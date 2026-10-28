@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
 
+Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
+
+## When to use it
+
+- Use Table when the interface needs this behavior: inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
+
 ## Install
 
 ### Table — Registry source
@@ -1193,12 +1199,6 @@ onBeforeUnmount(() => clearTimeout(request));
 | `['cell-' + column.key]` | — | `row: rows[virtual.index].row`, `value: rows[virtual.index].row[column.key]`, `row-id: rows[virtual.index].id` | — |
 
 ## About Table
-
-Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
-
-### When to use it
-
-- Use Table when the interface needs this behavior: inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
 
 ### Accessibility
 

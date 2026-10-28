@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
 
+Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
+
+## When to use it
+
+- Use Prediction Market when the interface needs this behavior: inspect a market and compose a buy or sell ticket with outcomes and return estimates.
+
 ## Install
 
 ### Prediction Market — Registry source
@@ -563,12 +569,6 @@ const order = ref<PredictionMarketOrderValue>({
 | `bookmarkChange` | `[bookmarked: boolean]` | — |
 
 ## About Prediction Market
-
-Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
-
-### When to use it
-
-- Use Prediction Market when the interface needs this behavior: inspect a market and compose a buy or sell ticket with outcomes and return estimates.
 
 ### Accessibility
 

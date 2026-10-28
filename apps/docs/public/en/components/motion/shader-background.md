@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Render an animated background through a Vue adapter for the Paper Design shader runtime.
 
+Render an animated background through a Vue adapter for the Paper Design shader runtime.
+
+## When to use it
+
+- Use Shader Background when the interface needs this behavior: render an animated background through a Vue adapter for the Paper Design shader runtime.
+
 ## Install
 
 ### Shader Background — Registry source
@@ -663,12 +669,6 @@ onBeforeUnmount(() => { mounted = false; clearTimeout(next); });
 | `fallback` | `() => VNodeChild` | — | — |
 
 ## About Shader Background
-
-Render an animated background through a Vue adapter for the Paper Design shader runtime.
-
-### When to use it
-
-- Use Shader Background when the interface needs this behavior: render an animated background through a Vue adapter for the Paper Design shader runtime.
 
 ### Accessibility
 

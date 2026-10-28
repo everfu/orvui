@@ -8,22 +8,21 @@ import {
   vi,
 } from "vitest";
 import { mount } from "@vue/test-utils";
-import { createSSRApp, defineComponent, h, nextTick } from "vue";
+import { createSSRApp, defineComponent, nextTick } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import NewBadge from "../apps/docs/.vitepress/theme/NewBadge.vue";
-import CategoryPage from "../apps/docs/.vitepress/theme/CategoryPage.vue";
-import SiteSearch from "../apps/docs/.vitepress/theme/SiteSearch.vue";
-import SiteNavigation from "../apps/docs/.vitepress/theme/SiteNavigation.vue";
-import { RenderNode } from "../packages/vue/src/blocks/shared";
-import type { CommandItem } from "../packages/vue/src/blocks/command-palette";
+import NewBadge from "../apps/docs/app/docs/NewBadge.vue";
+import CategoryPage from "../apps/docs/app/docs/CategoryPage.vue";
+import SiteSearch from "../apps/docs/app/docs/SiteSearch.vue";
+import SiteNavigation from "../apps/docs/app/docs/SiteNavigation.vue";
 import type { CatalogCategory } from "../tools/registry/types";
 import {
   getNewBadgeRemainingMs,
   isComponentNew,
   NEW_BADGE_DURATION_MS,
-} from "../apps/docs/.vitepress/theme/new-badge";
+} from "../apps/docs/app/docs/new-badge";
 
 const mounted: { unmount: () => void }[] = [];
+const nativeAnimate = Element.prototype.animate;
 beforeAll(() => {
   // Vue's first client mount creates its own 3s devtools discovery timer.
   // Finish that bootstrap before measuring application timer ownership.
@@ -33,6 +32,15 @@ beforeAll(() => {
   vi.useRealTimers();
 });
 beforeEach(() => {
+  // Happy DOM rejects finished on cancel; Motion consumes onfinish instead.
+  vi.spyOn(Element.prototype, "animate").mockImplementation(function (
+    this: Element,
+    ...args: Parameters<Element["animate"]>
+  ) {
+    const animation = nativeAnimate.apply(this, args);
+    void animation.finished.catch(() => undefined);
+    return animation;
+  });
   vi.useFakeTimers();
   vi.setSystemTime(new Date("2026-10-26T23:59:59.990Z"));
 });
@@ -207,37 +215,38 @@ describe("source seven-day New badge semantics", () => {
     expect(wrapper.get(link).attributes("aria-current")).toBe("page");
   });
 
-  it("renders root and variant search badges through CommandItem's public Content type and expires each own date", async () => {
+  it("renders root and variant search badges and expires each own date", async () => {
     vi.setSystemTime(new Date("2026-09-15T23:59:59.990Z"));
-    const palette = defineComponent({
-      props: ["items"],
-      setup: (props) => () =>
-        h(
-          "div",
-          (props.items as CommandItem[]).map((item) =>
-            h("p", { "data-command": item.id }, [
-              item.label,
-              item.badge ? h(RenderNode, { node: item.badge }) : null,
-            ]),
-          ),
-        ),
-    });
+    const animate = Element.prototype.animate;
+    if (animate)
+      vi.spyOn(Element.prototype, "animate").mockImplementation(function (
+        this: Element,
+        ...args: Parameters<Element["animate"]>
+      ) {
+        const animation = animate.apply(this, args);
+        // happy-dom rejects canceled WAAPI promises during the palette teardown.
+        void animation.finished.catch(() => undefined);
+        return animation;
+      });
     const wrapper = mount(SiteSearch, {
       props: { open: true, en: true },
-      global: { stubs: { CommandPalette: palette } },
+      global: { stubs: { teleport: true } },
     });
     mounted.push(wrapper);
     await nextTick();
-    const root = '[data-command="motion-range-slider"]';
-    const inline = '[data-command="motion-range-slider-inline"]';
-    const ruler = '[data-command="motion-range-slider-ruler"]';
-    expect(wrapper.find(`${root} .new-badge`).exists()).toBe(true);
-    expect(wrapper.find(`${inline} .new-badge`).exists()).toBe(true);
-    expect(wrapper.find(`${ruler} .new-badge`).exists()).toBe(false);
+    await wrapper.get("input").setValue("slider");
+    await nextTick();
+    const option = (label: string) =>
+      wrapper
+        .findAll('[role="option"]')
+        .find((row) => row.get(".site-search-result-label").text() === label)!;
+    expect(option("Range Slider").find(".new-badge").exists()).toBe(true);
+    expect(option("Inline Slider").find(".new-badge").exists()).toBe(true);
+    expect(option("Ruler Slider").find(".new-badge").exists()).toBe(false);
     await vi.advanceTimersByTimeAsync(10);
-    expect(wrapper.find(`${root} .new-badge`).exists()).toBe(false);
-    expect(wrapper.find(`${inline} .new-badge`).exists()).toBe(false);
-    expect(wrapper.get(root).text()).toBe("Range Slider");
+    expect(option("Range Slider").find(".new-badge").exists()).toBe(false);
+    expect(option("Inline Slider").find(".new-badge").exists()).toBe(false);
+    expect(option("Range Slider").text()).toBe("Range Slider");
   });
 
   it("hydrates the source's hidden SSR badge before showing the current client state", async () => {

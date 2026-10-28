@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compose nested navigation with expanded, icon-only and mobile drawer presentations.
 
+Compose nested navigation with expanded, icon-only and mobile drawer presentations.
+
+## When to use it
+
+- Use Animated Sidebar when the interface needs this behavior: compose nested navigation with expanded, icon-only and mobile drawer presentations.
+
 ## Install
 
 ### Animated Sidebar — Registry source
@@ -503,6 +509,71 @@ function select(item: (typeof destinations)[number]) {
 </template>
 ```
 
+## Component Guide
+
+Compose nested navigation with expanded, icon-only and mobile drawer presentations.
+
+### Composition
+
+Compose Animated Sidebar with its public parts: AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger. Import these names from the component barrel.
+
+```text
+AnimatedSidebarProvider
+├── AnimatedSidebar
+│   ├── AnimatedSidebarHeader
+│   ├── AnimatedSidebarContent
+│   │   └── AnimatedSidebarMenu
+│   ├── AnimatedSidebarFooter
+│   └── AnimatedSidebarRail
+└── AnimatedSidebarInset
+```
+
+### Lifecycle
+
+#### Initialize
+
+Configure Animated Sidebar through side, variant, collapsible, ariaLabel, panelClassName. The API table describes their types and defaults.
+
+#### Update
+
+Provide content through default; application effects remain with the consumer.
+
+#### Dispose
+
+Remove the composition when it is no longer needed. Mounted listeners, observers and animations are released with their owner.
+
+### Principles
+
+#### Public composition
+
+Use the documented Animated Sidebar parts instead of importing private implementation files.
+
+#### Application ownership
+
+Connect emitted updates to application state and keep network calls or persistence in the application.
+
+#### Accessible content
+
+Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
+
+### Vue integration
+
+The Usage section composes AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger through Vue props, events and slots. Use the package or registry example matching your installation method.
+
+### Connections
+
+- [AI Sidebar](https://orvui.efu.me/en/components/agents/ai-sidebar): Organize assistant resources in a searchable tree with selection and move operations.
+
+### Contract
+
+- Owns: Animated Sidebar owns its documented presentation and local interactions.
+- Leaves to the application: Application data, authorization, network effects and persistence stay with the caller.
+
+### Usage guidance
+
+- Use when: Use Animated Sidebar when the interface needs this behavior: compose nested navigation with expanded, icon-only and mobile drawer presentations.
+- Avoid when: Choose another composition if its documented interaction model does not fit the task.
+
 ## API Reference
 
 ### AnimatedSidebar
@@ -723,78 +794,7 @@ function select(item: (typeof destinations)[number]) {
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
-## Component Guide
-
-Compose nested navigation with expanded, icon-only and mobile drawer presentations.
-
-### Composition
-
-Compose Animated Sidebar with its public parts: AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger. Import these names from the component barrel.
-
-```text
-AnimatedSidebarProvider
-├── AnimatedSidebar
-│   ├── AnimatedSidebarHeader
-│   ├── AnimatedSidebarContent
-│   │   └── AnimatedSidebarMenu
-│   ├── AnimatedSidebarFooter
-│   └── AnimatedSidebarRail
-└── AnimatedSidebarInset
-```
-
-### Lifecycle
-
-#### Initialize
-
-Configure Animated Sidebar through side, variant, collapsible, ariaLabel, panelClassName. The API table describes their types and defaults.
-
-#### Update
-
-Provide content through default; application effects remain with the consumer.
-
-#### Dispose
-
-Remove the composition when it is no longer needed. Mounted listeners, observers and animations are released with their owner.
-
-### Principles
-
-#### Public composition
-
-Use the documented Animated Sidebar parts instead of importing private implementation files.
-
-#### Application ownership
-
-Connect emitted updates to application state and keep network calls or persistence in the application.
-
-#### Accessible content
-
-Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
-
-### Vue integration
-
-The Usage section composes AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger through Vue props, events and slots. Use the package or registry example matching your installation method.
-
-### Connections
-
-- [AI Sidebar](https://orvui.efu.me/en/components/agents/ai-sidebar): Organize assistant resources in a searchable tree with selection and move operations.
-
-### Contract
-
-- Owns: Animated Sidebar owns its documented presentation and local interactions.
-- Leaves to the application: Application data, authorization, network effects and persistence stay with the caller.
-
-### Usage guidance
-
-- Use when: Use Animated Sidebar when the interface needs this behavior: compose nested navigation with expanded, icon-only and mobile drawer presentations.
-- Avoid when: Choose another composition if its documented interaction model does not fit the task.
-
 ## About Animated Sidebar
-
-Compose nested navigation with expanded, icon-only and mobile drawer presentations.
-
-### When to use it
-
-- Use Animated Sidebar when the interface needs this behavior: compose nested navigation with expanded, icon-only and mobile drawer presentations.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Guide a person through one or more decisions before an assistant proceeds.
 
+Guide a person through one or more decisions before an assistant proceeds.
+
+## When to use it
+
+- Use Approval Card when the interface needs this behavior: guide a person through one or more decisions before an assistant proceeds.
+
 ## Install
 
 ### Approval Card — Registry source
@@ -648,46 +654,6 @@ function replay() {
 </template>
 ```
 
-## API Reference
-
-### ApprovalCard
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approval required"` | No | — |
-| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
-| `questions` | `ApprovalCardQuestion[]` | `() => []` | No | — |
-| `status` | `"pending" \| "submitting" \| "approved" \| "rejected" \| "changes-requested" \| "answered"` | `"pending"` | No | — |
-| `answers` | `ApprovalCardAnswers` | — | No | — |
-| `defaultAnswers` | `ApprovalCardAnswers` | `() => ({})` | No | — |
-| `step` | `number` | — | No | — |
-| `defaultStep` | `number` | `0` | No | — |
-| `approveLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approve"` | No | — |
-| `submitLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Submit response"` | No | — |
-| `result` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:answers` | `[answers: ApprovalCardAnswers]` | — |
-| `answersChange` | `[answers: ApprovalCardAnswers]` | — |
-| `update:step` | `[step: number]` | — |
-| `stepChange` | `[step: number]` | — |
-| `submit` | `[answers: ApprovalCardAnswers]` | — |
-| `approve` | `[]` | — |
-| `reject` | `[]` | — |
-| `requestChanges` | `[]` | — |
-| `dismiss` | `[]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## Component Guide
 
 Guide a person through one or more decisions before an assistant proceeds.
@@ -750,13 +716,47 @@ The Usage section composes ApprovalCard through Vue props, events and slots. Use
 - Use when: Use Approval Card when the interface needs this behavior: guide a person through one or more decisions before an assistant proceeds.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### ApprovalCard
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approval required"` | No | — |
+| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
+| `questions` | `ApprovalCardQuestion[]` | `() => []` | No | — |
+| `status` | `"pending" \| "submitting" \| "approved" \| "rejected" \| "changes-requested" \| "answered"` | `"pending"` | No | — |
+| `answers` | `ApprovalCardAnswers` | — | No | — |
+| `defaultAnswers` | `ApprovalCardAnswers` | `() => ({})` | No | — |
+| `step` | `number` | — | No | — |
+| `defaultStep` | `number` | `0` | No | — |
+| `approveLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Approve"` | No | — |
+| `submitLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Submit response"` | No | — |
+| `result` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:answers` | `[answers: ApprovalCardAnswers]` | — |
+| `answersChange` | `[answers: ApprovalCardAnswers]` | — |
+| `update:step` | `[step: number]` | — |
+| `stepChange` | `[step: number]` | — |
+| `submit` | `[answers: ApprovalCardAnswers]` | — |
+| `approve` | `[]` | — |
+| `reject` | `[]` | — |
+| `requestChanges` | `[]` | — |
+| `dismiss` | `[]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## About Approval Card
-
-Guide a person through one or more decisions before an assistant proceeds.
-
-### When to use it
-
-- Use Approval Card when the interface needs this behavior: guide a person through one or more decisions before an assistant proceeds.
 
 ### Accessibility
 

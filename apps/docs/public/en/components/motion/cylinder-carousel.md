@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Arrange gallery items on a concave or convex cylinder controlled by dragging.
 
+Arrange gallery items on a concave or convex cylinder controlled by dragging.
+
+## When to use it
+
+- Use Cylinder Carousel when the interface needs this behavior: arrange gallery items on a concave or convex cylinder controlled by dragging.
+
 ## Install
 
 ### Cylinder Carousel — Registry source
@@ -138,12 +144,6 @@ const surfaces = [
 | `indexChange` | — | — |
 
 ## About Cylinder Carousel
-
-Arrange gallery items on a concave or convex cylinder controlled by dragging.
-
-### When to use it
-
-- Use Cylinder Carousel when the interface needs this behavior: arrange gallery items on a concave or convex cylinder controlled by dragging.
 
 ### Accessibility
 

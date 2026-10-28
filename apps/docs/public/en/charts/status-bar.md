@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Summarize counts across named states in a proportional segmented bar.
 
+Summarize counts across named states in a proportional segmented bar.
+
+## When to use it
+
+- Use Status Bar when the interface needs this behavior: summarize counts across named states in a proportional segmented bar.
+
 ## Install
 
 ### Status Bar — Registry source
@@ -326,12 +332,6 @@ const api = computed(() =>
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Status Bar
-
-Summarize counts across named states in a proportional segmented bar.
-
-### When to use it
-
-- Use Status Bar when the interface needs this behavior: summarize counts across named states in a proportional segmented bar.
 
 ### Accessibility
 

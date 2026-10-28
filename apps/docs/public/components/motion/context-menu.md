@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在指针位置打开菜单，并可组合复选项、单选项和子菜单。
 
+在指针位置打开菜单，并可组合复选项、单选项和子菜单。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Context Menu：在指针位置打开菜单，并可组合复选项、单选项和子菜单。
+
 ## 安装
 
 ### Animated Context Menu — 复制源码
@@ -403,12 +409,6 @@ function checked(value: boolean) { offline.value = value; message.value = value 
 | `default` | `() => unknown` | — | — |
 
 ## 关于 Animated Context Menu
-
-在指针位置打开菜单，并可组合复选项、单选项和子菜单。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Context Menu：在指针位置打开菜单，并可组合复选项、单选项和子菜单。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Browse elimination rounds or a radial bracket with team and match metadata.
 
+Browse elimination rounds or a radial bracket with team and match metadata.
+
+## When to use it
+
+- Use Fixtures when the interface needs this behavior: browse elimination rounds or a radial bracket with team and match metadata.
+
 ## Install
 
 ### Fixtures — Registry source
@@ -168,12 +174,6 @@ const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
 | `initialRound` | `number` | `0` | No | — |
 
 ## About Fixtures
-
-Browse elimination rounds or a radial bracket with team and match metadata.
-
-### When to use it
-
-- Use Fixtures when the interface needs this behavior: browse elimination rounds or a radial bracket with team and match metadata.
 
 ### Accessibility
 

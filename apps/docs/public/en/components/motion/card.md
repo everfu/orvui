@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Assemble a card from heading, content, actions and footer parts with optional selection.
 
+Assemble a card from heading, content, actions and footer parts with optional selection.
+
+## When to use it
+
+- Use Card when the interface needs this behavior: assemble a card from heading, content, actions and footer parts with optional selection.
+
 ## Install
 
 ### Card — Registry source
@@ -224,12 +230,6 @@ const rows = Object.entries({ Plan: "Team, yearly", Seats: "12", "Billing email"
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Card
-
-Assemble a card from heading, content, actions and footer parts with optional selection.
-
-### When to use it
-
-- Use Card when the interface needs this behavior: assemble a card from heading, content, actions and footer parts with optional selection.
 
 ### Accessibility
 

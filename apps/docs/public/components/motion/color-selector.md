@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 用移动选择轮廓与原生单选行为选择命名色块。
 
+用移动选择轮廓与原生单选行为选择命名色块。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Color Selector：用移动选择轮廓与原生单选行为选择命名色块。
+
 ## 安装
 
 ### Animated Color Selector — 复制源码
@@ -145,12 +151,6 @@ const swatches = [
 | `default` | `() => any` | — | — |
 
 ## 关于 Animated Color Selector
-
-用移动选择轮廓与原生单选行为选择命名色块。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Color Selector：用移动选择轮廓与原生单选行为选择命名色块。
 
 ### 无障碍
 

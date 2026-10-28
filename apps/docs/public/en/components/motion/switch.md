@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Toggle a binary setting with a moving thumb and optional descriptive label.
 
+Toggle a binary setting with a moving thumb and optional descriptive label.
+
+## When to use it
+
+- Use Switch when the interface needs this behavior: toggle a binary setting with a moving thumb and optional descriptive label.
+
 ## Install
 
 ### Switch — Registry source
@@ -107,12 +113,6 @@ const notifications = ref(true);
 | `change` | — | — |
 
 ## About Switch
-
-Toggle a binary setting with a moving thumb and optional descriptive label.
-
-### When to use it
-
-- Use Switch when the interface needs this behavior: toggle a binary setting with a moving thumb and optional descriptive label.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 扇形展开文档预览，并将选中文件夹展开为聚焦表面。
 
+扇形展开文档预览，并将选中文件夹展开为聚焦表面。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Project Folder：扇形展开文档预览，并将选中文件夹展开为聚焦表面。
+
 ## 安装
 
 ### Project Folder — 复制源码
@@ -185,12 +191,6 @@ const previews = sheets.map(([id, background], index) => ({
 | `preview` | — | `preview: preview` | — |
 
 ## 关于 Project Folder
-
-扇形展开文档预览，并将选中文件夹展开为聚焦表面。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Project Folder：扇形展开文档预览，并将选中文件夹展开为聚焦表面。
 
 ### 无障碍
 

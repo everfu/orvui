@@ -8,8 +8,8 @@ vi.mock("../packages/vue/src/motion/theme-toggle/src/useThemeToggle", () => ({
 import {
   createSiteShell,
   type SiteShell,
-} from "../apps/docs/.vitepress/theme/site-shell-state";
-import { createComponentDocument } from "../apps/docs/.vitepress/theme/component-document-state";
+} from "../apps/docs/app/docs/site-shell-state";
+import { createComponentDocument } from "../apps/docs/app/docs/component-document-state";
 let wrapper: ReturnType<typeof mount> | undefined;
 let shell: SiteShell;
 let route: { path: string };
@@ -110,13 +110,11 @@ describe("documentation shell browser lifetime", () => {
     window.dispatchEvent(new CustomEvent("iui-theme-change", { detail: "light" }));
     expect(shell.theme.value).toBe("light");
     expect(localStorage.getItem("orvui-theme")).toBe("light");
-    expect(localStorage.getItem("vitepress-theme-appearance")).toBe("light");
     wrapper!.unmount();
     wrapper = undefined;
     window.dispatchEvent(new CustomEvent("iui-theme-change", { detail: "dark" }));
     expect(shell.theme.value).toBe("light");
     expect(localStorage.getItem("orvui-theme")).toBe("light");
-    expect(localStorage.getItem("vitepress-theme-appearance")).toBe("light");
   });
   it("ignores typing shortcuts and removes global theme subscriptions at unmount", () => {
     start();

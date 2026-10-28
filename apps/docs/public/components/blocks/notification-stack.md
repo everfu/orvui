@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将紧凑通知堆叠展开为可以逐条阅读的条目。
 
+将紧凑通知堆叠展开为可以逐条阅读的条目。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Notification Stack：将紧凑通知堆叠展开为可以逐条阅读的条目。
+
 ## 安装
 
 ### Notification Stack — 复制源码
@@ -170,12 +176,6 @@ const items: NotificationStackItem[] = notices.map(
 | `viewAll` | `[]` | — |
 
 ## 关于 Notification Stack
-
-将紧凑通知堆叠展开为可以逐条阅读的条目。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Notification Stack：将紧凑通知堆叠展开为可以逐条阅读的条目。
 
 ### 无障碍
 

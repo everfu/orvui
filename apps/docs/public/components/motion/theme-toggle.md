@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过圆形、矩形或百叶窗过渡揭示新的页面主题。
 
+通过圆形、矩形或百叶窗过渡揭示新的页面主题。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Theme Toggle：通过圆形、矩形或百叶窗过渡揭示新的页面主题。
+
 ## 安装
 
 ### Theme Toggle — 复制源码
@@ -107,12 +113,6 @@ const variants: [ThemeVariant, string][] = [["rectangle", "Rectangle"], ["circle
 | `change` | — | — |
 
 ## 关于 Theme Toggle
-
-通过圆形、矩形或百叶窗过渡揭示新的页面主题。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Theme Toggle：通过圆形、矩形或百叶窗过渡揭示新的页面主题。
 
 ### 无障碍
 

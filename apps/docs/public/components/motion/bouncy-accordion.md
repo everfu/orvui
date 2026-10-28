@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在单项展开的分组中打开内容区，布局通过弹簧连续移动。
 
+在单项展开的分组中打开内容区，布局通过弹簧连续移动。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Bouncy Accordion：在单项展开的分组中打开内容区，布局通过弹簧连续移动。
+
 ## 安装
 
 ### Bouncy Accordion — 复制源码
@@ -125,12 +131,6 @@ const items = records.map(([id, title, description, icon]) => ({ id, title, desc
 | `content` | — | `v-bind: scope` | — |
 
 ## 关于 Bouncy Accordion
-
-在单项展开的分组中打开内容区，布局通过弹簧连续移动。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Bouncy Accordion：在单项展开的分组中打开内容区，布局通过弹簧连续移动。
 
 ### 无障碍
 

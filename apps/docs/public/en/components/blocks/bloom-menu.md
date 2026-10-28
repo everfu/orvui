@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Open a group of actions around a shared center and restore focus when it closes.
 
+Open a group of actions around a shared center and restore focus when it closes.
+
+## When to use it
+
+- Use Bloom Menu when the interface needs this behavior: open a group of actions around a shared center and restore focus when it closes.
+
 ## Install
 
 ### Bloom Menu — Registry source
@@ -132,12 +138,6 @@ const entries: BloomMenuItem[] = [
 | `select` | `[label: string]` | — |
 
 ## About Bloom Menu
-
-Open a group of actions around a shared center and restore focus when it closes.
-
-### When to use it
-
-- Use Bloom Menu when the interface needs this behavior: open a group of actions around a shared center and restore focus when it closes.
 
 ### Accessibility
 

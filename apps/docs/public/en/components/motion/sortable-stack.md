@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reorder a list with pointer or keyboard input and offer an undo operation.
 
+Reorder a list with pointer or keyboard input and offer an undo operation.
+
+## When to use it
+
+- Use Sortable List when the interface needs this behavior: reorder a list with pointer or keyboard input and offer an undo operation.
+
 ## Install
 
 ### Sortable List — Registry source
@@ -189,12 +195,6 @@ const priorities = [
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Sortable List
-
-Reorder a list with pointer or keyboard input and offer an undo operation.
-
-### When to use it
-
-- Use Sortable List when the interface needs this behavior: reorder a list with pointer or keyboard input and offer an undo operation.
 
 ### Accessibility
 

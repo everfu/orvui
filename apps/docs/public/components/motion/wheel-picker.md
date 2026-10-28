@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 从旋转滚轮中选择数值，支持惯性与行吸附。
 
+从旋转滚轮中选择数值，支持惯性与行吸附。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Wheel Picker：从旋转滚轮中选择数值，支持惯性与行吸附。
+
 ## 安装
 
 ### Wheel Picker — 复制源码
@@ -114,12 +120,6 @@ watch([day, days], () => { if (Number(day.value) > days.value.length) day.value 
 | `change` | — | — |
 
 ## 关于 Wheel Picker
-
-从旋转滚轮中选择数值，支持惯性与行吸附。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Wheel Picker：从旋转滚轮中选择数值，支持惯性与行吸附。
 
 ### 无障碍
 

@@ -1,16 +1,14 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { defineComponent, h, nextTick } from "vue";
-import SiteInstallBlock from "../apps/docs/.vitepress/theme/SiteInstallBlock.vue";
-import SiteInstallCommand from "../apps/docs/.vitepress/theme/SiteInstallCommand.vue";
+import SiteInstallBlock from "../apps/docs/app/docs/SiteInstallBlock.vue";
+import SiteInstallCommand from "../apps/docs/app/docs/SiteInstallCommand.vue";
 import { ActionSwapCascadeText } from "../packages/vue/src/motion/action-swap";
 import { readFileSync } from "node:fs";
 import packageManifest from "../packages/vue/package.json";
 import { publicUsage } from "../tools/registry/public-usage-browser";
 
-vi.mock("../apps/docs/node_modules/vitepress", () => ({
-  useData: () => ({ lang: { value: "en-US" } }),
-}));
+
 const CodePanel = defineComponent({
   props: { code: String, filename: String, label: String },
   setup: (props) => () =>

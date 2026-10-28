@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
 
+呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Message Bubble：呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
+
 ## 安装
 
 ### Message Bubble — 复制源码
@@ -1074,65 +1080,6 @@ const paragraphs = [
 </template>
 ```
 
-## API 参考
-
-### MessageBubble
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `variant` | `"ghost" \| "outline" \| "danger" \| "solid" \| "soft" \| "tint"` | `"soft"` | 否 | — |
-| `align` | `"start" \| "end"` | `(parent.value === "user" ? "end" : "start")` | 否 | — |
-| `animateIn` | `boolean` | `false` | 否 | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### MessageBubbleContent
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `as` | `string \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"div"` | 否 | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### MessageBubbleCollapsible
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `open` | `boolean` | `undefined` | 否 | — |
-| `defaultOpen` | `boolean` | `false` | 否 | — |
-| `collapsedLines` | `2 \| 3 \| 5 \| 4 \| 6` | `4` | 否 | — |
-| `moreLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show more"` | 否 | — |
-| `lessLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show less"` | 否 | — |
-| `contentClassName` | `string` | — | 否 | — |
-| `triggerClassName` | `string` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## 组件指南
 
 呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
@@ -1196,13 +1143,66 @@ Usage 区域通过 Vue props、事件与插槽组合 MessageBubble, MessageBubbl
 - 适用: 当界面需要以下行为时使用 Message Bubble：呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### MessageBubble
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `variant` | `"ghost" \| "outline" \| "danger" \| "solid" \| "soft" \| "tint"` | `"soft"` | 否 | — |
+| `align` | `"start" \| "end"` | `(parent.value === "user" ? "end" : "start")` | 否 | — |
+| `animateIn` | `boolean` | `false` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### MessageBubbleContent
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `as` | `string \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"div"` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### MessageBubbleCollapsible
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `false` | 否 | — |
+| `collapsedLines` | `2 \| 3 \| 5 \| 4 \| 6` | `4` | 否 | — |
+| `moreLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show more"` | 否 | — |
+| `lessLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show less"` | 否 | — |
+| `contentClassName` | `string` | — | 否 | — |
+| `triggerClassName` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## 关于 Message Bubble
-
-呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Message Bubble：呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
 
 ### 无障碍
 

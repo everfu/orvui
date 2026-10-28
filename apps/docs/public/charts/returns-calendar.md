@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过日历、月份汇总和可选日期内容比较每日正负收益。
 
+通过日历、月份汇总和可选日期内容比较每日正负收益。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Returns Calendar：通过日历、月份汇总和可选日期内容比较每日正负收益。
+
 ## 安装
 
 ### Returns Calendar — 复制源码
@@ -140,12 +146,6 @@ const returns = years.map((_, index) =>
 | `default` | — | `label: calendar.tipLabel`, `value: calendar.tipValue`, `note: calendar.tipNote` | — |
 
 ## 关于 Returns Calendar
-
-通过日历、月份汇总和可选日期内容比较每日正负收益。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Returns Calendar：通过日历、月份汇总和可选日期内容比较每日正负收益。
 
 ### 无障碍
 

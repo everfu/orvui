@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reserve a chosen width-to-height ratio for media and animate changes to that ratio.
 
+Reserve a chosen width-to-height ratio for media and animate changes to that ratio.
+
+## When to use it
+
+- Use Aspect Ratio when the interface needs this behavior: reserve a chosen width-to-height ratio for media and animate changes to that ratio.
+
 ## Install
 
 ### Aspect Ratio — Registry source
@@ -139,12 +145,6 @@ const panelId = `${id}-preview`;
 | `draggable` | `boolean` | `false` | No | — |
 
 ## About Aspect Ratio
-
-Reserve a chosen width-to-height ratio for media and animate changes to that ratio.
-
-### When to use it
-
-- Use Aspect Ratio when the interface needs this behavior: reserve a chosen width-to-height ratio for media and animate changes to that ratio.
 
 ### Accessibility
 

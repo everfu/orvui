@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Adjust a numeric value on a track using drag gestures or keyboard steps.
 
+Adjust a numeric value on a track using drag gestures or keyboard steps.
+
+## When to use it
+
+- Use Range Slider when the interface needs this behavior: adjust a numeric value on a track using drag gestures or keyboard steps.
+
 ## Install
 
 ### Range Slider — Registry source
@@ -416,12 +422,6 @@ const weight = ref(72.5);
 | `valueCommit` | — | — |
 
 ## About Range Slider
-
-Adjust a numeric value on a track using drag gestures or keyboard steps.
-
-### When to use it
-
-- Use Range Slider when the interface needs this behavior: adjust a numeric value on a track using drag gestures or keyboard steps.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Represent checked, unchecked and mixed values with an animated check mark.
 
+Represent checked, unchecked and mixed values with an animated check mark.
+
+## When to use it
+
+- Use Checkbox when the interface needs this behavior: represent checked, unchecked and mixed values with an animated check mark.
+
 ## Install
 
 ### Checkbox — Registry source
@@ -191,12 +197,6 @@ const options = [
 | `change` | — | — |
 
 ## About Checkbox
-
-Represent checked, unchecked and mixed values with an animated check mark.
-
-### When to use it
-
-- Use Checkbox when the interface needs this behavior: represent checked, unchecked and mixed values with an animated check mark.
 
 ### Accessibility
 

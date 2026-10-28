@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 为待执行工具操作展示说明，并请求明确决策。
 
+为待执行工具操作展示说明，并请求明确决策。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Tool Approval：为待执行工具操作展示说明，并请求明确决策。
+
 ## 安装
 
 ### Tool Approval — 复制源码
@@ -235,47 +241,6 @@ function replay() {
 </template>
 ```
 
-## API 参考
-
-### ToolApproval
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `tool` | `Content` | — | 是 | — |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Allow this tool to run?"` | 否 | — |
-| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
-| `parameters` | `ToolApprovalParameter[]` | `() => []` | 否 | — |
-| `status` | `"error" \| "complete" \| "pending" \| "approved" \| "running" \| "approving" \| "denied"` | `"pending"` | 否 | — |
-| `open` | `boolean` | `undefined` | 否 | — |
-| `defaultOpen` | `boolean` | `false` | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-| `approve` | `[]` | — |
-| `alwaysAllow` | `[]` | — |
-| `deny` | `[]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### ToolApprovalCode
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | — | 是 | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | 否 | — |
-
 ## 组件指南
 
 为待执行工具操作展示说明，并请求明确决策。
@@ -339,13 +304,48 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolApproval, ToolApprovalC
 - 适用: 当界面需要以下行为时使用 Tool Approval：为待执行工具操作展示说明，并请求明确决策。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### ToolApproval
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `tool` | `Content` | — | 是 | — |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Allow this tool to run?"` | 否 | — |
+| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
+| `parameters` | `ToolApprovalParameter[]` | `() => []` | 否 | — |
+| `status` | `"error" \| "complete" \| "pending" \| "approved" \| "running" \| "approving" \| "denied"` | `"pending"` | 否 | — |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `false` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+| `approve` | `[]` | — |
+| `alwaysAllow` | `[]` | — |
+| `deny` | `[]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### ToolApprovalCode
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | 是 | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | 否 | — |
+
 ## 关于 Tool Approval
-
-为待执行工具操作展示说明，并请求明确决策。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Tool Approval：为待执行工具操作展示说明，并请求明确决策。
 
 ### 无障碍
 

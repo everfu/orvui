@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 让对话框内容与高度一起变化，同时保持外层表面连续。
 
+让对话框内容与高度一起变化，同时保持外层表面连续。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Morphing Modal：让对话框内容与高度一起变化，同时保持外层表面连续。
+
 ## 安装
 
 ### Morphing Modal — 复制源码
@@ -164,12 +170,6 @@ const words = "forest silver canvas garden maple sunrise meadow compass velvet a
 | `default` | — | `view-id: viewId` | — |
 
 ## 关于 Morphing Modal
-
-让对话框内容与高度一起变化，同时保持外层表面连续。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Morphing Modal：让对话框内容与高度一起变化，同时保持外层表面连续。
 
 ### 无障碍
 

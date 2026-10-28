@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a modal evenly around its center and return it to the same point on close.
 
+Expand a modal evenly around its center and return it to the same point on close.
+
+## When to use it
+
+- Use Center Morph Modal when the interface needs this behavior: expand a modal evenly around its center and return it to the same point on close.
+
 ## Install
 
 ### Center Morph Modal — Registry source
@@ -145,12 +151,6 @@ const features = ["Animated Vue components", "Composition API and TypeScript", "
 ### CenterMorphModalTrigger
 
 ## About Center Morph Modal
-
-Expand a modal evenly around its center and return it to the same point on close.
-
-### When to use it
-
-- Use Center Morph Modal when the interface needs this behavior: expand a modal evenly around its center and return it to the same point on close.
 
 ### Accessibility
 

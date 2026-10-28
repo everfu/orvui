@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Lay out variable-height items in columns and request more as the visible range advances.
 
+Lay out variable-height items in columns and request more as the visible range advances.
+
+## When to use it
+
+- Use Infinite Masonry when the interface needs this behavior: lay out variable-height items in columns and request more as the visible range advances.
+
 ## Install
 
 ### Infinite Masonry — Registry source
@@ -282,12 +288,6 @@ onBeforeUnmount(() => clearTimeout(timer));
 | `end` | `() => VNodeChild` | — | — |
 
 ## About Infinite Masonry
-
-Lay out variable-height items in columns and request more as the visible range advances.
-
-### When to use it
-
-- Use Infinite Masonry when the interface needs this behavior: lay out variable-height items in columns and request more as the visible range advances.
 
 ### Accessibility
 

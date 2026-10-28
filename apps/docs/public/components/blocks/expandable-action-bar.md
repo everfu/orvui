@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在紧凑图标操作行中，为当前活动操作展开标签。
 
+在紧凑图标操作行中，为当前活动操作展开标签。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Expandable Action Bar：在紧凑图标操作行中，为当前活动操作展开标签。
+
 ## 安装
 
 ### Expandable Action Bar — 复制源码
@@ -344,12 +350,6 @@ const items = computed<ExpandableActionBarItem[]>(() =>
 | `item` | — | `item: item`, `expanded: expanded`, `active: item.active \|\| props.activeId === item.id` | — |
 
 ## 关于 Expandable Action Bar
-
-在紧凑图标操作行中，为当前活动操作展开标签。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Expandable Action Bar：在紧凑图标操作行中，为当前活动操作展开标签。
 
 ### 无障碍
 

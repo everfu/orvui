@@ -4,6 +4,18 @@
 
 > 产品版本: 0.1.0
 
+<a id="workflow"></a>
+
+## 先了解接入流程
+
+1. **读取现有能力** — 从文档与注册表获取组件名称、API 和依赖。
+
+2. **安装并显式注册** — 使用真实安装项和公开入口，按当前项目框架接入。
+
+3. **运行并核对结果** — 检查生成结果、交互状态与需要的服务端能力。
+
+> **提示**: 页面中的集成代码用于说明组合方式。模型调用、权限和后端实现由应用提供。
+
 <a id="install"></a>
 
 ## 安装
@@ -203,6 +215,11 @@ orvui 组件自带所需文件并通过注册表分发，因此上面的组件�
 - [定义组件](https://www.openui.com/docs/api-reference/vue-lang): Vue defineComponent、createLibrary 和 Renderer 的完整参考。
 - [Vue 聊天示例](https://github.com/thesysdev/openui/tree/main/examples/app-frameworks/vue): 使用同一组件库模式的官方 Vue 示例。
 其他支持 shadcn 注册表的生成式 UI 框架，也可以用同样的方式获取 orvui；更多集成指南将随项目推进提供。
+
+## 下一步
+
+- [面向 AI 助手](/docs/ai-agents)
+- [主题设置](/docs/theme)
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

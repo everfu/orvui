@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Tilt a card toward the pointer and move a highlight over its surface.
 
+Tilt a card toward the pointer and move a highlight over its surface.
+
+## When to use it
+
+- Use Tilt Card when the interface needs this behavior: tilt a card toward the pointer and move a highlight over its surface.
+
 ## Install
 
 ### Tilt Card — Registry source
@@ -101,12 +107,6 @@ import { TiltCard } from "@orvui/vue/motion/tilt-card";
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Tilt Card
-
-Tilt a card toward the pointer and move a highlight over its surface.
-
-### When to use it
-
-- Use Tilt Card when the interface needs this behavior: tilt a card toward the pointer and move a highlight over its surface.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect additions and removals with aligned line numbers and expandable context.
 
+Inspect additions and removals with aligned line numbers and expandable context.
+
+## When to use it
+
+- Use File Diff when the interface needs this behavior: inspect additions and removals with aligned line numbers and expandable context.
+
 ## Install
 
 ### File Diff — Registry source
@@ -225,32 +231,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### FileDiff
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `file` | `Content` | — | Yes | — |
-| `lines` | `FileDiffLine[]` | — | Yes | — |
-| `status` | `"streaming" \| "complete"` | `"streaming"` | No | — |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `true` | No | — |
-| `collapseOnComplete` | `boolean` | `true` | No | — |
-| `maxHeight` | `number` | `220` | No | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | No | — |
-| `copyText` | `string` | `""` | No | — |
-| `onCopy` | `() => void \| Promise<void>` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
 ## Component Guide
 
 Inspect additions and removals with aligned line numbers and expandable context.
@@ -313,13 +293,33 @@ The Usage section composes FileDiff through Vue props, events and slots. Use the
 - Use when: Use File Diff when the interface needs this behavior: inspect additions and removals with aligned line numbers and expandable context.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### FileDiff
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `file` | `Content` | — | Yes | — |
+| `lines` | `FileDiffLine[]` | — | Yes | — |
+| `status` | `"streaming" \| "complete"` | `"streaming"` | No | — |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `true` | No | — |
+| `collapseOnComplete` | `boolean` | `true` | No | — |
+| `maxHeight` | `number` | `220` | No | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | No | — |
+| `copyText` | `string` | `""` | No | — |
+| `onCopy` | `() => void \| Promise<void>` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
 ## About File Diff
-
-Inspect additions and removals with aligned line numbers and expandable context.
-
-### When to use it
-
-- Use File Diff when the interface needs this behavior: inspect additions and removals with aligned line numbers and expandable context.
 
 ### Accessibility
 

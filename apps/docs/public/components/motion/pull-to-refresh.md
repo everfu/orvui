@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将向下拖动转换为有意触发的异步刷新，并显示进度。
 
+将向下拖动转换为有意触发的异步刷新，并显示进度。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Pull to Refresh：将向下拖动转换为有意触发的异步刷新，并显示进度。
+
 ## 安装
 
 ### Pull to Refresh — 复制源码
@@ -147,12 +153,6 @@ onBeforeUnmount(() => { disposed = true; clearTimeout(timer); release?.(); });
 | `default` | — | `status: status`, `progress: amount` | — |
 
 ## 关于 Pull to Refresh
-
-将向下拖动转换为有意触发的异步刷新，并显示进度。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Pull to Refresh：将向下拖动转换为有意触发的异步刷新，并显示进度。
 
 ### 无障碍
 

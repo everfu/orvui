@@ -4,7 +4,7 @@ import type { CatalogCategory } from "../tools/registry/types";
 import {
   getVariantDescription,
   variantDescriptionsZh,
-} from "../apps/docs/.vitepress/theme/variant-descriptions";
+} from "../apps/docs/app/docs/variant-descriptions";
 
 it("provides a complete Chinese translation for every registered description, with English preserved", () => {
   const entries = (catalog.categories as CatalogCategory[]).flatMap(

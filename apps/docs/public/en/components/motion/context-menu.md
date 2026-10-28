@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Open a menu at a pointer position with checkbox, radio and submenu compositions.
 
+Open a menu at a pointer position with checkbox, radio and submenu compositions.
+
+## When to use it
+
+- Use Animated Context Menu when the interface needs this behavior: open a menu at a pointer position with checkbox, radio and submenu compositions.
+
 ## Install
 
 ### Animated Context Menu — Registry source
@@ -403,12 +409,6 @@ function checked(value: boolean) { offline.value = value; message.value = value 
 | `default` | `() => unknown` | — | — |
 
 ## About Animated Context Menu
-
-Open a menu at a pointer position with checkbox, radio and submenu compositions.
-
-### When to use it
-
-- Use Animated Context Menu when the interface needs this behavior: open a menu at a pointer position with checkbox, radio and submenu compositions.
 
 ### Accessibility
 

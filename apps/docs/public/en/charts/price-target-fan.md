@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compare price forecasts around a shared origin using projected target paths.
 
+Compare price forecasts around a shared origin using projected target paths.
+
+## When to use it
+
+- Use Price Target Fan when the interface needs this behavior: compare price forecasts around a shared origin using projected target paths.
+
 ## Install
 
 ### Price Target Fan — Registry source
@@ -183,12 +189,6 @@ const targets: [PriceTarget, PriceTarget, PriceTarget] = [
 | `default` | — | `overlay: chart.overlay` | — |
 
 ## About Price Target Fan
-
-Compare price forecasts around a shared origin using projected target paths.
-
-### When to use it
-
-- Use Price Target Fan when the interface needs this behavior: compare price forecasts around a shared origin using projected target paths.
 
 ### Accessibility
 

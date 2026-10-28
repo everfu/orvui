@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compose an asset exchange with token choices, amounts and destination information.
 
+Compose an asset exchange with token choices, amounts and destination information.
+
+## When to use it
+
+- Use Multi-chain Swap when the interface needs this behavior: compose an asset exchange with token choices, amounts and destination information.
+
 ## Install
 
 ### Multi-chain Swap — Registry source
@@ -91,12 +97,6 @@ import { MultiChainSwap } from "@orvui/vue/blocks/swap";
 | `connect` | `[]` | — |
 
 ## About Multi-chain Swap
-
-Compose an asset exchange with token choices, amounts and destination information.
-
-### When to use it
-
-- Use Multi-chain Swap when the interface needs this behavior: compose an asset exchange with token choices, amounts and destination information.
 
 ### Accessibility
 

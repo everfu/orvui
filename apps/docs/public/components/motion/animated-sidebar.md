@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
 
+组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Sidebar：组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
+
 ## 安装
 
 ### Animated Sidebar — 复制源码
@@ -503,6 +509,71 @@ function select(item: (typeof destinations)[number]) {
 </template>
 ```
 
+## 组件指南
+
+组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
+
+### 组合结构
+
+使用公开部件 AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger 组合 Animated Sidebar，并从该组件的公开入口导入。
+
+```text
+AnimatedSidebarProvider
+├── AnimatedSidebar
+│   ├── AnimatedSidebarHeader
+│   ├── AnimatedSidebarContent
+│   │   └── AnimatedSidebarMenu
+│   ├── AnimatedSidebarFooter
+│   └── AnimatedSidebarRail
+└── AnimatedSidebarInset
+```
+
+### 生命周期
+
+#### 初始化
+
+通过 side、variant、collapsible、ariaLabel、panelClassName 配置 Animated Sidebar；API 表列出其类型与默认值。
+
+#### 更新
+
+通过default 插槽提供内容，应用副作用由调用方管理。
+
+#### 释放
+
+不再需要时移除整个组合；挂载的监听、观察器和动画由各自的所有者释放。
+
+### 设计原则
+
+#### 公开组合
+
+使用文档列出的 Animated Sidebar 部件，避免导入私有实现文件。
+
+#### 应用所有权
+
+将发出的更新连接到应用状态，网络请求与持久化由应用管理。
+
+#### 可访问内容
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### Vue 集成
+
+Usage 区域通过 Vue props、事件与插槽组合 AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger，请选择与安装方式一致的 npm 包或复制源码示例。
+
+### 关联组件
+
+- [AI Sidebar](https://orvui.efu.me/components/agents/ai-sidebar): 在可搜索树中组织助手资源，支持选择与移动操作。
+
+### 能力边界
+
+- 负责: Animated Sidebar 负责文档定义的呈现与局部交互。
+- 由应用负责: 应用数据、授权、网络副作用与持久化仍由调用方负责。
+
+### 使用建议
+
+- 适用: 当界面需要以下行为时使用 Animated Sidebar：组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
+- 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
+
 ## API 参考
 
 ### AnimatedSidebar
@@ -723,78 +794,7 @@ function select(item: (typeof destinations)[number]) {
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
-## 组件指南
-
-组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
-
-### 组合结构
-
-使用公开部件 AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger 组合 Animated Sidebar，并从该组件的公开入口导入。
-
-```text
-AnimatedSidebarProvider
-├── AnimatedSidebar
-│   ├── AnimatedSidebarHeader
-│   ├── AnimatedSidebarContent
-│   │   └── AnimatedSidebarMenu
-│   ├── AnimatedSidebarFooter
-│   └── AnimatedSidebarRail
-└── AnimatedSidebarInset
-```
-
-### 生命周期
-
-#### 初始化
-
-通过 side、variant、collapsible、ariaLabel、panelClassName 配置 Animated Sidebar；API 表列出其类型与默认值。
-
-#### 更新
-
-通过default 插槽提供内容，应用副作用由调用方管理。
-
-#### 释放
-
-不再需要时移除整个组合；挂载的监听、观察器和动画由各自的所有者释放。
-
-### 设计原则
-
-#### 公开组合
-
-使用文档列出的 Animated Sidebar 部件，避免导入私有实现文件。
-
-#### 应用所有权
-
-将发出的更新连接到应用状态，网络请求与持久化由应用管理。
-
-#### 可访问内容
-
-为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
-
-### Vue 集成
-
-Usage 区域通过 Vue props、事件与插槽组合 AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger，请选择与安装方式一致的 npm 包或复制源码示例。
-
-### 关联组件
-
-- [AI Sidebar](https://orvui.efu.me/components/agents/ai-sidebar): 在可搜索树中组织助手资源，支持选择与移动操作。
-
-### 能力边界
-
-- 负责: Animated Sidebar 负责文档定义的呈现与局部交互。
-- 由应用负责: 应用数据、授权、网络副作用与持久化仍由调用方负责。
-
-### 使用建议
-
-- 适用: 当界面需要以下行为时使用 Animated Sidebar：组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
-- 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
-
 ## 关于 Animated Sidebar
-
-组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Sidebar：组合嵌套导航，支持展开、仅图标和移动抽屉等呈现方式。
 
 ### 无障碍
 

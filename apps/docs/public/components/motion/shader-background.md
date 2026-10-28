@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过 Vue 适配器调用 Paper Design Shader 运行时呈现动态背景。
 
+通过 Vue 适配器调用 Paper Design Shader 运行时呈现动态背景。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Shader Background：通过 Vue 适配器调用 Paper Design Shader 运行时呈现动态背景。
+
 ## 安装
 
 ### Shader Background — 复制源码
@@ -663,12 +669,6 @@ onBeforeUnmount(() => { mounted = false; clearTimeout(next); });
 | `fallback` | `() => VNodeChild` | — | — |
 
 ## 关于 Shader Background
-
-通过 Vue 适配器调用 Paper Design Shader 运行时呈现动态背景。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Shader Background：通过 Vue 适配器调用 Paper Design Shader 运行时呈现动态背景。
 
 ### 无障碍
 

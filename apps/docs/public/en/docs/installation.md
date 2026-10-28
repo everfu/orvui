@@ -3,6 +3,16 @@
 Choose the component package or shadcn-vue for a Vue Web application. Component-page Usage modes correspond to these installation paths.
 
 
+<a id="choose-path"></a>
+
+## Choose your installation path
+
+1. **Copy the source** — Install individual components into your project and edit them directly. Requires Tailwind CSS 4.
+
+2. **Use the package** — Install prebuilt components from a local archive and import the package stylesheet once.
+
+> **Note**: The package is not published to npm; use the verifiable local archive commands below.
+
 <a id="requirements"></a>
 
 ## Prepare your project
@@ -147,6 +157,11 @@ pnpm dev
 ```
 
 The type-check command targets the Vite template’s tsconfig.app.json. For an existing project, select the configuration that checks src/. Check the button’s styles and press feedback, then verify state and events for your chosen components. Install dependencies imported directly by an example. Keep MIT, NOTICE and separate shader licenses with the installed source. See [Theme setup](/en/docs/theme) for overrides, then explore the [component catalog](/en/components/motion).
+
+## Next steps
+
+- [Theme setup](/en/docs/theme)
+- [Motion that explains, not distracts](/en/docs/motion-patterns)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

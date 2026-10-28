@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过输入框筛选分组选项，键盘焦点保持在输入区域。
 
+通过输入框筛选分组选项，键盘焦点保持在输入区域。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Combobox：通过输入框筛选分组选项，键盘焦点保持在输入区域。
+
 ## 安装
 
 ### Combobox — 复制源码
@@ -259,6 +265,71 @@ const groups = computed(() =>
 </template>
 ```
 
+## 组件指南
+
+通过输入框筛选分组选项，键盘焦点保持在输入区域。
+
+### 组合结构
+
+使用公开部件 Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem 组合 Combobox，并从该组件的公开入口导入。
+
+```text
+Combobox
+├── ComboboxTrigger
+│   └── ComboboxInput
+└── ComboboxContent
+    └── ComboboxList
+        ├── ComboboxEmpty
+        ├── ComboboxGroup
+        │   ├── ComboboxLabel
+        │   └── ComboboxItem
+        └── ComboboxSeparator
+```
+
+### 生命周期
+
+#### 初始化
+
+通过 modelValue、defaultValue、open、defaultOpen、query、defaultQuery、disabled、filter 配置 Combobox；API 表列出其类型与默认值。
+
+#### 更新
+
+监听 update:modelValue、change、update:open、update:query，将组件连接到应用状态。
+
+#### 释放
+
+不再需要时移除整个组合；挂载的监听、观察器和动画由各自的所有者释放。
+
+### 设计原则
+
+#### 公开组合
+
+使用文档列出的 Combobox 部件，避免导入私有实现文件。
+
+#### 应用所有权
+
+将发出的更新连接到应用状态，网络请求与持久化由应用管理。
+
+#### 可访问内容
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### Vue 集成
+
+Usage 区域通过 Vue props、事件与插槽组合 Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem，请选择与安装方式一致的 npm 包或复制源码示例。
+
+### 关联组件
+
+### 能力边界
+
+- 负责: Combobox 负责文档定义的呈现与局部交互。
+- 由应用负责: 应用数据、授权、网络副作用与持久化仍由调用方负责。
+
+### 使用建议
+
+- 适用: 当界面需要以下行为时使用 Combobox：通过输入框筛选分组选项，键盘焦点保持在输入区域。
+- 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
+
 ## API 参考
 
 ### Combobox
@@ -390,78 +461,7 @@ const groups = computed(() =>
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
-## 组件指南
-
-通过输入框筛选分组选项，键盘焦点保持在输入区域。
-
-### 组合结构
-
-使用公开部件 Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem 组合 Combobox，并从该组件的公开入口导入。
-
-```text
-Combobox
-├── ComboboxTrigger
-│   └── ComboboxInput
-└── ComboboxContent
-    └── ComboboxList
-        ├── ComboboxEmpty
-        ├── ComboboxGroup
-        │   ├── ComboboxLabel
-        │   └── ComboboxItem
-        └── ComboboxSeparator
-```
-
-### 生命周期
-
-#### 初始化
-
-通过 modelValue、defaultValue、open、defaultOpen、query、defaultQuery、disabled、filter 配置 Combobox；API 表列出其类型与默认值。
-
-#### 更新
-
-监听 update:modelValue、change、update:open、update:query，将组件连接到应用状态。
-
-#### 释放
-
-不再需要时移除整个组合；挂载的监听、观察器和动画由各自的所有者释放。
-
-### 设计原则
-
-#### 公开组合
-
-使用文档列出的 Combobox 部件，避免导入私有实现文件。
-
-#### 应用所有权
-
-将发出的更新连接到应用状态，网络请求与持久化由应用管理。
-
-#### 可访问内容
-
-为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
-
-### Vue 集成
-
-Usage 区域通过 Vue props、事件与插槽组合 Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem，请选择与安装方式一致的 npm 包或复制源码示例。
-
-### 关联组件
-
-### 能力边界
-
-- 负责: Combobox 负责文档定义的呈现与局部交互。
-- 由应用负责: 应用数据、授权、网络副作用与持久化仍由调用方负责。
-
-### 使用建议
-
-- 适用: 当界面需要以下行为时使用 Combobox：通过输入框筛选分组选项，键盘焦点保持在输入区域。
-- 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
-
 ## 关于 Combobox
-
-通过输入框筛选分组选项，键盘焦点保持在输入区域。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Combobox：通过输入框筛选分组选项，键盘焦点保持在输入区域。
 
 ### 无障碍
 

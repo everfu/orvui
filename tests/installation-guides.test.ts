@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import SitePage from "../apps/docs/.vitepress/theme/SitePage.vue";
+import SitePage from "../apps/docs/app/docs/SitePage.vue";
 import {
   getSitePage,
   sitePages,
   sitePageToc,
-} from "../apps/docs/.vitepress/theme/site-page-data";
-import { sitePageMarkdown } from "../apps/docs/.vitepress/theme/site-page-markdown";
+} from "../apps/docs/app/docs/site-page-data";
+import { sitePageMarkdown } from "../apps/docs/app/docs/site-page-markdown";
 
 describe("Web installation instructions", () => {
   for (const en of [false, true]) {
@@ -29,6 +29,7 @@ describe("Web installation instructions", () => {
         expect(wrapper.get("h1").text()).toBe(page.title[en ? "en" : "zh"]);
         const ids = wrapper.findAll("h2").map((node) => node.attributes("id"));
         expect(ids).toEqual([
+          "choose-path",
           "requirements",
           "package",
           "source-setup",

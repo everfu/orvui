@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过可选择强度带的网格检查时间与价格维度的流动性。
 
+通过可选择强度带的网格检查时间与价格维度的流动性。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Liquidity Heatmap：通过可选择强度带的网格检查时间与价格维度的流动性。
+
 ## 安装
 
 ### Liquidity Heatmap — 复制源码
@@ -216,12 +222,6 @@ const formatPrice = (price: number) => `$${price.toFixed(2)}`;
 ### LiquidityHeatmapLegend
 
 ## 关于 Liquidity Heatmap
-
-通过可选择强度带的网格检查时间与价格维度的流动性。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Liquidity Heatmap：通过可选择强度带的网格检查时间与价格维度的流动性。
 
 ### 无障碍
 

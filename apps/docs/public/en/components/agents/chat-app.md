@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compose navigation, conversation content and a prompt area into an assistant workspace.
 
+Compose navigation, conversation content and a prompt area into an assistant workspace.
+
+## When to use it
+
+- Use Chat App when the interface needs this behavior: compose navigation, conversation content and a prompt area into an assistant workspace.
+
 ## Install
 
 ### Chat App — Registry source
@@ -1651,12 +1657,6 @@ onBeforeUnmount(() => {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Chat App
-
-Compose navigation, conversation content and a prompt area into an assistant workspace.
-
-### When to use it
-
-- Use Chat App when the interface needs this behavior: compose navigation, conversation content and a prompt area into an assistant workspace.
 
 ### Accessibility
 

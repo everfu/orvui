@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 使用从共同起点延伸的目标路径比较价格预测。
 
+使用从共同起点延伸的目标路径比较价格预测。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Price Target Fan：使用从共同起点延伸的目标路径比较价格预测。
+
 ## 安装
 
 ### Price Target Fan — 复制源码
@@ -183,12 +189,6 @@ const targets: [PriceTarget, PriceTarget, PriceTarget] = [
 | `default` | — | `overlay: chart.overlay` | — |
 
 ## 关于 Price Target Fan
-
-使用从共同起点延伸的目标路径比较价格预测。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Price Target Fan：使用从共同起点延伸的目标路径比较价格预测。
 
 ### 无障碍
 

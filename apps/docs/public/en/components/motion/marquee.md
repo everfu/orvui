@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Repeat a horizontal or vertical content strip with optional pause on hover.
 
+Repeat a horizontal or vertical content strip with optional pause on hover.
+
+## When to use it
+
+- Use Marquee when the interface needs this behavior: repeat a horizontal or vertical content strip with optional pause on hover.
+
 ## Install
 
 ### Marquee — Registry source
@@ -93,12 +99,6 @@ const names = "Vercel,Linear,Stripe,Figma,GitHub,Notion,Loom,Raycast".split(",")
 | `fade` | `boolean` | `true` | No | — |
 
 ## About Marquee
-
-Repeat a horizontal or vertical content strip with optional pause on hover.
-
-### When to use it
-
-- Use Marquee when the interface needs this behavior: repeat a horizontal or vertical content strip with optional pause on hover.
 
 ### Accessibility
 

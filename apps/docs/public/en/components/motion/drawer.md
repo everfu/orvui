@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Present a dialog from either side of the viewport with focus and scroll management.
 
+Present a dialog from either side of the viewport with focus and scroll management.
+
+## When to use it
+
+- Use Drawer when the interface needs this behavior: present a dialog from either side of the viewport with focus and scroll management.
+
 ## Install
 
 ### Drawer — Registry source
@@ -110,12 +116,6 @@ function reveal(edge: "left" | "right") { side.value = edge; open.value = true; 
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Drawer
-
-Present a dialog from either side of the viewport with focus and scroll management.
-
-### When to use it
-
-- Use Drawer when the interface needs this behavior: present a dialog from either side of the viewport with focus and scroll management.
 
 ### Accessibility
 

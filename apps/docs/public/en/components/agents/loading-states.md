@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Communicate pending assistant work with progress, reasoning and shimmer displays.
 
+Communicate pending assistant work with progress, reasoning and shimmer displays.
+
+## When to use it
+
+- Use Agent Loading States when the interface needs this behavior: communicate pending assistant work with progress, reasoning and shimmer displays.
+
 ## Install
 
 ### Agent Loading States — Registry source
@@ -255,51 +261,6 @@ const initial = 151.6;
 </template>
 ```
 
-## API Reference
-
-### AgentProgress
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `label` | `string` | `"Churning"` | No | — |
-| `elapsedSeconds` | `number` | `internal.value` | No | — |
-| `initialSeconds` | `number` | `0` | No | — |
-| `running` | `boolean` | `true` | No | — |
-
-### ReasoningText
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `phrases` | `string[]` | `() => [ "Thinking", "Reading the context", "Connecting the details", "Forming a response", ]` | No | — |
-| `variant` | `"cascade" \| "scramble" \| "swap"` | `"cascade"` | No | — |
-| `interval` | `number` | `1800` | No | — |
-| `shimmerDuration` | `number` | `2.2` | No | — |
-| `indicator` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `indicator` | `() => VNodeChild` | — | — |
-
-### ThinkingShimmer
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `duration` | `number` | `1.8` | No | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## Component Guide
 
 Communicate pending assistant work with progress, reasoning and shimmer displays.
@@ -364,13 +325,52 @@ The Usage section composes AgentProgress, ReasoningText, ThinkingShimmer through
 - Use when: Use Agent Loading States when the interface needs this behavior: communicate pending assistant work with progress, reasoning and shimmer displays.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### AgentProgress
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `label` | `string` | `"Churning"` | No | — |
+| `elapsedSeconds` | `number` | `internal.value` | No | — |
+| `initialSeconds` | `number` | `0` | No | — |
+| `running` | `boolean` | `true` | No | — |
+
+### ReasoningText
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `phrases` | `string[]` | `() => [ "Thinking", "Reading the context", "Connecting the details", "Forming a response", ]` | No | — |
+| `variant` | `"cascade" \| "scramble" \| "swap"` | `"cascade"` | No | — |
+| `interval` | `number` | `1800` | No | — |
+| `shimmerDuration` | `number` | `2.2` | No | — |
+| `indicator` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | No | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `indicator` | `() => VNodeChild` | — | — |
+
+### ThinkingShimmer
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `duration` | `number` | `1.8` | No | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## About Agent Loading States
-
-Communicate pending assistant work with progress, reasoning and shimmer displays.
-
-### When to use it
-
-- Use Agent Loading States when the interface needs this behavior: communicate pending assistant work with progress, reasoning and shimmer displays.
 
 ### Accessibility
 

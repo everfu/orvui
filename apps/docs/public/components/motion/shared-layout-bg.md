@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在注册选项之间移动同一个背景表面，表示当前选择。
 
+在注册选项之间移动同一个背景表面，表示当前选择。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Shared Layout Background：在注册选项之间移动同一个背景表面，表示当前选择。
+
 ## 安装
 
 ### Shared Layout Background — 复制源码
@@ -98,12 +104,6 @@ const entries = [
 ### SharedLayoutBg
 
 ## 关于 Shared Layout Background
-
-在注册选项之间移动同一个背景表面，表示当前选择。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Shared Layout Background：在注册选项之间移动同一个背景表面，表示当前选择。
 
 ### 无障碍
 

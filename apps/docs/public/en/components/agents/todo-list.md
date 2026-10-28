@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Show a sequence of work items with expandable details and explicit task states.
 
+Show a sequence of work items with expandable details and explicit task states.
+
+## When to use it
+
+- Use Todo List when the interface needs this behavior: show a sequence of work items with expandable details and explicit task states.
+
 ## Install
 
 ### Todo List — Registry source
@@ -192,28 +198,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### TodoList
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `items` | `TodoItem[]` | — | Yes | — |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"To-dos"` | No | — |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `true` | No | — |
-| `collapseOnComplete` | `boolean` | `true` | No | — |
-| `maxHeight` | `number` | `248` | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
 ## Component Guide
 
 Show a sequence of work items with expandable details and explicit task states.
@@ -276,13 +260,29 @@ The Usage section composes TodoList through Vue props, events and slots. Use the
 - Use when: Use Todo List when the interface needs this behavior: show a sequence of work items with expandable details and explicit task states.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### TodoList
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `items` | `TodoItem[]` | — | Yes | — |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"To-dos"` | No | — |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `true` | No | — |
+| `collapseOnComplete` | `boolean` | `true` | No | — |
+| `maxHeight` | `number` | `248` | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
 ## About Todo List
-
-Show a sequence of work items with expandable details and explicit task states.
-
-### When to use it
-
-- Use Todo List when the interface needs this behavior: show a sequence of work items with expandable details and explicit task states.
 
 ### Accessibility
 

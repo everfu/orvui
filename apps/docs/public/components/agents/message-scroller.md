@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 
+在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Message Scroller：在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
+
 ## 安装
 
 ### Message Scroller — 复制源码
@@ -504,34 +510,6 @@ onBeforeUnmount(stop);
 </template>
 ```
 
-## API 参考
-
-### MessageScroller
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `followOutput` | `boolean` | `true` | 否 | — |
-| `followThreshold` | `number` | `56` | 否 | — |
-| `smooth` | `boolean` | `true` | 否 | — |
-| `label` | `string` | `"Conversation"` | 否 | — |
-| `busy` | `boolean` | `false` | 否 | — |
-| `navigation` | `"rail"` | — | 否 | — |
-| `navigationLabel` | `string` | `"Message navigation"` | 否 | — |
-| `viewportClassName` | `string` | — | 否 | — |
-| `contentClassName` | `string` | — | 否 | — |
-| `railClassName` | `string` | — | 否 | — |
-| `viewportRef` | `Ref<HTMLElement \| null, HTMLElement \| null> \| (element: HTMLElement \| null) => void` | — | 否 | — |
-| `viewportProps` | `HTMLAttributes` | `{}` | 否 | — |
-| `contentProps` | `HTMLAttributes` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `followChange` | `[following: boolean]` | — |
-
 ## 组件指南
 
 在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
@@ -595,13 +573,35 @@ Usage 区域通过 Vue props、事件与插槽组合 MessageScroller，请选择
 - 适用: 当界面需要以下行为时使用 Message Scroller：在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### MessageScroller
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `followOutput` | `boolean` | `true` | 否 | — |
+| `followThreshold` | `number` | `56` | 否 | — |
+| `smooth` | `boolean` | `true` | 否 | — |
+| `label` | `string` | `"Conversation"` | 否 | — |
+| `busy` | `boolean` | `false` | 否 | — |
+| `navigation` | `"rail"` | — | 否 | — |
+| `navigationLabel` | `string` | `"Message navigation"` | 否 | — |
+| `viewportClassName` | `string` | — | 否 | — |
+| `contentClassName` | `string` | — | 否 | — |
+| `railClassName` | `string` | — | 否 | — |
+| `viewportRef` | `Ref<HTMLElement \| null, HTMLElement \| null> \| (element: HTMLElement \| null) => void` | — | 否 | — |
+| `viewportProps` | `HTMLAttributes` | `{}` | 否 | — |
+| `contentProps` | `HTMLAttributes` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `followChange` | `[following: boolean]` | — |
+
 ## 关于 Message Scroller
-
-在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Message Scroller：在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compose a changing assistant response with text, attachments, references and actions.
 
+Compose a changing assistant response with text, attachments, references and actions.
+
+## When to use it
+
+- Use Streaming Response when the interface needs this behavior: compose a changing assistant response with text, attachments, references and actions.
+
 ## Install
 
 ### Streaming Response — Registry source
@@ -342,44 +348,6 @@ onBeforeUnmount(() => {
 </template>
 ```
 
-## API Reference
-
-### StreamingResponse
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `status` | `"error" \| "streaming" \| "complete"` | `"streaming"` | No | — |
-| `copyText` | `string` | `""` | No | — |
-| `onCopy` | `() => void \| Promise<void>` | — | No | — |
-| `sources` | `CitationItem[]` | `() => []` | No | — |
-| `sourcesOpen` | `boolean` | `undefined` | No | — |
-| `defaultSourcesOpen` | `boolean` | `false` | No | — |
-| `sourceIdPrefix` | `string` | — | No | — |
-| `feedback` | `null \| "up" \| "down"` | — | No | — |
-| `defaultFeedback` | `null \| "up" \| "down"` | `null` | No | — |
-| `announce` | `boolean` | `true` | No | — |
-| `showActions` | `boolean` | `true` | No | — |
-| `contentClassName` | `string` | — | No | — |
-| `actionsClassName` | `string` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `retry` | `[]` | — |
-| `update:sourcesOpen` | `[open: boolean]` | — |
-| `sourcesOpenChange` | `[open: boolean]` | — |
-| `update:feedback` | `[feedback: StreamingResponseFeedback]` | — |
-| `feedbackChange` | `[feedback: StreamingResponseFeedback]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## Component Guide
 
 Compose a changing assistant response with text, attachments, references and actions.
@@ -443,13 +411,45 @@ The Usage section composes StreamingResponse through Vue props, events and slots
 - Use when: Use Streaming Response when the interface needs this behavior: compose a changing assistant response with text, attachments, references and actions.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### StreamingResponse
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `status` | `"error" \| "streaming" \| "complete"` | `"streaming"` | No | — |
+| `copyText` | `string` | `""` | No | — |
+| `onCopy` | `() => void \| Promise<void>` | — | No | — |
+| `sources` | `CitationItem[]` | `() => []` | No | — |
+| `sourcesOpen` | `boolean` | `undefined` | No | — |
+| `defaultSourcesOpen` | `boolean` | `false` | No | — |
+| `sourceIdPrefix` | `string` | — | No | — |
+| `feedback` | `null \| "up" \| "down"` | — | No | — |
+| `defaultFeedback` | `null \| "up" \| "down"` | `null` | No | — |
+| `announce` | `boolean` | `true` | No | — |
+| `showActions` | `boolean` | `true` | No | — |
+| `contentClassName` | `string` | — | No | — |
+| `actionsClassName` | `string` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `retry` | `[]` | — |
+| `update:sourcesOpen` | `[open: boolean]` | — |
+| `sourcesOpenChange` | `[open: boolean]` | — |
+| `update:feedback` | `[feedback: StreamingResponseFeedback]` | — |
+| `feedbackChange` | `[feedback: StreamingResponseFeedback]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## About Streaming Response
-
-Compose a changing assistant response with text, attachments, references and actions.
-
-### When to use it
-
-- Use Streaming Response when the interface needs this behavior: compose a changing assistant response with text, attachments, references and actions.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Connect a trigger to an expandable region while preserving the surrounding layout.
 
+Connect a trigger to an expandable region while preserving the surrounding layout.
+
+## When to use it
+
+- Use Animated Collapsible when the interface needs this behavior: connect a trigger to an expandable region while preserving the surrounding layout.
+
 ## Install
 
 ### Animated Collapsible — Registry source
@@ -132,12 +138,6 @@ const details = "Open this section whenever you need a little more information."
 ### CollapsibleTrigger
 
 ## About Animated Collapsible
-
-Connect a trigger to an expandable region while preserving the surrounding layout.
-
-### When to use it
-
-- Use Animated Collapsible when the interface needs this behavior: connect a trigger to an expandable region while preserving the surrounding layout.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Fan out document previews and expand a selected folder into a focused surface.
 
+Fan out document previews and expand a selected folder into a focused surface.
+
+## When to use it
+
+- Use Project Folder when the interface needs this behavior: fan out document previews and expand a selected folder into a focused surface.
+
 ## Install
 
 ### Project Folder — Registry source
@@ -185,12 +191,6 @@ const previews = sheets.map(([id, background], index) => ({
 | `preview` | — | `preview: preview` | — |
 
 ## About Project Folder
-
-Fan out document previews and expand a selected folder into a focused surface.
-
-### When to use it
-
-- Use Project Folder when the interface needs this behavior: fan out document previews and expand a selected folder into a focused surface.
 
 ### Accessibility
 

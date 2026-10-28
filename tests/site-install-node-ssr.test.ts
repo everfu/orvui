@@ -2,11 +2,9 @@
 import { expect, it, vi } from "vitest";
 import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SiteInstallBlock from "../apps/docs/.vitepress/theme/SiteInstallBlock.vue";
-import SiteInstallCommand from "../apps/docs/.vitepress/theme/SiteInstallCommand.vue";
-vi.mock("../apps/docs/node_modules/vitepress", () => ({
-  useData: () => ({ lang: { value: "en-US" } }),
-}));
+import SiteInstallBlock from "../apps/docs/app/docs/SiteInstallBlock.vue";
+import SiteInstallCommand from "../apps/docs/app/docs/SiteInstallCommand.vue";
+
 it("renders local package installation without browser globals or registry requests", async () => {
   expect(typeof window).toBe("undefined");
   const fetch = vi.spyOn(globalThis, "fetch");

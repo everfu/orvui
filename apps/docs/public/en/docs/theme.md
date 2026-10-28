@@ -1,26 +1,88 @@
 # Theme setup
 
-orvui components style themselves with shadcn semantic tokens (`bg-primary`, `text-muted-foreground`, border, ring). Set those tokens up once and every component works. Two ways:
+Load component styles first, then choose a palette and appearance mode. Override semantic CSS variables to customize the parts you need while keeping components consistent.
 
 > Product version: 0.1.0
 
+<a id="import-order"></a>
+
+## Import styles in order
+
+For source installation, import Tailwind and the generated stylesheet before your overrides. For the package, import its stylesheet once in the application entry.
+
+```css
+@import "tailwindcss";
+@import "./components/orvui/styles.css";
+
+/* Application overrides follow these imports. */
+```
+
+```typescript
+import '@orvui/vue/style.css'
+```
+
+> **Tip**: Use either the generated source stylesheet or the package stylesheet to avoid importing the complete theme twice.
+
+<a id="palettes"></a>
+
+## Choose a palette
+
+The theme panel offers 11 palettes. Choose one and copy its CSS to the end of your stylesheet. Palettes preserve component dimensions and interactions.
+
+```css
+:root {
+  --primary: #0285f7;
+  --primary-foreground: #ffffff;
+}
+```
+
+<a id="appearance"></a>
+
+## Switch light and dark modes
+
+Apply the dark class to the root element for dark mode; remove it for light mode. Keep the initial choice consistent across first render and client hydration.
+
+```html
+<html class="dark">
+  <!-- Your application -->
+</html>
+```
+
+<a id="semantic-overrides"></a>
+
+## Override semantic variables
+
+Prefer semantic variables such as background, foreground, primary and border. Scope overrides to a container so its components inherit them without affecting the rest of the page.
+
+```css
+.account-panel {
+  --primary: #0285f7;
+  --primary-foreground: #ffffff;
+}
+
+.dark .account-panel {
+  --primary: #5caeff;
+  --primary-foreground: #151515;
+}
+```
+
+> **Tip**: Use public classes, slots or semantic variables before overriding internal state selectors.
+
 <a id="shadcn-init"></a>
 
-## Option 1 — shadcn init (recommended)
+## Existing shadcn-vue projects
 
-If your project uses shadcn-vue, you already have these tokens. Otherwise run init once; it writes the token layer into your CSS.
+Reuse existing tokens in a shadcn-vue project. For a new project, initialize it first, then import the complete generated orvui styles as described in the installation guide.
 
 ```bash
-npx shadcn-vue@2.8.2 init
+pnpm dlx shadcn-vue@2.8.2 init
 ```
 
 <a id="theme-css"></a>
 
-## Option 2 — paste the theme CSS
+## Inspect the complete stylesheet
 
-Not using shadcn-vue? Paste this into your `globals.css` directly below `@import "tailwindcss";`. It defines the tokens, motion animations and surface utilities the components use. Requires Tailwind CSS v4.
-
-Also available at [/theme.css ↗](/theme.css).
+Inspect the complete tokens, motion animations and helpers below, or download [theme.css](/theme.css).
 
 ```css
 /* Generated from the orvui theme compatibility contract. */
@@ -797,6 +859,12 @@ Also available at [/theme.css ↗](/theme.css).
 
 
 ```
+
+<a id="next-steps"></a>
+
+## Verify and continue
+
+Check text, borders, focus and disabled states in both modes, then verify narrow layouts. Continue with the [motion guide](/en/docs/motion-patterns) to keep appearance and interaction consistent.
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

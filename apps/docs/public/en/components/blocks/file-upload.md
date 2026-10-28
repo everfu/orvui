@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Manage files, previews, progress and retry actions in a queue or attachment workspace.
 
+Manage files, previews, progress and retry actions in a queue or attachment workspace.
+
+## When to use it
+
+- Use File Upload when the interface needs this behavior: manage files, previews, progress and retry actions in a queue or attachment workspace.
+
 ## Install
 
 ### File Upload — Registry source
@@ -889,12 +895,6 @@ const choices = [
 | `audioToggle` | `[item: AttachmentUploadItem]` | — |
 
 ## About File Upload
-
-Manage files, previews, progress and retry actions in a queue or attachment workspace.
-
-### When to use it
-
-- Use File Upload when the interface needs this behavior: manage files, previews, progress and retry actions in a queue or attachment workspace.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a section in a single-open group with connected spring layout movement.
 
+Expand a section in a single-open group with connected spring layout movement.
+
+## When to use it
+
+- Use Bouncy Accordion when the interface needs this behavior: expand a section in a single-open group with connected spring layout movement.
+
 ## Install
 
 ### Bouncy Accordion — Registry source
@@ -125,12 +131,6 @@ const items = records.map(([id, title, description, icon]) => ({ id, title, desc
 | `content` | — | `v-bind: scope` | — |
 
 ## About Bouncy Accordion
-
-Expand a section in a single-open group with connected spring layout movement.
-
-### When to use it
-
-- Use Bouncy Accordion when the interface needs this behavior: expand a section in a single-open group with connected spring layout movement.
 
 ### Accessibility
 

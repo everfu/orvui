@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在纵向列表中导航，活动标记沿弧线在行间移动。
 
+在纵向列表中导航，活动标记沿弧线在行间移动。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Bounce Sidebar：在纵向列表中导航，活动标记沿弧线在行间移动。
+
 ## 安装
 
 ### Bounce Sidebar — 复制源码
@@ -105,12 +111,6 @@ const sections = ["Overview", "Components", "Motion", "Templates", "Changelog"].
 | `item` | — | `item: item`, `active: selected === item.id` | — |
 
 ## 关于 Bounce Sidebar
-
-在纵向列表中导航，活动标记沿弧线在行间移动。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Bounce Sidebar：在纵向列表中导航，活动标记沿弧线在行间移动。
 
 ### 无障碍
 

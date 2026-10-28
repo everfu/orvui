@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compare hierarchical values using nested rectangles whose area follows each value.
 
+Compare hierarchical values using nested rectangles whose area follows each value.
+
+## When to use it
+
+- Use Treemap when the interface needs this behavior: compare hierarchical values using nested rectangles whose area follows each value.
+
 ## Install
 
 ### Treemap — Registry source
@@ -368,12 +374,6 @@ const quarter = ref("q1"),
 | `default` | — | `tile: tile` | — |
 
 ## About Treemap
-
-Compare hierarchical values using nested rectangles whose area follows each value.
-
-### When to use it
-
-- Use Treemap when the interface needs this behavior: compare hierarchical values using nested rectangles whose area follows each value.
 
 ### Accessibility
 

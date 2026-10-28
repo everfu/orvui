@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Show the current location in a hierarchy and collapse intermediate links when space is limited.
 
+Show the current location in a hierarchy and collapse intermediate links when space is limited.
+
+## When to use it
+
+- Use Animated Breadcrumb when the interface needs this behavior: show the current location in a hierarchy and collapse intermediate links when space is limited.
+
 ## Install
 
 ### Animated Breadcrumb — Registry source
@@ -198,12 +204,6 @@ async function navigate(index: number, event?: MouseEvent) {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Animated Breadcrumb
-
-Show the current location in a hierarchy and collapse intermediate links when space is limited.
-
-### When to use it
-
-- Use Animated Breadcrumb when the interface needs this behavior: show the current location in a hierarchy and collapse intermediate links when space is limited.
 
 ### Accessibility
 

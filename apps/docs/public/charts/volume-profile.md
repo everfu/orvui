@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过横向双向条形图比较各价格区间的成交量。
 
+通过横向双向条形图比较各价格区间的成交量。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Volume Profile：通过横向双向条形图比较各价格区间的成交量。
+
 ## 安装
 
 ### Volume Profile — 复制源码
@@ -322,12 +328,6 @@ const session = ref("today"),
 ### VolumeProfileSummary
 
 ## 关于 Volume Profile
-
-通过横向双向条形图比较各价格区间的成交量。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Volume Profile：通过横向双向条形图比较各价格区间的成交量。
 
 ### 无障碍
 

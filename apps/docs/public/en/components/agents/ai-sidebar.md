@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Organize assistant resources in a searchable tree with selection and move operations.
 
+Organize assistant resources in a searchable tree with selection and move operations.
+
+## When to use it
+
+- Use AI Sidebar when the interface needs this behavior: organize assistant resources in a searchable tree with selection and move operations.
+
 ## Install
 
 ### AI Sidebar — Registry source
@@ -542,44 +548,6 @@ onBeforeUnmount(() => {
 </template>
 ```
 
-## API Reference
-
-### AISidebar
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `items` | `SidebarResource[]` | `props.defaultItems` | No | — |
-| `defaultItems` | `SidebarResource[]` | `() => []` | No | — |
-| `activeId` | `null \| string` | `props.defaultActiveId` | No | — |
-| `defaultActiveId` | `null \| string` | `null` | No | — |
-| `defaultExpandedIds` | `string[]` | `() => []` | No | — |
-| `ariaLabel` | `string` | `"Resources"` | No | — |
-| `className` | `string` | — | No | — |
-| `onMove` | `(move: SidebarResourceMove) => void \| Promise<void>` | — | No | — |
-| `onRename` | `(item: SidebarResource, label: string) => void \| Promise<void>` | — | No | — |
-| `renderIcon` | `(item: SidebarResource) => VNodeChild` | — | No | — |
-| `renderMenu` | `(item: SidebarResource, controls: SidebarResourceMenuControls) => VNodeChild` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:items` | `[items: SidebarResource[]]` | — |
-| `itemsChange` | `[items: SidebarResource[]]` | — |
-| `update:activeId` | `[id: string \| null]` | — |
-| `activeChange` | `[id: string]` | — |
-| `moveError` | `[error: unknown, move: SidebarResourceMove]` | — |
-| `renameError` | `[error: unknown, item: SidebarResource]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `icon` | — | `v-bind: scope` | — |
-| `menu` | — | `v-bind: scope` | — |
-
 ## Component Guide
 
 Organize assistant resources in a searchable tree with selection and move operations.
@@ -646,13 +614,45 @@ The Usage section composes AISidebar through Vue props, events and slots. Use th
 - Use when: Use AI Sidebar when the interface needs this behavior: organize assistant resources in a searchable tree with selection and move operations.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### AISidebar
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `items` | `SidebarResource[]` | `props.defaultItems` | No | — |
+| `defaultItems` | `SidebarResource[]` | `() => []` | No | — |
+| `activeId` | `null \| string` | `props.defaultActiveId` | No | — |
+| `defaultActiveId` | `null \| string` | `null` | No | — |
+| `defaultExpandedIds` | `string[]` | `() => []` | No | — |
+| `ariaLabel` | `string` | `"Resources"` | No | — |
+| `className` | `string` | — | No | — |
+| `onMove` | `(move: SidebarResourceMove) => void \| Promise<void>` | — | No | — |
+| `onRename` | `(item: SidebarResource, label: string) => void \| Promise<void>` | — | No | — |
+| `renderIcon` | `(item: SidebarResource) => VNodeChild` | — | No | — |
+| `renderMenu` | `(item: SidebarResource, controls: SidebarResourceMenuControls) => VNodeChild` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:items` | `[items: SidebarResource[]]` | — |
+| `itemsChange` | `[items: SidebarResource[]]` | — |
+| `update:activeId` | `[id: string \| null]` | — |
+| `activeChange` | `[id: string]` | — |
+| `moveError` | `[error: unknown, move: SidebarResourceMove]` | — |
+| `renameError` | `[error: unknown, item: SidebarResource]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `icon` | — | `v-bind: scope` | — |
+| `menu` | — | `v-bind: scope` | — |
+
 ## About AI Sidebar
-
-Organize assistant resources in a searchable tree with selection and move operations.
-
-### When to use it
-
-- Use AI Sidebar when the interface needs this behavior: organize assistant resources in a searchable tree with selection and move operations.
 
 ### Accessibility
 

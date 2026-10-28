@@ -4,17 +4,17 @@
   "type": "module",
   "packageManager": "pnpm@10.30.3",
   "scripts": {
-    "dev": "pnpm brand:sync && pnpm --filter @orvui/docs dev",
+    "dev": "pnpm metadata:docs && pnpm docs:resources && pnpm --filter @orvui/docs dev",
     "brand:sync": "node tools/branding/sync.mjs",
     "build": "pnpm metadata:docs && pnpm build:lib && pnpm docs:resources && pnpm --filter @orvui/docs build",
     "build:lib": "pnpm theme:build && pnpm --filter @orvui/vue build",
-    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "typecheck": "pnpm --filter @orvui/docs exec nuxt prepare && pnpm typecheck:workspace && pnpm --filter @orvui/docs typecheck",
     "test": "vitest run",
     "registry:build": "tsx tools/registry/build.ts --strict",
     "api:check": "tsx tools/registry/audit-api.ts",
     "api:docs": "tsx tools/registry/component-docs.ts",
     "check": "pnpm metadata:docs && pnpm typecheck && pnpm api:check && pnpm test && pnpm build",
-    "docs:generate": "tsx tools/registry/docs.ts && pnpm metadata:docs",
+    "docs:generate": "pnpm metadata:docs && pnpm docs:resources",
     "docs:resources": "tsx tools/registry/site-pages.ts && tsx tools/registry/markdown-pages.ts",
     "usage:docs": "tsx tools/registry/public-usage.ts",
     "metadata:docs": "pnpm brand:sync && pnpm theme:build && pnpm api:docs && pnpm registry:build && pnpm usage:docs",
@@ -24,7 +24,16 @@
     "verify:distribution": "node tools/verify-distribution.mjs",
     "verify:social": "node tools/verify-social.mjs",
     "verify:public-usage": "node tools/verify-public-usage.mjs",
-    "verify:registry-usage": "node tools/verify-registry-usage.mjs"
+    "verify:registry-usage": "node tools/verify-registry-usage.mjs",
+    "typecheck:workspace": "vue-tsc --noEmit -p tsconfig.json",
+    "docs:nuxt:dev": "pnpm dev",
+    "docs:nuxt:build": "pnpm build",
+    "docs:nuxt:preview": "pnpm preview",
+    "docs:nuxt:start": "pnpm start",
+    "verify:docs-nuxt:browser": "PLAYWRIGHT_BROWSERS_PATH=artifacts/browsers playwright test --config tools/docs/playwright.config.ts",
+    "docs:nuxt:browser:install": "PLAYWRIGHT_BROWSERS_PATH=artifacts/browsers playwright install chromium",
+    "preview": "pnpm --filter @orvui/docs preview",
+    "start": "pnpm --filter @orvui/docs start"
   },
   "devDependencies": {
     "@paper-design/shaders": "0.0.76",
@@ -43,6 +52,7 @@
     "vite": "^7.0.0",
     "vitest": "^3.2.0",
     "vue": "^3.5.0",
-    "vue-tsc": "^3.0.0"
+    "vue-tsc": "^3.0.0",
+    "@playwright/test": "1.64.1"
   }
 }

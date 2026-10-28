@@ -9,7 +9,7 @@ import type {
   ComponentDocs,
 } from "../tools/registry/component-docs-types";
 import type { CatalogCategory } from "../tools/registry/types";
-import type { ComponentDetailBaseline } from "../apps/docs/.vitepress/theme/details/types";
+import type { ComponentDetailBaseline } from "../apps/docs/app/docs/details/types";
 
 const apiComponent: ApiComponent = {
   displayName: "Example",

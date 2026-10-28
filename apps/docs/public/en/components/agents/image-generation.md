@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Show image creation states, preview the output and offer result actions.
 
+Show image creation states, preview the output and offer result actions.
+
+## When to use it
+
+- Use Image Generation when the interface needs this behavior: show image creation states, preview the output and offer result actions.
+
 ## Install
 
 ### Image Generation — Registry source
@@ -376,38 +382,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### ImageGeneration
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `status` | `"error" \| "complete" \| "queued" \| "generating" \| "refining"` | `"generating"` | No | — |
-| `label` | `string` | ``(props.prompt ? `${message.value}: ${props.prompt}` : message.value)`` | No | — |
-| `prompt` | `string` | — | No | — |
-| `resolution` | `string` | `"1024 × 1024"` | No | — |
-| `aspectRatio` | `string \| number` | `"1 / 1"` | No | — |
-| `size` | `"compact" \| "fluid"` | `"compact"` | No | — |
-| `interactive` | `boolean` | `true` | No | — |
-| `statusText` | `string` | `{ queued: "Waiting to generate", generating: "Generating image", refining: "Refining details", complete: "Image ready", error: "Generation failed", }[props.status]` | No | — |
-| `showStatus` | `boolean` | `true` | No | — |
-| `mediaClassName` | `string` | — | No | — |
-| `statusClassName` | `string` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `retry` | `[]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## Component Guide
 
 Show image creation states, preview the output and offer result actions.
@@ -471,13 +445,39 @@ The Usage section composes ImageGeneration through Vue props, events and slots. 
 - Use when: Use Image Generation when the interface needs this behavior: show image creation states, preview the output and offer result actions.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### ImageGeneration
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `status` | `"error" \| "complete" \| "queued" \| "generating" \| "refining"` | `"generating"` | No | — |
+| `label` | `string` | ``(props.prompt ? `${message.value}: ${props.prompt}` : message.value)`` | No | — |
+| `prompt` | `string` | — | No | — |
+| `resolution` | `string` | `"1024 × 1024"` | No | — |
+| `aspectRatio` | `string \| number` | `"1 / 1"` | No | — |
+| `size` | `"compact" \| "fluid"` | `"compact"` | No | — |
+| `interactive` | `boolean` | `true` | No | — |
+| `statusText` | `string` | `{ queued: "Waiting to generate", generating: "Generating image", refining: "Refining details", complete: "Image ready", error: "Generation failed", }[props.status]` | No | — |
+| `showStatus` | `boolean` | `true` | No | — |
+| `mediaClassName` | `string` | — | No | — |
+| `statusClassName` | `string` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `retry` | `[]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## About Image Generation
-
-Show image creation states, preview the output and offer result actions.
-
-### When to use it
-
-- Use Image Generation when the interface needs this behavior: show image creation states, preview the output and offer result actions.
 
 ### Accessibility
 

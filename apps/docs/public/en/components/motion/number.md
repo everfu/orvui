@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Animate numeric values with counting, rolling or position-preserving digit changes.
 
+Animate numeric values with counting, rolling or position-preserving digit changes.
+
+## When to use it
+
+- Use Number Animation when the interface needs this behavior: animate numeric values with counting, rolling or position-preserving digit changes.
+
 ## Install
 
 ### Number Animation — Registry source
@@ -289,12 +295,6 @@ const formatRevenue = (amount: number) => `$${Math.round(amount).toLocaleString(
 | `format` | `(value: number) => string` | — | No | — |
 
 ## About Number Animation
-
-Animate numeric values with counting, rolling or position-preserving digit changes.
-
-### When to use it
-
-- Use Number Animation when the interface needs this behavior: animate numeric values with counting, rolling or position-preserving digit changes.
 
 ### Accessibility
 

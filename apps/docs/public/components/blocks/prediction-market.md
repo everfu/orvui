@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 查看市场信息，选择结果并组合包含收益估算的买卖票据。
 
+查看市场信息，选择结果并组合包含收益估算的买卖票据。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Prediction Market：查看市场信息，选择结果并组合包含收益估算的买卖票据。
+
 ## 安装
 
 ### Prediction Market — 复制源码
@@ -563,12 +569,6 @@ const order = ref<PredictionMarketOrderValue>({
 | `bookmarkChange` | `[bookmarked: boolean]` | — |
 
 ## 关于 Prediction Market
-
-查看市场信息，选择结果并组合包含收益估算的买卖票据。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Prediction Market：查看市场信息，选择结果并组合包含收益估算的买卖票据。
 
 ### 无障碍
 

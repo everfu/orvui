@@ -1,18 +1,23 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { nextTick } from "vue";
-import CodePanel from "../apps/docs/.vitepress/theme/CodePanel.vue";
+import CodePanel from "../apps/docs/app/docs/CodePanel.vue";
 import { Button } from "../packages/vue/src/motion/button";
 
 const highlighting = vi.hoisted(() => ({
   deferred: false,
+  fail: false,
   pending: [] as { resolve: (value: object) => void }[],
 }));
-vi.mock("../apps/docs/.vitepress/theme/highlight", () => ({
+vi.mock("../apps/docs/app/docs/highlight", () => ({
   getHighlighter: vi.fn(() =>
-    highlighting.deferred
-      ? new Promise<object>((resolve) => highlighting.pending.push({ resolve }))
-      : Promise.resolve({}),
+    highlighting.fail
+      ? Promise.reject(new Error("highlighter unavailable"))
+      : highlighting.deferred
+        ? new Promise<object>((resolve) =>
+            highlighting.pending.push({ resolve }),
+          )
+        : Promise.resolve({}),
   ),
   highlightCode: (_highlighter: unknown, code: string, lang: string) =>
     `<pre class="shiki" data-lang="${lang}"><code>${code.replaceAll("&", "&amp;").replaceAll("<", "&lt;")}</code></pre>`,
@@ -64,6 +69,7 @@ afterEach(() => {
   wrappers.splice(0).forEach((wrapper) => wrapper.unmount());
   height = 480;
   highlighting.deferred = false;
+  highlighting.fail = false;
   highlighting.pending.length = 0;
   observers.length = 0;
   vi.useRealTimers();
@@ -72,7 +78,7 @@ afterEach(() => {
 });
 function render(props: Record<string, unknown>) {
   const wrapper = mount(CodePanel, {
-    props: { code: "const answer = 42", ...props },
+    props: { code: "const answer = 42", en: true, ...props },
   });
   wrappers.push(wrapper);
   return wrapper;
@@ -83,13 +89,14 @@ async function settle() {
   await nextTick();
 }
 
-it("shows the complete filename and source language badge while keeping file labels compatible", async () => {
+it("shows the complete filename and inferred syntax language while keeping file labels compatible", async () => {
   const wrapper = render({
     filename: "components/orvui/button/Button.vue",
     label: "Vue",
   });
   await settle();
-  expect(wrapper.find(".code-language").text()).toBe("VUE");
+  expect(wrapper.find(".code-language").exists()).toBe(false);
+  expect(wrapper.find("pre").attributes("data-lang")).toBe("vue");
   expect(wrapper.find(".code-file-path").text()).toBe(
     "components/orvui/button/Button.vue",
   );
@@ -101,14 +108,14 @@ it("shows the complete filename and source language badge while keeping file lab
   });
   await wrapper.setProps({ filename: undefined, label: "style.css" });
   await settle();
-  expect(wrapper.find(".code-language").text()).toBe("CSS");
+  expect(wrapper.find(".code-file-path").text()).toBe("style.css");
   expect(wrapper.find("pre").attributes("data-lang")).toBe("css");
 });
-it("uses the source floating copy button when no filename is supplied", async () => {
+it("uses the same toolbar and copy action without a filename", async () => {
   const wrapper = render({ label: "Terminal", code: "pnpm add @orvui/vue" });
   await settle();
-  expect(wrapper.find(".code-file-header").exists()).toBe(false);
-  expect(wrapper.find(".code-copy-floating button").exists()).toBe(true);
+  expect(wrapper.find(".code-file-header").exists()).toBe(true);
+  expect(wrapper.find(".code-copy-button").exists()).toBe(true);
   expect(wrapper.find("pre").attributes("data-lang")).toBe("bash");
 });
 it("measures long content, expands once, and releases its observer on unmount", async () => {
@@ -135,7 +142,7 @@ it("does not crop short content and reacts to subsequent resize measurements", a
   observers[0].callback([], {} as ResizeObserver);
   await nextTick();
   expect(wrapper.find(".code-scroll").classes()).toContain("is-collapsed");
-  expect(wrapper.find(".code-expand-button").text()).toBe("Expand Code");
+  expect(wrapper.find(".code-expand-button").text()).toBe("Expand code");
 });
 it("copies the current source and restarts the 1500ms copied feedback", async () => {
   const wrapper = render({ code: "first" });
@@ -158,13 +165,13 @@ it("keeps a failed clipboard attempt retryable without a false copied state", as
   const wrapper = render({});
   await wrapper.find("button").trigger("click");
   await settle();
-  expect(wrapper.find('[role="status"]').text()).toContain(
+  expect(wrapper.find(".code-copy-failed").text()).toContain(
     "Clipboard unavailable",
   );
   expect(wrapper.find("button").attributes("aria-label")).toBe("Copy code");
   await wrapper.find("button").trigger("click");
   await settle();
-  expect(wrapper.find('[role="status"]').exists()).toBe(false);
+  expect(wrapper.find(".code-copy-failed").exists()).toBe(false);
   expect(wrapper.find("button").attributes("aria-label")).toBe("Copied");
 });
 it("ignores older async highlight results after a language/source change", async () => {
@@ -209,4 +216,29 @@ it("clears the source copy-feedback timeout on unmount", async () => {
   wrapper.unmount();
   wrappers.splice(wrappers.indexOf(wrapper), 1);
   expect(clear).toHaveBeenCalledWith(timer);
+});
+it("localizes controls and can collapse an expanded code region", async () => {
+  const wrapper = render({ en: false });
+  await settle();
+  const toggle = wrapper.find(".code-expand-button");
+  expect(toggle.text()).toBe("展开代码");
+  expect(wrapper.find(".code-copy-button").attributes("aria-label")).toBe(
+    "复制代码",
+  );
+  await toggle.trigger("click");
+  expect(toggle.attributes("aria-expanded")).toBe("true");
+  expect(toggle.text()).toBe("收起代码");
+  await toggle.trigger("click");
+  expect(toggle.attributes("aria-expanded")).toBe("false");
+  expect(wrapper.find(".code-scroll").classes()).toContain("is-collapsed");
+});
+
+it("keeps plain source readable and copyable when highlighting fails", async () => {
+  highlighting.fail = true;
+  const wrapper = render({ code: "const fallback = 1" });
+  await settle();
+  expect(wrapper.find(".code-fallback").text()).toBe("const fallback = 1");
+  await wrapper.find(".code-copy-button").trigger("click");
+  await settle();
+  expect(writeText).toHaveBeenLastCalledWith("const fallback = 1");
 });

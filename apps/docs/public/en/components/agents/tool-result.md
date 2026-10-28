@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Present a tool call's status, summary and expandable result in one surface.
 
+Present a tool call's status, summary and expandable result in one surface.
+
+## When to use it
+
+- Use Tool Result when the interface needs this behavior: present a tool call's status, summary and expandable result in one surface.
+
 ## Install
 
 ### Tool Result — Registry source
@@ -549,51 +555,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### ToolResult
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `tool` | `Content` | — | Yes | — |
-| `title` | `Content` | — | Yes | — |
-| `status` | `"success" \| "error" \| "running" \| "cancelled"` | `"running"` | No | — |
-| `kind` | `"terminal" \| "request" \| "custom"` | `"custom"` | No | — |
-| `meta` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
-| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `true` | No | — |
-| `collapseOnComplete` | `boolean` | `true` | No | — |
-| `maxHeight` | `number` | `220` | No | — |
-| `copyText` | `string` | `""` | No | — |
-| `onCopy` | `() => void \| Promise<void>` | — | No | — |
-| `contentClassName` | `string` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-| `retry` | `[]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### ToolResultOutput
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | `(slots.default?.() ?? []).reduce( (text, node) => text + (typeof node.children === "string" ? node.children : ""), "", )` | No | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | No | — |
-
 ## Component Guide
 
 Present a tool call's status, summary and expandable result in one surface.
@@ -655,13 +616,52 @@ The Usage section composes ToolResult, ToolResultOutput through Vue props, event
 - Use when: Use Tool Result when the interface needs this behavior: present a tool call's status, summary and expandable result in one surface.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### ToolResult
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `tool` | `Content` | — | Yes | — |
+| `title` | `Content` | — | Yes | — |
+| `status` | `"success" \| "error" \| "running" \| "cancelled"` | `"running"` | No | — |
+| `kind` | `"terminal" \| "request" \| "custom"` | `"custom"` | No | — |
+| `meta` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
+| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `true` | No | — |
+| `collapseOnComplete` | `boolean` | `true` | No | — |
+| `maxHeight` | `number` | `220` | No | — |
+| `copyText` | `string` | `""` | No | — |
+| `onCopy` | `() => void \| Promise<void>` | — | No | — |
+| `contentClassName` | `string` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+| `retry` | `[]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### ToolResultOutput
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | `(slots.default?.() ?? []).reduce( (text, node) => text + (typeof node.children === "string" ? node.children : ""), "", )` | No | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | No | — |
+
 ## About Tool Result
-
-Present a tool call's status, summary and expandable result in one surface.
-
-### When to use it
-
-- Use Tool Result when the interface needs this behavior: present a tool call's status, summary and expandable result in one surface.
 
 ### Accessibility
 

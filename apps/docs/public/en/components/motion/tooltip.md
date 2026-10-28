@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reveal a short contextual label on hover or focus without displacing nearby content.
 
+Reveal a short contextual label on hover or focus without displacing nearby content.
+
+## When to use it
+
+- Use Tooltip when the interface needs this behavior: reveal a short contextual label on hover or focus without displacing nearby content.
+
 ## Install
 
 ### Tooltip — Registry source
@@ -554,12 +560,6 @@ function toggle(id: string) {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Tooltip
-
-Reveal a short contextual label on hover or focus without displacing nearby content.
-
-### When to use it
-
-- Use Tooltip when the interface needs this behavior: reveal a short contextual label on hover or focus without displacing nearby content.
 
 ### Accessibility
 

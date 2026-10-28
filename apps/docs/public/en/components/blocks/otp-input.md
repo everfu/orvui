@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Enter or paste a fixed-length code through grouped fields with completion feedback.
 
+Enter or paste a fixed-length code through grouped fields with completion feedback.
+
+## When to use it
+
+- Use OTP Input when the interface needs this behavior: enter or paste a fixed-length code through grouped fields with completion feedback.
+
 ## Install
 
 ### OTP Input — Registry source
@@ -147,12 +153,6 @@ function reset() {
 | `complete` | `[value: string]` | — |
 
 ## About OTP Input
-
-Enter or paste a fixed-length code through grouped fields with completion feedback.
-
-### When to use it
-
-- Use OTP Input when the interface needs this behavior: enter or paste a fixed-length code through grouped fields with completion feedback.
 
 ### Accessibility
 

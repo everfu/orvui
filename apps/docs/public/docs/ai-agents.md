@@ -4,6 +4,18 @@ orvui 提供静态、便于助手读取的接口。将 orvui 指引保存为本�
 
 > 产品版本: 0.1.0
 
+<a id="workflow"></a>
+
+## 先了解接入流程
+
+1. **读取现有能力** — 从文档与注册表获取组件名称、API 和依赖。
+
+2. **安装并显式注册** — 使用真实安装项和公开入口，按当前项目框架接入。
+
+3. **运行并核对结果** — 检查生成结果、交互状态与需要的服务端能力。
+
+> **提示**: 页面中的集成代码用于说明组合方式。模型调用、权限和后端实现由应用提供。
+
 <a id="agent-skill"></a>
 
 ## Agent skill
@@ -114,6 +126,11 @@ npx shadcn-vue@2.8.2 add https://orvui.efu.me/r/animated-toast-stack.json
 ## 生成式 UI
 
 希望模型将这些组件组合为实时界面？按照 [OpenUI 集成指南](/docs/openui) 注册自定义组件库、生成系统提示词，并在 OpenUI Lang 流式到达时渲染交互界面。
+
+## 下一步
+
+- [安装指南](/docs/installation)
+- [将 orvui 与 OpenUI 结合使用](/docs/openui)
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在同一表面呈现工具调用状态、摘要与可展开结果。
 
+在同一表面呈现工具调用状态、摘要与可展开结果。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Tool Result：在同一表面呈现工具调用状态、摘要与可展开结果。
+
 ## 安装
 
 ### Tool Result — 复制源码
@@ -549,51 +555,6 @@ onMounted(replay);
 </template>
 ```
 
-## API 参考
-
-### ToolResult
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `tool` | `Content` | — | 是 | — |
-| `title` | `Content` | — | 是 | — |
-| `status` | `"success" \| "error" \| "running" \| "cancelled"` | `"running"` | 否 | — |
-| `kind` | `"terminal" \| "request" \| "custom"` | `"custom"` | 否 | — |
-| `meta` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
-| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
-| `open` | `boolean` | `undefined` | 否 | — |
-| `defaultOpen` | `boolean` | `true` | 否 | — |
-| `collapseOnComplete` | `boolean` | `true` | 否 | — |
-| `maxHeight` | `number` | `220` | 否 | — |
-| `copyText` | `string` | `""` | 否 | — |
-| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
-| `contentClassName` | `string` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-| `retry` | `[]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### ToolResultOutput
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | `(slots.default?.() ?? []).reduce( (text, node) => text + (typeof node.children === "string" ? node.children : ""), "", )` | 否 | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | 否 | — |
-
 ## 组件指南
 
 在同一表面呈现工具调用状态、摘要与可展开结果。
@@ -655,13 +616,52 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolResult, ToolResultOutpu
 - 适用: 当界面需要以下行为时使用 Tool Result：在同一表面呈现工具调用状态、摘要与可展开结果。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### ToolResult
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `tool` | `Content` | — | 是 | — |
+| `title` | `Content` | — | 是 | — |
+| `status` | `"success" \| "error" \| "running" \| "cancelled"` | `"running"` | 否 | — |
+| `kind` | `"terminal" \| "request" \| "custom"` | `"custom"` | 否 | — |
+| `meta` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
+| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `true` | 否 | — |
+| `collapseOnComplete` | `boolean` | `true` | 否 | — |
+| `maxHeight` | `number` | `220` | 否 | — |
+| `copyText` | `string` | `""` | 否 | — |
+| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
+| `contentClassName` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+| `retry` | `[]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### ToolResultOutput
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | `(slots.default?.() ?? []).reduce( (text, node) => text + (typeof node.children === "string" ? node.children : ""), "", )` | 否 | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | 否 | — |
+
 ## 关于 Tool Result
-
-在同一表面呈现工具调用状态、摘要与可展开结果。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Tool Result：在同一表面呈现工具调用状态、摘要与可展开结果。
 
 ### 无障碍
 

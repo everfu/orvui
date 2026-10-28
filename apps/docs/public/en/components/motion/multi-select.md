@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Select several options and manage the resulting tags inside a searchable control.
 
+Select several options and manage the resulting tags inside a searchable control.
+
+## When to use it
+
+- Use Multi Select when the interface needs this behavior: select several options and manage the resulting tags inside a searchable control.
+
 ## Install
 
 ### Multi Select — Registry source
@@ -382,12 +388,6 @@ const groups = [
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Multi Select
-
-Select several options and manage the resulting tags inside a searchable control.
-
-### When to use it
-
-- Use Multi Select when the interface needs this behavior: select several options and manage the resulting tags inside a searchable control.
 
 ### Accessibility
 

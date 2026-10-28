@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Choose the beginning and end of a date interval in an inline or floating calendar.
 
+Choose the beginning and end of a date interval in an inline or floating calendar.
+
+## When to use it
+
+- Use Date Range Picker when the interface needs this behavior: choose the beginning and end of a date interval in an inline or floating calendar.
+
 ## Install
 
 ### Date Range Picker — Registry source
@@ -254,12 +260,6 @@ const reporting = {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Date Range Picker
-
-Choose the beginning and end of a date interval in an inline or floating calendar.
-
-### When to use it
-
-- Use Date Range Picker when the interface needs this behavior: choose the beginning and end of a date interval in an inline or floating calendar.
 
 ### Accessibility
 

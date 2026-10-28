@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在堆叠区域管理临时通知，支持操作与手势关闭。
 
+在堆叠区域管理临时通知，支持操作与手势关闭。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Toast Stack：在堆叠区域管理临时通知，支持操作与手势关闭。
+
 ## 安装
 
 ### Animated Toast Stack — 复制源码
@@ -358,12 +364,6 @@ onBeforeUnmount(() => {
 | `toast` | — | `toast: toast` | — |
 
 ## 关于 Animated Toast Stack
-
-在堆叠区域管理临时通知，支持操作与手势关闭。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Toast Stack：在堆叠区域管理临时通知，支持操作与手势关闭。
 
 ### 无障碍
 

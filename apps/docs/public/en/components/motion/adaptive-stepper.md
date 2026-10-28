@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Adjust a bounded number while the value uses the space released by unavailable actions.
 
+Adjust a bounded number while the value uses the space released by unavailable actions.
+
+## When to use it
+
+- Use Adaptive Stepper when the interface needs this behavior: adjust a bounded number while the value uses the space released by unavailable actions.
+
 ## Install
 
 ### Adaptive Stepper — Registry source
@@ -128,12 +134,6 @@ const limits = { min: 0, max: 3, defaultValue: 2 };
 | `default` | — | `value: state.value.value` | — |
 
 ## About Adaptive Stepper
-
-Adjust a bounded number while the value uses the space released by unavailable actions.
-
-### When to use it
-
-- Use Adaptive Stepper when the interface needs this behavior: adjust a bounded number while the value uses the space released by unavailable actions.
 
 ### Accessibility
 

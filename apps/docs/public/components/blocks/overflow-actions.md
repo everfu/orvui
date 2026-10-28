@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 展开紧凑操作轨道，展示静止宽度下无法容纳的控件。
 
+展开紧凑操作轨道，展示静止宽度下无法容纳的控件。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Overflow Actions：展开紧凑操作轨道，展示静止宽度下无法容纳的控件。
+
 ## 安装
 
 ### Overflow Actions — 复制源码
@@ -143,12 +149,6 @@ const extra = [
 | `action` | `[item: OverflowActionItem]` | — |
 
 ## 关于 Overflow Actions
-
-展开紧凑操作轨道，展示静止宽度下无法容纳的控件。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Overflow Actions：展开紧凑操作轨道，展示静止宽度下无法容纳的控件。
 
 ### 无障碍
 

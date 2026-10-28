@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Manage transient notifications in a stack with actions and gesture dismissal.
 
+Manage transient notifications in a stack with actions and gesture dismissal.
+
+## When to use it
+
+- Use Animated Toast Stack when the interface needs this behavior: manage transient notifications in a stack with actions and gesture dismissal.
+
 ## Install
 
 ### Animated Toast Stack — Registry source
@@ -358,12 +364,6 @@ onBeforeUnmount(() => {
 | `toast` | — | `toast: toast` | — |
 
 ## About Animated Toast Stack
-
-Manage transient notifications in a stack with actions and gesture dismissal.
-
-### When to use it
-
-- Use Animated Toast Stack when the interface needs this behavior: manage transient notifications in a stack with actions and gesture dismissal.
 
 ### Accessibility
 

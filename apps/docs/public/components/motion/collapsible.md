@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将触发器与可展开区域连接，展开时保持周围布局连续。
 
+将触发器与可展开区域连接，展开时保持周围布局连续。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Collapsible：将触发器与可展开区域连接，展开时保持周围布局连续。
+
 ## 安装
 
 ### Animated Collapsible — 复制源码
@@ -132,12 +138,6 @@ const details = "Open this section whenever you need a little more information."
 ### CollapsibleTrigger
 
 ## 关于 Animated Collapsible
-
-将触发器与可展开区域连接，展开时保持周围布局连续。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Collapsible：将触发器与可展开区域连接，展开时保持周围布局连续。
 
 ### 无障碍
 

@@ -38,9 +38,6 @@ export function useThemeToggle(options: { variant?: ThemeVariant; start?: RectSt
       try {
         window.localStorage.setItem("orvui-theme", next);
       } catch { /* A restricted storage area does not prevent changing appearance. */ }
-      try {
-        window.localStorage.setItem("vitepress-theme-appearance", next);
-      } catch { /* Save each consumer's preference independently when possible. */ }
       window.dispatchEvent(new CustomEvent("orvui-theme-change", { detail: next }));
     };
     const nativeTransition = document.startViewTransition;

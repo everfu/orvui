@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Show daily activity in a compact calendar grid with exact values available on inspection.
 
+Show daily activity in a compact calendar grid with exact values available on inspection.
+
+## When to use it
+
+- Use Heat Calendar when the interface needs this behavior: show daily activity in a compact calendar grid with exact values available on inspection.
+
 ## Install
 
 ### Heat Calendar — Registry source
@@ -150,12 +156,6 @@ const end = new Date("2026-10-25T00:00:00Z");
 | `default` | — | `tooltip: calendar.tooltip` | — |
 
 ## About Heat Calendar
-
-Show daily activity in a compact calendar grid with exact values available on inspection.
-
-### When to use it
-
-- Use Heat Calendar when the interface needs this behavior: show daily activity in a compact calendar grid with exact values available on inspection.
 
 ### Accessibility
 

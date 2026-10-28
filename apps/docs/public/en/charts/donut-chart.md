@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compare parts of a total with a ring, selectable legend and central value.
 
+Compare parts of a total with a ring, selectable legend and central value.
+
+## When to use it
+
+- Use Donut Chart when the interface needs this behavior: compare parts of a total with a ring, selectable legend and central value.
+
 ## Install
 
 ### Donut Chart — Registry source
@@ -225,12 +231,6 @@ function select(id: string) {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Donut Chart
-
-Compare parts of a total with a ring, selectable legend and central value.
-
-### When to use it
-
-- Use Donut Chart when the interface needs this behavior: compare parts of a total with a ring, selectable legend and central value.
 
 ### Accessibility
 

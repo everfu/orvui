@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a compact stack of notifications into separately readable entries.
 
+Expand a compact stack of notifications into separately readable entries.
+
+## When to use it
+
+- Use Notification Stack when the interface needs this behavior: expand a compact stack of notifications into separately readable entries.
+
 ## Install
 
 ### Notification Stack — Registry source
@@ -170,12 +176,6 @@ const items: NotificationStackItem[] = notices.map(
 | `viewAll` | `[]` | — |
 
 ## About Notification Stack
-
-Expand a compact stack of notifications into separately readable entries.
-
-### When to use it
-
-- Use Notification Stack when the interface needs this behavior: expand a compact stack of notifications into separately readable entries.
 
 ### Accessibility
 

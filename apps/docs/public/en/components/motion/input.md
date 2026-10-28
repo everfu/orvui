@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Edit text with optional labels, icons and validation feedback in a single field.
 
+Edit text with optional labels, icons and validation feedback in a single field.
+
+## When to use it
+
+- Use Input when the interface needs this behavior: edit text with optional labels, icons and validation feedback in a single field.
+
 ## Install
 
 ### Input — Registry source
@@ -133,12 +139,6 @@ const emailError = computed(() => form.email && !form.email.includes("@") ? "Use
 | `rightIcon` | `() => VNodeChild` | — | — |
 
 ## About Input
-
-Edit text with optional labels, icons and validation feedback in a single field.
-
-### When to use it
-
-- Use Input when the interface needs this behavior: edit text with optional labels, icons and validation feedback in a single field.
 
 ### Accessibility
 

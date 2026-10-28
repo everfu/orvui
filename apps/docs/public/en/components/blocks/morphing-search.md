@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a search field into suggestions, recent items or editable filter chips.
 
+Expand a search field into suggestions, recent items or editable filter chips.
+
+## When to use it
+
+- Use Morphing Search when the interface needs this behavior: expand a search field into suggestions, recent items or editable filter chips.
+
 ## Install
 
 ### Morphing Search — Registry source
@@ -530,12 +536,6 @@ const items: MorphingSearchItem[] = entries.map(
 | `actions` | `() => VNodeChild` | — | — |
 
 ## About Morphing Search
-
-Expand a search field into suggestions, recent items or editable filter chips.
-
-### When to use it
-
-- Use Morphing Search when the interface needs this behavior: expand a search field into suggestions, recent items or editable filter chips.
 
 ### Accessibility
 

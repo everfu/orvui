@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 调整有边界的数值，不可用操作让出的空间由数值接替。
 
+调整有边界的数值，不可用操作让出的空间由数值接替。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Adaptive Stepper：调整有边界的数值，不可用操作让出的空间由数值接替。
+
 ## 安装
 
 ### Adaptive Stepper — 复制源码
@@ -128,12 +134,6 @@ const limits = { min: 0, max: 3, defaultValue: 2 };
 | `default` | — | `value: state.value.value` | — |
 
 ## 关于 Adaptive Stepper
-
-调整有边界的数值，不可用操作让出的空间由数值接替。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Adaptive Stepper：调整有边界的数值，不可用操作让出的空间由数值接替。
 
 ### 无障碍
 

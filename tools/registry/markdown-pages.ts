@@ -7,8 +7,8 @@ import type { ComponentDocs } from "./component-docs-types";
 import { publicUsage } from "./public-usage-browser";
 import { demoDependencies } from "./usage-dependencies";
 import { buildComponentMarkdown } from "./component-markdown";
-import { getLocalizedDetails } from "../../apps/docs/.vitepress/theme/details";
-import { descriptions } from "../../apps/docs/.vitepress/theme/i18n";
+import { getLocalizedDetails } from "../../apps/docs/app/docs/details";
+import { descriptions } from "../../apps/docs/app/docs/i18n";
 
 export function buildMarkdownPages(
   options: { root?: string; origin?: string } = {},

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compare signed daily returns with a calendar, month totals and optional day content.
 
+Compare signed daily returns with a calendar, month totals and optional day content.
+
+## When to use it
+
+- Use Returns Calendar when the interface needs this behavior: compare signed daily returns with a calendar, month totals and optional day content.
+
 ## Install
 
 ### Returns Calendar — Registry source
@@ -140,12 +146,6 @@ const returns = years.map((_, index) =>
 | `default` | — | `label: calendar.tipLabel`, `value: calendar.tipValue`, `note: calendar.tipNote` | — |
 
 ## About Returns Calendar
-
-Compare signed daily returns with a calendar, month totals and optional day content.
-
-### When to use it
-
-- Use Returns Calendar when the interface needs this behavior: compare signed daily returns with a calendar, month totals and optional day content.
 
 ### Accessibility
 

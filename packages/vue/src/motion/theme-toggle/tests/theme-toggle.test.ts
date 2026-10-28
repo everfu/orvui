@@ -21,7 +21,7 @@ beforeEach(() => {
     removeEventListener() {},
   });
 });
-it("keeps appearance and the VitePress preference working when the renamed storage key is blocked", () => {
+it("keeps appearance and change events working when preference storage is blocked", () => {
   const setItem = Storage.prototype.setItem;
   const save = vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (this: Storage, key, value) {
     if (key === "orvui-theme") throw new DOMException("blocked", "SecurityError");
@@ -41,9 +41,7 @@ it("keeps appearance and the VitePress preference working when the renamed stora
   expect(document.documentElement.classList.contains("dark")).toBe(true);
   expect(save.mock.calls).toEqual([
     ["orvui-theme", "dark"],
-    ["vitepress-theme-appearance", "dark"],
   ]);
-  expect(localStorage.getItem("vitepress-theme-appearance")).toBe("dark");
   expect(changed).toHaveBeenCalledOnce();
   expect(legacyChanged).not.toHaveBeenCalled();
   window.removeEventListener("orvui-theme-change", changed);

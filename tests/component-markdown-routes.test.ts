@@ -7,7 +7,7 @@ import catalog from "../tools/catalog/components.json";
 import apiData from "../tools/registry/component-docs.json";
 import type { ComponentDocs } from "../tools/registry/component-docs-types";
 import { publicUsage } from "../tools/registry/public-usage-browser";
-import { getLocalizedDetails } from "../apps/docs/.vitepress/theme/details";
+import { getLocalizedDetails } from "../apps/docs/app/docs/details";
 import type { CatalogCategory } from "../tools/registry/types";
 
 const categories = catalog.categories as CatalogCategory[];

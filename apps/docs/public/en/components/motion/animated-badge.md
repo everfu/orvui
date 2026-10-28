@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Pair a compact status label with an icon and optional pulse feedback.
 
+Pair a compact status label with an icon and optional pulse feedback.
+
+## When to use it
+
+- Use Animated Badge when the interface needs this behavior: pair a compact status label with an icon and optional pulse feedback.
+
 ## Install
 
 ### Animated Badge — Registry source
@@ -123,12 +129,6 @@ onBeforeUnmount(() => clearInterval(interval));
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Animated Badge
-
-Pair a compact status label with an icon and optional pulse feedback.
-
-### When to use it
-
-- Use Animated Badge when the interface needs this behavior: pair a compact status label with an icon and optional pulse feedback.
 
 ### Accessibility
 

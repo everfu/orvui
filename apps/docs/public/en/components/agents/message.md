@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Build a conversation entry from content, attachments, sources and action parts.
 
+Build a conversation entry from content, attachments, sources and action parts.
+
+## When to use it
+
+- Use Message when the interface needs this behavior: build a conversation entry from content, attachments, sources and action parts.
+
 ## Install
 
 ### Message — Registry source
@@ -432,6 +438,72 @@ onBeforeUnmount(stop);
 </template>
 ```
 
+## Component Guide
+
+Build a conversation entry from content, attachments, sources and action parts.
+
+### Composition
+
+Compose Message with its public parts: Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping. Import these names from the component barrel.
+
+```text
+MessageGroup
+└── Message
+    ├── MessageAvatar
+    └── MessageContent
+        ├── MessageHeader
+        ├── MessageBubble
+        └── MessageFooter
+```
+
+### Lifecycle
+
+#### Initialize
+
+Configure Message through from, animateIn. The API table describes their types and defaults.
+
+#### Update
+
+Provide content through default; application effects remain with the consumer.
+
+#### Dispose
+
+Remove the composition when it is no longer needed. Mounted listeners, observers and animations are released with their owner.
+
+### Principles
+
+#### Public composition
+
+Use the documented Message parts instead of importing private implementation files.
+
+#### Application ownership
+
+Connect emitted updates to application state and keep network calls or persistence in the application.
+
+#### Accessible content
+
+Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
+
+### Vue integration
+
+The Usage section composes Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping through Vue props, events and slots. Use the package or registry example matching your installation method.
+
+### Connections
+
+- [Message Bubble](https://orvui.efu.me/en/components/agents/message-bubble): Render a compact conversation bubble with an avatar, metadata and optional controls.
+- [Message Scroller](https://orvui.efu.me/en/components/agents/message-scroller): Follow appended messages while letting readers leave and return to the latest content.
+- [Agent Activity](https://orvui.efu.me/en/components/agents/agent-activity): Group changing assistant activity into expandable steps and a completed summary.
+
+### Contract
+
+- Owns: Message owns its documented presentation and local interactions.
+- Leaves to the application: Application data, authorization, network effects and persistence stay with the caller.
+
+### Usage guidance
+
+- Use when: Use Message when the interface needs this behavior: build a conversation entry from content, attachments, sources and action parts.
+- Avoid when: Choose another composition if its documented interaction model does not fit the task.
+
 ## API Reference
 
 ### Message
@@ -509,79 +581,7 @@ onBeforeUnmount(stop);
 | --- | --- | --- | --- | --- |
 | `label` | `string` | `"Responding"` | No | — |
 
-## Component Guide
-
-Build a conversation entry from content, attachments, sources and action parts.
-
-### Composition
-
-Compose Message with its public parts: Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping. Import these names from the component barrel.
-
-```text
-MessageGroup
-└── Message
-    ├── MessageAvatar
-    └── MessageContent
-        ├── MessageHeader
-        ├── MessageBubble
-        └── MessageFooter
-```
-
-### Lifecycle
-
-#### Initialize
-
-Configure Message through from, animateIn. The API table describes their types and defaults.
-
-#### Update
-
-Provide content through default; application effects remain with the consumer.
-
-#### Dispose
-
-Remove the composition when it is no longer needed. Mounted listeners, observers and animations are released with their owner.
-
-### Principles
-
-#### Public composition
-
-Use the documented Message parts instead of importing private implementation files.
-
-#### Application ownership
-
-Connect emitted updates to application state and keep network calls or persistence in the application.
-
-#### Accessible content
-
-Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
-
-### Vue integration
-
-The Usage section composes Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping through Vue props, events and slots. Use the package or registry example matching your installation method.
-
-### Connections
-
-- [Message Bubble](https://orvui.efu.me/en/components/agents/message-bubble): Render a compact conversation bubble with an avatar, metadata and optional controls.
-- [Message Scroller](https://orvui.efu.me/en/components/agents/message-scroller): Follow appended messages while letting readers leave and return to the latest content.
-- [Agent Activity](https://orvui.efu.me/en/components/agents/agent-activity): Group changing assistant activity into expandable steps and a completed summary.
-
-### Contract
-
-- Owns: Message owns its documented presentation and local interactions.
-- Leaves to the application: Application data, authorization, network effects and persistence stay with the caller.
-
-### Usage guidance
-
-- Use when: Use Message when the interface needs this behavior: build a conversation entry from content, attachments, sources and action parts.
-- Avoid when: Choose another composition if its documented interaction model does not fit the task.
-
 ## About Message
-
-Build a conversation entry from content, attachments, sources and action parts.
-
-### When to use it
-
-- Use Message when the interface needs this behavior: build a conversation entry from content, attachments, sources and action parts.
 
 ### Accessibility
 

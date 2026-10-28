@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 借助指针或键盘十字线检查开高低收与成交量数据。
 
+借助指针或键盘十字线检查开高低收与成交量数据。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Candlestick Chart：借助指针或键盘十字线检查开高低收与成交量数据。
+
 ## 安装
 
 ### Candlestick Chart — 复制源码
@@ -330,12 +336,6 @@ const formatPrice = (value: number) => price.format(value);
 | `height` | `number` | `320` | 否 | — |
 
 ## 关于 Candlestick Chart
-
-借助指针或键盘十字线检查开高低收与成交量数据。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Candlestick Chart：借助指针或键盘十字线检查开高低收与成交量数据。
 
 ### 无障碍
 

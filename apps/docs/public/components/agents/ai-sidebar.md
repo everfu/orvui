@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在可搜索树中组织助手资源，支持选择与移动操作。
 
+在可搜索树中组织助手资源，支持选择与移动操作。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 AI Sidebar：在可搜索树中组织助手资源，支持选择与移动操作。
+
 ## 安装
 
 ### AI Sidebar — 复制源码
@@ -542,44 +548,6 @@ onBeforeUnmount(() => {
 </template>
 ```
 
-## API 参考
-
-### AISidebar
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `items` | `SidebarResource[]` | `props.defaultItems` | 否 | — |
-| `defaultItems` | `SidebarResource[]` | `() => []` | 否 | — |
-| `activeId` | `null \| string` | `props.defaultActiveId` | 否 | — |
-| `defaultActiveId` | `null \| string` | `null` | 否 | — |
-| `defaultExpandedIds` | `string[]` | `() => []` | 否 | — |
-| `ariaLabel` | `string` | `"Resources"` | 否 | — |
-| `className` | `string` | — | 否 | — |
-| `onMove` | `(move: SidebarResourceMove) => void \| Promise<void>` | — | 否 | — |
-| `onRename` | `(item: SidebarResource, label: string) => void \| Promise<void>` | — | 否 | — |
-| `renderIcon` | `(item: SidebarResource) => VNodeChild` | — | 否 | — |
-| `renderMenu` | `(item: SidebarResource, controls: SidebarResourceMenuControls) => VNodeChild` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:items` | `[items: SidebarResource[]]` | — |
-| `itemsChange` | `[items: SidebarResource[]]` | — |
-| `update:activeId` | `[id: string \| null]` | — |
-| `activeChange` | `[id: string]` | — |
-| `moveError` | `[error: unknown, move: SidebarResourceMove]` | — |
-| `renameError` | `[error: unknown, item: SidebarResource]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `icon` | — | `v-bind: scope` | — |
-| `menu` | — | `v-bind: scope` | — |
-
 ## 组件指南
 
 在可搜索树中组织助手资源，支持选择与移动操作。
@@ -646,13 +614,45 @@ Usage 区域通过 Vue props、事件与插槽组合 AISidebar，请选择与安
 - 适用: 当界面需要以下行为时使用 AI Sidebar：在可搜索树中组织助手资源，支持选择与移动操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### AISidebar
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `items` | `SidebarResource[]` | `props.defaultItems` | 否 | — |
+| `defaultItems` | `SidebarResource[]` | `() => []` | 否 | — |
+| `activeId` | `null \| string` | `props.defaultActiveId` | 否 | — |
+| `defaultActiveId` | `null \| string` | `null` | 否 | — |
+| `defaultExpandedIds` | `string[]` | `() => []` | 否 | — |
+| `ariaLabel` | `string` | `"Resources"` | 否 | — |
+| `className` | `string` | — | 否 | — |
+| `onMove` | `(move: SidebarResourceMove) => void \| Promise<void>` | — | 否 | — |
+| `onRename` | `(item: SidebarResource, label: string) => void \| Promise<void>` | — | 否 | — |
+| `renderIcon` | `(item: SidebarResource) => VNodeChild` | — | 否 | — |
+| `renderMenu` | `(item: SidebarResource, controls: SidebarResourceMenuControls) => VNodeChild` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:items` | `[items: SidebarResource[]]` | — |
+| `itemsChange` | `[items: SidebarResource[]]` | — |
+| `update:activeId` | `[id: string \| null]` | — |
+| `activeChange` | `[id: string]` | — |
+| `moveError` | `[error: unknown, move: SidebarResourceMove]` | — |
+| `renameError` | `[error: unknown, item: SidebarResource]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `icon` | — | `v-bind: scope` | — |
+| `menu` | — | `v-bind: scope` | — |
+
 ## 关于 AI Sidebar
-
-在可搜索树中组织助手资源，支持选择与移动操作。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 AI Sidebar：在可搜索树中组织助手资源，支持选择与移动操作。
 
 ### 无障碍
 

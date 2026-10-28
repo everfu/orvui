@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 
+呈现带高亮的代码，并支持行控件、文件标签与复制操作。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Code Block：呈现带高亮的代码，并支持行控件、文件标签与复制操作。
+
 ## 安装
 
 ### Code Block — 复制源码
@@ -201,34 +207,6 @@ onMounted(replay);
 </template>
 ```
 
-## API 参考
-
-### CodeBlock
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | — | 是 | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | 否 | — |
-| `filename` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
-| `status` | `"streaming" \| "complete"` | `"complete"` | 否 | — |
-| `showLineNumbers` | `boolean` | `true` | 否 | — |
-| `highlightLines` | `number[]` | `() => []` | 否 | — |
-| `maxHeight` | `number` | `280` | 否 | — |
-| `wrap` | `boolean` | `false` | 否 | — |
-| `copyable` | `boolean` | `true` | 否 | — |
-| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
-
-### AgentCodeLine
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | — | 是 | — |
-| `tokens` | `AgentCodeToken[]` | — | 否 | — |
-
 ## 组件指南
 
 呈现带高亮的代码，并支持行控件、文件标签与复制操作。
@@ -290,13 +268,35 @@ Usage 区域通过 Vue props、事件与插槽组合 CodeBlock, AgentCodeLine，
 - 适用: 当界面需要以下行为时使用 Code Block：呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### CodeBlock
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | 是 | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | 否 | — |
+| `filename` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
+| `status` | `"streaming" \| "complete"` | `"complete"` | 否 | — |
+| `showLineNumbers` | `boolean` | `true` | 否 | — |
+| `highlightLines` | `number[]` | `() => []` | 否 | — |
+| `maxHeight` | `number` | `280` | 否 | — |
+| `wrap` | `boolean` | `false` | 否 | — |
+| `copyable` | `boolean` | `true` | 否 | — |
+| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
+
+### AgentCodeLine
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | 是 | — |
+| `tokens` | `AgentCodeToken[]` | — | 否 | — |
+
 ## 关于 Code Block
-
-呈现带高亮的代码，并支持行控件、文件标签与复制操作。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Code Block：呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 
 ### 无障碍
 

@@ -1,17 +1,15 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { nextTick } from "vue";
-import SiteSearch from "../apps/docs/.vitepress/theme/SiteSearch.vue";
-import SiteNavigation from "../apps/docs/.vitepress/theme/SiteNavigation.vue";
-import SiteInstallCommand from "../apps/docs/.vitepress/theme/SiteInstallCommand.vue";
-import SiteInstallBlock from "../apps/docs/.vitepress/theme/SiteInstallBlock.vue";
-import CategoryPage from "../apps/docs/.vitepress/theme/CategoryPage.vue";
+import SiteSearch from "../apps/docs/app/docs/SiteSearch.vue";
+import SiteNavigation from "../apps/docs/app/docs/SiteNavigation.vue";
+import SiteInstallCommand from "../apps/docs/app/docs/SiteInstallCommand.vue";
+import SiteInstallBlock from "../apps/docs/app/docs/SiteInstallBlock.vue";
+import CategoryPage from "../apps/docs/app/docs/CategoryPage.vue";
 import catalog from "../tools/catalog/components.json";
-import { getSitePage } from "../apps/docs/.vitepress/theme/site-page-data";
+import { getSitePage } from "../apps/docs/app/docs/site-page-data";
 import type { CatalogCategory } from "../tools/registry/types";
-vi.mock("../apps/docs/node_modules/vitepress", () => ({
-  useData: () => ({ lang: { value: "en-US" } }),
-}));
+
 const wrappers: VueWrapper[] = [];
 const nativeAnimate = Element.prototype.animate;
 let copy: ReturnType<typeof vi.fn>, fetcher: ReturnType<typeof vi.fn>;

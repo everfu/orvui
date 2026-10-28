@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Explore nested files and folders with expandable branches and keyboard selection.
 
+Explore nested files and folders with expandable branches and keyboard selection.
+
+## When to use it
+
+- Use File Tree when the interface needs this behavior: explore nested files and folders with expandable branches and keyboard selection.
+
 ## Install
 
 ### File Tree — Registry source
@@ -160,12 +166,6 @@ const documents = [
 | `disabled` | `boolean` | `false` | No | — |
 
 ## About File Tree
-
-Explore nested files and folders with expandable branches and keyboard selection.
-
-### When to use it
-
-- Use File Tree when the interface needs this behavior: explore nested files and folders with expandable branches and keyboard selection.
 
 ### Accessibility
 

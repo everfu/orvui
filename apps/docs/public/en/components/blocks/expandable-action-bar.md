@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reveal labels around the active action in a compact row of icon controls.
 
+Reveal labels around the active action in a compact row of icon controls.
+
+## When to use it
+
+- Use Expandable Action Bar when the interface needs this behavior: reveal labels around the active action in a compact row of icon controls.
+
 ## Install
 
 ### Expandable Action Bar — Registry source
@@ -344,12 +350,6 @@ const items = computed<ExpandableActionBarItem[]>(() =>
 | `item` | — | `item: item`, `expanded: expanded`, `active: item.active \|\| props.activeId === item.id` | — |
 
 ## About Expandable Action Bar
-
-Reveal labels around the active action in a compact row of icon controls.
-
-### When to use it
-
-- Use Expandable Action Bar when the interface needs this behavior: reveal labels around the active action in a compact row of icon controls.
 
 ### Accessibility
 

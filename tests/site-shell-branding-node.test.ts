@@ -3,19 +3,18 @@ import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
 import { expect, it, vi } from "vitest";
 const location = vi.hoisted(() => ({ path: "/" }));
-vi.mock("../apps/docs/node_modules/vitepress", () => ({
-  useData: () => ({ frontmatter: { value: { layout: "home" } } }),
-  useRoute: () => location,
-  useRouter: () => ({ go: async () => {} }),
-  Content: { render: () => null },
-}));
-import Layout from "../apps/docs/.vitepress/theme/Layout.vue";
+
+import Layout from "../apps/docs/app/docs/SiteLayout.vue";
 
 it.each([false, true])(
   "renders the orvui home without upstream promotion en=%s",
   async (en) => {
     location.path = en ? "/en/" : "/";
-    const html = await renderToString(createSSRApp(Layout));
+    const html = await renderToString(createSSRApp(Layout, {
+        frontmatter: { layout: "home" },
+        route: location,
+        router: { go: async () => {} },
+      }));
     const visibleText = html.replace(/<[^>]*>/g, " ");
     expect(html).toContain(`href="${en ? "/en" : ""}/components/motion"`);
     expect(html).toContain("hero-count");

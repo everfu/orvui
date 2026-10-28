@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
 
+Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
+
+## When to use it
+
+- Use Candlestick Chart when the interface needs this behavior: inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
+
 ## Install
 
 ### Candlestick Chart — Registry source
@@ -330,12 +336,6 @@ const formatPrice = (value: number) => price.format(value);
 | `height` | `number` | `320` | No | — |
 
 ## About Candlestick Chart
-
-Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
-
-### When to use it
-
-- Use Candlestick Chart when the interface needs this behavior: inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将行内引用标记与可检查的来源条目和链接连接。
 
+将行内引用标记与可检查的来源条目和链接连接。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Citations：将行内引用标记与可检查的来源条目和链接连接。
+
 ## 安装
 
 ### Citations — 复制源码
@@ -242,56 +248,6 @@ onMounted(replay);
 </template>
 ```
 
-## API 参考
-
-### Citation
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `citationId` | `string` | — | 是 | — |
-| `index` | `number` | — | 是 | — |
-| `idPrefix` | `string` | — | 是 | — |
-| `label` | `string` | — | 否 | — |
-
-### Citations
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `citations` | `CitationItem[]` | — | 是 | — |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Sources"` | 否 | — |
-| `open` | `boolean` | `undefined` | 否 | — |
-| `defaultOpen` | `boolean` | `false` | 否 | — |
-| `idPrefix` | `string` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
-### CitationList
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `citations` | `CitationItem[]` | — | 是 | — |
-| `idPrefix` | `string` | `` `citation-list-${instanceId.replace(/:/g, "")}` `` | 否 | — |
-
-### CitationFavicon
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `url` | `string` | — | 否 | — |
-| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
-
 ## 组件指南
 
 将行内引用标记与可检查的来源条目和链接连接。
@@ -355,13 +311,57 @@ Usage 区域通过 Vue props、事件与插槽组合 Citation, Citations, Citati
 - 适用: 当界面需要以下行为时使用 Citations：将行内引用标记与可检查的来源条目和链接连接。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### Citation
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `citationId` | `string` | — | 是 | — |
+| `index` | `number` | — | 是 | — |
+| `idPrefix` | `string` | — | 是 | — |
+| `label` | `string` | — | 否 | — |
+
+### Citations
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `citations` | `CitationItem[]` | — | 是 | — |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Sources"` | 否 | — |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `false` | 否 | — |
+| `idPrefix` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
+### CitationList
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `citations` | `CitationItem[]` | — | 是 | — |
+| `idPrefix` | `string` | `` `citation-list-${instanceId.replace(/:/g, "")}` `` | 否 | — |
+
+### CitationFavicon
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `url` | `string` | — | 否 | — |
+| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | 否 | — |
+
 ## 关于 Citations
-
-将行内引用标记与可检查的来源条目和链接连接。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Citations：将行内引用标记与可检查的来源条目和链接连接。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 使用虚拟滚动、选择、排序与可调整列浏览和编辑数据行。
 
+使用虚拟滚动、选择、排序与可调整列浏览和编辑数据行。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Table：使用虚拟滚动、选择、排序与可调整列浏览和编辑数据行。
+
 ## 安装
 
 ### Table — 复制源码
@@ -1193,12 +1199,6 @@ onBeforeUnmount(() => clearTimeout(request));
 | `['cell-' + column.key]` | — | `row: rows[virtual.index].row`, `value: rows[virtual.index].row[column.key]`, `row-id: rows[virtual.index].id` | — |
 
 ## 关于 Table
-
-使用虚拟滚动、选择、排序与可调整列浏览和编辑数据行。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Table：使用虚拟滚动、选择、排序与可调整列浏览和编辑数据行。
 
 ### 无障碍
 

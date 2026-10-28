@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Present highlighted code with line controls, file labels and a copy operation.
 
+Present highlighted code with line controls, file labels and a copy operation.
+
+## When to use it
+
+- Use Code Block when the interface needs this behavior: present highlighted code with line controls, file labels and a copy operation.
+
 ## Install
 
 ### Code Block — Registry source
@@ -201,34 +207,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### CodeBlock
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | — | Yes | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | No | — |
-| `filename` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
-| `status` | `"streaming" \| "complete"` | `"complete"` | No | — |
-| `showLineNumbers` | `boolean` | `true` | No | — |
-| `highlightLines` | `number[]` | `() => []` | No | — |
-| `maxHeight` | `number` | `280` | No | — |
-| `wrap` | `boolean` | `false` | No | — |
-| `copyable` | `boolean` | `true` | No | — |
-| `onCopy` | `() => void \| Promise<void>` | — | No | — |
-
-### AgentCodeLine
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | — | Yes | — |
-| `tokens` | `AgentCodeToken[]` | — | No | — |
-
 ## Component Guide
 
 Present highlighted code with line controls, file labels and a copy operation.
@@ -290,13 +268,35 @@ The Usage section composes CodeBlock, AgentCodeLine through Vue props, events an
 - Use when: Use Code Block when the interface needs this behavior: present highlighted code with line controls, file labels and a copy operation.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### CodeBlock
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | Yes | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"typescript"` | No | — |
+| `filename` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
+| `status` | `"streaming" \| "complete"` | `"complete"` | No | — |
+| `showLineNumbers` | `boolean` | `true` | No | — |
+| `highlightLines` | `number[]` | `() => []` | No | — |
+| `maxHeight` | `number` | `280` | No | — |
+| `wrap` | `boolean` | `false` | No | — |
+| `copyable` | `boolean` | `true` | No | — |
+| `onCopy` | `() => void \| Promise<void>` | — | No | — |
+
+### AgentCodeLine
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | Yes | — |
+| `tokens` | `AgentCodeToken[]` | — | No | — |
+
 ## About Code Block
-
-Present highlighted code with line controls, file labels and a copy operation.
-
-### When to use it
-
-- Use Code Block when the interface needs this behavior: present highlighted code with line controls, file labels and a copy operation.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Choose one named swatch with a moving selection outline and native radio behavior.
 
+Choose one named swatch with a moving selection outline and native radio behavior.
+
+## When to use it
+
+- Use Animated Color Selector when the interface needs this behavior: choose one named swatch with a moving selection outline and native radio behavior.
+
 ## Install
 
 ### Animated Color Selector — Registry source
@@ -145,12 +151,6 @@ const swatches = [
 | `default` | `() => any` | — | — |
 
 ## About Animated Color Selector
-
-Choose one named swatch with a moving selection outline and native radio behavior.
-
-### When to use it
-
-- Use Animated Color Selector when the interface needs this behavior: choose one named swatch with a moving selection outline and native radio behavior.
 
 ### Accessibility
 

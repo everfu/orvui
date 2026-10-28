@@ -4,6 +4,18 @@ orvui exposes a static, agent-friendly surface. Save the orvui instructions as a
 
 > Product version: 0.1.0
 
+<a id="workflow"></a>
+
+## Start with the workflow
+
+1. **Discover existing capabilities** — Read component names, APIs and dependencies from the documentation and registry.
+
+2. **Install and register explicitly** — Use actual registry items and public imports, then integrate with your application's framework.
+
+3. **Run and verify** — Check the generated output, interaction state and any required server capabilities.
+
+> **Tip**: Integration snippets explain composition. Your application provides model calls, permissions and backend behavior.
+
 <a id="agent-skill"></a>
 
 ## Agent skill
@@ -114,6 +126,11 @@ Internal helpers (for example `lib/utils.ts`) ship inline as `registry:lib` file
 ## Generative UI
 
 Want the model to compose these components into a live interface? Follow the [OpenUI integration guide](/en/docs/openui) to register a custom component library, generate its system prompt, and render interactive OpenUI Lang as it streams.
+
+## Next steps
+
+- [Installation](/en/docs/installation)
+- [Use orvui with OpenUI](/en/docs/openui)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

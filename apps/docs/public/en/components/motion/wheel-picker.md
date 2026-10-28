@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Select a value from a rotating wheel with momentum and row snapping.
 
+Select a value from a rotating wheel with momentum and row snapping.
+
+## When to use it
+
+- Use Wheel Picker when the interface needs this behavior: select a value from a rotating wheel with momentum and row snapping.
+
 ## Install
 
 ### Wheel Picker — Registry source
@@ -114,12 +120,6 @@ watch([day, days], () => { if (Number(day.value) > days.value.length) day.value 
 | `change` | — | — |
 
 ## About Wheel Picker
-
-Select a value from a rotating wheel with momentum and row snapping.
-
-### When to use it
-
-- Use Wheel Picker when the interface needs this behavior: select a value from a rotating wheel with momentum and row snapping.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过连接节点与按权重分配的带状路径追踪阶段间流向。
 
+通过连接节点与按权重分配的带状路径追踪阶段间流向。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Sankey Chart：通过连接节点与按权重分配的带状路径追踪阶段间流向。
+
 ## 安装
 
 ### Sankey Chart — 复制源码
@@ -248,12 +254,6 @@ const currency = (value: number) => `$${value.toLocaleString("en-US")}M`;
 | `default` | — | `active: chart.active` | — |
 
 ## 关于 Sankey Chart
-
-通过连接节点与按权重分配的带状路径追踪阶段间流向。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Sankey Chart：通过连接节点与按权重分配的带状路径追踪阶段间流向。
 
 ### 无障碍
 

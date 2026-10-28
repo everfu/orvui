@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Switch and reorder tabs while their surfaces follow a continuous layout transition.
 
+Switch and reorder tabs while their surfaces follow a continuous layout transition.
+
+## When to use it
+
+- Use Morphing Tabs when the interface needs this behavior: switch and reorder tabs while their surfaces follow a continuous layout transition.
+
 ## Install
 
 ### Morphing Tabs — Registry source
@@ -279,12 +285,6 @@ function close(id: string) {
 | `content` | — | `item: active` | — |
 
 ## About Morphing Tabs
-
-Switch and reorder tabs while their surfaces follow a continuous layout transition.
-
-### When to use it
-
-- Use Morphing Tabs when the interface needs this behavior: switch and reorder tabs while their surfaces follow a continuous layout transition.
 
 ### Accessibility
 

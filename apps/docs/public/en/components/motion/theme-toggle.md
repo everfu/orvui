@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reveal a new page theme with a circle, rectangle or blinds transition.
 
+Reveal a new page theme with a circle, rectangle or blinds transition.
+
+## When to use it
+
+- Use Theme Toggle when the interface needs this behavior: reveal a new page theme with a circle, rectangle or blinds transition.
+
 ## Install
 
 ### Theme Toggle — Registry source
@@ -107,12 +113,6 @@ const variants: [ThemeVariant, string][] = [["rectangle", "Rectangle"], ["circle
 | `change` | — | — |
 
 ## About Theme Toggle
-
-Reveal a new page theme with a circle, rectangle or blinds transition.
-
-### When to use it
-
-- Use Theme Toggle when the interface needs this behavior: reveal a new page theme with a circle, rectangle or blinds transition.
 
 ### Accessibility
 

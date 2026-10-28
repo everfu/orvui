@@ -2,7 +2,7 @@
 import { expect, it } from "vitest";
 import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import CodePanel from "../apps/docs/.vitepress/theme/CodePanel.vue";
+import CodePanel from "../apps/docs/app/docs/CodePanel.vue";
 
 it("renders readable, escaped source without browser APIs before highlighting mounts", async () => {
   expect(typeof window).toBe("undefined");
@@ -10,6 +10,7 @@ it("renders readable, escaped source without browser APIs before highlighting mo
   const html = await renderToString(
     createSSRApp(CodePanel, {
       code: "<template>\n  <button>Hello</button>\n</template>",
+      en: true,
       filename: "components/Button.vue",
     }),
   );

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a feedback trigger into a form with sending, success and retry states.
 
+Expand a feedback trigger into a form with sending, success and retry states.
+
+## When to use it
+
+- Use Feedback Widget when the interface needs this behavior: expand a feedback trigger into a form with sending, success and retry states.
+
 ## Install
 
 ### Feedback Widget — Registry source
@@ -132,12 +138,6 @@ async function submit() {
 | `error` | `[error: unknown]` | — |
 
 ## About Feedback Widget
-
-Expand a feedback trigger into a form with sending, success and retry states.
-
-### When to use it
-
-- Use Feedback Widget when the interface needs this behavior: expand a feedback trigger into a form with sending, success and retry states.
 
 ### Accessibility
 

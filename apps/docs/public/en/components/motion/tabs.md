@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Switch between associated panels using a moving indicator and accessible tab controls.
 
+Switch between associated panels using a moving indicator and accessible tab controls.
+
+## When to use it
+
+- Use Tabs when the interface needs this behavior: switch between associated panels using a moving indicator and accessible tab controls.
+
 ## Install
 
 ### Tabs — Registry source
@@ -154,12 +160,6 @@ const icons = [{ value: "home", text: "Home", icon: Home }, { value: "stats", te
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Tabs
-
-Switch between associated panels using a moving indicator and accessible tab controls.
-
-### When to use it
-
-- Use Tabs when the interface needs this behavior: switch between associated panels using a moving indicator and accessible tab controls.
 
 ### Accessibility
 

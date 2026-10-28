@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Use a pressable action surface with magnetic, stateful and metallic alternatives.
 
+Use a pressable action surface with magnetic, stateful and metallic alternatives.
+
+## When to use it
+
+- Use Button when the interface needs this behavior: use a pressable action surface with magnetic, stateful and metallic alternatives.
+
 ## Install
 
 ### Button — Registry source
@@ -350,12 +356,6 @@ const alternatives = [{ variant: "secondary", strength: 0.25, label: "Subtle pul
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Button
-
-Use a pressable action surface with magnetic, stateful and metallic alternatives.
-
-### When to use it
-
-- Use Button when the interface needs this behavior: use a pressable action surface with magnetic, stateful and metallic alternatives.
 
 ### Accessibility
 

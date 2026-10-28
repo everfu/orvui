@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将紧凑状态标签与图标组合，并可加入脉冲反馈。
 
+将紧凑状态标签与图标组合，并可加入脉冲反馈。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Badge：将紧凑状态标签与图标组合，并可加入脉冲反馈。
+
 ## 安装
 
 ### Animated Badge — 复制源码
@@ -123,12 +129,6 @@ onBeforeUnmount(() => clearInterval(interval));
 | `default` | `() => VNodeChild` | — | — |
 
 ## 关于 Animated Badge
-
-将紧凑状态标签与图标组合，并可加入脉冲反馈。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Badge：将紧凑状态标签与图标组合，并可加入脉冲反馈。
 
 ### 无障碍
 

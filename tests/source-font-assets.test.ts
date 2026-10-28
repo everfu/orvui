@@ -21,7 +21,7 @@ it("serves complete unchanged WOFF2 files from the declared font packages", () =
   expect(manifest.assets.reduce((size, asset) => size + asset.size, 0)).toBe(manifest.totalBytes);
 });
 it("provides both font families at every documented weight without remote requests", () => {
-  const css = readFileSync("apps/docs/.vitepress/theme/fonts.css", "utf8");
+  const css = readFileSync("apps/docs/app/docs/fonts.css", "utf8");
   expect(css.match(/@font-face/g)).toHaveLength(manifest.assetCount);
   expect(css).not.toMatch(/url\(["']?https?:/);
   for (const asset of manifest.assets) expect(css).toContain(`/fonts/source/${asset.file}`);

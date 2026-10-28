@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Find and activate grouped commands in a keyboard-operated search panel.
 
+Find and activate grouped commands in a keyboard-operated search panel.
+
+## When to use it
+
+- Use Command Palette when the interface needs this behavior: find and activate grouped commands in a keyboard-operated search panel.
+
 ## Install
 
 ### Command Palette — Registry source
@@ -218,12 +224,6 @@ const items = [
 | `trigger` | — | `open: () => (open = true)` | — |
 
 ## About Command Palette
-
-Find and activate grouped commands in a keyboard-operated search panel.
-
-### When to use it
-
-- Use Command Palette when the interface needs this behavior: find and activate grouped commands in a keyboard-operated search panel.
 
 ### Accessibility
 

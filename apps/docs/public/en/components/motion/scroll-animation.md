@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
 
+Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+
+## When to use it
+
+- Use Scroll Animation when the interface needs this behavior: connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+
 ## Install
 
 ### Scroll Animation — Registry source
@@ -457,12 +463,6 @@ const samples = ["Spring slide", "Blur in", "Staggered by delay", "Reveal once"]
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Scroll Animation
-
-Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
-
-### When to use it
-
-- Use Scroll Animation when the interface needs this behavior: connect scrolling to progress, parallax, reveal effects and deliberate navigation.
 
 ### Accessibility
 

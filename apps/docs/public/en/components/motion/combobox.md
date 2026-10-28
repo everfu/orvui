@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Filter a grouped option list from an input while keeping keyboard focus in the field.
 
+Filter a grouped option list from an input while keeping keyboard focus in the field.
+
+## When to use it
+
+- Use Combobox when the interface needs this behavior: filter a grouped option list from an input while keeping keyboard focus in the field.
+
 ## Install
 
 ### Combobox — Registry source
@@ -259,6 +265,71 @@ const groups = computed(() =>
 </template>
 ```
 
+## Component Guide
+
+Filter a grouped option list from an input while keeping keyboard focus in the field.
+
+### Composition
+
+Compose Combobox with its public parts: Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem. Import these names from the component barrel.
+
+```text
+Combobox
+├── ComboboxTrigger
+│   └── ComboboxInput
+└── ComboboxContent
+    └── ComboboxList
+        ├── ComboboxEmpty
+        ├── ComboboxGroup
+        │   ├── ComboboxLabel
+        │   └── ComboboxItem
+        └── ComboboxSeparator
+```
+
+### Lifecycle
+
+#### Initialize
+
+Configure Combobox through modelValue, defaultValue, open, defaultOpen, query, defaultQuery, disabled, filter. The API table describes their types and defaults.
+
+#### Update
+
+Observe update:modelValue, change, update:open, update:query to connect the component to application state.
+
+#### Dispose
+
+Remove the composition when it is no longer needed. Mounted listeners, observers and animations are released with their owner.
+
+### Principles
+
+#### Public composition
+
+Use the documented Combobox parts instead of importing private implementation files.
+
+#### Application ownership
+
+Connect emitted updates to application state and keep network calls or persistence in the application.
+
+#### Accessible content
+
+Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
+
+### Vue integration
+
+The Usage section composes Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem through Vue props, events and slots. Use the package or registry example matching your installation method.
+
+### Connections
+
+### Contract
+
+- Owns: Combobox owns its documented presentation and local interactions.
+- Leaves to the application: Application data, authorization, network effects and persistence stay with the caller.
+
+### Usage guidance
+
+- Use when: Use Combobox when the interface needs this behavior: filter a grouped option list from an input while keeping keyboard focus in the field.
+- Avoid when: Choose another composition if its documented interaction model does not fit the task.
+
 ## API Reference
 
 ### Combobox
@@ -390,78 +461,7 @@ const groups = computed(() =>
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
-## Component Guide
-
-Filter a grouped option list from an input while keeping keyboard focus in the field.
-
-### Composition
-
-Compose Combobox with its public parts: Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem. Import these names from the component barrel.
-
-```text
-Combobox
-├── ComboboxTrigger
-│   └── ComboboxInput
-└── ComboboxContent
-    └── ComboboxList
-        ├── ComboboxEmpty
-        ├── ComboboxGroup
-        │   ├── ComboboxLabel
-        │   └── ComboboxItem
-        └── ComboboxSeparator
-```
-
-### Lifecycle
-
-#### Initialize
-
-Configure Combobox through modelValue, defaultValue, open, defaultOpen, query, defaultQuery, disabled, filter. The API table describes their types and defaults.
-
-#### Update
-
-Observe update:modelValue, change, update:open, update:query to connect the component to application state.
-
-#### Dispose
-
-Remove the composition when it is no longer needed. Mounted listeners, observers and animations are released with their owner.
-
-### Principles
-
-#### Public composition
-
-Use the documented Combobox parts instead of importing private implementation files.
-
-#### Application ownership
-
-Connect emitted updates to application state and keep network calls or persistence in the application.
-
-#### Accessible content
-
-Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
-
-### Vue integration
-
-The Usage section composes Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem through Vue props, events and slots. Use the package or registry example matching your installation method.
-
-### Connections
-
-### Contract
-
-- Owns: Combobox owns its documented presentation and local interactions.
-- Leaves to the application: Application data, authorization, network effects and persistence stay with the caller.
-
-### Usage guidance
-
-- Use when: Use Combobox when the interface needs this behavior: filter a grouped option list from an input while keeping keyboard focus in the field.
-- Avoid when: Choose another composition if its documented interaction model does not fit the task.
-
 ## About Combobox
-
-Filter a grouped option list from an input while keeping keyboard focus in the field.
-
-### When to use it
-
-- Use Combobox when the interface needs this behavior: filter a grouped option list from an input while keeping keyboard focus in the field.
 
 ### Accessibility
 

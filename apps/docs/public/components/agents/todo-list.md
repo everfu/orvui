@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 展示带展开详情和明确任务状态的工作条目序列。
 
+展示带展开详情和明确任务状态的工作条目序列。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Todo List：展示带展开详情和明确任务状态的工作条目序列。
+
 ## 安装
 
 ### Todo List — 复制源码
@@ -192,28 +198,6 @@ onMounted(replay);
 </template>
 ```
 
-## API 参考
-
-### TodoList
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `items` | `TodoItem[]` | — | 是 | — |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"To-dos"` | 否 | — |
-| `open` | `boolean` | `undefined` | 否 | — |
-| `defaultOpen` | `boolean` | `true` | 否 | — |
-| `collapseOnComplete` | `boolean` | `true` | 否 | — |
-| `maxHeight` | `number` | `248` | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
 ## 组件指南
 
 展示带展开详情和明确任务状态的工作条目序列。
@@ -276,13 +260,29 @@ Usage 区域通过 Vue props、事件与插槽组合 TodoList，请选择与安�
 - 适用: 当界面需要以下行为时使用 Todo List：展示带展开详情和明确任务状态的工作条目序列。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### TodoList
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `items` | `TodoItem[]` | — | 是 | — |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"To-dos"` | 否 | — |
+| `open` | `boolean` | `undefined` | 否 | — |
+| `defaultOpen` | `boolean` | `true` | 否 | — |
+| `collapseOnComplete` | `boolean` | `true` | 否 | — |
+| `maxHeight` | `number` | `248` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
 ## 关于 Todo List
-
-展示带展开详情和明确任务状态的工作条目序列。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Todo List：展示带展开详情和明确任务状态的工作条目序列。
 
 ### 无障碍
 

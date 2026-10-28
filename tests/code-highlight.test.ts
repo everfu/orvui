@@ -2,15 +2,15 @@ import { expect, it } from "vitest";
 import {
   getHighlighter,
   highlightCode,
-} from "../apps/docs/.vitepress/theme/highlight";
+} from "../apps/docs/app/docs/highlight";
 
-it("loads both GitHub high-contrast palettes and the Vue/source grammars once", async () => {
+it("loads both GitHub light and dark palettes and the Vue/source grammars once", async () => {
   const first = getHighlighter(),
     next = getHighlighter();
   expect(next).toBe(first);
   const highlighter = await first;
-  expect(highlighter.getLoadedThemes()).toContain("github-light-high-contrast");
-  expect(highlighter.getLoadedThemes()).toContain("github-dark-high-contrast");
+  expect(highlighter.getLoadedThemes()).toContain("github-light");
+  expect(highlighter.getLoadedThemes()).toContain("github-dark");
   expect(highlighter.getLoadedLanguages()).toEqual(
     expect.arrayContaining([
       "vue",

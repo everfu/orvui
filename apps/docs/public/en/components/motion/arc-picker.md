@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Move a curved list of labels through a fixed selection point using gestures or keys.
 
+Move a curved list of labels through a fixed selection point using gestures or keys.
+
+## When to use it
+
+- Use Arc Picker when the interface needs this behavior: move a curved list of labels through a fixed selection point using gestures or keys.
+
 ## Install
 
 ### Arc Picker — Registry source
@@ -112,12 +118,6 @@ const side = ref<ArcPickerSide>("right");
 | `change` | — | — |
 
 ## About Arc Picker
-
-Move a curved list of labels through a fixed selection point using gestures or keys.
-
-### When to use it
-
-- Use Arc Picker when the interface needs this behavior: move a curved list of labels through a fixed selection point using gestures or keys.
 
 ### Accessibility
 

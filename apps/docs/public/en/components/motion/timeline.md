@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Browse dated milestones on a draggable track that keeps the selected event in focus.
 
+Browse dated milestones on a draggable track that keeps the selected event in focus.
+
+## When to use it
+
+- Use Timeline when the interface needs this behavior: browse dated milestones on a draggable track that keeps the selected event in focus.
+
 ## Install
 
 ### Timeline — Registry source
@@ -172,12 +178,6 @@ const selected = ref("signups");
 | `meta` | — | `event: event` | — |
 
 ## About Timeline
-
-Browse dated milestones on a draggable track that keeps the selected event in focus.
-
-### When to use it
-
-- Use Timeline when the interface needs this behavior: browse dated milestones on a draggable track that keeps the selected event in focus.
 
 ### Accessibility
 

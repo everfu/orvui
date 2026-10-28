@@ -3,7 +3,7 @@
 > An independent Vue 3.5 UI system with expressive motion, composable APIs and copyable source.
 
 ## Guides
-- [Introduction to Vue Web](https://orvui.efu.me/guide.md)
+- [Get started with orvui](https://orvui.efu.me/guide.md)
 - [Installation](https://orvui.efu.me/docs/installation.md)
 - [Theme setup](https://orvui.efu.me/docs/theme.md)
 - [For AI agents](https://orvui.efu.me/docs/ai-agents.md)

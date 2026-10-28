@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { computed, defineComponent, h, nextTick, ref } from "vue";
-import SiteSearch from "../apps/docs/.vitepress/theme/SiteSearch.vue";
-import NewBadge from "../apps/docs/.vitepress/theme/NewBadge.vue";
-import { useNewBadgeClock } from "../apps/docs/.vitepress/theme/new-badge";
+import SiteSearch from "../apps/docs/app/docs/SiteSearch.vue";
+import NewBadge from "../apps/docs/app/docs/NewBadge.vue";
+import { useNewBadgeClock } from "../apps/docs/app/docs/new-badge";
 
 const wrappers: VueWrapper[] = [];
 beforeEach(() => {
@@ -150,4 +150,31 @@ it("keeps a clock-dependent parent with function-rendered New badges stable duri
   expect(wrapper.find(".new-badge").text()).toBe("New");
   expect(errors.map(String)).toEqual([]);
   expect(renders.mock.calls.length).toBeLessThan(10);
+});
+
+it("starts with five localized guide links, searches the catalog and reports an empty result", async () => {
+  const wrapper = mount(SiteSearch, {
+    props: { open: true, en: false },
+    attachTo: document.body,
+  });
+  wrappers.push(wrapper);
+  await settle();
+  const labels = () =>
+    Array.from(document.querySelectorAll('[role="option"]')).map((row) =>
+      row.textContent?.trim(),
+    );
+  expect(labels()).toHaveLength(5);
+  expect(labels().join(" ")).toContain("主题");
+  const input = document.querySelector<HTMLInputElement>('[role="combobox"]')!;
+  input.value = "no-such-orvui-component-123";
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  await settle();
+  expect(labels()).toEqual([]);
+  expect(document.querySelector('[role="status"]')?.textContent).toBe(
+    "没有找到结果。",
+  );
+  input.value = "";
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  await settle();
+  expect(labels()).toHaveLength(5);
 });

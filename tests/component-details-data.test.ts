@@ -6,10 +6,10 @@ import {
   getLocalizedDetails,
   getComponentGuide,
   relatedComponents,
-} from "../apps/docs/.vitepress/theme/details";
+} from "../apps/docs/app/docs/details";
 import catalog from "../tools/catalog/components.json";
-import { zhAboutByCategory } from "../apps/docs/.vitepress/theme/details/zh-about";
-import { zhGuideExtras } from "../apps/docs/.vitepress/theme/details/zh-guide-extras";
+import { zhAboutByCategory } from "../apps/docs/app/docs/details/zh-about";
+import { zhGuideExtras } from "../apps/docs/app/docs/details/zh-guide-extras";
 describe("fixed component documentation baseline", () => {
   it("provides 109 owned About entries and 18 public composition guides", () => {
     expect(componentDetails).toHaveLength(109);

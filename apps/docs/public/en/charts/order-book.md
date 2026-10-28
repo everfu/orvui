@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect bid and ask levels, cumulative depth and price selections in a live book.
 
+Inspect bid and ask levels, cumulative depth and price selections in a live book.
+
+## When to use it
+
+- Use Order Book when the interface needs this behavior: inspect bid and ask levels, cumulative depth and price selections in a live book.
+
 ## Install
 
 ### Order Book — Registry source
@@ -301,12 +307,6 @@ function step() {
 | `entranceIndex` | `number` | — | Yes | — |
 
 ## About Order Book
-
-Inspect bid and ask levels, cumulative depth and price selections in a live book.
-
-### When to use it
-
-- Use Order Book when the interface needs this behavior: inspect bid and ask levels, cumulative depth and price selections in a live book.
 
 ### Accessibility
 

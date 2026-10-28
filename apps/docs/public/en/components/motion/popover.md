@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Attach a floating surface to a trigger with conventional or continuous morphing transitions.
 
+Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+
+## When to use it
+
+- Use Popover when the interface needs this behavior: attach a floating surface to a trigger with conventional or continuous morphing transitions.
+
 ## Install
 
 ### Popover — Registry source
@@ -450,12 +456,6 @@ function choose() {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Popover
-
-Attach a floating surface to a trigger with conventional or continuous morphing transitions.
-
-### When to use it
-
-- Use Popover when the interface needs this behavior: attach a floating surface to a trigger with conventional or continuous morphing transitions.
 
 ### Accessibility
 

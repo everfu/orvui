@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 从缩略图打开画廊图片，在大图中切换、缩放或平移。
 
+从缩略图打开画廊图片，在大图中切换、缩放或平移。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Image Viewer：从缩略图打开画廊图片，在大图中切换、缩放或平移。
+
 ## 安装
 
 ### Image Viewer — 复制源码
@@ -263,12 +269,6 @@ const photos = subjects.map(([id, photo, alt, caption]) => ({ id, src: `https://
 | `default` | `() => VNodeChild` | — | — |
 
 ## 关于 Image Viewer
-
-从缩略图打开画廊图片，在大图中切换、缩放或平移。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Image Viewer：从缩略图打开画廊图片，在大图中切换、缩放或平移。
 
 ### 无障碍
 

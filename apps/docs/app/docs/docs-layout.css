@@ -1,0 +1,251 @@
+/* Restore the pinned documentation geometry; the shared site chrome and
+   component previews keep the original rules in style.css. */
+.site-shell[data-layout="docs"] .docs-frame {
+  display: block;
+}
+.site-shell[data-layout="docs"] .docs-resources {
+  position: fixed;
+  top: calc(var(--header-height) + 32px);
+  right: 32px;
+  width: 320px;
+  max-height: calc(100dvh - var(--header-height) - 64px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.site-shell[data-layout="docs"] .docs-resources::-webkit-scrollbar {
+  display: none;
+}
+.site-shell[data-layout="docs"] .docs-main [id] {
+  scroll-margin-top: calc(var(--header-height) + 32px);
+}
+.site-shell[data-layout="docs"] .docs-breadcrumb {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.site-shell[data-layout="docs"] .support-page {
+  max-width: none;
+}
+.site-shell[data-layout="docs"] .support-page > header h1,
+.site-shell[data-layout="docs"] .site-changelog > header h1 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.025em;
+}
+.site-shell[data-layout="docs"] .support-page > header > .guide-copy {
+  font-size: 16px;
+  line-height: 24px;
+}
+.site-shell[data-layout="docs"] .site-changelog {
+  max-width: none;
+  padding: 0;
+}
+@media (max-width: 1279px) {
+  .site-shell[data-layout="docs"] .docs-resources {
+    display: none;
+  }
+}
+
+/* Documentation prose is independent of component preview styling. */
+.support-page {
+  font-size: 16px;
+  line-height: 28px;
+}
+.support-page #overview h1,
+.page-title h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.support-page > h2,
+.component-overview h2,
+.component-install-section > h2,
+.component-details .guide-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.support-page > h2 {
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+.support-page > .guide-copy {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 28px;
+}
+.docs-callout {
+  margin-top: 24px;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  background: color-mix(in oklab, var(--primary) 4%, var(--background));
+}
+.docs-callout-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.docs-callout p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 24px;
+}
+.docs-callout--warning {
+  background: color-mix(in oklab, var(--color-amber-500) 5%, var(--background));
+}
+.docs-steps {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.docs-steps > li {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding: 0 0 24px;
+}
+.docs-steps > li:last-child {
+  padding-bottom: 0;
+}
+.docs-step-number {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 12px;
+  line-height: 1;
+}
+.docs-steps h3 {
+  margin: 0 0 4px;
+  color: var(--foreground);
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.docs-steps p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 26px;
+}
+.component-overview {
+  margin: 24px 0 40px;
+  color: var(--muted-foreground);
+  font-size: 16px;
+  line-height: 28px;
+}
+.component-overview h2 {
+  margin: 24px 0 12px;
+  color: var(--foreground);
+}
+.component-overview > p {
+  margin: 0;
+}
+.component-overview ul {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0;
+}
+.component-overview li + li {
+  margin-top: 4px;
+}
+.component-install-section {
+  position: relative;
+  margin-bottom: 40px;
+}
+.component-install-section > h2 {
+  margin: 0 0 12px;
+}
+.component-install-section .guide-copy,
+.component-details .guide-copy {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--muted-foreground);
+}
+.component-install-section .usage-installation-mode {
+  margin: 16px 0;
+}
+.anchor-alias {
+  position: absolute;
+  top: 0;
+}
+.docs-main .component-api-section {
+  margin: 40px 0;
+}
+.component-details .details-section {
+  margin-top: 40px;
+}
+.support-page .guide-copy a,
+.component-install-section a {
+  color: var(--foreground);
+  text-underline-offset: 4px;
+}
+@media (max-width: 767px) {
+  .support-page #overview h1,
+  .page-title h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+.support-page #overview .guide-copy {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.docs-next-guides {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  font-size: 14px;
+  line-height: 24px;
+}
+.docs-next-guides > span {
+  color: var(--muted-foreground);
+}
+.docs-next-guides > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--foreground);
+  border-radius: 4px;
+}
+.docs-next-guides > a:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 4px;
+}
+
+.component-api-reference {
+  margin: 40px 0;
+}
+.component-api-reference > h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+}
+.component-api-reference .component-api-section {
+  margin: 24px 0;
+}
+.api-variant-label {
+  margin: 0 0 16px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 24px;
+}

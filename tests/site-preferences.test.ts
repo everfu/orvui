@@ -10,13 +10,13 @@ import {
 } from "vitest";
 import { enableAutoUnmount, mount } from "@vue/test-utils";
 import { defineComponent, h, nextTick, ref } from "vue";
-import SitePreferences from "../apps/docs/.vitepress/theme/SitePreferences.vue";
+import SitePreferences from "../apps/docs/app/docs/SitePreferences.vue";
 import {
   THEME_LIST,
   THEMES,
   themeExportCss,
   themesStylesheet,
-} from "../apps/docs/.vitepress/theme/themes";
+} from "../apps/docs/app/docs/themes";
 
 enableAutoUnmount(afterEach);
 const animate = Object.getOwnPropertyDescriptor(Element.prototype, "animate");

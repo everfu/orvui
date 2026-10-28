@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
 
+Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+
+## When to use it
+
+- Use Wallet Card when the interface needs this behavior: inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+
 ## Install
 
 ### Wallet Card — Registry source
@@ -176,12 +182,6 @@ function change() {
 | `notifications` | `[]` | — |
 
 ## About Wallet Card
-
-Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
-
-### When to use it
-
-- Use Wallet Card when the interface needs this behavior: inspect an account balance, change accounts and hide sensitive amounts in a compact card.
 
 ### Accessibility
 

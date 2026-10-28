@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
 
+Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
+
+## When to use it
+
+- Use Animated CTA Buttons when the interface needs this behavior: confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
+
 ## Install
 
 ### Animated CTA Buttons — Registry source
@@ -274,12 +280,6 @@ onBeforeUnmount(() => clearTimeout(expiry));
 | `completeLabel` | `() => VNodeChild` | — | — |
 
 ## About Animated CTA Buttons
-
-Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
-
-### When to use it
-
-- Use Animated CTA Buttons when the interface needs this behavior: confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
 
 ### Accessibility
 

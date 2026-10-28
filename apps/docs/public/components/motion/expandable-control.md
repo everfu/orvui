@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 展开紧凑控件以显示标签或尾部操作，保持原位置联系。
 
+展开紧凑控件以显示标签或尾部操作，保持原位置联系。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Expandable Control：展开紧凑控件以显示标签或尾部操作，保持原位置联系。
+
 ## 安装
 
 ### Expandable Control — 复制源码
@@ -142,12 +148,6 @@ const notificationLabel = "Notifications";
 | `actionIcon` | `() => VNodeChild` | — | — |
 
 ## 关于 Expandable Control
-
-展开紧凑控件以显示标签或尾部操作，保持原位置联系。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Expandable Control：展开紧凑控件以显示标签或尾部操作，保持原位置联系。
 
 ### 无障碍
 

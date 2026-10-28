@@ -1,26 +1,88 @@
 # 主题设置
 
-orvui 组件使用 shadcn 语义令牌设置样式（`bg-primary`、`text-muted-foreground`、border、ring）。设置一次令牌，全部组件即可使用。有两种方式：
+先加载组件样式，再选择配色和明暗模式。使用语义 CSS 变量覆盖你需要的部分，让组件继续共享一致的外观。
 
 > 产品版本: 0.1.0
 
+<a id="import-order"></a>
+
+## 按顺序导入样式
+
+源码安装在应用样式中依次导入 Tailwind 和生成的样式，再放置你的覆盖。组件包则在应用入口导入一次组件包样式。
+
+```css
+@import "tailwindcss";
+@import "./components/orvui/styles.css";
+
+/* Application overrides follow these imports. */
+```
+
+```typescript
+import '@orvui/vue/style.css'
+```
+
+> **提示**: 源码样式和组件包样式选择一种即可，避免重复导入完整主题。
+
+<a id="palettes"></a>
+
+## 选择一套配色
+
+文档右上角的主题面板提供 11 套配色。选择后复制 CSS，将生成的变量放到项目样式的末尾。配色不会改变组件的尺寸和交互。
+
+```css
+:root {
+  --primary: #0285f7;
+  --primary-foreground: #ffffff;
+}
+```
+
+<a id="appearance"></a>
+
+## 切换明暗模式
+
+在根元素使用 dark 类启用深色模式；移除该类恢复浅色模式。首次渲染和客户端水合应使用一致的初始选择。
+
+```html
+<html class="dark">
+  <!-- Your application -->
+</html>
+```
+
+<a id="semantic-overrides"></a>
+
+## 覆盖语义变量
+
+优先覆盖 background、foreground、primary、border 等语义变量。将局部覆盖放在容器上，可让其中的组件继承，而不影响页面其他部分。
+
+```css
+.account-panel {
+  --primary: #0285f7;
+  --primary-foreground: #ffffff;
+}
+
+.dark .account-panel {
+  --primary: #5caeff;
+  --primary-foreground: #151515;
+}
+```
+
+> **提示**: 不要通过重置组件内部选择器覆盖状态样式。先使用公开的 class、插槽或语义变量。
+
 <a id="shadcn-init"></a>
 
-## 方式一 — shadcn 初始化（推荐）
+## 已有 shadcn-vue 项目
 
-项目已使用 shadcn-vue 时，这些令牌已经就绪。否则运行一次初始化，它会将令牌层写入 CSS。
+已有 shadcn-vue 项目可复用现有令牌。新项目先完成初始化，再按安装指南导入 orvui 生成的完整样式。
 
 ```bash
-npx shadcn-vue@2.8.2 init
+pnpm dlx shadcn-vue@2.8.2 init
 ```
 
 <a id="theme-css"></a>
 
-## 方式二 — 粘贴主题 CSS
+## 查看完整主题样式
 
-没有使用 shadcn-vue？将下面的代码粘贴到 `globals.css` 中，紧接在 `@import "tailwindcss";` 下方。它定义了组件使用的令牌、动效动画和表面工具类。需要 Tailwind CSS v4。
-
-也可在 [/theme.css ↗](/theme.css) 获取。
+需要完整令牌、动效动画和辅助样式时，查看下方内容或下载[theme.css](/theme.css)。
 
 ```css
 /* Generated from the orvui theme compatibility contract. */
@@ -797,6 +859,12 @@ npx shadcn-vue@2.8.2 init
 
 
 ```
+
+<a id="next-steps"></a>
+
+## 检查结果与下一步
+
+在明暗模式中检查文字、边框、焦点和禁用状态，再验证窄屏布局。继续阅读[动效指南](/docs/motion-patterns)，让主题与交互一起保持一致。
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

@@ -73,7 +73,7 @@ node tools/verify-registry-usage.mjs
 node tools/verify-component-install.mjs
 ```
 
-验证脚本会创建隔离的临时项目，默认将证据写入系统临时目录下的 `orvui-verification`。使用 `ORVUI_VERIFICATION_DIR` 指定输出目录；`--archive /absolute/path.tgz`、`ORVUI_PACKAGE_ARCHIVE` 或 `ORVUI_USAGE_PACKAGE` 可选择归档，否则使用当前版本目录中的默认归档。已有 `IUI_` 环境变量别名继续兼容。两个源码安装验证脚本会启动本地注册表并调用真实 CLI。
+验证脚本会创建隔离的临时项目，消费项目和归档解包目录位于 `artifacts/verification/`，默认将证据写入 `artifacts/reports/verification/`。使用 `ORVUI_VERIFICATION_DIR` 指定输出目录；`--archive /absolute/path.tgz`、`ORVUI_PACKAGE_ARCHIVE` 或 `ORVUI_USAGE_PACKAGE` 可选择归档，否则使用当前版本目录中的默认归档。已有 `IUI_` 环境变量别名继续兼容。两个源码安装验证脚本会启动本地注册表并调用真实 CLI。
 
 设置 `ORVUI_PREVIOUS_REGISTRY_DIRECTORY` 后，单组件安装验证还会从指定的旧注册表安装 Button，再更新到当前源码结构，检查类型、构建及使用者文件保留情况。更新源码时不要自动删除使用者目录中的旧文件或自定义内容。
 
@@ -93,6 +93,6 @@ node --test tools/verification/metadata.test.mjs
 
 ## 文档托管
 
-Netlify 使用根目录 `netlify.toml`，执行 `pnpm build`，发布目录为 `apps/docs/.vitepress/dist`。文档与源码注册表使用 `https://orvui.efu.me`；注册表通过 HTTPS 提供组件级源码安装，入口为 `/r/registry.json`。中英文安装指南分别位于 `/docs/installation` 和 `/en/docs/installation`。
+文档仅使用 Nuxt SSR。Netlify 使用根目录 `netlify.toml`，以 `apps/docs` 为基础目录，运行 `pnpm --dir ../.. build`，使用 Nitro netlify preset 生成 `dist` 和 SSR 函数。文档与源码注册表使用 `https://orvui.efu.me`；注册表通过 HTTPS 提供组件级源码安装，入口为 `/r/registry.json`。中英文安装指南分别位于 `/docs/installation` 和 `/en/docs/installation`。
 
 所有开发工作和验证均在本项目内自包含完成。发布 npm、推送代码或部署需要另行明确授权。

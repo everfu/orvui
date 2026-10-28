@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
-import PropsReference from "../apps/docs/.vitepress/theme/PropsReference.vue";
+import PropsReference from "../apps/docs/app/docs/PropsReference.vue";
 import type { ApiComponent } from "../tools/registry/component-docs-types";
 
 const mounted: VueWrapper[] = [];

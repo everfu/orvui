@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 组合资产兑换界面，包含代币选择、数量与目标信息。
 
+组合资产兑换界面，包含代币选择、数量与目标信息。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Multi-chain Swap：组合资产兑换界面，包含代币选择、数量与目标信息。
+
 ## 安装
 
 ### Multi-chain Swap — 复制源码
@@ -91,12 +97,6 @@ import { MultiChainSwap } from "@orvui/vue/blocks/swap";
 | `connect` | `[]` | — |
 
 ## 关于 Multi-chain Swap
-
-组合资产兑换界面，包含代币选择、数量与目标信息。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Multi-chain Swap：组合资产兑换界面，包含代币选择、数量与目标信息。
 
 ### 无障碍
 

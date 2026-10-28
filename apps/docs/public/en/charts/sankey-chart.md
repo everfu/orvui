@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Trace weighted flows across stages using connected nodes and proportional ribbons.
 
+Trace weighted flows across stages using connected nodes and proportional ribbons.
+
+## When to use it
+
+- Use Sankey Chart when the interface needs this behavior: trace weighted flows across stages using connected nodes and proportional ribbons.
+
 ## Install
 
 ### Sankey Chart — Registry source
@@ -248,12 +254,6 @@ const currency = (value: number) => `$${value.toLocaleString("en-US")}M`;
 | `default` | — | `active: chart.active` | — |
 
 ## About Sankey Chart
-
-Trace weighted flows across stages using connected nodes and proportional ribbons.
-
-### When to use it
-
-- Use Sankey Chart when the interface needs this behavior: trace weighted flows across stages using connected nodes and proportional ribbons.
 
 ### Accessibility
 

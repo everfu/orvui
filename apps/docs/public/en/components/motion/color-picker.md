@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
 
+Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+
+## When to use it
+
+- Use Color Picker when the interface needs this behavior: edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+
 ## Install
 
 ### Color Picker — Registry source
@@ -324,12 +330,6 @@ function cycle() {
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Color Picker
-
-Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
-
-### When to use it
-
-- Use Color Picker when the interface needs this behavior: edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
 
 ### Accessibility
 

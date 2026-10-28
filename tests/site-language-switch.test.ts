@@ -10,7 +10,7 @@ import {
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { createSSRApp, h, nextTick } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SiteLanguageSwitch from "../apps/docs/.vitepress/theme/SiteLanguageSwitch.vue";
+import SiteLanguageSwitch from "../apps/docs/app/docs/SiteLanguageSwitch.vue";
 
 const wrappers: VueWrapper[] = [];
 const nativeAnimate = Object.getOwnPropertyDescriptor(
@@ -129,22 +129,24 @@ it("opens a language popup without navigating and retains native query/hash link
   expect(navigation).not.toBeNull();
   const languages = options();
   expect(languages.map((link) => link.textContent?.trim())).toEqual([
-    "简体中文",
     "English",
+    "简体中文",
   ]);
   expect(languages.map((link) => link.getAttribute("href"))).toEqual([
-    chineseHref,
     englishHref,
+    chineseHref,
   ]);
-  expect(languages.map((link) => link.hreflang)).toEqual(["zh-CN", "en"]);
+  expect(languages.map((link) => link.hreflang)).toEqual(["en", "zh-CN"]);
   expect(languages.map((link) => link.getAttribute("aria-current"))).toEqual([
-    "page",
     null,
+    "page",
   ]);
-  for (const link of languages) {
-    expect(link.tagName).toBe("A");
-    expect(link.querySelector('[aria-hidden="true"] svg')).not.toBeNull();
-  }
+  expect(wrapper.find(".lucide-languages-icon").exists()).toBe(true);
+  expect(navigation.querySelector(".language-heading")?.textContent).toBe(
+    "选择语言",
+  );
+  for (const link of languages) expect(link.tagName).toBe("A");
+  expect(navigation.querySelectorAll(".language-check svg")).toHaveLength(1);
 });
 
 it("uses the English current route and marks only English as current", async () => {
@@ -159,12 +161,12 @@ it("uses the English current route and marks only English as current", async () 
   await openAt(wrapper);
   expect(document.querySelector('nav[aria-label="Language"]')).not.toBeNull();
   expect(options().map((link) => link.getAttribute("href"))).toEqual([
-    chineseHref,
     englishHref,
+    chineseHref,
   ]);
   expect(options().map((link) => link.getAttribute("aria-current"))).toEqual([
-    null,
     "page",
+    null,
   ]);
 });
 
@@ -201,12 +203,12 @@ it("updates labels, current language and links when the route changes in place",
     "Choose language, current: English",
   );
   expect(options().map((link) => link.getAttribute("href"))).toEqual([
-    "/components/motion/tabs?example=icons#api",
     "/en/components/motion/tabs?example=icons#api",
+    "/components/motion/tabs?example=icons#api",
   ]);
   expect(options().map((link) => link.getAttribute("aria-current"))).toEqual([
-    null,
     "page",
+    null,
   ]);
 });
 
@@ -232,8 +234,8 @@ it("focuses either edge, wraps arrow navigation and returns to the trigger on Es
 
 it("activates a native link with Space, preserves normal click behavior and closes", async () => {
   const wrapper = render();
-  await openAt(wrapper, "ArrowUp");
-  const english = options()[1];
+  await openAt(wrapper, "ArrowDown");
+  const english = options()[0];
   const click = vi.fn((event: MouseEvent) => {
     expect(event.defaultPrevented).toBe(false);
     event.preventDefault();
@@ -354,4 +356,17 @@ it("server-renders the localized closed trigger without a language popup", async
     expect(html).not.toContain("language-option");
     expect(html).not.toContain('role="dialog"');
   }
+});
+
+it("focuses the current language when touch activation leaves the previous control focused", async () => {
+  const wrapper = render();
+  const previous = document.createElement("button");
+  document.body.append(previous);
+  previous.focus();
+  // Synthetic click mirrors touch browsers that do not focus the tapped button.
+  await trigger(wrapper).trigger("click");
+  await settle();
+  expect(document.activeElement).toBe(
+    options().find((link) => link.hasAttribute("aria-current")),
+  );
 });

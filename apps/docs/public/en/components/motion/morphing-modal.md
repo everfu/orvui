@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Change a dialog's content and height together while preserving the outer surface.
 
+Change a dialog's content and height together while preserving the outer surface.
+
+## When to use it
+
+- Use Morphing Modal when the interface needs this behavior: change a dialog's content and height together while preserving the outer surface.
+
 ## Install
 
 ### Morphing Modal — Registry source
@@ -164,12 +170,6 @@ const words = "forest silver canvas garden maple sunrise meadow compass velvet a
 | `default` | — | `view-id: viewId` | — |
 
 ## About Morphing Modal
-
-Change a dialog's content and height together while preserving the outer surface.
-
-### When to use it
-
-- Use Morphing Modal when the interface needs this behavior: change a dialog's content and height together while preserving the outer surface.
 
 ### Accessibility
 

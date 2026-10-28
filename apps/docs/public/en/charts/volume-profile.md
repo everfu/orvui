@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compare traded volume by price level with horizontal bidirectional bars.
 
+Compare traded volume by price level with horizontal bidirectional bars.
+
+## When to use it
+
+- Use Volume Profile when the interface needs this behavior: compare traded volume by price level with horizontal bidirectional bars.
+
 ## Install
 
 ### Volume Profile — Registry source
@@ -322,12 +328,6 @@ const session = ref("today"),
 ### VolumeProfileSummary
 
 ## About Volume Profile
-
-Compare traded volume by price level with horizontal bidirectional bars.
-
-### When to use it
-
-- Use Volume Profile when the interface needs this behavior: compare traded volume by price level with horizontal bidirectional bars.
 
 ### Accessibility
 

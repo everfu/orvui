@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 用紧凑消息行呈现反馈，可加入操作并允许关闭。
 
+用紧凑消息行呈现反馈，可加入操作并允许关闭。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated Alert：用紧凑消息行呈现反馈，可加入操作并允许关闭。
+
 ## 安装
 
 ### Animated Alert — 复制源码
@@ -196,12 +202,6 @@ function choose(value: string) { selected.value = value as Variant; opened.value
 | `default` | `() => any` | — | — |
 
 ## 关于 Animated Alert
-
-用紧凑消息行呈现反馈，可加入操作并允许关闭。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated Alert：用紧凑消息行呈现反馈，可加入操作并允许关闭。
 
 ### 无障碍
 

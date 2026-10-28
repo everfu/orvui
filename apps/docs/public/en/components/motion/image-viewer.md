@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
 
+Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+
+## When to use it
+
+- Use Image Viewer when the interface needs this behavior: open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+
 ## Install
 
 ### Image Viewer — Registry source
@@ -263,12 +269,6 @@ const photos = subjects.map(([id, photo, alt, caption]) => ({ id, src: `https://
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Image Viewer
-
-Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
-
-### When to use it
-
-- Use Image Viewer when the interface needs this behavior: open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
 
 ### Accessibility
 

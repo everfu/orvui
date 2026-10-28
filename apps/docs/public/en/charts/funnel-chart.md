@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Follow successive stages and inspect conversion or loss between adjacent steps.
 
+Follow successive stages and inspect conversion or loss between adjacent steps.
+
+## When to use it
+
+- Use Funnel Chart when the interface needs this behavior: follow successive stages and inspect conversion or loss between adjacent steps.
+
 ## Install
 
 ### Funnel Chart — Registry source
@@ -232,12 +238,6 @@ function nextCohort() {
 ### FunnelChartSummary
 
 ## About Funnel Chart
-
-Follow successive stages and inspect conversion or loss between adjacent steps.
-
-### When to use it
-
-- Use Funnel Chart when the interface needs this behavior: follow successive stages and inspect conversion or loss between adjacent steps.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Inspect liquidity across time and price through a grid with selectable intensity bands.
 
+Inspect liquidity across time and price through a grid with selectable intensity bands.
+
+## When to use it
+
+- Use Liquidity Heatmap when the interface needs this behavior: inspect liquidity across time and price through a grid with selectable intensity bands.
+
 ## Install
 
 ### Liquidity Heatmap — Registry source
@@ -216,12 +222,6 @@ const formatPrice = (price: number) => `$${price.toFixed(2)}`;
 ### LiquidityHeatmapLegend
 
 ## About Liquidity Heatmap
-
-Inspect liquidity across time and price through a grid with selectable intensity bands.
-
-### When to use it
-
-- Use Liquidity Heatmap when the interface needs this behavior: inspect liquidity across time and price through a grid with selectable intensity bands.
 
 ### Accessibility
 

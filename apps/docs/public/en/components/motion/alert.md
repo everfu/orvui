@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Present feedback in a compact message row with optional actions and dismissal.
 
+Present feedback in a compact message row with optional actions and dismissal.
+
+## When to use it
+
+- Use Animated Alert when the interface needs this behavior: present feedback in a compact message row with optional actions and dismissal.
+
 ## Install
 
 ### Animated Alert — Registry source
@@ -196,12 +202,6 @@ function choose(value: string) { selected.value = value as Variant; opened.value
 | `default` | `() => any` | — | — |
 
 ## About Animated Alert
-
-Present feedback in a compact message row with optional actions and dismissal.
-
-### When to use it
-
-- Use Animated Alert when the interface needs this behavior: present feedback in a compact message row with optional actions and dismissal.
 
 ### Accessibility
 

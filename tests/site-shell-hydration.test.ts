@@ -14,16 +14,7 @@ const current = vi.hoisted(() => ({
   path: "/components/motion/switch",
   frontmatter: { category: "motion", slug: "switch" },
 }));
-vi.mock("../apps/docs/node_modules/vitepress", () => ({
-  useData: () => ({
-    frontmatter: { value: current.frontmatter },
-    lang: { value: current.path.startsWith("/en/") ? "en" : "zh-CN" },
-  }),
-  useRoute: () => current,
-  useRouter: () => ({ go: async () => {} }),
-  Content: { render: () => null },
-}));
-import Layout from "../apps/docs/.vitepress/theme/Layout.vue";
+import Layout from "../apps/docs/app/docs/SiteLayout.vue";
 const nativeAnimate = Element.prototype.animate;
 let app: ReturnType<typeof createSSRApp> | undefined;
 let host: HTMLDivElement | undefined;
@@ -86,9 +77,19 @@ it.each([false, true])(
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const error = vi.spyOn(console, "error").mockImplementation(() => {});
     host = document.createElement("div");
-    host.innerHTML = await renderToString(createSSRApp(Layout));
+    host.innerHTML = await renderToString(
+      createSSRApp(Layout, {
+        frontmatter: current.frontmatter,
+        route: current,
+        router: { go: async () => {} },
+      }),
+    );
     document.body.append(host);
-    app = createSSRApp(Layout);
+    app = createSSRApp(Layout, {
+      frontmatter: current.frontmatter,
+      route: current,
+      router: { go: async () => {} },
+    });
     app.mount(host);
     await flushPromises();
     await nextTick();

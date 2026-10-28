@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Turn a downward pull into a deliberate asynchronous refresh with visible progress.
 
+Turn a downward pull into a deliberate asynchronous refresh with visible progress.
+
+## When to use it
+
+- Use Pull to Refresh when the interface needs this behavior: turn a downward pull into a deliberate asynchronous refresh with visible progress.
+
 ## Install
 
 ### Pull to Refresh — Registry source
@@ -147,12 +153,6 @@ onBeforeUnmount(() => { disposed = true; clearTimeout(timer); release?.(); });
 | `default` | — | `status: status`, `progress: amount` | — |
 
 ## About Pull to Refresh
-
-Turn a downward pull into a deliberate asynchronous refresh with visible progress.
-
-### When to use it
-
-- Use Pull to Refresh when the interface needs this behavior: turn a downward pull into a deliberate asynchronous refresh with visible progress.
 
 ### Accessibility
 

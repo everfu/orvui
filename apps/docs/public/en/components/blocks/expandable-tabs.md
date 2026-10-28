@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Navigate an icon strip whose selected item expands to display its label.
 
+Navigate an icon strip whose selected item expands to display its label.
+
+## When to use it
+
+- Use Expandable Tabs when the interface needs this behavior: navigate an icon strip whose selected item expands to display its label.
+
 ## Install
 
 ### Expandable Tabs — Registry source
@@ -344,12 +350,6 @@ const items: ExpandableTabsItem[] = sections.map(({ rows, ...section }) => ({
 | `content` | — | `item: item`, `item: active` | — |
 
 ## About Expandable Tabs
-
-Navigate an icon strip whose selected item expands to display its label.
-
-### When to use it
-
-- Use Expandable Tabs when the interface needs this behavior: navigate an icon strip whose selected item expands to display its label.
 
 ### Accessibility
 

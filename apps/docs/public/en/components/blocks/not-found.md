@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Present a missing destination with an animated visual and a route back to useful content.
 
+Present a missing destination with an animated visual and a route back to useful content.
+
+## When to use it
+
+- Use 404 / Not Found when the interface needs this behavior: present a missing destination with an animated visual and a route back to useful content.
+
 ## Install
 
 ### 404 / Not Found — Registry source
@@ -335,12 +341,6 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 | `browseLabel` | `string` | — | No | — |
 
 ## About 404 / Not Found
-
-Present a missing destination with an animated visual and a route back to useful content.
-
-### When to use it
-
-- Use 404 / Not Found when the interface needs this behavior: present a missing destination with an animated visual and a route back to useful content.
 
 ### Accessibility
 

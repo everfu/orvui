@@ -1,10 +1,12 @@
+import { createDocsPages } from "../tools/docs/routes";
+const docRoutes = new Set(createDocsPages().map((page) => page.path));
 // @vitest-environment node
 import { existsSync, readFileSync } from "node:fs";
 import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
 import { compileStyle, parse } from "vue/compiler-sfc";
 import { expect, it } from "vitest";
-import SiteFooter from "../apps/docs/.vitepress/theme/SiteFooter.vue";
+import SiteFooter from "../apps/docs/app/docs/SiteFooter.vue";
 import catalog from "../tools/catalog/components.json";
 import type { CatalogCategory } from "../tools/registry/types";
 const categories = catalog.categories as CatalogCategory[];
@@ -52,13 +54,12 @@ it.each([true, false])(
       "/licenses/paper-design-PolyForm-Shield.txt",
     ])
       expect(html).toContain(`href="${path}"`);
-    // Each rendered local href must actually exist as a VitePress route or asset.
+    // Each rendered local href must actually exist as a Nuxt route or asset.
     for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
       if (!href!.startsWith("/")) continue;
-      const route = href!.endsWith("/") ? `${href}index` : href;
+      const route = href!.split(/[?#]/)[0]!;
       expect(
-        existsSync(`apps/docs${route}.md`) ||
-          existsSync(`apps/docs/public${href}`),
+        docRoutes.has(route) || existsSync(`apps/docs/public${href}`),
         href,
       ).toBe(true);
     }
@@ -68,10 +69,7 @@ it.each([true, false])(
   },
 );
 it("compiles isolated scoped responsive rules without reserved artwork space", () => {
-  const source = readFileSync(
-    "apps/docs/.vitepress/theme/SiteFooter.vue",
-    "utf8",
-  );
+  const source = readFileSync("apps/docs/app/docs/SiteFooter.vue", "utf8");
   const descriptor = parse(source).descriptor;
   const result = compileStyle({
     filename: "SiteFooter.vue",
@@ -93,12 +91,10 @@ it("compiles isolated scoped responsive rules without reserved artwork space", (
   });
   const style = (media: string, selector: string) =>
     declarations.get(`${media}:${selector}[data-v-footer]`)!;
-  expect(style("base", ".orvui-site-footer-grid")["grid-template-columns"]).toBe(
-    "minmax(0, 1fr)",
-  );
-  expect(style("base", ".orvui-site-footer-grid").padding).toBe(
-    "64px 16px",
-  );
+  expect(
+    style("base", ".orvui-site-footer-grid")["grid-template-columns"],
+  ).toBe("minmax(0, 1fr)");
+  expect(style("base", ".orvui-site-footer-grid").padding).toBe("64px 16px");
   expect(style("base", ".orvui-site-footer-grid")["row-gap"]).toBe("48px");
   expect(
     style("(min-width: 640px)", ".orvui-site-footer-grid")[

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compare contributions across categories with normalized bars or stacked areas.
 
+Compare contributions across categories with normalized bars or stacked areas.
+
+## When to use it
+
+- Use Composition Chart when the interface needs this behavior: compare contributions across categories with normalized bars or stacked areas.
+
 ## Install
 
 ### Composition Chart — Registry source
@@ -222,12 +228,6 @@ const formatVisits = (value: number) => `${value.toLocaleString("en")} visits`;
 ### CompositionChartLegend
 
 ## About Composition Chart
-
-Compare contributions across categories with normalized bars or stacked areas.
-
-### When to use it
-
-- Use Composition Chart when the interface needs this behavior: compare contributions across categories with normalized bars or stacked areas.
 
 ### Accessibility
 

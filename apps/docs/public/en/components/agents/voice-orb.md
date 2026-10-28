@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Display a moving spherical field whose surface responds to activity or audio input.
 
+Display a moving spherical field whose surface responds to activity or audio input.
+
+## When to use it
+
+- Use Voice Orb when the interface needs this behavior: display a moving spherical field whose surface responds to activity or audio input.
+
 ## Install
 
 ### Voice Orb — Registry source
@@ -159,12 +165,6 @@ onBeforeUnmount(() => {
 | `fallback` | `() => VNodeChild` | — | — |
 
 ## About Voice Orb
-
-Display a moving spherical field whose surface responds to activity or audio input.
-
-### When to use it
-
-- Use Voice Orb when the interface needs this behavior: display a moving spherical field whose surface responds to activity or audio input.
 
 ### Accessibility
 

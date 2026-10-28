@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 组合持续变化的助手回复，包括文字、附件、引用和操作。
 
+组合持续变化的助手回复，包括文字、附件、引用和操作。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Streaming Response：组合持续变化的助手回复，包括文字、附件、引用和操作。
+
 ## 安装
 
 ### Streaming Response — 复制源码
@@ -342,44 +348,6 @@ onBeforeUnmount(() => {
 </template>
 ```
 
-## API 参考
-
-### StreamingResponse
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `status` | `"error" \| "streaming" \| "complete"` | `"streaming"` | 否 | — |
-| `copyText` | `string` | `""` | 否 | — |
-| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
-| `sources` | `CitationItem[]` | `() => []` | 否 | — |
-| `sourcesOpen` | `boolean` | `undefined` | 否 | — |
-| `defaultSourcesOpen` | `boolean` | `false` | 否 | — |
-| `sourceIdPrefix` | `string` | — | 否 | — |
-| `feedback` | `null \| "up" \| "down"` | — | 否 | — |
-| `defaultFeedback` | `null \| "up" \| "down"` | `null` | 否 | — |
-| `announce` | `boolean` | `true` | 否 | — |
-| `showActions` | `boolean` | `true` | 否 | — |
-| `contentClassName` | `string` | — | 否 | — |
-| `actionsClassName` | `string` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `retry` | `[]` | — |
-| `update:sourcesOpen` | `[open: boolean]` | — |
-| `sourcesOpenChange` | `[open: boolean]` | — |
-| `update:feedback` | `[feedback: StreamingResponseFeedback]` | — |
-| `feedbackChange` | `[feedback: StreamingResponseFeedback]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## 组件指南
 
 组合持续变化的助手回复，包括文字、附件、引用和操作。
@@ -443,13 +411,45 @@ Usage 区域通过 Vue props、事件与插槽组合 StreamingResponse，请选�
 - 适用: 当界面需要以下行为时使用 Streaming Response：组合持续变化的助手回复，包括文字、附件、引用和操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### StreamingResponse
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `status` | `"error" \| "streaming" \| "complete"` | `"streaming"` | 否 | — |
+| `copyText` | `string` | `""` | 否 | — |
+| `onCopy` | `() => void \| Promise<void>` | — | 否 | — |
+| `sources` | `CitationItem[]` | `() => []` | 否 | — |
+| `sourcesOpen` | `boolean` | `undefined` | 否 | — |
+| `defaultSourcesOpen` | `boolean` | `false` | 否 | — |
+| `sourceIdPrefix` | `string` | — | 否 | — |
+| `feedback` | `null \| "up" \| "down"` | — | 否 | — |
+| `defaultFeedback` | `null \| "up" \| "down"` | `null` | 否 | — |
+| `announce` | `boolean` | `true` | 否 | — |
+| `showActions` | `boolean` | `true` | 否 | — |
+| `contentClassName` | `string` | — | 否 | — |
+| `actionsClassName` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `retry` | `[]` | — |
+| `update:sourcesOpen` | `[open: boolean]` | — |
+| `sourcesOpenChange` | `[open: boolean]` | — |
+| `update:feedback` | `[feedback: StreamingResponseFeedback]` | — |
+| `feedbackChange` | `[feedback: StreamingResponseFeedback]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## 关于 Streaming Response
-
-组合持续变化的助手回复，包括文字、附件、引用和操作。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Streaming Response：组合持续变化的助手回复，包括文字、附件、引用和操作。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 使用时间区间编辑每周可用时间，并将安排复制到指定日期。
 
+使用时间区间编辑每周可用时间，并将安排复制到指定日期。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Availability Scheduler：使用时间区间编辑每周可用时间，并将安排复制到指定日期。
+
 ## 安装
 
 ### Availability Scheduler — 复制源码
@@ -92,12 +98,6 @@ import { AvailabilityScheduler } from "@orvui/vue/blocks/availability-scheduler"
 | `change` | `[value: WeekAvailability]` | — |
 
 ## 关于 Availability Scheduler
-
-使用时间区间编辑每周可用时间，并将安排复制到指定日期。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Availability Scheduler：使用时间区间编辑每周可用时间，并将安排复制到指定日期。
 
 ### 无障碍
 

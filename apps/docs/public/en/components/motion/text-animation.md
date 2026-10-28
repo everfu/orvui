@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
 
+Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+
+## When to use it
+
+- Use Text Animation when the interface needs this behavior: reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+
 ## Install
 
 ### Text Animation — Registry source
@@ -318,12 +324,6 @@ onBeforeUnmount(() => clearInterval(interval));
 | `text` | `string` | — | Yes | — |
 
 ## About Text Animation
-
-Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
-
-### When to use it
-
-- Use Text Animation when the interface needs this behavior: reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
 
 ### Accessibility
 

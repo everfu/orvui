@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Choose one value from a keyboard-navigable group of labeled options.
 
+Choose one value from a keyboard-navigable group of labeled options.
+
+## When to use it
+
+- Use Radio Group when the interface needs this behavior: choose one value from a keyboard-navigable group of labeled options.
+
 ## Install
 
 ### Radio Group — Registry source
@@ -192,12 +198,6 @@ const options = [
 | `id` | `string` | `generatedId` | No | — |
 
 ## About Radio Group
-
-Choose one value from a keyboard-navigable group of labeled options.
-
-### When to use it
-
-- Use Radio Group when the interface needs this behavior: choose one value from a keyboard-navigable group of labeled options.
 
 ### Accessibility
 

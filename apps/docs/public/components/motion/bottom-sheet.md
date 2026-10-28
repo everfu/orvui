@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 从底部打开面板，并通过拖动在吸附位置之间移动。
 
+从底部打开面板，并通过拖动在吸附位置之间移动。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Bottom Sheet：从底部打开面板，并通过拖动在吸附位置之间移动。
+
 ## 安装
 
 ### Bottom Sheet — 复制源码
@@ -109,12 +115,6 @@ const actions = ["Share", "Duplicate", "Move to folder", "Rename", "Archive", "D
 | `default` | `() => VNodeChild` | — | — |
 
 ## 关于 Bottom Sheet
-
-从底部打开面板，并通过拖动在吸附位置之间移动。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Bottom Sheet：从底部打开面板，并通过拖动在吸附位置之间移动。
 
 ### 无障碍
 

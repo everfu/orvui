@@ -3,7 +3,7 @@ import {
   appearanceBootstrap,
   readStoredAppearance,
   type Appearance,
-} from "../apps/docs/.vitepress/theme/appearance";
+} from "../apps/docs/app/docs/appearance";
 
 function storageWith(values: Record<string, string>) {
   const entries = new Map(Object.entries(values));

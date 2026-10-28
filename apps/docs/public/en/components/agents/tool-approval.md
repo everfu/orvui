@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Ask for an explicit decision on a pending tool action with explanatory context.
 
+Ask for an explicit decision on a pending tool action with explanatory context.
+
+## When to use it
+
+- Use Tool Approval when the interface needs this behavior: ask for an explicit decision on a pending tool action with explanatory context.
+
 ## Install
 
 ### Tool Approval — Registry source
@@ -235,47 +241,6 @@ function replay() {
 </template>
 ```
 
-## API Reference
-
-### ToolApproval
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `tool` | `Content` | — | Yes | — |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Allow this tool to run?"` | No | — |
-| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
-| `parameters` | `ToolApprovalParameter[]` | `() => []` | No | — |
-| `status` | `"error" \| "complete" \| "pending" \| "approved" \| "running" \| "approving" \| "denied"` | `"pending"` | No | — |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `false` | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-| `approve` | `[]` | — |
-| `alwaysAllow` | `[]` | — |
-| `deny` | `[]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### ToolApprovalCode
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `code` | `string` | — | Yes | — |
-| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | No | — |
-
 ## Component Guide
 
 Ask for an explicit decision on a pending tool action with explanatory context.
@@ -339,13 +304,48 @@ The Usage section composes ToolApproval, ToolApprovalCode through Vue props, eve
 - Use when: Use Tool Approval when the interface needs this behavior: ask for an explicit decision on a pending tool action with explanatory context.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### ToolApproval
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `tool` | `Content` | — | Yes | — |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Allow this tool to run?"` | No | — |
+| `description` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
+| `parameters` | `ToolApprovalParameter[]` | `() => []` | No | — |
+| `status` | `"error" \| "complete" \| "pending" \| "approved" \| "running" \| "approving" \| "denied"` | `"pending"` | No | — |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `false` | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+| `approve` | `[]` | — |
+| `alwaysAllow` | `[]` | — |
+| `deny` | `[]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### ToolApprovalCode
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `code` | `string` | — | Yes | — |
+| `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | No | — |
+
 ## About Tool Approval
-
-Ask for an explicit decision on a pending tool action with explanatory context.
-
-### When to use it
-
-- Use Tool Approval when the interface needs this behavior: ask for an explicit decision on a pending tool action with explanatory context.
 
 ### Accessibility
 

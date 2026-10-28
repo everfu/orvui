@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
 
+Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
+
+## When to use it
+
+- Use Prompt Input when the interface needs this behavior: compose and submit a prompt with a growing textarea, attachments and keyboard handling.
+
 ## Install
 
 ### Prompt Input — Registry source
@@ -344,44 +350,6 @@ onMounted(() => {
 </template>
 ```
 
-## API Reference
-
-### PromptInput
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `modelValue` | `string` | — | No | — |
-| `defaultValue` | `string` | `""` | No | — |
-| `models` | `PromptModel[]` | `() => []` | No | — |
-| `model` | `string` | — | No | — |
-| `defaultModel` | `string` | `props.models[0]?.value` | No | — |
-| `actions` | `PromptAction[]` | `() => []` | No | — |
-| `loading` | `boolean` | `false` | No | — |
-| `minRows` | `number` | `2` | No | — |
-| `maxRows` | `number` | `8` | No | — |
-| `disabled` | `boolean` | `false` | No | — |
-| `placeholder` | `string` | `"Ask the agent to do something…"` | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:modelValue` | `[value: string]` | — |
-| `valueChange` | `[value: string]` | — |
-| `update:model` | `[value: string]` | — |
-| `modelChange` | `[value: string]` | — |
-| `action` | `[action: string]` | — |
-| `submit` | `[value: string, model?: string \| undefined]` | — |
-| `stop` | `[]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `leading-action` | `() => VNodeChild` | — | — |
-
 ## Component Guide
 
 Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
@@ -445,13 +413,45 @@ The Usage section composes PromptInput through Vue props, events and slots. Use 
 - Use when: Use Prompt Input when the interface needs this behavior: compose and submit a prompt with a growing textarea, attachments and keyboard handling.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### PromptInput
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `string` | — | No | — |
+| `defaultValue` | `string` | `""` | No | — |
+| `models` | `PromptModel[]` | `() => []` | No | — |
+| `model` | `string` | — | No | — |
+| `defaultModel` | `string` | `props.models[0]?.value` | No | — |
+| `actions` | `PromptAction[]` | `() => []` | No | — |
+| `loading` | `boolean` | `false` | No | — |
+| `minRows` | `number` | `2` | No | — |
+| `maxRows` | `number` | `8` | No | — |
+| `disabled` | `boolean` | `false` | No | — |
+| `placeholder` | `string` | `"Ask the agent to do something…"` | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:modelValue` | `[value: string]` | — |
+| `valueChange` | `[value: string]` | — |
+| `update:model` | `[value: string]` | — |
+| `modelChange` | `[value: string]` | — |
+| `action` | `[action: string]` | — |
+| `submit` | `[value: string, model?: string \| undefined]` | — |
+| `stop` | `[]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `leading-action` | `() => VNodeChild` | — | — |
+
 ## About Prompt Input
-
-Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
-
-### When to use it
-
-- Use Prompt Input when the interface needs this behavior: compose and submit a prompt with a growing textarea, attachments and keyboard handling.
 
 ### Accessibility
 

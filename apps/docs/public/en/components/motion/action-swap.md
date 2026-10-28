@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Replace short action text or icons using blur, rolling or staggered transitions.
 
+Replace short action text or icons using blur, rolling or staggered transitions.
+
+## When to use it
+
+- Use Action Swap when the interface needs this behavior: replace short action text or icons using blur, rolling or staggered transitions.
+
 ## Install
 
 ### Action Swap — Registry source
@@ -414,12 +420,6 @@ const actions = [{ id: "send", label: "Send invite", icon: Send, ariaLabel: "Sen
 | `icon` | — | `v-bind: slotProps` | — |
 
 ## About Action Swap
-
-Replace short action text or icons using blur, rolling or staggered transitions.
-
-### When to use it
-
-- Use Action Swap when the interface needs this behavior: replace short action text or icons using blur, rolling or staggered transitions.
 
 ### Accessibility
 

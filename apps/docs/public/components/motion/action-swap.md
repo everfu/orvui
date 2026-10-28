@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 使用模糊、滚动或错开过渡替换简短操作文字与图标。
 
+使用模糊、滚动或错开过渡替换简短操作文字与图标。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Action Swap：使用模糊、滚动或错开过渡替换简短操作文字与图标。
+
 ## 安装
 
 ### Action Swap — 复制源码
@@ -414,12 +420,6 @@ const actions = [{ id: "send", label: "Send invite", icon: Send, ariaLabel: "Sen
 | `icon` | — | `v-bind: slotProps` | — |
 
 ## 关于 Action Swap
-
-使用模糊、滚动或错开过渡替换简短操作文字与图标。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Action Swap：使用模糊、滚动或错开过渡替换简短操作文字与图标。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Follow appended messages while letting readers leave and return to the latest content.
 
+Follow appended messages while letting readers leave and return to the latest content.
+
+## When to use it
+
+- Use Message Scroller when the interface needs this behavior: follow appended messages while letting readers leave and return to the latest content.
+
 ## Install
 
 ### Message Scroller — Registry source
@@ -504,34 +510,6 @@ onBeforeUnmount(stop);
 </template>
 ```
 
-## API Reference
-
-### MessageScroller
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `followOutput` | `boolean` | `true` | No | — |
-| `followThreshold` | `number` | `56` | No | — |
-| `smooth` | `boolean` | `true` | No | — |
-| `label` | `string` | `"Conversation"` | No | — |
-| `busy` | `boolean` | `false` | No | — |
-| `navigation` | `"rail"` | — | No | — |
-| `navigationLabel` | `string` | `"Message navigation"` | No | — |
-| `viewportClassName` | `string` | — | No | — |
-| `contentClassName` | `string` | — | No | — |
-| `railClassName` | `string` | — | No | — |
-| `viewportRef` | `Ref<HTMLElement \| null, HTMLElement \| null> \| (element: HTMLElement \| null) => void` | — | No | — |
-| `viewportProps` | `HTMLAttributes` | `{}` | No | — |
-| `contentProps` | `HTMLAttributes` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `followChange` | `[following: boolean]` | — |
-
 ## Component Guide
 
 Follow appended messages while letting readers leave and return to the latest content.
@@ -595,13 +573,35 @@ The Usage section composes MessageScroller through Vue props, events and slots. 
 - Use when: Use Message Scroller when the interface needs this behavior: follow appended messages while letting readers leave and return to the latest content.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### MessageScroller
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `followOutput` | `boolean` | `true` | No | — |
+| `followThreshold` | `number` | `56` | No | — |
+| `smooth` | `boolean` | `true` | No | — |
+| `label` | `string` | `"Conversation"` | No | — |
+| `busy` | `boolean` | `false` | No | — |
+| `navigation` | `"rail"` | — | No | — |
+| `navigationLabel` | `string` | `"Message navigation"` | No | — |
+| `viewportClassName` | `string` | — | No | — |
+| `contentClassName` | `string` | — | No | — |
+| `railClassName` | `string` | — | No | — |
+| `viewportRef` | `Ref<HTMLElement \| null, HTMLElement \| null> \| (element: HTMLElement \| null) => void` | — | No | — |
+| `viewportProps` | `HTMLAttributes` | `{}` | No | — |
+| `contentProps` | `HTMLAttributes` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `followChange` | `[following: boolean]` | — |
+
 ## About Message Scroller
-
-Follow appended messages while letting readers leave and return to the latest content.
-
-### When to use it
-
-- Use Message Scroller when the interface needs this behavior: follow appended messages while letting readers leave and return to the latest content.
 
 ### Accessibility
 

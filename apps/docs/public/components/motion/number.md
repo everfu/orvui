@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过计数、滚动或保持数位位置的方式呈现数值变化。
 
+通过计数、滚动或保持数位位置的方式呈现数值变化。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Number Animation：通过计数、滚动或保持数位位置的方式呈现数值变化。
+
 ## 安装
 
 ### Number Animation — 复制源码
@@ -289,12 +295,6 @@ const formatRevenue = (amount: number) => `$${Math.round(amount).toLocaleString(
 | `format` | `(value: number) => string` | — | 否 | — |
 
 ## 关于 Number Animation
-
-通过计数、滚动或保持数位位置的方式呈现数值变化。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Number Animation：通过计数、滚动或保持数位位置的方式呈现数值变化。
 
 ### 无障碍
 

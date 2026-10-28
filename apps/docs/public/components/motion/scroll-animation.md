@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将滚动与进度、视差、内容出现效果及主动定位连接。
 
+将滚动与进度、视差、内容出现效果及主动定位连接。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Scroll Animation：将滚动与进度、视差、内容出现效果及主动定位连接。
+
 ## 安装
 
 ### Scroll Animation — 复制源码
@@ -457,12 +463,6 @@ const samples = ["Spring slide", "Blur in", "Staggered by delay", "Reveal once"]
 | `default` | `() => VNodeChild` | — | — |
 
 ## 关于 Scroll Animation
-
-将滚动与进度、视差、内容出现效果及主动定位连接。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Scroll Animation：将滚动与进度、视差、内容出现效果及主动定位连接。
 
 ### 无障碍
 

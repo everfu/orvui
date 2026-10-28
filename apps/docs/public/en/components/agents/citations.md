@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Connect inline reference markers to inspectable source entries and links.
 
+Connect inline reference markers to inspectable source entries and links.
+
+## When to use it
+
+- Use Citations when the interface needs this behavior: connect inline reference markers to inspectable source entries and links.
+
 ## Install
 
 ### Citations — Registry source
@@ -242,56 +248,6 @@ onMounted(replay);
 </template>
 ```
 
-## API Reference
-
-### Citation
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `citationId` | `string` | — | Yes | — |
-| `index` | `number` | — | Yes | — |
-| `idPrefix` | `string` | — | Yes | — |
-| `label` | `string` | — | No | — |
-
-### Citations
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `citations` | `CitationItem[]` | — | Yes | — |
-| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Sources"` | No | — |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `false` | No | — |
-| `idPrefix` | `string` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
-### CitationList
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `citations` | `CitationItem[]` | — | Yes | — |
-| `idPrefix` | `string` | `` `citation-list-${instanceId.replace(/:/g, "")}` `` | No | — |
-
-### CitationFavicon
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `url` | `string` | — | No | — |
-| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
-
 ## Component Guide
 
 Connect inline reference markers to inspectable source entries and links.
@@ -355,13 +311,57 @@ The Usage section composes Citation, Citations, CitationList, CitationFavicon th
 - Use when: Use Citations when the interface needs this behavior: connect inline reference markers to inspectable source entries and links.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### Citation
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `citationId` | `string` | — | Yes | — |
+| `index` | `number` | — | Yes | — |
+| `idPrefix` | `string` | — | Yes | — |
+| `label` | `string` | — | No | — |
+
+### Citations
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `citations` | `CitationItem[]` | — | Yes | — |
+| `title` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Sources"` | No | — |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `false` | No | — |
+| `idPrefix` | `string` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
+### CitationList
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `citations` | `CitationItem[]` | — | Yes | — |
+| `idPrefix` | `string` | `` `citation-list-${instanceId.replace(/:/g, "")}` `` | No | — |
+
+### CitationFavicon
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `url` | `string` | — | No | — |
+| `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
+
 ## About Citations
-
-Connect inline reference markers to inspectable source entries and links.
-
-### When to use it
-
-- Use Citations when the interface needs this behavior: connect inline reference markers to inspectable source entries and links.
 
 ### Accessibility
 

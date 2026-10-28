@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a compact action track to expose controls that do not fit its resting width.
 
+Expand a compact action track to expose controls that do not fit its resting width.
+
+## When to use it
+
+- Use Overflow Actions when the interface needs this behavior: expand a compact action track to expose controls that do not fit its resting width.
+
 ## Install
 
 ### Overflow Actions — Registry source
@@ -143,12 +149,6 @@ const extra = [
 | `action` | `[item: OverflowActionItem]` | — |
 
 ## About Overflow Actions
-
-Expand a compact action track to expose controls that do not fit its resting width.
-
-### When to use it
-
-- Use Overflow Actions when the interface needs this behavior: expand a compact action track to expose controls that do not fit its resting width.
 
 ### Accessibility
 

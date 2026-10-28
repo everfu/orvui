@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Move one background surface between registered items to indicate a current selection.
 
+Move one background surface between registered items to indicate a current selection.
+
+## When to use it
+
+- Use Shared Layout Background when the interface needs this behavior: move one background surface between registered items to indicate a current selection.
+
 ## Install
 
 ### Shared Layout Background — Registry source
@@ -98,12 +104,6 @@ const entries = [
 ### SharedLayoutBg
 
 ## About Shared Layout Background
-
-Move one background surface between registered items to indicate a current selection.
-
-### When to use it
-
-- Use Shared Layout Background when the interface needs this behavior: move one background surface between registered items to indicate a current selection.
 
 ### Accessibility
 

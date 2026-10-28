@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Preview navigation targets from a compact rail that expands around the focused item.
 
+Preview navigation targets from a compact rail that expands around the focused item.
+
+## When to use it
+
+- Use Preview Rail when the interface needs this behavior: preview navigation targets from a compact rail that expands around the focused item.
+
 ## Install
 
 ### Preview Rail — Registry source
@@ -138,12 +144,6 @@ const sections = [
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Preview Rail
-
-Preview navigation targets from a compact rail that expands around the focused item.
-
-### When to use it
-
-- Use Preview Rail when the interface needs this behavior: preview navigation targets from a compact rail that expands around the focused item.
 
 ### Accessibility
 

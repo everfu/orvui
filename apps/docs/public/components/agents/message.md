@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 使用内容、附件、来源与操作部件组合会话条目。
 
+使用内容、附件、来源与操作部件组合会话条目。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Message：使用内容、附件、来源与操作部件组合会话条目。
+
 ## 安装
 
 ### Message — 复制源码
@@ -432,6 +438,72 @@ onBeforeUnmount(stop);
 </template>
 ```
 
+## 组件指南
+
+使用内容、附件、来源与操作部件组合会话条目。
+
+### 组合结构
+
+使用公开部件 Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping 组合 Message，并从该组件的公开入口导入。
+
+```text
+MessageGroup
+└── Message
+    ├── MessageAvatar
+    └── MessageContent
+        ├── MessageHeader
+        ├── MessageBubble
+        └── MessageFooter
+```
+
+### 生命周期
+
+#### 初始化
+
+通过 from、animateIn 配置 Message；API 表列出其类型与默认值。
+
+#### 更新
+
+通过default 插槽提供内容，应用副作用由调用方管理。
+
+#### 释放
+
+不再需要时移除整个组合；挂载的监听、观察器和动画由各自的所有者释放。
+
+### 设计原则
+
+#### 公开组合
+
+使用文档列出的 Message 部件，避免导入私有实现文件。
+
+#### 应用所有权
+
+将发出的更新连接到应用状态，网络请求与持久化由应用管理。
+
+#### 可访问内容
+
+为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
+
+### Vue 集成
+
+Usage 区域通过 Vue props、事件与插槽组合 Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping，请选择与安装方式一致的 npm 包或复制源码示例。
+
+### 关联组件
+
+- [Message Bubble](https://orvui.efu.me/components/agents/message-bubble): 呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
+- [Message Scroller](https://orvui.efu.me/components/agents/message-scroller): 在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
+- [Agent Activity](https://orvui.efu.me/components/agents/agent-activity): 将持续变化的助手活动组织为可展开步骤与完成摘要。
+
+### 能力边界
+
+- 负责: Message 负责文档定义的呈现与局部交互。
+- 由应用负责: 应用数据、授权、网络副作用与持久化仍由调用方负责。
+
+### 使用建议
+
+- 适用: 当界面需要以下行为时使用 Message：使用内容、附件、来源与操作部件组合会话条目。
+- 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
+
 ## API 参考
 
 ### Message
@@ -509,79 +581,7 @@ onBeforeUnmount(stop);
 | --- | --- | --- | --- | --- |
 | `label` | `string` | `"Responding"` | 否 | — |
 
-## 组件指南
-
-使用内容、附件、来源与操作部件组合会话条目。
-
-### 组合结构
-
-使用公开部件 Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping 组合 Message，并从该组件的公开入口导入。
-
-```text
-MessageGroup
-└── Message
-    ├── MessageAvatar
-    └── MessageContent
-        ├── MessageHeader
-        ├── MessageBubble
-        └── MessageFooter
-```
-
-### 生命周期
-
-#### 初始化
-
-通过 from、animateIn 配置 Message；API 表列出其类型与默认值。
-
-#### 更新
-
-通过default 插槽提供内容，应用副作用由调用方管理。
-
-#### 释放
-
-不再需要时移除整个组合；挂载的监听、观察器和动画由各自的所有者释放。
-
-### 设计原则
-
-#### 公开组合
-
-使用文档列出的 Message 部件，避免导入私有实现文件。
-
-#### 应用所有权
-
-将发出的更新连接到应用状态，网络请求与持久化由应用管理。
-
-#### 可访问内容
-
-为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
-
-### Vue 集成
-
-Usage 区域通过 Vue props、事件与插槽组合 Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping，请选择与安装方式一致的 npm 包或复制源码示例。
-
-### 关联组件
-
-- [Message Bubble](https://orvui.efu.me/components/agents/message-bubble): 呈现紧凑会话气泡，并可组合头像、元数据与操作控件。
-- [Message Scroller](https://orvui.efu.me/components/agents/message-scroller): 在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
-- [Agent Activity](https://orvui.efu.me/components/agents/agent-activity): 将持续变化的助手活动组织为可展开步骤与完成摘要。
-
-### 能力边界
-
-- 负责: Message 负责文档定义的呈现与局部交互。
-- 由应用负责: 应用数据、授权、网络副作用与持久化仍由调用方负责。
-
-### 使用建议
-
-- 适用: 当界面需要以下行为时使用 Message：使用内容、附件、来源与操作部件组合会话条目。
-- 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
-
 ## 关于 Message
-
-使用内容、附件、来源与操作部件组合会话条目。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Message：使用内容、附件、来源与操作部件组合会话条目。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 展示图像创建状态，预览输出并提供结果操作。
 
+展示图像创建状态，预览输出并提供结果操作。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Image Generation：展示图像创建状态，预览输出并提供结果操作。
+
 ## 安装
 
 ### Image Generation — 复制源码
@@ -376,38 +382,6 @@ onMounted(replay);
 </template>
 ```
 
-## API 参考
-
-### ImageGeneration
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `status` | `"error" \| "complete" \| "queued" \| "generating" \| "refining"` | `"generating"` | 否 | — |
-| `label` | `string` | ``(props.prompt ? `${message.value}: ${props.prompt}` : message.value)`` | 否 | — |
-| `prompt` | `string` | — | 否 | — |
-| `resolution` | `string` | `"1024 × 1024"` | 否 | — |
-| `aspectRatio` | `string \| number` | `"1 / 1"` | 否 | — |
-| `size` | `"compact" \| "fluid"` | `"compact"` | 否 | — |
-| `interactive` | `boolean` | `true` | 否 | — |
-| `statusText` | `string` | `{ queued: "Waiting to generate", generating: "Generating image", refining: "Refining details", complete: "Image ready", error: "Generation failed", }[props.status]` | 否 | — |
-| `showStatus` | `boolean` | `true` | 否 | — |
-| `mediaClassName` | `string` | — | 否 | — |
-| `statusClassName` | `string` | — | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `retry` | `[]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## 组件指南
 
 展示图像创建状态，预览输出并提供结果操作。
@@ -471,13 +445,39 @@ Usage 区域通过 Vue props、事件与插槽组合 ImageGeneration，请选择
 - 适用: 当界面需要以下行为时使用 Image Generation：展示图像创建状态，预览输出并提供结果操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### ImageGeneration
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `status` | `"error" \| "complete" \| "queued" \| "generating" \| "refining"` | `"generating"` | 否 | — |
+| `label` | `string` | ``(props.prompt ? `${message.value}: ${props.prompt}` : message.value)`` | 否 | — |
+| `prompt` | `string` | — | 否 | — |
+| `resolution` | `string` | `"1024 × 1024"` | 否 | — |
+| `aspectRatio` | `string \| number` | `"1 / 1"` | 否 | — |
+| `size` | `"compact" \| "fluid"` | `"compact"` | 否 | — |
+| `interactive` | `boolean` | `true` | 否 | — |
+| `statusText` | `string` | `{ queued: "Waiting to generate", generating: "Generating image", refining: "Refining details", complete: "Image ready", error: "Generation failed", }[props.status]` | 否 | — |
+| `showStatus` | `boolean` | `true` | 否 | — |
+| `mediaClassName` | `string` | — | 否 | — |
+| `statusClassName` | `string` | — | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `retry` | `[]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## 关于 Image Generation
-
-展示图像创建状态，预览输出并提供结果操作。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Image Generation：展示图像创建状态，预览输出并提供结果操作。
 
 ### 无障碍
 

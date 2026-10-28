@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 在图标条中导航，选中项展开以显示标签。
 
+在图标条中导航，选中项展开以显示标签。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Expandable Tabs：在图标条中导航，选中项展开以显示标签。
+
 ## 安装
 
 ### Expandable Tabs — 复制源码
@@ -344,12 +350,6 @@ const items: ExpandableTabsItem[] = sections.map(({ rows, ...section }) => ({
 | `content` | — | `item: item`, `item: active` | — |
 
 ## 关于 Expandable Tabs
-
-在图标条中导航，选中项展开以显示标签。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Expandable Tabs：在图标条中导航，选中项展开以显示标签。
 
 ### 无障碍
 

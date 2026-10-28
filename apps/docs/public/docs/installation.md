@@ -3,6 +3,16 @@
 为 Vue Web 项目选择组件包或 shadcn-vue 安装。各组件页的用法切换与这里的安装方式对应。
 
 
+<a id="choose-path"></a>
+
+## 先选择安装方式
+
+1. **复制源码** — 按组件安装到项目内，直接调整实现；需要 Tailwind CSS 4。
+
+2. **使用组件包** — 通过本地归档安装预构建组件，并导入一次组件包样式。
+
+> **注意事项**: 当前组件包未发布到 npm；先使用下方可验证的本地归档命令。
+
 <a id="requirements"></a>
 
 ## 准备项目
@@ -147,6 +157,11 @@ pnpm dev
 ```
 
 类型检查命令使用 Vite 模板的应用配置 tsconfig.app.json；已有项目请替换为实际检查 src/ 的配置文件。先确认按钮有正确样式和按压反馈，再检查业务组件的状态与事件。示例直接导入的额外依赖需在应用中安装；保留安装源码中的 MIT、NOTICE 和独立 Shader 许可。主题覆盖参见[主题设置](/docs/theme)，之后可从[组件目录](/components/motion)选择组件。
+
+## 下一步
+
+- [主题设置](/docs/theme)
+- [用动效解释，而非干扰](/docs/motion-patterns)
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 将搜索框展开为建议、最近记录或可编辑筛选标签。
 
+将搜索框展开为建议、最近记录或可编辑筛选标签。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Morphing Search：将搜索框展开为建议、最近记录或可编辑筛选标签。
+
 ## 安装
 
 ### Morphing Search — 复制源码
@@ -530,12 +536,6 @@ const items: MorphingSearchItem[] = entries.map(
 | `actions` | `() => VNodeChild` | — | — |
 
 ## 关于 Morphing Search
-
-将搜索框展开为建议、最近记录或可编辑筛选标签。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Morphing Search：将搜索框展开为建议、最近记录或可编辑筛选标签。
 
 ### 无障碍
 

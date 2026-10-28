@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Choose a compact animated indicator for an operation whose result is still pending.
 
+Choose a compact animated indicator for an operation whose result is still pending.
+
+## When to use it
+
+- Use Loader when the interface needs this behavior: choose a compact animated indicator for an operation whose result is still pending.
+
 ## Install
 
 ### Loader — Registry source
@@ -97,12 +103,6 @@ const variants: [LoaderVariant, string][] = [
 | `label` | `string` | `"Loading"` | No | — |
 
 ## About Loader
-
-Choose a compact animated indicator for an operation whose result is still pending.
-
-### When to use it
-
-- Use Loader when the interface needs this behavior: choose a compact animated indicator for an operation whose result is still pending.
 
 ### Accessibility
 

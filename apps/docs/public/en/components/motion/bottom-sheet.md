@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Open a panel from the lower edge and move it between snap positions with a drag.
 
+Open a panel from the lower edge and move it between snap positions with a drag.
+
+## When to use it
+
+- Use Bottom Sheet when the interface needs this behavior: open a panel from the lower edge and move it between snap positions with a drag.
+
 ## Install
 
 ### Bottom Sheet — Registry source
@@ -109,12 +115,6 @@ const actions = ["Share", "Duplicate", "Move to folder", "Rename", "Archive", "D
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Bottom Sheet
-
-Open a panel from the lower edge and move it between snap positions with a drag.
-
-### When to use it
-
-- Use Bottom Sheet when the interface needs this behavior: open a panel from the lower edge and move it between snap positions with a drag.
 
 ### Accessibility
 

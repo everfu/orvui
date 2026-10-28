@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 使用归一化柱形或堆叠面积比较不同分类的组成贡献。
 
+使用归一化柱形或堆叠面积比较不同分类的组成贡献。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Composition Chart：使用归一化柱形或堆叠面积比较不同分类的组成贡献。
+
 ## 安装
 
 ### Composition Chart — 复制源码
@@ -222,12 +228,6 @@ const formatVisits = (value: number) => `${value.toLocaleString("en")} visits`;
 ### CompositionChartLegend
 
 ## 关于 Composition Chart
-
-使用归一化柱形或堆叠面积比较不同分类的组成贡献。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Composition Chart：使用归一化柱形或堆叠面积比较不同分类的组成贡献。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Choose from a floating list whose panel can expand continuously from its trigger.
 
+Choose from a floating list whose panel can expand continuously from its trigger.
+
+## When to use it
+
+- Use Select when the interface needs this behavior: choose from a floating list whose panel can expand continuously from its trigger.
+
 ## Install
 
 ### Select — Registry source
@@ -451,12 +457,6 @@ const tools = [
 | `default` | `() => VNodeChild` | — | — |
 
 ## About Select
-
-Choose from a floating list whose panel can expand continuously from its trigger.
-
-### When to use it
-
-- Use Select when the interface needs this behavior: choose from a floating list whose panel can expand continuously from its trigger.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Edit weekly availability as time ranges and copy a schedule to selected days.
 
+Edit weekly availability as time ranges and copy a schedule to selected days.
+
+## When to use it
+
+- Use Availability Scheduler when the interface needs this behavior: edit weekly availability as time ranges and copy a schedule to selected days.
+
 ## Install
 
 ### Availability Scheduler — Registry source
@@ -92,12 +98,6 @@ import { AvailabilityScheduler } from "@orvui/vue/blocks/availability-scheduler"
 | `change` | `[value: WeekAvailability]` | — |
 
 ## About Availability Scheduler
-
-Edit weekly availability as time ranges and copy a schedule to selected days.
-
-### When to use it
-
-- Use Availability Scheduler when the interface needs this behavior: edit weekly availability as time ranges and copy a schedule to selected days.
 
 ### Accessibility
 

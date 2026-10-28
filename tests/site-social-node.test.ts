@@ -2,18 +2,18 @@
 import { readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { reactive } from "vue";
-import { watchNotFoundHead } from "../apps/docs/.vitepress/theme/not-found-head";
-import type { HeadConfig, PageData } from "../apps/docs/node_modules/vitepress";
+import type { DocsHeadConfig as HeadConfig } from "../apps/docs/app/shared-head";
+import type { SocialPageData as PageData } from "../apps/docs/app/page-metadata";
+import { createDocsPages } from "../tools/docs/routes";
 import {
   applySocialMetadata,
   canonicalPath,
   notFoundRobots,
   siteDescriptions,
   socialImage,
-} from "../apps/docs/.vitepress/social";
+} from "../apps/docs/app/page-metadata";
 import catalog from "../tools/catalog/components.json";
-import { sitePages } from "../apps/docs/.vitepress/theme/site-page-data";
+import { sitePages } from "../apps/docs/app/docs/site-page-data";
 
 const root = resolve(import.meta.dirname, "../apps/docs");
 function page(
@@ -22,25 +22,20 @@ function page(
 ): PageData {
   return {
     relativePath,
-    filePath: relativePath,
     title: String(frontmatter.title ?? "Page"),
     description: "",
-    headers: [],
     frontmatter,
   };
 }
-function sourcePage(path: string) {
-  const source = readFileSync(resolve(root, path), "utf8");
-  const frontmatter = Object.fromEntries(
-    [...source.matchAll(/^([\w]+): (".*")$/gm)].map(([, key, value]) => [
-      key,
-      JSON.parse(value),
-    ]),
+function sourcePage(path: string): PageData {
+  const definition = createDocsPages().find(
+    (page) => page.relativePath === path,
   );
-  return page(path, frontmatter);
+  if (!definition) throw new Error(`Missing route metadata: ${path}`);
+  return { ...definition, frontmatter: { ...definition.frontmatter } };
 }
 function value(data: PageData, key: string) {
-  const head: HeadConfig[] = data.frontmatter.head;
+  const head: HeadConfig[] = data.frontmatter.head ?? [];
   return head.find(
     ([, attrs]) => attrs.property === key || attrs.name === key,
   )?.[1].content;
@@ -66,6 +61,11 @@ describe("social metadata", () => {
     const prefix = en ? "en/" : "";
     const home = sourcePage(prefix + "index.md");
     applySocialMetadata(home);
+    expect(value(home, "og:title")).toBe(
+      en
+        ? "orvui | Animated components for Vue"
+        : "orvui | 为 Vue 而生的动态组件",
+    );
     expect(home.description).toBe(siteDescriptions[en ? "en" : "zh"]);
     const guide = sourcePage(prefix + "guide.md");
     applySocialMetadata(guide);
@@ -101,7 +101,7 @@ describe("social metadata", () => {
       for (const path of paths) {
         const data = sourcePage(prefix + path);
         applySocialMetadata(data);
-        const head: HeadConfig[] = data.frontmatter.head;
+        const head: HeadConfig[] = data.frontmatter.head ?? [];
         const identities = head.map(
           ([tag, attrs]) =>
             `${tag}:${attrs.property ?? attrs.name ?? attrs.rel}`,
@@ -109,7 +109,11 @@ describe("social metadata", () => {
         expect(new Set(identities).size, data.relativePath).toBe(
           identities.length,
         );
-        expect(value(data, "og:title")).toBe(`${data.title} | orvui`);
+        expect(value(data, "og:title")).toBe(
+          data.frontmatter.layout === "home"
+            ? `orvui | ${data.title}`
+            : `${data.title} | orvui`,
+        );
         expect(value(data, "twitter:title")).toBe(value(data, "og:title"));
         expect(
           data.description.trim().length,
@@ -174,7 +178,7 @@ describe("social metadata", () => {
     ["Docs", "Page | Docs"],
     ["orvui", "Page"],
     [":title · orvui", "Page · orvui"],
-  ])("matches VitePress titleTemplate=%s", (template, expected) => {
+  ])("supports titleTemplate=%s", (template, expected) => {
     const data = page("custom.md");
     data.titleTemplate = template;
     applySocialMetadata(data);
@@ -192,22 +196,6 @@ describe("social metadata", () => {
       expect(data.frontmatter.head).toEqual([notFoundRobots]);
     },
   );
-
-  it("manages virtual 404 heads through route changes and releases its watcher", () => {
-    const route = reactive({
-      data: { ...page("404.md"), isNotFound: true } as PageData,
-    });
-    const stop = watchNotFoundHead(() => route.data);
-    expect(route.data.frontmatter.head).toEqual([notFoundRobots]);
-    route.data = sourcePage("index.md");
-    applySocialMetadata(route.data);
-    expect(value(route.data, "robots")).toBe("index, follow");
-    route.data = { ...page("missing.md"), isNotFound: true };
-    expect(route.data.frontmatter.head).toEqual([notFoundRobots]);
-    stop();
-    route.data = { ...page("another-missing.md"), isNotFound: true };
-    expect(route.data.frontmatter.head).toBeUndefined();
-  });
 
   it("ships a small, full-size PNG ready for static hosting", () => {
     const path = resolve(root, "public" + socialImage.path);

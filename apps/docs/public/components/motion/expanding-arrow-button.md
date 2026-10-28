@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过展开箭头、持续按压或滑动手势确认操作。
 
+通过展开箭头、持续按压或滑动手势确认操作。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Animated CTA Buttons：通过展开箭头、持续按压或滑动手势确认操作。
+
 ## 安装
 
 ### Animated CTA Buttons — 复制源码
@@ -274,12 +280,6 @@ onBeforeUnmount(() => clearTimeout(expiry));
 | `completeLabel` | `() => VNodeChild` | — | — |
 
 ## 关于 Animated CTA Buttons
-
-通过展开箭头、持续按压或滑动手势确认操作。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Animated CTA Buttons：通过展开箭头、持续按压或滑动手势确认操作。
 
 ### 无障碍
 

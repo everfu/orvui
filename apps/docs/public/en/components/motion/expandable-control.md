@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Expand a compact control to reveal a label or trailing action without losing its position.
 
+Expand a compact control to reveal a label or trailing action without losing its position.
+
+## When to use it
+
+- Use Expandable Control when the interface needs this behavior: expand a compact control to reveal a label or trailing action without losing its position.
+
 ## Install
 
 ### Expandable Control — Registry source
@@ -142,12 +148,6 @@ const notificationLabel = "Notifications";
 | `actionIcon` | `() => VNodeChild` | — | — |
 
 ## About Expandable Control
-
-Expand a compact control to reveal a label or trailing action without losing its position.
-
-### When to use it
-
-- Use Expandable Control when the interface needs this behavior: expand a compact control to reveal a label or trailing action without losing its position.
 
 ### Accessibility
 

@@ -12,13 +12,13 @@ import {
   siteOrigin,
   sitePages,
   themeCss,
-} from "../../apps/docs/.vitepress/theme/site-page-data";
+} from "../../apps/docs/app/docs/site-page-data";
 import {
   changelogAnchor,
   changelogEntries,
   excludedChangelogItems,
-} from "../../apps/docs/.vitepress/theme/site-changelog-data";
-import { sitePageMarkdown } from "../../apps/docs/.vitepress/theme/site-page-markdown";
+} from "../../apps/docs/app/docs/site-changelog-data";
+import { sitePageMarkdown } from "../../apps/docs/app/docs/site-page-markdown";
 
 export function buildSitePages(
   options: { root?: string; origin?: string } = {},

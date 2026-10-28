@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过进度、推理和微光显示传达助手工作仍在进行。
 
+通过进度、推理和微光显示传达助手工作仍在进行。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Agent Loading States：通过进度、推理和微光显示传达助手工作仍在进行。
+
 ## 安装
 
 ### Agent Loading States — 复制源码
@@ -255,51 +261,6 @@ const initial = 151.6;
 </template>
 ```
 
-## API 参考
-
-### AgentProgress
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `label` | `string` | `"Churning"` | 否 | — |
-| `elapsedSeconds` | `number` | `internal.value` | 否 | — |
-| `initialSeconds` | `number` | `0` | 否 | — |
-| `running` | `boolean` | `true` | 否 | — |
-
-### ReasoningText
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `phrases` | `string[]` | `() => [ "Thinking", "Reading the context", "Connecting the details", "Forming a response", ]` | 否 | — |
-| `variant` | `"cascade" \| "scramble" \| "swap"` | `"cascade"` | 否 | — |
-| `interval` | `number` | `1800` | 否 | — |
-| `shimmerDuration` | `number` | `2.2` | 否 | — |
-| `indicator` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | 否 | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `indicator` | `() => VNodeChild` | — | — |
-
-### ThinkingShimmer
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `duration` | `number` | `1.8` | 否 | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## 组件指南
 
 通过进度、推理和微光显示传达助手工作仍在进行。
@@ -364,13 +325,52 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentProgress, ReasoningTex
 - 适用: 当界面需要以下行为时使用 Agent Loading States：通过进度、推理和微光显示传达助手工作仍在进行。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### AgentProgress
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `label` | `string` | `"Churning"` | 否 | — |
+| `elapsedSeconds` | `number` | `internal.value` | 否 | — |
+| `initialSeconds` | `number` | `0` | 否 | — |
+| `running` | `boolean` | `true` | 否 | — |
+
+### ReasoningText
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `phrases` | `string[]` | `() => [ "Thinking", "Reading the context", "Connecting the details", "Forming a response", ]` | 否 | — |
+| `variant` | `"cascade" \| "scramble" \| "swap"` | `"cascade"` | 否 | — |
+| `interval` | `number` | `1800` | 否 | — |
+| `shimmerDuration` | `number` | `2.2` | 否 | — |
+| `indicator` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `undefined` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `indicator` | `() => VNodeChild` | — | — |
+
+### ThinkingShimmer
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `duration` | `number` | `1.8` | 否 | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## 关于 Agent Loading States
-
-通过进度、推理和微光显示传达助手工作仍在进行。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Agent Loading States：通过进度、推理和微光显示传达助手工作仍在进行。
 
 ### 无障碍
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Render a compact conversation bubble with an avatar, metadata and optional controls.
 
+Render a compact conversation bubble with an avatar, metadata and optional controls.
+
+## When to use it
+
+- Use Message Bubble when the interface needs this behavior: render a compact conversation bubble with an avatar, metadata and optional controls.
+
 ## Install
 
 ### Message Bubble — Registry source
@@ -1074,65 +1080,6 @@ const paragraphs = [
 </template>
 ```
 
-## API Reference
-
-### MessageBubble
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `variant` | `"ghost" \| "outline" \| "danger" \| "solid" \| "soft" \| "tint"` | `"soft"` | No | — |
-| `align` | `"start" \| "end"` | `(parent.value === "user" ? "end" : "start")` | No | — |
-| `animateIn` | `boolean` | `false` | No | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### MessageBubbleContent
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `as` | `string \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"div"` | No | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
-### MessageBubbleCollapsible
-
-#### Props
-
-| Prop | Type | Default | Required | Description |
-| --- | --- | --- | --- | --- |
-| `open` | `boolean` | `undefined` | No | — |
-| `defaultOpen` | `boolean` | `false` | No | — |
-| `collapsedLines` | `2 \| 3 \| 5 \| 4 \| 6` | `4` | No | — |
-| `moreLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show more"` | No | — |
-| `lessLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show less"` | No | — |
-| `contentClassName` | `string` | — | No | — |
-| `triggerClassName` | `string` | — | No | — |
-
-#### Events
-
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:open` | `[open: boolean]` | — |
-| `openChange` | `[open: boolean]` | — |
-
-#### Slots
-
-| Slot | Signature | Exposed bindings | Description |
-| --- | --- | --- | --- |
-| `default` | `() => VNodeChild` | — | — |
-
 ## Component Guide
 
 Render a compact conversation bubble with an avatar, metadata and optional controls.
@@ -1196,13 +1143,66 @@ The Usage section composes MessageBubble, MessageBubbleContent through Vue props
 - Use when: Use Message Bubble when the interface needs this behavior: render a compact conversation bubble with an avatar, metadata and optional controls.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+## API Reference
+
+### MessageBubble
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `variant` | `"ghost" \| "outline" \| "danger" \| "solid" \| "soft" \| "tint"` | `"soft"` | No | — |
+| `align` | `"start" \| "end"` | `(parent.value === "user" ? "end" : "start")` | No | — |
+| `animateIn` | `boolean` | `false` | No | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### MessageBubbleContent
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `as` | `string \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"div"` | No | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
+### MessageBubbleCollapsible
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `open` | `boolean` | `undefined` | No | — |
+| `defaultOpen` | `boolean` | `false` | No | — |
+| `collapsedLines` | `2 \| 3 \| 5 \| 4 \| 6` | `4` | No | — |
+| `moreLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show more"` | No | — |
+| `lessLabel` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | `"Show less"` | No | — |
+| `contentClassName` | `string` | — | No | — |
+| `triggerClassName` | `string` | — | No | — |
+
+#### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `update:open` | `[open: boolean]` | — |
+| `openChange` | `[open: boolean]` | — |
+
+#### Slots
+
+| Slot | Signature | Exposed bindings | Description |
+| --- | --- | --- | --- |
+| `default` | `() => VNodeChild` | — | — |
+
 ## About Message Bubble
-
-Render a compact conversation bubble with an avatar, metadata and optional controls.
-
-### When to use it
-
-- Use Message Bubble when the interface needs this behavior: render a compact conversation bubble with an avatar, metadata and optional controls.
 
 ### Accessibility
 

@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Navigate a vertical list while an active marker follows a curved path between rows.
 
+Navigate a vertical list while an active marker follows a curved path between rows.
+
+## When to use it
+
+- Use Bounce Sidebar when the interface needs this behavior: navigate a vertical list while an active marker follows a curved path between rows.
+
 ## Install
 
 ### Bounce Sidebar — Registry source
@@ -105,12 +111,6 @@ const sections = ["Overview", "Components", "Motion", "Templates", "Changelog"].
 | `item` | — | `item: item`, `active: selected === item.id` | — |
 
 ## About Bounce Sidebar
-
-Navigate a vertical list while an active marker follows a curved path between rows.
-
-### When to use it
-
-- Use Bounce Sidebar when the interface needs this behavior: navigate a vertical list while an active marker follows a curved path between rows.
 
 ### Accessibility
 

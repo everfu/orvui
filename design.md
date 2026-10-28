@@ -2,15 +2,21 @@
 
 ## Product behavior
 
-Retain all 109 components and 72 registered examples, the existing Web routes, public exports, Vue props/events/slots/composables, and installation slugs. Chinese remains the default, with matching English routes. Nuxt and native platform support remain deferred.
+Retain all 109 components and 72 registered examples, the existing Web routes, public exports, Vue props/events/slots/composables, and installation slugs. Chinese remains the default, with matching English routes. Nuxt SSR is the sole documentation application. Component-library Nuxt module support and native platform support remain deferred.
 
 ## Appearance
 
-Keep the current page and component geometry, typography, radii, spacing, borders, shadows, animation and responsive behavior. Preserve all eleven palette values exactly and retain semantic CSS override behavior. Fonts are Geist and Geist Mono, sourced from the project's declared font packages.
+Keep the current navigation shell and public component geometry, typography, radii, spacing, borders, shadows, animation and responsive behavior. Documentation prose and private code panels use the editorial rules below. Preserve all eleven palette values exactly and retain semantic CSS override behavior. Fonts are Geist and Geist Mono, sourced from the project's declared font packages.
 
-The documentation shell uses one 56px header, animated category filters, a 240px left navigation and a 320px resource rail. Hide the resource rail on tablets and use BottomSheet navigation on phones. The theme control remains an anchored, animated popover with 24px corners, four columns of labeled round swatches, a selection ring and an icon-only trigger at every viewport. Localize its palette labels with the current locale and keep the panel to swatches and a concise CSS copy action, without placeholder icon settings or persistent helper text.
+The documentation shell uses one 56px header, animated category filters, a 240px left navigation and a 320px resource rail. Hide the resource rail on tablets and use BottomSheet navigation on phones. The theme control remains an anchored, animated popover with 24px corners, four columns of labeled round swatches, a selection ring and a paint-bucket trigger labeled “主题” / “Theme” on desktop (icon-only below 1024px). Localize its palette labels with the current locale and keep the panel to swatches and a concise CSS copy action, without placeholder icon settings or persistent helper text.
 
-Site actions use the shared private styles in `apps/docs/.vitepress/theme/site-controls.css`: pill shapes, 32/36/40px sizes, primary/secondary/ghost emphasis, matching icon sizes, focus rings and disabled states. Segmented controls use the same borders and contrasting selected surface. The language trigger shows only the current language's flag and opens a dropdown with Chinese and English names, flags and a current-language check. Keep category motion, the resource CTA's animated border, palette swatches and menu semantics. Apply these styles explicitly to the site shell; component previews and public package components retain their own variants and motion.
+Site actions use the shared private styles in `apps/docs/app/docs/site-controls.css`: pill shapes, 32/36/40px sizes, primary/secondary/ghost emphasis, matching icon sizes, focus rings and disabled states. Segmented controls use the same borders and contrasting selected surface. The header actions follow search, theme palette, appearance, language and GitHub order, with 32–34px filled pills and 6px gaps. The language trigger uses a translation icon and opens a centered 220px dropdown with a localized heading, English then 简体中文, and a current-language check. Theme and language popovers are centered 8px below their triggers and clamp to the viewport. Below 1024px, search, the palette icon and the menu remain in the header, with appearance, language and GitHub in the existing BottomSheet. The private documentation search uses a 640px top-centered panel with 12px corners, blurred backdrop, ESC hint and five default guide links. Its top is max(16px, 50dvh - 250px) on desktop and 16px below 768px; the public Command Palette remains unchanged. GitHub links to the project repository and optionally loads public star statistics after mount, falling back to “GitHub” offline. Keep category motion, the resource CTA's animated border, palette swatches and menu semantics. Apply these styles explicitly to the site shell; component previews and public package components retain their own variants and motion.
+
+## Documentation prose and code
+
+Guides use purpose, steps, copyable examples, notes and next actions. Component pages present overview and use cases, installation, examples, composition and state, API, accessibility and FAQ, then related components and notices. Chinese and English use the same content definitions; Markdown exports retain the same information and stable anchors.
+
+Documentation prose uses 16px type with 28px leading. Private code blocks use a transparent filename toolbar, visible copy action and 12px rounded code well. Geist Mono code uses 13px type and 20px leading, with horizontal scrolling contained to the code. Code longer than 320px can expand to a 640px scrolling region and collapse again. Controls are localized and keyboard operable; reduced motion and plain-text fallback are required. Code Block, Agent Code and File Diff public components keep their own appearance.
 
 ## Component appearance
 
@@ -20,7 +26,7 @@ The following component details are also part of the current appearance contract
 
 | Component | Current appearance |
 | --- | --- |
-| Tabs | Underline, pill and segment triggers use a 2px inset semantic focus ring. |
+| Tabs | Underline, pill and segment triggers use a 2px inset semantic focus ring. Keep label contrast masks synchronized until the indicator settles, including delayed layout animation and rapid selection changes. |
 | Switch; Input | Switch thumb uses `shadow-sm`; Input placeholder uses `muted-foreground/75`. |
 | Select; Combobox; Multi Select | Selection check, disclosure chevrons and value-removal cross use 2.5px strokes. |
 | Checkbox; Radio; Bottom Sheet | Unselected control borders use `muted-foreground/65`; the sheet handle uses `muted-foreground/60`. |
@@ -59,5 +65,7 @@ Single-component tests live in the component's `tests/`. Cross-component, docume
 ## Acceptance
 
 Validate at equal viewport, locale, theme and interaction state. Check keyboard use, focus, controlled/uncontrolled state, nested overlays, reduced motion and cleanup. Check declarations, API compatibility, SSR, hydration, real CLI installation and package consumption separately. Passing tests or file-presence coverage does not establish visual acceptance.
+
+Loader's SVG loops must render a single valid frame during SSR, hydration and preference changes, retaining their existing trajectories and timing. Wheel Picker's reduced-motion list centers its accepted value on first render and follows controlled value, option and item-height updates without smooth scrolling. Homepage compositions must account for wrapper elements when sizing magnetic buttons and leave space for OTP completion feedback inside the column.
 
 All work is local. Publishing, pushing and deployment require a separate user request.

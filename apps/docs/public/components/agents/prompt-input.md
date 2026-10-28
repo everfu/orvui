@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > 通过自适应高度文本框、附件与键盘操作编写并提交提示词。
 
+通过自适应高度文本框、附件与键盘操作编写并提交提示词。
+
+## 适用场景
+
+- 当界面需要以下行为时使用 Prompt Input：通过自适应高度文本框、附件与键盘操作编写并提交提示词。
+
 ## 安装
 
 ### Prompt Input — 复制源码
@@ -344,44 +350,6 @@ onMounted(() => {
 </template>
 ```
 
-## API 参考
-
-### PromptInput
-
-#### 属性
-
-| 属性 | 类型 | 默认值 | 必填 | 说明 |
-| --- | --- | --- | --- | --- |
-| `modelValue` | `string` | — | 否 | — |
-| `defaultValue` | `string` | `""` | 否 | — |
-| `models` | `PromptModel[]` | `() => []` | 否 | — |
-| `model` | `string` | — | 否 | — |
-| `defaultModel` | `string` | `props.models[0]?.value` | 否 | — |
-| `actions` | `PromptAction[]` | `() => []` | 否 | — |
-| `loading` | `boolean` | `false` | 否 | — |
-| `minRows` | `number` | `2` | 否 | — |
-| `maxRows` | `number` | `8` | 否 | — |
-| `disabled` | `boolean` | `false` | 否 | — |
-| `placeholder` | `string` | `"Ask the agent to do something…"` | 否 | — |
-
-#### 事件
-
-| 事件 | 载荷 | 说明 |
-| --- | --- | --- |
-| `update:modelValue` | `[value: string]` | — |
-| `valueChange` | `[value: string]` | — |
-| `update:model` | `[value: string]` | — |
-| `modelChange` | `[value: string]` | — |
-| `action` | `[action: string]` | — |
-| `submit` | `[value: string, model?: string \| undefined]` | — |
-| `stop` | `[]` | — |
-
-#### 插槽
-
-| 插槽 | 签名 | 暴露的绑定 | 说明 |
-| --- | --- | --- | --- |
-| `leading-action` | `() => VNodeChild` | — | — |
-
 ## 组件指南
 
 通过自适应高度文本框、附件与键盘操作编写并提交提示词。
@@ -445,13 +413,45 @@ Usage 区域通过 Vue props、事件与插槽组合 PromptInput，请选择与�
 - 适用: 当界面需要以下行为时使用 Prompt Input：通过自适应高度文本框、附件与键盘操作编写并提交提示词。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+## API 参考
+
+### PromptInput
+
+#### 属性
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| --- | --- | --- | --- | --- |
+| `modelValue` | `string` | — | 否 | — |
+| `defaultValue` | `string` | `""` | 否 | — |
+| `models` | `PromptModel[]` | `() => []` | 否 | — |
+| `model` | `string` | — | 否 | — |
+| `defaultModel` | `string` | `props.models[0]?.value` | 否 | — |
+| `actions` | `PromptAction[]` | `() => []` | 否 | — |
+| `loading` | `boolean` | `false` | 否 | — |
+| `minRows` | `number` | `2` | 否 | — |
+| `maxRows` | `number` | `8` | 否 | — |
+| `disabled` | `boolean` | `false` | 否 | — |
+| `placeholder` | `string` | `"Ask the agent to do something…"` | 否 | — |
+
+#### 事件
+
+| 事件 | 载荷 | 说明 |
+| --- | --- | --- |
+| `update:modelValue` | `[value: string]` | — |
+| `valueChange` | `[value: string]` | — |
+| `update:model` | `[value: string]` | — |
+| `modelChange` | `[value: string]` | — |
+| `action` | `[action: string]` | — |
+| `submit` | `[value: string, model?: string \| undefined]` | — |
+| `stop` | `[]` | — |
+
+#### 插槽
+
+| 插槽 | 签名 | 暴露的绑定 | 说明 |
+| --- | --- | --- | --- |
+| `leading-action` | `() => VNodeChild` | — | — |
+
 ## 关于 Prompt Input
-
-通过自适应高度文本框、附件与键盘操作编写并提交提示词。
-
-### 适用场景
-
-- 当界面需要以下行为时使用 Prompt Input：通过自适应高度文本框、附件与键盘操作编写并提交提示词。
 
 ### 无障碍
 

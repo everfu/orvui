@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Move through registration fields with local validation and explicit submission states.
 
+Move through registration fields with local validation and explicit submission states.
+
+## When to use it
+
+- Use Sign Up Form when the interface needs this behavior: move through registration fields with local validation and explicit submission states.
+
 ## Install
 
 ### Sign Up Form — Registry source
@@ -193,12 +199,6 @@ onBeforeUnmount(() => {
 | `footer` | `() => VNodeChild` | — | — |
 
 ## About Sign Up Form
-
-Move through registration fields with local validation and explicit submission states.
-
-### When to use it
-
-- Use Sign Up Form when the interface needs this behavior: move through registration fields with local validation and explicit submission states.
 
 ### Accessibility
 

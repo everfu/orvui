@@ -14,6 +14,12 @@ productVersion: "0.1.0"
 
 > Reveal actions on either side of a list row with pointer or keyboard input.
 
+Reveal actions on either side of a list row with pointer or keyboard input.
+
+## When to use it
+
+- Use Swipeable List when the interface needs this behavior: reveal actions on either side of a list row with pointer or keyboard input.
+
 ## Install
 
 ### Swipeable List — Registry source
@@ -323,12 +329,6 @@ function reset() {
 | `item` | — | `v-bind: scope` | — |
 
 ## About Swipeable List
-
-Reveal actions on either side of a list row with pointer or keyboard input.
-
-### When to use it
-
-- Use Swipeable List when the interface needs this behavior: reveal actions on either side of a list row with pointer or keyboard input.
 
 ### Accessibility
 
