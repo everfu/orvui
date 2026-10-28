@@ -1,12 +1,11 @@
 import { execFile } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { tmpdir } from 'node:os';
 import { dirname, join, relative, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import {
-  root, packageArchive, packedManifest, unpackArchive, environment, sha256,
+  root, fixtureDirectory, packageArchive, packedManifest, unpackArchive, environment, sha256,
   reportDirectory as getReportDirectory,
 } from './verification/metadata.mjs';
 
@@ -16,12 +15,10 @@ const registryDirectory = resolve(environment('REGISTRY_DIRECTORY') ?? join(unpa
 const externalRegistryOrigin = environment('REGISTRY_ORIGIN')?.trim().replace(/\/+$/, '') || undefined;
 if (externalRegistryOrigin && !/^https?:\/\/[^/?#]+$/.test(externalRegistryOrigin))
   throw new Error('ORVUI_REGISTRY_ORIGIN must be an HTTP(S) origin without a path, query or fragment');
-const reportDirectory = externalRegistryOrigin
-  ? resolve(environment('VERIFICATION_DIR') ?? join(tmpdir(), 'orvui-public-verification'))
-  : getReportDirectory();
+const reportDirectory = getReportDirectory();
 mkdirSync(reportDirectory, { recursive: true });
 const reportName = externalRegistryOrigin ? 'public-component-install-consumer' : 'component-install-consumer';
-const directory = mkdtempSync(join(tmpdir(), 'orvui-component-install-consumer-'));
+const directory = fixtureDirectory('component-install-consumer-');
 const workspace = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 const registryContent = readFileSync(join(registryDirectory, 'button.json'), 'utf8');
 const previousDirectory = environment('PREVIOUS_REGISTRY_DIRECTORY');
@@ -84,6 +81,7 @@ const baseDevDependencies = {
     .map((name) => [name, workspace.devDependencies[name]])),
   tailwindcss: '^4.0.0', '@tailwindcss/vite': '^4.0.0',
 };
+put('pnpm-workspace.yaml', "packages:\n  - '.'\n");
 put('package.json', JSON.stringify({ name: 'orvui-single-component-consumer', private: true,
   type: 'module', packageManager: workspace.packageManager,
   dependencies: baseDependencies, devDependencies: baseDevDependencies }, null, 2));

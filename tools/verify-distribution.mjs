@@ -1,13 +1,12 @@
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { root, packageArchive, packedManifest, sha256, reportDirectory as getReportDirectory } from './verification/metadata.mjs';
+import { root, fixtureDirectory, packageArchive, packedManifest, sha256, reportDirectory as getReportDirectory } from './verification/metadata.mjs';
 
 // This fixture consumes only the packed package, with strict consumer types.
 const reportDirectory = getReportDirectory();
 const archive = packageArchive(), library = packedManifest(archive);
-const directory = mkdtempSync(join(tmpdir(), 'orvui-distribution-'));
+const directory = fixtureDirectory('distribution-');
 const catalog = JSON.parse(readFileSync(join(root, 'tools/catalog/components.json'), 'utf8'));
 const workspace = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 const components = catalog.categories.flatMap(category => category.components.map(component => `${category.slug}/${component.slug}`));
@@ -26,6 +25,8 @@ function put(name, content) {
   mkdirSync(resolve(directory, name, '..'), { recursive: true });
   writeFileSync(join(directory, name), content);
 }
+// Keep a consumer under artifacts/ independent from the parent workspace.
+put('pnpm-workspace.yaml', "packages:\n  - '.'\n");
 put('package.json', JSON.stringify({ name: 'orvui-distribution-consumer', private: true, type: 'module', packageManager: workspace.packageManager, dependencies: { vue: library.peerDependencies.vue, [library.name]: `file:${archive}`, '@vue/server-renderer': workspace.devDependencies['@vue/server-renderer'] }, devDependencies: Object.fromEntries(['vite', '@vitejs/plugin-vue', 'typescript', 'vue-tsc'].map(name => [name, workspace.devDependencies[name]])) }, null, 2));
 put('index.html', '<html><head><meta charset="UTF-8"></head><body><div id="app"></div><script type="module" src="/src/main.ts"></script></body></html>');
 put('tsconfig.json', JSON.stringify({ compilerOptions: { target: 'ES2022', module: 'ESNext', moduleResolution: 'Bundler', strict: true, skipLibCheck: true, noUncheckedSideEffectImports: true, types: ['vite/client'], lib: ['ES2022', 'DOM', 'DOM.Iterable'], jsx: 'preserve', allowSyntheticDefaultImports: true }, include: ['src'] }));

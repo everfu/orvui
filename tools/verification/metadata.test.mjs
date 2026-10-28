@@ -1,10 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { normalizeRegistryOrigin } from './metadata.mjs';
+import { normalizeRegistryOrigin, fixtureDirectory } from './metadata.mjs';
 
 test('empty isolated registry origin chooses the packed local registry', () => {
   assert.equal(normalizeRegistryOrigin(undefined), undefined);
@@ -22,7 +21,7 @@ function archiveFromChild(environment = {}, args = []) {
 }
 
 test('archive selection preserves explicit arguments, environment precedence and legacy aliases', () => {
-  const directory = mkdtempSync(join(tmpdir(), 'orvui-archive-selection-'));
+  const directory = fixtureDirectory('archive-selection-');
   const paths = ['explicit', 'current', 'legacy', 'usage'].map(name => join(directory, `${name}.tgz`));
   try {
     for (const path of paths) writeFileSync(path, 'archive selection fixture');
@@ -38,7 +37,7 @@ test('archive selection preserves explicit arguments, environment precedence and
 });
 
 test('a missing archive explains how to pack locally or supply an explicit archive', () => {
-  const directory = mkdtempSync(join(tmpdir(), 'orvui-missing-archive-'));
+  const directory = fixtureDirectory('missing-archive-');
   try {
     assert.throws(() => archiveFromChild({}, ['--archive', join(directory, 'missing.tgz')]), error => {
       const message = error.stderr.toString();

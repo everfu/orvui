@@ -3,15 +3,13 @@ import { createHash } from "node:crypto";
 import { promisify } from "node:util";
 import {
   existsSync,
-  mkdtempSync,
   mkdirSync,
   readFileSync,
   writeFileSync,
 } from "node:fs";
-import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 import { createServer } from "node:http";
-import { packageArchive, packedManifest, unpackArchive, environment, sha256, reportDirectory as getReportDirectory, normalizeRegistryOrigin } from "./verification/metadata.mjs";
+import { fixtureDirectory, packageArchive, packedManifest, unpackArchive, environment, sha256, reportDirectory as getReportDirectory, normalizeRegistryOrigin } from "./verification/metadata.mjs";
 const reportDirectory = getReportDirectory();
 const archive = packageArchive();
 const registryDirectory = resolve(environment("REGISTRY_DIRECTORY") ?? join(unpackArchive(archive), "registry"));
@@ -71,9 +69,7 @@ for (const snippet of snippets) {
         `Incomplete demo dependencies for ${snippet.file}: ${dependency}`,
       );
 }
-const directory = mkdtempSync(
-    join(tmpdir(), `orvui-${installMode}-usage-consumer-`),
-  ),
+const directory = fixtureDirectory(`${installMode}-usage-consumer-`),
   log = [],
   failures = [];
 function put(file, text) {
@@ -81,6 +77,8 @@ function put(file, text) {
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, text);
 }
+// Also isolate self-contained fixtures placed under the project artifacts/.
+put("pnpm-workspace.yaml", "packages:\n  - '.'\n");
 async function command(args) {
   try {
     const { stdout, stderr } = await exec("pnpm", args, {

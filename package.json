@@ -30,10 +30,13 @@
     "docs:nuxt:build": "pnpm build",
     "docs:nuxt:preview": "pnpm preview",
     "docs:nuxt:start": "pnpm start",
+    "verify:docs-nuxt": "tsx tools/docs/verify-nuxt.ts",
     "verify:docs-nuxt:browser": "PLAYWRIGHT_BROWSERS_PATH=artifacts/browsers playwright test --config tools/docs/playwright.config.ts",
     "docs:nuxt:browser:install": "PLAYWRIGHT_BROWSERS_PATH=artifacts/browsers playwright install chromium",
+    "verify:docs-nuxt:standalone": "node tools/docs/verify-standalone.mjs",
     "preview": "pnpm --filter @orvui/docs preview",
-    "start": "pnpm --filter @orvui/docs start"
+    "start": "pnpm --filter @orvui/docs start",
+    "verify:docs-netlify": "node tools/docs/verify-netlify.mjs"
   },
   "devDependencies": {
     "@paper-design/shaders": "0.0.76",

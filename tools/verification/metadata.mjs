@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
@@ -33,7 +32,7 @@ export function packedManifest(archive) {
 }
 
 export function unpackArchive(archive) {
-  const directory = mkdtempSync(join(tmpdir(), 'orvui-packed-'));
+  const directory = fixtureDirectory('packed-');
   const entries = execFileSync('tar', ['-tzf', archive], { encoding: 'utf8' }).trim().split('\n');
   for (const entry of entries) if (!entry.startsWith('package/') || entry.split('/').includes('..')) throw new Error(`Unsafe archive entry: ${entry}`);
   execFileSync('tar', ['-xzf', archive, '-C', directory]);
@@ -41,9 +40,15 @@ export function unpackArchive(archive) {
 }
 
 export function reportDirectory() {
-  const directory = resolve(environment('VERIFICATION_DIR') ?? join(tmpdir(), 'orvui-verification'));
+  const directory = resolve(environment('VERIFICATION_DIR') ?? join(root, 'artifacts/reports/verification'));
   mkdirSync(directory, { recursive: true });
   return directory;
+}
+
+export function fixtureDirectory(prefix) {
+  const directory = join(root, 'artifacts/verification');
+  mkdirSync(directory, { recursive: true });
+  return mkdtempSync(join(directory, prefix));
 }
 
 export function normalizeRegistryOrigin(value) {

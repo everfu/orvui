@@ -1,13 +1,11 @@
 import { execFileSync } from "node:child_process";
 import {
-  mkdtempSync,
   mkdirSync,
   readFileSync,
   writeFileSync,
 } from "node:fs";
-import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
-import { packageArchive, packedManifest, sha256, reportDirectory as getReportDirectory } from "./verification/metadata.mjs";
+import { fixtureDirectory, packageArchive, packedManifest, sha256, reportDirectory as getReportDirectory } from "./verification/metadata.mjs";
 const reportDirectory = getReportDirectory();
 
 const root = resolve(import.meta.dirname, "..");
@@ -17,7 +15,7 @@ const manifest = JSON.parse(
 const archive = packageArchive();
 const library = packedManifest(archive);
 const workspace = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
-const directory = mkdtempSync(join(tmpdir(), "orvui-public-usage-consumer-"));
+const directory = fixtureDirectory("public-usage-consumer-");
 const log = [],
   failures = [];
 function put(file, text) {
@@ -58,6 +56,7 @@ for (const dependency of new Set(
     throw new Error(`No declared version for example dependency ${dependency}`);
   dependencies[dependency] = version;
 }
+put("pnpm-workspace.yaml", "packages:\n  - '.'\n");
 put(
   "package.json",
   JSON.stringify(
