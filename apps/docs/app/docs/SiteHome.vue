@@ -7,75 +7,38 @@ import {
   TabsTrigger,
 } from "../../../../packages/vue/src/motion/tabs";
 import { BouncyAccordion } from "../../../../packages/vue/src/motion/bouncy-accordion";
+import { ButtonLink } from "../../../../packages/vue/src/motion/button";
 import LandingCard from "./LandingCard.vue";
+import HomeShowcase from "./HomeShowcase.vue";
 import HeroBeam from "./HeroBeam.vue";
 import SiteInstallCommand from "./SiteInstallCommand.vue";
 import CodePanel from "./CodePanel.vue";
-import { useNewBadgeClock } from "./new-badge";
 import { useSiteShell } from "./site-shell-state";
 const { catalog, t, en, routeTo, description, locale, origin } = useSiteShell();
 const installation = ref("registry");
-const packageCommand =
-  "pnpm add @orvui/vue";
+const packageCommand = "pnpm add @orvui/vue";
 const inventory = catalog.categories.flatMap((section) =>
   section.components.map((item) => ({ ...item, category: section.slug })),
 );
-// Presentation ordering and localized copy are frozen product inputs.
-const featuredOrder = [
-  "button",
-  "morphing-modal",
-  "animated-toast-stack",
-  "action-swap",
-  "dock",
-  "tabs",
-  "dynamic-island",
-  "command-palette",
-  "expandable-action-bar",
-  "expandable-tabs",
-  "tilt-card",
-  "bottom-sheet",
-  "switch",
-  "tooltip",
-  "text-animation",
-  "number",
-  "bouncy-accordion",
-  "range-slider",
-  "theme-toggle",
-  "drawer",
-  "swap",
-  "otp-input",
-  "swipeable-list",
-  "bloom-menu",
-];
-const { isNew } = useNewBadgeClock(() => inventory);
 const recent = computed(() =>
   inventory
-    .filter(isNew)
+    .filter((item) => item.launchedAt)
     .sort((left, right) =>
       (right.launchedAt ?? "").localeCompare(left.launchedAt ?? ""),
     ),
 );
-const sections = computed(() => {
-  const recentSlugs = new Set(recent.value.map((item) => item.slug));
-  const bySlug = new Map(inventory.map((item) => [item.slug, item]));
-  return [
-    {
-      id: "recent",
-      eyebrow: t("新组件", "New"),
-      title: t("最近发布", "Recently launched"),
-      items: recent.value,
-    },
-    {
-      id: "motion",
-      eyebrow: t("组件", "Components"),
-      title: t("动效基础组件", "Motion primitives"),
-      items: featuredOrder.flatMap((slug) => {
-        const item = bySlug.get(slug);
-        return item && !recentSlugs.has(slug) ? [item] : [];
-      }),
-    },
-  ].filter((section) => section.items.length);
-});
+const sections = computed(() =>
+  recent.value.length
+    ? [
+        {
+          id: "recent",
+          eyebrow: t("持续生长", "Always growing"),
+          title: t("最近发布", "Recently launched"),
+          items: recent.value.slice(0, 4),
+        },
+      ]
+    : [],
+);
 const faqCopy = [
   {
     id: "free",
@@ -132,7 +95,7 @@ const faqs = computed(() =>
 );
 </script>
 <template>
-  <main class="landing">
+  <main class="landing landing--showcase">
     <section class="landing-hero">
       <HeroBeam
         ><div class="hero-count">
@@ -161,14 +124,13 @@ const faqs = computed(() =>
         }}
       </p>
       <div class="hero-actions">
-        <a
-          :href="routeTo('motion')"
-          class="primary-link site-action site-action--lg site-action--primary"
-          >{{ t("浏览组件", "Browse components") }}</a
+        <ButtonLink :href="`${locale}/guide`" size="md" class="primary-link"
+          >{{ t("开始使用", "Get started")
+          }}<ArrowRight :size="15" aria-hidden="true" /></ButtonLink
         ><a
-          :href="`${locale}/guide`"
+          :href="routeTo('motion')"
           class="secondary-link site-action site-action--lg"
-          >{{ t("开始使用", "Get started") }}</a
+          >{{ t("浏览组件", "Browse components") }}</a
         >
       </div>
     </section>
@@ -185,14 +147,6 @@ const faqs = computed(() =>
             ></TabsList
           ></Tabs
         >
-        <h2>
-          {{
-            t(
-              "基于 Motion for Vue，通过注册表或组件包安装。",
-              "Built on Motion for Vue. Distributed via registry and npm package.",
-            )
-          }}
-        </h2>
         <SiteInstallCommand
           v-show="installation === 'registry'"
           :en="en"
@@ -205,6 +159,7 @@ const faqs = computed(() =>
         />
       </div>
     </section>
+    <HomeShowcase />
     <section
       v-for="section in sections"
       :key="section.id"
@@ -215,8 +170,8 @@ const faqs = computed(() =>
           <p>{{ section.eyebrow }}</p>
           <h2>{{ section.title }}</h2>
         </div>
-        <a v-if="section.id === 'motion'" :href="routeTo('motion')"
-          >{{ t("浏览全部动效组件", "Browse animated Vue components")
+        <a :href="routeTo('motion')"
+          >{{ t("浏览全部组件", "Browse all components")
           }}<ArrowRight :size="14"
         /></a>
       </div>
