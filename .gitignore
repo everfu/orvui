@@ -21,3 +21,6 @@ logs/
 
 # Local design QA notes
 /design-qa.md
+
+# Local design tool history
+/.hallmark/
