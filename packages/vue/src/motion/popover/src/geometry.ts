@@ -7,9 +7,9 @@ export interface Geo {
 }
 
 /** Place both surfaces in the bounding box of their union. */
-export function buildGeo(tW: number, tH: number, cW: number, cH: number, side: Side, align: Align, gap: number, panelRadius: number): Geo {
-  const horizontal = { start: 0, center: (tW - cW) / 2, end: tW - cW }[align];
-  const vertical = side === "top" ? -cH - gap : tH + gap;
+export function buildGeo(tW: number, tH: number, cW: number, cH: number, side: Side, align: Align, gap: number, panelRadius: number, position?: { x: number; y: number }): Geo {
+  const horizontal = position?.x ?? { start: 0, center: (tW - cW) / 2, end: tW - cW }[align];
+  const vertical = position?.y ?? (side === "top" ? -cH - gap : tH + gap);
   const left = Math.min(0, horizontal), top = Math.min(0, vertical);
   const layerW = Math.max(tW, horizontal + cW) - left;
   const layerH = Math.max(tH, vertical + cH) - top;
@@ -17,6 +17,28 @@ export function buildGeo(tW: number, tH: number, cW: number, cH: number, side: S
     layerW, layerH, left, top,
     trigger: { x: -left, y: -top, w: tW, h: tH, r: Math.min(tH / 2, panelRadius) },
     panel: { x: horizontal - left, y: vertical - top, w: cW, h: cH, r: panelRadius },
+  };
+}
+export function positionPopover(
+  trigger: { left: number; top: number; width: number; height: number },
+  content: { width: number; height: number },
+  viewport: { width: number; height: number },
+  options: { side: Side; align: Align; gap: number; radius: number },
+) {
+  const gutter = 12;
+  const free = {
+    top: Math.max(0, trigger.top - options.gap - gutter),
+    bottom: Math.max(0, viewport.height - trigger.top - trigger.height - options.gap - gutter),
+  };
+  const alternative = options.side === "top" ? "bottom" : "top";
+  const side = content.height > free[options.side] && free[alternative] > free[options.side] ? alternative : options.side;
+  const height = Math.min(content.height, free[side]);
+  const preferred = trigger.left + { start: 0, center: (trigger.width - content.width) / 2, end: trigger.width - content.width }[options.align];
+  const left = Math.max(gutter, Math.min(preferred, viewport.width - content.width - gutter));
+  const top = side === "top" ? trigger.top - options.gap - height : trigger.top + trigger.height + options.gap;
+  return {
+    side, availableHeight: free[side],
+    geometry: buildGeo(trigger.width, trigger.height, content.width, height, side, options.align, options.gap, options.radius, { x: left - trigger.left, y: top - trigger.top }),
   };
 }
 export function rectAtProgress(geo: Geo, progress: number): Rect {
@@ -66,7 +88,7 @@ export function roundedRectPath(rect: Rect) {
   return path + "Z";
 }
 /** An even-odd path leaves the real trigger visible through the goo surface. */
-export function triggerCutout(geo: Geo) {
-  const bounds: Rect = { x: 0, y: 0, w: geo.layerW, h: geo.layerH, r: 0 };
+export function triggerCutout(geo: Geo, padding = 0) {
+  const bounds: Rect = { x: -padding, y: -padding, w: geo.layerW + padding * 2, h: geo.layerH + padding * 2, r: 0 };
   return `path(evenodd, "${roundedRectPath(bounds)} ${roundedRectPath(geo.trigger)}")`;
 }

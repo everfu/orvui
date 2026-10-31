@@ -66,6 +66,8 @@ The following component details are also part of the current appearance contract
 
 Demo-only details: Shared Layout Background's arrow uses foreground on group hover and visible keyboard focus; Popover's dimension fields use semantic focus color; Text Animation's Replay, Number's Change value and Scroll Animation's Scroll to top buttons use semantic keyboard focus rings. These demo styles do not alter the corresponding public primitives.
 
+Popover keeps its trigger-to-panel liquid morph and existing springs, spacing and panel radius. Match the trigger's actual corner radius at the start, taper the bridge and goo filter away as the panel settles, and finish with a semantic 1px inset edge and a soft shadow. Keep the content at its natural scale. Prefer the requested side and alignment, flip vertically when space requires it, clamp horizontal placement to 12px viewport gutters and scroll oversized content inside the available height. Preserve hover transfer, touch behavior, keyboard dismissal, semantic overrides and reduced motion.
+
 ## Implementation
 
 Maintain the public behavior contract across state, overlays, layout, renderers and examples. Preserve applicable copyright and license notices with the implementation and assets that use them. Documentation cleanup does not change implementation provenance.
