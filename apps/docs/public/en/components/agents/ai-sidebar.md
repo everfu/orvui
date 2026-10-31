@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # AI Sidebar
 
 > Organize assistant resources in a searchable tree with selection and move operations.
 
-Organize assistant resources in a searchable tree with selection and move operations.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use AI Sidebar when the interface needs this behavior: organize assistant resources in a searchable tree with selection and move operations.
 
+<a id="install"></a>
 ## Install
 
 ### AI Sidebar — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### AI Sidebar
 
 **Registry source**
@@ -550,8 +554,7 @@ onBeforeUnmount(() => {
 
 ## Component Guide
 
-Organize assistant resources in a searchable tree with selection and move operations.
-
+<a id="composition"></a>
 ### Composition
 
 Compose AI Sidebar with its public parts: AISidebar. Import these names from the component barrel.
@@ -566,6 +569,11 @@ AnimatedSidebarProvider
 │   └── AnimatedSidebarRail
 └── AnimatedSidebarInset
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Organize assistant resources in a searchable tree with selection and move operations.
 
 ### Lifecycle
 
@@ -614,6 +622,19 @@ The Usage section composes AISidebar through Vue props, events and slots. Use th
 - Use when: Use AI Sidebar when the interface needs this behavior: organize assistant resources in a searchable tree with selection and move operations.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `AISidebar` | `v-model:items` | `SidebarResource[]` | `update:items` |
+| `AISidebar` | `v-model:activeId` | `null \| string` | `update:activeId` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### AISidebar
@@ -652,12 +673,15 @@ The Usage section composes AISidebar through Vue props, events and slots. Use th
 | `icon` | — | `v-bind: scope` | — |
 | `menu` | — | `v-bind: scope` | — |
 
+<a id="about"></a>
 ## About AI Sidebar
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure AI Sidebar?**
@@ -672,6 +696,14 @@ Observe update:items, itemsChange, update:activeId, activeChange, moveError, ren
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Chat App](https://orvui.efu.me/en/components/agents/chat-app): Compose navigation, conversation content and a prompt area into an assistant workspace.
+- [Citations](https://orvui.efu.me/en/components/agents/citations): Connect inline reference markers to inspectable source entries and links.
+- [Message Scroller](https://orvui.efu.me/en/components/agents/message-scroller): Follow appended messages while letting readers leave and return to the latest content.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/ai-sidebar.json

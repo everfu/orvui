@@ -1563,6 +1563,53 @@
       },
       "variants": {}
     },
+    "motion/table-of-contents": {
+      "default": {
+        "file": "packages/vue/src/motion/table-of-contents/demo.vue",
+        "resolvedFile": "packages/vue/src/motion/table-of-contents/demo.vue",
+        "code": "<script setup lang=\"ts\">\nimport { ref, useId } from \"vue\";\nimport { TableOfContents } from \"@orvui/vue/motion/table-of-contents\";\nconst target = ref<HTMLElement | null>(null);\nconst instance = useId();\nconst items = [\"Overview\", \"Installation\", \"Usage\", \"Accessibility\"].map(\n  (label, i) => ({ id: `${instance}-section-${i}`, label }),\n);\n</script>\n<template>\n  <div class=\"grid w-full max-w-2xl grid-cols-[minmax(0,1fr)_9rem] gap-5 p-4\">\n    <div\n      ref=\"target\"\n      class=\"h-72 overflow-y-auto rounded-xl border border-border bg-background px-5\"\n      tabindex=\"0\"\n      aria-label=\"Example article\"\n    >\n      <section\n        v-for=\"item in items\"\n        :id=\"item.id\"\n        :key=\"item.id\"\n        class=\"min-h-52 py-6\"\n      >\n        <h3 class=\"text-base font-medium\">{{ item.label }}</h3>\n        <p class=\"mt-3 text-sm leading-6 text-muted-foreground\">\n          Follow this article using the links alongside it. The active section\n          updates as you scroll.\n        </p>\n      </section>\n    </div>\n    <TableOfContents\n      :items=\"items\"\n      :target=\"target ?? undefined\"\n      :offset=\"16\"\n    />\n  </div>\n</template>\n",
+        "registryCode": "<script setup lang=\"ts\">\nimport { ref, useId } from \"vue\";\nimport { TableOfContents } from \"@/components/orvui/motion/table-of-contents\";\nconst target = ref<HTMLElement | null>(null);\nconst instance = useId();\nconst items = [\"Overview\", \"Installation\", \"Usage\", \"Accessibility\"].map(\n  (label, i) => ({ id: `${instance}-section-${i}`, label }),\n);\n</script>\n<template>\n  <div class=\"grid w-full max-w-2xl grid-cols-[minmax(0,1fr)_9rem] gap-5 p-4\">\n    <div\n      ref=\"target\"\n      class=\"h-72 overflow-y-auto rounded-xl border border-border bg-background px-5\"\n      tabindex=\"0\"\n      aria-label=\"Example article\"\n    >\n      <section\n        v-for=\"item in items\"\n        :id=\"item.id\"\n        :key=\"item.id\"\n        class=\"min-h-52 py-6\"\n      >\n        <h3 class=\"text-base font-medium\">{{ item.label }}</h3>\n        <p class=\"mt-3 text-sm leading-6 text-muted-foreground\">\n          Follow this article using the links alongside it. The active section\n          updates as you scroll.\n        </p>\n      </section>\n    </div>\n    <TableOfContents\n      :items=\"items\"\n      :target=\"target ?? undefined\"\n      :offset=\"16\"\n    />\n  </div>\n</template>\n",
+        "registryInstallSlugs": [
+          "table-of-contents"
+        ],
+        "registryExtraDependencies": [],
+        "registryImports": [
+          {
+            "source": "./index",
+            "target": "@/components/orvui/motion/table-of-contents",
+            "sourceFile": "packages/vue/src/motion/table-of-contents/index.ts",
+            "targetFile": "src/components/orvui/motion/table-of-contents/index.ts",
+            "names": [
+              {
+                "imported": "TableOfContents",
+                "local": "TableOfContents",
+                "typeOnly": false
+              }
+            ]
+          }
+        ],
+        "registryTargets": [
+          "src/components/orvui/motion/table-of-contents/index.ts"
+        ],
+        "imports": [
+          {
+            "source": "./index",
+            "target": "@orvui/vue/motion/table-of-contents",
+            "names": [
+              {
+                "imported": "TableOfContents",
+                "local": "TableOfContents",
+                "typeOnly": false
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "vue"
+        ]
+      },
+      "variants": {}
+    },
     "motion/tilt-card": {
       "default": {
         "file": "packages/vue/src/motion/tilt-card/demo.vue",
@@ -27403,6 +27450,50 @@
         "vue"
       ]
     },
+    "packages/vue/src/motion/table-of-contents/demo.vue": {
+      "file": "packages/vue/src/motion/table-of-contents/demo.vue",
+      "resolvedFile": "packages/vue/src/motion/table-of-contents/demo.vue",
+      "code": "<script setup lang=\"ts\">\nimport { ref, useId } from \"vue\";\nimport { TableOfContents } from \"@orvui/vue/motion/table-of-contents\";\nconst target = ref<HTMLElement | null>(null);\nconst instance = useId();\nconst items = [\"Overview\", \"Installation\", \"Usage\", \"Accessibility\"].map(\n  (label, i) => ({ id: `${instance}-section-${i}`, label }),\n);\n</script>\n<template>\n  <div class=\"grid w-full max-w-2xl grid-cols-[minmax(0,1fr)_9rem] gap-5 p-4\">\n    <div\n      ref=\"target\"\n      class=\"h-72 overflow-y-auto rounded-xl border border-border bg-background px-5\"\n      tabindex=\"0\"\n      aria-label=\"Example article\"\n    >\n      <section\n        v-for=\"item in items\"\n        :id=\"item.id\"\n        :key=\"item.id\"\n        class=\"min-h-52 py-6\"\n      >\n        <h3 class=\"text-base font-medium\">{{ item.label }}</h3>\n        <p class=\"mt-3 text-sm leading-6 text-muted-foreground\">\n          Follow this article using the links alongside it. The active section\n          updates as you scroll.\n        </p>\n      </section>\n    </div>\n    <TableOfContents\n      :items=\"items\"\n      :target=\"target ?? undefined\"\n      :offset=\"16\"\n    />\n  </div>\n</template>\n",
+      "registryCode": "<script setup lang=\"ts\">\nimport { ref, useId } from \"vue\";\nimport { TableOfContents } from \"@/components/orvui/motion/table-of-contents\";\nconst target = ref<HTMLElement | null>(null);\nconst instance = useId();\nconst items = [\"Overview\", \"Installation\", \"Usage\", \"Accessibility\"].map(\n  (label, i) => ({ id: `${instance}-section-${i}`, label }),\n);\n</script>\n<template>\n  <div class=\"grid w-full max-w-2xl grid-cols-[minmax(0,1fr)_9rem] gap-5 p-4\">\n    <div\n      ref=\"target\"\n      class=\"h-72 overflow-y-auto rounded-xl border border-border bg-background px-5\"\n      tabindex=\"0\"\n      aria-label=\"Example article\"\n    >\n      <section\n        v-for=\"item in items\"\n        :id=\"item.id\"\n        :key=\"item.id\"\n        class=\"min-h-52 py-6\"\n      >\n        <h3 class=\"text-base font-medium\">{{ item.label }}</h3>\n        <p class=\"mt-3 text-sm leading-6 text-muted-foreground\">\n          Follow this article using the links alongside it. The active section\n          updates as you scroll.\n        </p>\n      </section>\n    </div>\n    <TableOfContents\n      :items=\"items\"\n      :target=\"target ?? undefined\"\n      :offset=\"16\"\n    />\n  </div>\n</template>\n",
+      "registryInstallSlugs": [
+        "table-of-contents"
+      ],
+      "registryExtraDependencies": [],
+      "registryImports": [
+        {
+          "source": "./index",
+          "target": "@/components/orvui/motion/table-of-contents",
+          "sourceFile": "packages/vue/src/motion/table-of-contents/index.ts",
+          "targetFile": "src/components/orvui/motion/table-of-contents/index.ts",
+          "names": [
+            {
+              "imported": "TableOfContents",
+              "local": "TableOfContents",
+              "typeOnly": false
+            }
+          ]
+        }
+      ],
+      "registryTargets": [
+        "src/components/orvui/motion/table-of-contents/index.ts"
+      ],
+      "imports": [
+        {
+          "source": "./index",
+          "target": "@orvui/vue/motion/table-of-contents",
+          "names": [
+            {
+              "imported": "TableOfContents",
+              "local": "TableOfContents",
+              "typeOnly": false
+            }
+          ]
+        }
+      ],
+      "dependencies": [
+        "vue"
+      ]
+    },
     "packages/vue/src/motion/table/demo.vue": {
       "file": "packages/vue/src/motion/table/demo.vue",
       "resolvedFile": "packages/vue/src/motion/table/demo.vue",
@@ -28407,11 +28498,11 @@
   },
   "diagnostics": [],
   "summary": {
-    "entries": 109,
+    "entries": 110,
     "variants": 72,
-    "files": 187,
+    "files": 188,
     "wrappersExpanded": 0,
-    "publicModules": 110,
-    "publicExports": 2094
+    "publicModules": 111,
+    "publicExports": 2102
   }
 }

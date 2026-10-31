@@ -82,6 +82,12 @@
       "description": "Show the current location in a hierarchy and collapse intermediate links when space is limited."
     },
     {
+      "name": "table-of-contents",
+      "type": "registry:component",
+      "title": "Table of Contents",
+      "description": "Navigate article sections with accessible anchor links and an indicator that follows the reading position."
+    },
+    {
       "name": "tilt-card",
       "type": "registry:component",
       "title": "Tilt Card",

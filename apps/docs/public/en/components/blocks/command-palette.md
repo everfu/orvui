@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Command Palette
 
 > Find and activate grouped commands in a keyboard-operated search panel.
 
-Find and activate grouped commands in a keyboard-operated search panel.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Command Palette when the interface needs this behavior: find and activate grouped commands in a keyboard-operated search panel.
 
+<a id="install"></a>
 ## Install
 
 ### Command Palette — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Command Palette
 
 **Registry source**
@@ -194,6 +198,18 @@ const items = [
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `CommandPalette` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### CommandPalette
@@ -223,12 +239,15 @@ const items = [
 | --- | --- | --- | --- |
 | `trigger` | — | `open: () => (open = true)` | — |
 
+<a id="about"></a>
 ## About Command Palette
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Command Palette?**
@@ -243,6 +262,14 @@ Observe update:open, openChange, select to connect the component to application 
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Expandable Tabs](https://orvui.efu.me/en/components/blocks/expandable-tabs): Navigate an icon strip whose selected item expands to display its label.
+- [Expandable Action Bar](https://orvui.efu.me/en/components/blocks/expandable-action-bar): Reveal labels around the active action in a compact row of icon controls.
+- [Overflow Actions](https://orvui.efu.me/en/components/blocks/overflow-actions): Expand a compact action track to expose controls that do not fit its resting width.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/command-palette.json

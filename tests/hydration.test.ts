@@ -52,7 +52,7 @@ afterAll(() => {
 });
 
 describe("all catalog examples retain their server structure during hydration", () => {
-  it("covers the 109 roots and all 72 explicitly registered examples", () => {
+  it("covers the 110 roots and all 72 explicitly registered examples", () => {
     for (const category of catalog.categories)
       for (const item of category.components) {
         const base = `../packages/vue/src/${category.slug}/${item.slug}`;

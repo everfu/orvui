@@ -127,8 +127,8 @@ export function applyGuideEditorial(
       title: bi("保留许可，继续探索", "Keep notices and continue"),
       blocks: [
         paragraph(
-          '复制源码时保留 MIT、NOTICE 及适用的独立 Shader 和字体许可。接下来阅读<a href="/docs/theme">主题设置</a>，或从<a href="/components/motion">组件目录</a>选择下一个组件。',
-          'Keep MIT, NOTICE and applicable shader and font licenses with copied source. Continue with <a href="/docs/theme">theme setup</a> or browse the <a href="/components/motion">component catalog</a>.',
+          '复制源码时保留 MIT、NOTICE 及适用的独立 Shader 和字体许可。接下来阅读<a href="/docs/theme">主题设置</a>，或从<a href="/components">组件目录</a>选择下一个组件。',
+          'Keep MIT, NOTICE and applicable shader and font licenses with copied source. Continue with <a href="/docs/theme">theme setup</a> or browse the <a href="/components">component catalog</a>.',
         ),
       ],
     },

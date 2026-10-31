@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # File Diff
 
 > Inspect additions and removals with aligned line numbers and expandable context.
 
-Inspect additions and removals with aligned line numbers and expandable context.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use File Diff when the interface needs this behavior: inspect additions and removals with aligned line numbers and expandable context.
 
+<a id="install"></a>
 ## Install
 
 ### File Diff — Registry source
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### File Diff
 
 **Registry source**
@@ -233,8 +237,7 @@ onMounted(replay);
 
 ## Component Guide
 
-Inspect additions and removals with aligned line numbers and expandable context.
-
+<a id="composition"></a>
 ### Composition
 
 Compose File Diff with its public parts: FileDiff. Import these names from the component barrel.
@@ -244,6 +247,11 @@ ToolResult
 └── ToolResultOutput
     └── FileDiff
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Inspect additions and removals with aligned line numbers and expandable context.
 
 ### Lifecycle
 
@@ -293,6 +301,18 @@ The Usage section composes FileDiff through Vue props, events and slots. Use the
 - Use when: Use File Diff when the interface needs this behavior: inspect additions and removals with aligned line numbers and expandable context.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `FileDiff` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### FileDiff
@@ -319,12 +339,15 @@ The Usage section composes FileDiff through Vue props, events and slots. Use the
 | `update:open` | `[open: boolean]` | — |
 | `openChange` | `[open: boolean]` | — |
 
+<a id="about"></a>
 ## About File Diff
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure File Diff?**
@@ -339,6 +362,14 @@ Observe update:open, openChange to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Code Block](https://orvui.efu.me/en/components/agents/code-block): Present highlighted code with line controls, file labels and a copy operation.
+- [Tool Result](https://orvui.efu.me/en/components/agents/tool-result): Present a tool call's status, summary and expandable result in one surface.
+- [Message](https://orvui.efu.me/en/components/agents/message): Build a conversation entry from content, attachments, sources and action parts.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/file-diff.json

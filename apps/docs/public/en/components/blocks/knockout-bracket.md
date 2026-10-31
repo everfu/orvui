@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Fixtures
 
 > Browse elimination rounds or a radial bracket with team and match metadata.
 
-Browse elimination rounds or a radial bracket with team and match metadata.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Fixtures when the interface needs this behavior: browse elimination rounds or a radial bracket with team and match metadata.
 
+<a id="install"></a>
 ## Install
 
 ### Fixtures — Registry source
@@ -67,8 +69,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Fixtures
 
 **Registry source**
@@ -95,6 +99,7 @@ const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
 </template>
 ```
 
+<a id="knockout-wheel"></a>
 ### Knockout Wheel
 
 Arrange elimination matches around a radial wheel with the winner at its center.
@@ -123,6 +128,7 @@ const season = { rounds: WHEEL_ROUNDS, initialRound: 0 };
 </template>
 ```
 
+<a id="knockout-bracket"></a>
 ### Knockout Bracket
 
 Navigate tournament rounds with team metadata and an optional third-place match.
@@ -151,6 +157,12 @@ const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### KnockoutBracket
@@ -173,12 +185,15 @@ const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
 | `rounds` | `Round[]` | — | Yes | — |
 | `initialRound` | `number` | `0` | No | — |
 
+<a id="about"></a>
 ## About Fixtures
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Fixtures?**
@@ -193,6 +208,14 @@ Provide content through the documented composition; application effects remain w
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [OTP Input](https://orvui.efu.me/en/components/blocks/otp-input): Enter or paste a fixed-length code through grouped fields with completion feedback.
+- [404 / Not Found](https://orvui.efu.me/en/components/blocks/not-found): Present a missing destination with an animated visual and a route back to useful content.
+- [Dynamic Island](https://orvui.efu.me/en/components/blocks/dynamic-island): Switch a compact capsule between live activity views without changing its identity.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/knockout-bracket.json

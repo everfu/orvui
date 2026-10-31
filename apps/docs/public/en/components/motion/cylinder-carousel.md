@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Cylinder Carousel
 
 > Arrange gallery items on a concave or convex cylinder controlled by dragging.
 
-Arrange gallery items on a concave or convex cylinder controlled by dragging.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Cylinder Carousel when the interface needs this behavior: arrange gallery items on a concave or convex cylinder controlled by dragging.
 
+<a id="install"></a>
 ## Install
 
 ### Cylinder Carousel — Registry source
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Cylinder Carousel
 
 **Registry source**
@@ -117,6 +121,12 @@ const surfaces = [
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### CylinderCarousel
@@ -143,12 +153,15 @@ const surfaces = [
 | --- | --- | --- |
 | `indexChange` | — | — |
 
+<a id="about"></a>
 ## About Cylinder Carousel
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Cylinder Carousel?**
@@ -163,6 +176,14 @@ Observe indexChange to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Marquee](https://orvui.efu.me/en/components/motion/marquee): Repeat a horizontal or vertical content strip with optional pause on hover.
+- [Shader Background](https://orvui.efu.me/en/components/motion/shader-background): Render an animated background through a Vue adapter for the Paper Design shader runtime.
+- [Tilt Card](https://orvui.efu.me/en/components/motion/tilt-card): Tilt a card toward the pointer and move a highlight over its surface.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/cylinder-carousel.json

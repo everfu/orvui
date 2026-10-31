@@ -1,4 +1,5 @@
 import catalog from "../catalog/components.json";
+import { templateDefinitions } from "../../apps/docs/app/utils/docs/template-definitions";
 import { sitePages } from "../../apps/docs/app/utils/docs/site-page-data";
 
 export interface DocsPage {
@@ -41,17 +42,23 @@ export function createDocsPages(): DocsPage[] {
       put(prefix + page.path, page.title[en ? "en" : "zh"], {
         layout: "site-page",
         sitePage: page.slug,
+        docsSection: page.slug === "changelog" ? "releases" : "guides",
       });
+    put(prefix + "/components", en ? "Vue Components" : "Vue 组件", { layout: "components", docsSection: "components" });
+    put(prefix + "/templates", en ? "Templates" : "应用模板", { layout: "templates", docsSection: "templates" });
+    for (const template of templateDefinitions)
+      put(`${prefix}/templates/${template.slug}`, template.name, { layout: "template", templateSlug: template.slug, docsSection: "templates" });
     for (const category of catalog.categories) {
       const base =
         prefix +
         (category.slug === "charts"
           ? "/charts"
           : `/components/${category.slug}`);
-      put(base, category.name, { layout: "category", category: category.slug });
+      put(base, category.name, { layout: "category", category: category.slug, docsSection: "components" });
       for (const entry of category.components)
         put(`${base}/${entry.slug}`, entry.name, {
           layout: "component",
+          docsSection: "components",
           category: category.slug,
           slug: entry.slug,
         });

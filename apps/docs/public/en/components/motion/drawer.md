@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Drawer
 
 > Present a dialog from either side of the viewport with focus and scroll management.
 
-Present a dialog from either side of the viewport with focus and scroll management.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Drawer when the interface needs this behavior: present a dialog from either side of the viewport with focus and scroll management.
 
+<a id="install"></a>
 ## Install
 
 ### Drawer — Registry source
@@ -53,8 +55,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Drawer
 
 **Registry source**
@@ -89,6 +93,18 @@ function reveal(edge: "left" | "right") { side.value = edge; open.value = true; 
 </div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Drawer` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Drawer
@@ -115,12 +131,15 @@ function reveal(edge: "left" | "right") { side.value = edge; open.value = true; 
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Drawer
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Drawer?**
@@ -135,6 +154,14 @@ Observe update:open to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Popover](https://orvui.efu.me/en/components/motion/popover): Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+- [Morphing Modal](https://orvui.efu.me/en/components/motion/morphing-modal): Change a dialog's content and height together while preserving the outer surface.
+- [Tooltip](https://orvui.efu.me/en/components/motion/tooltip): Reveal a short contextual label on hover or focus without displacing nearby content.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/drawer.json

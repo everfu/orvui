@@ -19,6 +19,8 @@ import {
   excludedChangelogItems,
 } from "../../apps/docs/app/utils/docs/site-changelog-data";
 import { sitePageMarkdown } from "../../apps/docs/app/utils/docs/site-page-markdown";
+import { templateDefinitions } from "../../apps/docs/app/utils/docs/template-definitions";
+import { templateMarkdown, templatesIndexMarkdown, componentsIndexMarkdown } from "../../apps/docs/app/utils/docs/section-markdown";
 
 export function buildSitePages(
   options: { root?: string; origin?: string } = {},
@@ -39,6 +41,14 @@ export function buildSitePages(
         `${en ? "en/" : ""}${page.path.slice(1)}.md`,
         sitePageMarkdown(page.slug, en, origin),
       );
+  for (const en of [false, true]) {
+    const prefix = en ? "en/" : "";
+    put(`${prefix}components.md`, componentsIndexMarkdown(en, origin));
+    put(`${prefix}templates.md`, templatesIndexMarkdown(en, origin));
+    for (const template of templateDefinitions) {
+      put(`${prefix}templates/${template.slug}.md`, templateMarkdown(template.slug, en, origin));
+    }
+  }
   put(
     "theme.css",
     `/* orvui design system. MIT; product version ${catalog.product.version}. */\n${themeCss}`,
@@ -67,7 +77,7 @@ export function buildSitePages(
     "> An independent Vue 3.5 UI system with expressive motion, composable APIs and copyable source.",
     "",
     "## Guides",
-    ...sitePages.map(
+    ...sitePages.filter(page => page.slug !== "changelog").map(
       (page) => `- [${localize(page.title, true)}](${origin}${page.path}.md)`,
     ),
     "",
@@ -88,6 +98,7 @@ export function buildSitePages(
         `- [${item.name}](${origin}${path}.md): ${item.description.replace(/\bReact\b/g, "Vue")}`,
       );
     }
+  lines.push("", "## Templates", ...templateDefinitions.map(template => `- [${template.name}](${origin}/templates/${template.slug}.md): ${template.description.en}`), "", "## Releases", `- [Releases](${origin}/changelog.md)`, `- [RSS](${origin}/changelog/rss.xml)`);
   put("llms.txt", lines.join("\n") + "\n");
   const xml = (value: string) =>
     value

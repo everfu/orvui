@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Tool Approval
 
 > Ask for an explicit decision on a pending tool action with explanatory context.
 
-Ask for an explicit decision on a pending tool action with explanatory context.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Tool Approval when the interface needs this behavior: ask for an explicit decision on a pending tool action with explanatory context.
 
+<a id="install"></a>
 ## Install
 
 ### Tool Approval — Registry source
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Tool Approval
 
 **Registry source**
@@ -243,8 +247,7 @@ function replay() {
 
 ## Component Guide
 
-Ask for an explicit decision on a pending tool action with explanatory context.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Tool Approval with its public parts: ToolApproval, ToolApprovalCode. Import these names from the component barrel.
@@ -255,6 +258,11 @@ Message
     └── ToolApproval
         └── ToolApprovalCode
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Ask for an explicit decision on a pending tool action with explanatory context.
 
 ### Lifecycle
 
@@ -304,6 +312,18 @@ The Usage section composes ToolApproval, ToolApprovalCode through Vue props, eve
 - Use when: Use Tool Approval when the interface needs this behavior: ask for an explicit decision on a pending tool action with explanatory context.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ToolApproval` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ToolApproval
@@ -345,12 +365,15 @@ The Usage section composes ToolApproval, ToolApprovalCode through Vue props, eve
 | `code` | `string` | — | Yes | — |
 | `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | No | — |
 
+<a id="about"></a>
 ## About Tool Approval
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Tool Approval?**
@@ -365,6 +388,14 @@ Observe update:open, openChange, approve, alwaysAllow, deny to connect the compo
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Approval Card](https://orvui.efu.me/en/components/agents/approval-card): Guide a person through one or more decisions before an assistant proceeds.
+- [Agent Activity](https://orvui.efu.me/en/components/agents/agent-activity): Group changing assistant activity into expandable steps and a completed summary.
+- [Tool Result](https://orvui.efu.me/en/components/agents/tool-result): Present a tool call's status, summary and expandable result in one surface.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/tool-approval.json

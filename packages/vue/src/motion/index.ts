@@ -52,3 +52,5 @@ export * from "./table";
 export * from "./shader-background";
 export * from "./cylinder-carousel";
 export * from "./loader";
+
+export * from "./table-of-contents";

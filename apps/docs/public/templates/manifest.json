@@ -1,0 +1,242 @@
+[
+  {
+    "slug": "dashboard",
+    "name": "Dashboard",
+    "description": {
+      "zh": "指标、销售趋势、筛选与成员表格，组成一个可交互的数据工作台。",
+      "en": "An interactive workspace combining metrics, sales trends, filters and a member table."
+    },
+    "previewUrl": "https://orvui-template-dashboard.netlify.app",
+    "screenshot": "/templates/dashboard/preview.png",
+    "pages": [
+      {
+        "id": "dashboard",
+        "zh": "概览",
+        "en": "Overview"
+      },
+      {
+        "id": "orders",
+        "zh": "订单",
+        "en": "Orders"
+      },
+      {
+        "id": "tracker",
+        "zh": "追踪",
+        "en": "Tracker"
+      },
+      {
+        "id": "analytics",
+        "zh": "分析",
+        "en": "Analytics"
+      },
+      {
+        "id": "settings",
+        "zh": "设置",
+        "en": "Settings"
+      }
+    ]
+  },
+  {
+    "slug": "mail",
+    "name": "Mail",
+    "description": {
+      "zh": "将文件夹、搜索、邮件列表、阅读和本地撰写整合到一个工作区。",
+      "en": "A workspace with folders, search, message lists, reading and local composition."
+    },
+    "previewUrl": "https://orvui-template-mail.netlify.app",
+    "screenshot": "/templates/mail/preview.png",
+    "pages": [
+      {
+        "id": "inbox",
+        "zh": "收件箱",
+        "en": "Inbox"
+      },
+      {
+        "id": "starred",
+        "zh": "星标",
+        "en": "Starred"
+      },
+      {
+        "id": "sent",
+        "zh": "已发送",
+        "en": "Sent"
+      },
+      {
+        "id": "drafts",
+        "zh": "草稿",
+        "en": "Drafts"
+      },
+      {
+        "id": "snoozed",
+        "zh": "稍后处理",
+        "en": "Snoozed"
+      },
+      {
+        "id": "archive",
+        "zh": "归档",
+        "en": "Archive"
+      },
+      {
+        "id": "spam",
+        "zh": "垃圾邮件",
+        "en": "Spam"
+      },
+      {
+        "id": "trash",
+        "zh": "回收站",
+        "en": "Trash"
+      }
+    ]
+  },
+  {
+    "slug": "chat",
+    "name": "Chat",
+    "description": {
+      "zh": "对话、流式响应、工具审核、代码与引用构成完整的本地聊天演示。",
+      "en": "A local chat composition with conversations, streaming responses, tool approval, code and citations."
+    },
+    "previewUrl": "https://orvui-template-chat.netlify.app",
+    "screenshot": "/templates/chat/preview.png",
+    "pages": [
+      {
+        "id": "showcase",
+        "zh": "AI 组件组合",
+        "en": "AI components showcase"
+      },
+      {
+        "id": "conversation",
+        "zh": "历史对话",
+        "en": "Conversation history"
+      },
+      {
+        "id": "new",
+        "zh": "新对话",
+        "en": "New chat"
+      },
+      {
+        "id": "library",
+        "zh": "资料库",
+        "en": "Library"
+      },
+      {
+        "id": "explore",
+        "zh": "探索",
+        "en": "Explore"
+      }
+    ]
+  },
+  {
+    "slug": "crm",
+    "name": "CRM",
+    "description": {
+      "zh": "组合日期范围、销售漏斗、预测、账户与商机，呈现销售工作台。",
+      "en": "A sales workspace combining date ranges, funnels, forecasts, accounts and opportunities."
+    },
+    "previewUrl": "https://orvui-template-crm.netlify.app",
+    "screenshot": "/templates/crm/preview.png",
+    "pages": [
+      {
+        "id": "home",
+        "zh": "首页",
+        "en": "Home"
+      },
+      {
+        "id": "next",
+        "zh": "接下来",
+        "en": "Up next"
+      },
+      {
+        "id": "notifications",
+        "zh": "通知",
+        "en": "Notifications"
+      },
+      {
+        "id": "accounts",
+        "zh": "客户",
+        "en": "Accounts"
+      },
+      {
+        "id": "opportunities",
+        "zh": "商机",
+        "en": "Opportunities"
+      },
+      {
+        "id": "contacts",
+        "zh": "联系人",
+        "en": "Contacts"
+      },
+      {
+        "id": "tasks",
+        "zh": "任务",
+        "en": "Tasks"
+      },
+      {
+        "id": "meetings",
+        "zh": "会议",
+        "en": "Meetings"
+      },
+      {
+        "id": "notes",
+        "zh": "笔记",
+        "en": "Notes"
+      },
+      {
+        "id": "new",
+        "zh": "新建列表",
+        "en": "New list"
+      },
+      {
+        "id": "risk",
+        "zh": "风险客户",
+        "en": "At risk"
+      },
+      {
+        "id": "warm",
+        "zh": "潜在客户",
+        "en": "Warm contacts"
+      }
+    ]
+  },
+  {
+    "slug": "finances",
+    "name": "Finances",
+    "description": {
+      "zh": "通过资产趋势、持仓和交易记录展示财务信息，支持周期和隐私切换。",
+      "en": "Present portfolio trends, holdings and transactions with period and privacy controls."
+    },
+    "previewUrl": "https://orvui-template-finances.netlify.app",
+    "screenshot": "/templates/finances/preview.png",
+    "pages": [
+      {
+        "id": "dashboard",
+        "zh": "概览",
+        "en": "Overview"
+      },
+      {
+        "id": "portfolio",
+        "zh": "资产组合",
+        "en": "Portfolio"
+      },
+      {
+        "id": "spending",
+        "zh": "支出",
+        "en": "Spending"
+      },
+      {
+        "id": "transactions",
+        "zh": "交易记录",
+        "en": "Transactions"
+      },
+      {
+        "id": "earn",
+        "zh": "收益",
+        "en": "Earn"
+      },
+      {
+        "id": "settings",
+        "zh": "设置",
+        "en": "Settings"
+      }
+    ]
+  }
+]

@@ -31,6 +31,8 @@ import '@orvui/vue/style.css'
 export const webSourceApp = webPackageApp
   .replace("'@orvui/vue/motion/button'", "'@/components/orvui/motion/button'")
   .replace("import '@orvui/vue/style.css'\n", "");
+// Keep Nitro's import-meta transform away from the displayed example text.
+const importMetaUrl = ["import", "meta", "url"].join(".");
 export const webViteConfig = `import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -38,7 +40,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
-  resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
+  resolve: { alias: { '@': fileURLToPath(new URL('./src', ${importMetaUrl})) } },
 })`;
 
 export const webInstallationPage: SitePageDefinition = {
@@ -152,8 +154,8 @@ export const webInstallationPage: SitePageDefinition = {
         "pnpm exec vue-tsc --noEmit -p tsconfig.app.json\npnpm build\npnpm dev",
       ),
       p(
-        '类型检查命令使用 Vite 模板的应用配置 tsconfig.app.json；已有项目请替换为实际检查 src/ 的配置文件。先确认按钮有正确样式和按压反馈，再检查业务组件的状态与事件。示例直接导入的额外依赖需在应用中安装；保留安装源码中的 MIT、NOTICE 和独立 Shader 许可。主题覆盖参见<a href="/docs/theme">主题设置</a>，之后可从<a href="/components/motion">组件目录</a>选择组件。',
-        'The type-check command targets the Vite template’s tsconfig.app.json. For an existing project, select the configuration that checks src/. Check the button’s styles and press feedback, then verify state and events for your chosen components. Install dependencies imported directly by an example. Keep MIT, NOTICE and separate shader licenses with the installed source. See <a href="/docs/theme">Theme setup</a> for overrides, then explore the <a href="/components/motion">component catalog</a>.',
+        '类型检查命令使用 Vite 模板的应用配置 tsconfig.app.json；已有项目请替换为实际检查 src/ 的配置文件。先确认按钮有正确样式和按压反馈，再检查业务组件的状态与事件。示例直接导入的额外依赖需在应用中安装；保留安装源码中的 MIT、NOTICE 和独立 Shader 许可。主题覆盖参见<a href="/docs/theme">主题设置</a>，之后可从<a href="/components">组件目录</a>选择组件。',
+        'The type-check command targets the Vite template’s tsconfig.app.json. For an existing project, select the configuration that checks src/. Check the button’s styles and press feedback, then verify state and events for your chosen components. Install dependencies imported directly by an example. Keep MIT, NOTICE and separate shader licenses with the installed source. See <a href="/docs/theme">Theme setup</a> for overrides, then explore the <a href="/components">component catalog</a>.',
       ),
     ]),
   ],

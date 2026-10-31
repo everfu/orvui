@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Popover
 
 > Attach a floating surface to a trigger with conventional or continuous morphing transitions.
 
-Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Popover when the interface needs this behavior: attach a floating surface to a trigger with conventional or continuous morphing transitions.
 
+<a id="install"></a>
 ## Install
 
 ### Popover — Registry source
@@ -76,8 +78,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Popover
 
 **Registry source**
@@ -170,6 +174,7 @@ const dimensions = reactive([
 </template>
 ```
 
+<a id="gooey"></a>
 ### Gooey Popover
 
 Join the trigger and floating panel with a liquid neck while keeping the panel content sharp.
@@ -264,6 +269,7 @@ const dimensions = reactive([
 </template>
 ```
 
+<a id="morph"></a>
 ### Morph Popover
 
 Reveal a full-size panel through an anchored clip path without scaling its text.
@@ -362,6 +368,19 @@ function choose() {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Popover` | `v-model:open` | `boolean` | `update:open` |
+| `MorphPopover` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Popover
@@ -455,12 +474,15 @@ function choose() {
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Popover
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Popover?**
@@ -475,6 +497,14 @@ Observe update:open, openChange to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Morphing Modal](https://orvui.efu.me/en/components/motion/morphing-modal): Change a dialog's content and height together while preserving the outer surface.
+- [Drawer](https://orvui.efu.me/en/components/motion/drawer): Present a dialog from either side of the viewport with focus and scroll management.
+- [Tooltip](https://orvui.efu.me/en/components/motion/tooltip): Reveal a short contextual label on hover or focus without displacing nearby content.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/popover.json

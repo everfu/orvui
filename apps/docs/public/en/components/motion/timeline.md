@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Timeline
 
 > Browse dated milestones on a draggable track that keeps the selected event in focus.
 
-Browse dated milestones on a draggable track that keeps the selected event in focus.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Timeline when the interface needs this behavior: browse dated milestones on a draggable track that keeps the selected event in focus.
 
+<a id="install"></a>
 ## Install
 
 ### Timeline — Registry source
@@ -61,8 +63,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Timeline
 
 **Registry source**
@@ -143,6 +147,18 @@ const selected = ref("signups");
 <template><div class="w-full py-6"><Timeline v-model="selected" :events="milestones" aria-label="Lumen release history"><template #media="{ event, active }"><DemoMedia :event="event as any" :active="active" /></template><template #meta="{ event }"><Heart aria-hidden="true" :class="['size-4', event.id === selected ? 'text-primary' : undefined]" /><span>{{ event.likes }}</span></template></Timeline></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Timeline` | `v-model` | `string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Timeline
@@ -177,12 +193,15 @@ const selected = ref("signups");
 | `media` | — | `event: event`, `active: index === active` | — |
 | `meta` | — | `event: event` | — |
 
+<a id="about"></a>
 ## About Timeline
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Timeline?**
@@ -197,6 +216,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Arc Picker](https://orvui.efu.me/en/components/motion/arc-picker): Move a curved list of labels through a fixed selection point using gestures or keys.
+- [Card](https://orvui.efu.me/en/components/motion/card): Assemble a card from heading, content, actions and footer parts with optional selection.
+- [Tilt Card](https://orvui.efu.me/en/components/motion/tilt-card): Tilt a card toward the pointer and move a highlight over its surface.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/timeline.json

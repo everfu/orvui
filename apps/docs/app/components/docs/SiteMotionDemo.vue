@@ -4,9 +4,14 @@ import { Bell, PanelTopOpen, RefreshCw } from "lucide-vue-next";
 import { EASE_OUT, SPRING_PRESS } from "../../../../../packages/vue/src/lib/ease";
 import { CONTINUITY_LABEL, CONTINUITY_SPRING } from "../../utils/docs/site-motion-data";
 import { useMotionGuideScene } from "../../composables/motion-guide-scene";
-withDefaults(defineProps<{ demo: "press" | "icon" | "reveal" | "layout" | "swap"; en?: boolean }>(), { en: false });
-const { replay, iconActive, expanded, tab, id, reduce, canHover, setAttention, replayScene, toggleExpanded, chooseTab } = useMotionGuideScene();
+const props = withDefaults(defineProps<{ demo: "press" | "icon" | "reveal" | "layout" | "swap"; en?: boolean }>(), { en: false });
+const { replay, iconActive, expanded, tab, id, reduce, canHover, swapLayers, setAttention, replayScene, toggleExpanded, chooseTab } = useMotionGuideScene();
 const buttonClass = "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+function viewText(view: "Preview" | "Code") {
+  return props.en
+    ? view === "Preview" ? "Live component view" : "Copy-ready source"
+    : view === "Preview" ? "实时组件视图" : "可复制的源码";
+}
 </script>
 <template>
   <motion.button
@@ -154,34 +159,23 @@ const buttonClass = "outline-none focus-visible:ring-2 focus-visible:ring-ring f
         {{ en ? item : item === "Preview" ? "预览" : "代码" }}
       </button>
     </div>
-    <AnimatePresence mode="wait" :initial="false"
-      ><motion.div
-        :key="tab"
-        :id="`${id}-panel`"
-        role="tabpanel"
-        :aria-labelledby="`${id}-${tab}-tab`"
-        :initial="{
-          opacity: 0,
-          transform: reduce ? 'none' : 'translateY(4px)',
-        }"
-        :animate="{ opacity: 1, transform: 'translateY(0px)' }"
-        :exit="{
-          opacity: 0,
-          transform: reduce ? 'none' : 'translateY(-4px)',
-          transition: { duration: 0.12, ease: EASE_OUT },
-        }"
-        :transition="{ duration: 0.18, ease: EASE_OUT }"
-        class="mt-2 rounded-xl bg-background p-4 text-sm text-foreground"
-        >{{
-          en
-            ? tab === "Preview"
-              ? "Live component view"
-              : "Copy-ready source"
-            : tab === "Preview"
-              ? "实时组件视图"
-              : "可复制的源码"
-        }}</motion.div
-      ></AnimatePresence
+    <div
+      :id="`${id}-panel`"
+      role="tabpanel"
+      :aria-labelledby="`${id}-${tab}-tab`"
+      class="mt-2 grid rounded-xl bg-background p-4 text-sm text-foreground"
     >
+      <span class="sr-only">{{ viewText(tab) }}</span>
+      <!-- Keep both layers mounted so interrupted transitions never remount a label. -->
+      <motion.span
+        v-for="view in ['Preview', 'Code'] as const"
+        :key="view"
+        aria-hidden="true"
+        :initial="false"
+        :style="{ opacity: swapLayers[view].opacity, y: reduce ? '0px' : swapLayers[view].y }"
+        class="pointer-events-none col-start-1 row-start-1"
+        >{{ viewText(view) }}</motion.span
+      >
+    </div>
   </div>
 </template>

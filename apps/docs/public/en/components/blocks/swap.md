@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Multi-chain Swap
 
 > Compose an asset exchange with token choices, amounts and destination information.
 
-Compose an asset exchange with token choices, amounts and destination information.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Multi-chain Swap when the interface needs this behavior: compose an asset exchange with token choices, amounts and destination information.
 
+<a id="install"></a>
 ## Install
 
 ### Multi-chain Swap — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Multi-chain Swap
 
 **Registry source**
@@ -76,6 +80,12 @@ import { MultiChainSwap } from "@orvui/vue/blocks/swap";
 <template><MultiChainSwap /></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### MultiChainSwap
@@ -96,12 +106,15 @@ import { MultiChainSwap } from "@orvui/vue/blocks/swap";
 | `swap` | `[order: SwapOrder]` | — |
 | `connect` | `[]` | — |
 
+<a id="about"></a>
 ## About Multi-chain Swap
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Multi-chain Swap?**
@@ -116,6 +129,14 @@ Observe swap, connect to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Wallet Card](https://orvui.efu.me/en/components/blocks/wallet-card): Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+- [Prediction Market](https://orvui.efu.me/en/components/blocks/prediction-market): Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
+- [Dynamic Island](https://orvui.efu.me/en/components/blocks/dynamic-island): Switch a compact capsule between live activity views without changing its identity.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/swap.json

@@ -9,7 +9,6 @@
 - [For AI agents](https://orvui.efu.me/docs/ai-agents.md)
 - [Use orvui with OpenUI](https://orvui.efu.me/docs/openui.md)
 - [Motion that explains, not distracts](https://orvui.efu.me/docs/motion-patterns.md)
-- [orvui updates](https://orvui.efu.me/changelog.md)
 
 ## Registry
 - [Registry index](https://orvui.efu.me/r/registry.json)
@@ -29,6 +28,7 @@
 - [Color Picker](https://orvui.efu.me/components/motion/color-picker.md): Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
 - [Animated Color Selector](https://orvui.efu.me/components/motion/color-selector.md): Choose one named swatch with a moving selection outline and native radio behavior.
 - [Animated Breadcrumb](https://orvui.efu.me/components/motion/breadcrumb.md): Show the current location in a hierarchy and collapse intermediate links when space is limited.
+- [Table of Contents](https://orvui.efu.me/components/motion/table-of-contents.md): Navigate article sections with accessible anchor links and an indicator that follows the reading position.
 - [Tilt Card](https://orvui.efu.me/components/motion/tilt-card.md): Tilt a card toward the pointer and move a highlight over its surface.
 - [Button](https://orvui.efu.me/components/motion/button.md): Use a pressable action surface with magnetic, stateful and metallic alternatives.
 - [Animated CTA Buttons](https://orvui.efu.me/components/motion/expanding-arrow-button.md): Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
@@ -126,3 +126,14 @@
 - [Bloom Menu](https://orvui.efu.me/components/blocks/bloom-menu.md): Open a group of actions around a shared center and restore focus when it closes.
 - [Feedback Widget](https://orvui.efu.me/components/blocks/feedback-widget.md): Expand a feedback trigger into a form with sending, success and retry states.
 - [404 / Not Found](https://orvui.efu.me/components/blocks/not-found.md): Present a missing destination with an animated visual and a route back to useful content.
+
+## Templates
+- [Dashboard](https://orvui.efu.me/templates/dashboard.md): An interactive workspace combining metrics, sales trends, filters and a member table.
+- [Mail](https://orvui.efu.me/templates/mail.md): A workspace with folders, search, message lists, reading and local composition.
+- [Chat](https://orvui.efu.me/templates/chat.md): A local chat composition with conversations, streaming responses, tool approval, code and citations.
+- [CRM](https://orvui.efu.me/templates/crm.md): A sales workspace combining date ranges, funnels, forecasts, accounts and opportunities.
+- [Finances](https://orvui.efu.me/templates/finances.md): Present portfolio trends, holdings and transactions with period and privacy controls.
+
+## Releases
+- [Releases](https://orvui.efu.me/changelog.md)
+- [RSS](https://orvui.efu.me/changelog/rss.xml)

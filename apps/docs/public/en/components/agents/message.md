@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Message
 
 > Build a conversation entry from content, attachments, sources and action parts.
 
-Build a conversation entry from content, attachments, sources and action parts.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Message when the interface needs this behavior: build a conversation entry from content, attachments, sources and action parts.
 
+<a id="install"></a>
 ## Install
 
 ### Message — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Message
 
 **Registry source**
@@ -440,8 +444,7 @@ onBeforeUnmount(stop);
 
 ## Component Guide
 
-Build a conversation entry from content, attachments, sources and action parts.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Message with its public parts: Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader, MessageTyping. Import these names from the component barrel.
@@ -455,6 +458,11 @@ MessageGroup
         ├── MessageBubble
         └── MessageFooter
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Build a conversation entry from content, attachments, sources and action parts.
 
 ### Lifecycle
 
@@ -504,6 +512,12 @@ The Usage section composes Message, MessageAvatar, MessageContent, MessageFooter
 - Use when: Use Message when the interface needs this behavior: build a conversation entry from content, attachments, sources and action parts.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Message
@@ -581,12 +595,15 @@ The Usage section composes Message, MessageAvatar, MessageContent, MessageFooter
 | --- | --- | --- | --- | --- |
 | `label` | `string` | `"Responding"` | No | — |
 
+<a id="about"></a>
 ## About Message
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Message?**
@@ -601,6 +618,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Message Scroller](https://orvui.efu.me/en/components/agents/message-scroller): Follow appended messages while letting readers leave and return to the latest content.
+- [Chat App](https://orvui.efu.me/en/components/agents/chat-app): Compose navigation, conversation content and a prompt area into an assistant workspace.
+- [Message Bubble](https://orvui.efu.me/en/components/agents/message-bubble): Render a compact conversation bubble with an avatar, metadata and optional controls.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/message.json

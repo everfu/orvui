@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Code Block
 
 > Present highlighted code with line controls, file labels and a copy operation.
 
-Present highlighted code with line controls, file labels and a copy operation.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Code Block when the interface needs this behavior: present highlighted code with line controls, file labels and a copy operation.
 
+<a id="install"></a>
 ## Install
 
 ### Code Block — Registry source
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Code Block
 
 **Registry source**
@@ -209,8 +213,7 @@ onMounted(replay);
 
 ## Component Guide
 
-Present highlighted code with line controls, file labels and a copy operation.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Code Block with its public parts: CodeBlock, AgentCodeLine. Import these names from the component barrel.
@@ -219,6 +222,11 @@ Compose Code Block with its public parts: CodeBlock, AgentCodeLine. Import these
 StreamingResponse
 └── CodeBlock
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Present highlighted code with line controls, file labels and a copy operation.
 
 ### Lifecycle
 
@@ -268,6 +276,12 @@ The Usage section composes CodeBlock, AgentCodeLine through Vue props, events an
 - Use when: Use Code Block when the interface needs this behavior: present highlighted code with line controls, file labels and a copy operation.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### CodeBlock
@@ -296,12 +310,15 @@ The Usage section composes CodeBlock, AgentCodeLine through Vue props, events an
 | `code` | `string` | — | Yes | — |
 | `tokens` | `AgentCodeToken[]` | — | No | — |
 
+<a id="about"></a>
 ## About Code Block
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Code Block?**
@@ -316,6 +333,14 @@ Provide content through the documented composition; application effects remain w
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [File Diff](https://orvui.efu.me/en/components/agents/file-diff): Inspect additions and removals with aligned line numbers and expandable context.
+- [Tool Result](https://orvui.efu.me/en/components/agents/tool-result): Present a tool call's status, summary and expandable result in one surface.
+- [Streaming Response](https://orvui.efu.me/en/components/agents/streaming-response): Compose a changing assistant response with text, attachments, references and actions.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/code-block.json

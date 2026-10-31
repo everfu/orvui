@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Prediction Market
 
 > Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
 
-Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Prediction Market when the interface needs this behavior: inspect a market and compose a buy or sell ticket with outcomes and return estimates.
 
+<a id="install"></a>
 ## Install
 
 ### Prediction Market — Registry source
@@ -67,8 +69,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Prediction Market
 
 **Registry source**
@@ -129,6 +133,7 @@ const order = ref<PredictionMarketOrderValue>({
 </template>
 ```
 
+<a id="market-cards"></a>
 ### Market Cards
 
 Compare listed markets, inspect odds and returns, and bookmark individual cards.
@@ -453,6 +458,7 @@ const icon =
 </template>
 ```
 
+<a id="trade-ticket"></a>
 ### Trade Ticket
 
 Choose an outcome and compose a buy or sell amount with visible order feedback.
@@ -515,6 +521,19 @@ const order = ref<PredictionMarketOrderValue>({
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `PredictionMarket` | `v-model` | `PredictionMarketOrderValue` | `update:modelValue` |
+| `PredictionMarketCard` | `v-model:bookmarked` | `boolean` | `update:bookmarked` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### PredictionMarket
@@ -568,12 +587,15 @@ const order = ref<PredictionMarketOrderValue>({
 | `update:bookmarked` | `[bookmarked: boolean]` | — |
 | `bookmarkChange` | `[bookmarked: boolean]` | — |
 
+<a id="about"></a>
 ## About Prediction Market
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Prediction Market?**
@@ -588,6 +610,14 @@ Observe update:modelValue, valueChange, trade, signIn to connect the component t
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Wallet Card](https://orvui.efu.me/en/components/blocks/wallet-card): Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+- [Multi-chain Swap](https://orvui.efu.me/en/components/blocks/swap): Compose an asset exchange with token choices, amounts and destination information.
+- [Feedback Widget](https://orvui.efu.me/en/components/blocks/feedback-widget): Expand a feedback trigger into a form with sending, success and retry states.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/prediction-market.json

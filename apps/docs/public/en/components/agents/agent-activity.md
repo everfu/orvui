@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Agent Activity
 
 > Group changing assistant activity into expandable steps and a completed summary.
 
-Group changing assistant activity into expandable steps and a completed summary.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Agent Activity when the interface needs this behavior: group changing assistant activity into expandable steps and a completed summary.
 
+<a id="install"></a>
 ## Install
 
 ### Agent Activity — Registry source
@@ -94,8 +96,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Agent Activity
 
 **Registry source**
@@ -372,6 +376,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="streaming-text"></a>
 ### Streaming Text
 
 Append activity text as it arrives and retain completed steps in the group.
@@ -596,6 +601,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="reasoning-steps"></a>
 ### Reasoning Steps
 
 Show a reasoning sequence as individual steps that can collapse into a summary.
@@ -786,6 +792,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="web-search"></a>
 ### Web Search
 
 Present searches and their source results with identifiable provider icons.
@@ -1024,6 +1031,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="tool-calls"></a>
 ### Tool Calls
 
 Track tool invocations alongside their pending and completed states.
@@ -1218,6 +1226,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="mixed-activity"></a>
 ### Mixed Activity
 
 Combine reasoning, searches, messages and tools into one changing activity group.
@@ -1496,6 +1505,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="agent-trace"></a>
 ### Agent Trace
 
 Summarize the trace with tool-call and message counts while preserving individual steps.
@@ -1724,8 +1734,7 @@ onMounted(replay);
 
 ## Component Guide
 
-Group changing assistant activity into expandable steps and a completed summary.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Agent Activity with its public parts: AgentActivity. Import these names from the component barrel.
@@ -1735,6 +1744,11 @@ Message
 └── MessageContent
     └── AgentActivity
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Group changing assistant activity into expandable steps and a completed summary.
 
 ### Lifecycle
 
@@ -1784,6 +1798,18 @@ The Usage section composes AgentActivity through Vue props, events and slots. Us
 - Use when: Use Agent Activity when the interface needs this behavior: group changing assistant activity into expandable steps and a completed summary.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `AgentActivity` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### AgentActivity
@@ -1818,12 +1844,15 @@ The Usage section composes AgentActivity through Vue props, events and slots. Us
 | `working-status` | `(context: { label: Content; duration: number; }) => VNodeChild` | `label: label`, `duration: duration` | — |
 | `completed-status` | `(context: { summary: Content; duration: number; }) => VNodeChild` | `summary: summary`, `duration: duration` | — |
 
+<a id="about"></a>
 ## About Agent Activity
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Agent Activity?**
@@ -1838,6 +1867,14 @@ Observe update:open, openChange to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Tool Result](https://orvui.efu.me/en/components/agents/tool-result): Present a tool call's status, summary and expandable result in one surface.
+- [Tool Approval](https://orvui.efu.me/en/components/agents/tool-approval): Ask for an explicit decision on a pending tool action with explanatory context.
+- [Agent Loading States](https://orvui.efu.me/en/components/agents/loading-states): Communicate pending assistant work with progress, reasoning and shimmer displays.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/agent-activity.json

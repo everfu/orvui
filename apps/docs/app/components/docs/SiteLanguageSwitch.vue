@@ -42,6 +42,8 @@ const languages = computed(() => [
 ]);
 const links = () =>
   Array.from(menu.value?.querySelectorAll<HTMLAnchorElement>("a[href]") ?? []);
+// Keep opacity frame-driven so native animation cleanup cannot flash its base value.
+function onPanelFrame() {}
 function close(restore = false) {
   open.value = false;
   if (restore) trigger.value?.focus({ preventScroll: true });
@@ -204,6 +206,7 @@ watch(
         :animate="{ opacity: 1, scale: 1, y: 0 }"
         :exit="{ opacity: 0, scale: reduce ? 1 : 0.96, y: reduce ? 0 : -4 }"
         :transition="reduce ? { duration: 0 } : SPRING_PANEL"
+        :on-update="onPanelFrame"
       >
         <nav
           ref="menu"

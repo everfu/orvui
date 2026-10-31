@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # File Tree
 
 > Explore nested files and folders with expandable branches and keyboard selection.
 
-Explore nested files and folders with expandable branches and keyboard selection.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use File Tree when the interface needs this behavior: explore nested files and folders with expandable branches and keyboard selection.
 
+<a id="install"></a>
 ## Install
 
 ### File Tree — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### File Tree
 
 **Registry source**
@@ -118,6 +122,19 @@ const documents = [
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `FileTree` | `v-model` | `null \| string` | `update:modelValue` |
+| `FileTree` | `v-model:expandedIds` | `string[]` | `update:expandedIds` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### FileTree
@@ -165,12 +182,15 @@ const documents = [
 | `icon` | `any` | — | No | — |
 | `disabled` | `boolean` | `false` | No | — |
 
+<a id="about"></a>
 ## About File Tree
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure File Tree?**
@@ -185,6 +205,14 @@ Observe update:modelValue, change, update:expandedIds, expandedChange to connect
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Animated Context Menu](https://orvui.efu.me/en/components/motion/context-menu): Open a menu at a pointer position with checkbox, radio and submenu compositions.
+- [Image Viewer](https://orvui.efu.me/en/components/motion/image-viewer): Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+- [Animated Color Selector](https://orvui.efu.me/en/components/motion/color-selector): Choose one named swatch with a moving selection outline and native radio behavior.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/file-tree.json

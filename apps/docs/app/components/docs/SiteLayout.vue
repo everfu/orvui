@@ -1,11 +1,23 @@
 <script setup lang="ts">
-import { toRef } from "vue";
-import { ChevronRight } from "lucide-vue-next";
+import { computed, toRef } from "vue";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+  CollapsibleIndicator,
+} from "../../../../../packages/vue/src/motion/collapsible";
 import SiteChrome from "./SiteChrome.vue";
-import SiteNavigation from "./SiteNavigation.vue";
+import DocsNavigation from "./DocsNavigation.vue";
+import DocsOutline from "./DocsOutline.vue";
 import DocsResources from "./DocsResources.vue";
 import SiteFooter from "./SiteFooter.vue";
-import { createSiteShell, provideSiteShell } from "../../composables/site-shell-state";
+import {
+  createSiteShell,
+  provideSiteShell,
+} from "../../composables/site-shell-state";
+import { documentOutline } from "../../utils/docs/document-outline";
+import { useNewBadgeClock } from "../../composables/new-badge";
+import { DOCS_HEADER_HEIGHT } from "../../utils/docs/document-sections";
 const props = defineProps<{
   frontmatter: Record<string, unknown>;
   route: { path: string };
@@ -24,49 +36,76 @@ const {
   entry,
   pathname,
   t,
-  routeTo,
-  categoryLabel,
+  sitePage,
+  isSitePage,
+  isGuide,
+  docsSection,
+  pageLayout,
 } = shell;
+const clock = useNewBadgeClock(() => category.value?.components ?? []);
+const outline = computed(() =>
+  documentOutline({
+    layout: pageLayout.value,
+    category: category.value,
+    entry: entry.value,
+    page: isSitePage.value
+      ? sitePage.value
+      : isGuide.value
+        ? "introduction"
+        : undefined,
+    en: en.value,
+    isNew: clock.isNew,
+  }),
+);
 </script>
 <template>
-  <div class="site-shell" :data-layout="home ? 'home' : 'docs'">
+  <div
+    class="site-shell"
+    :data-layout="home ? 'home' : 'docs'"
+    :data-docs-section="home ? undefined : docsSection"
+    :style="{ '--header-height': (home ? 56 : DOCS_HEADER_HEIGHT) + 'px' }"
+  >
     <SiteChrome />
     <slot v-if="home" />
+    <main v-else-if="pageLayout === 'templates'" id="docs-content" class="templates-wide-main"><slot /></main>
     <div v-else class="docs-frame">
       <aside
         class="docs-sidebar"
         :aria-label="t('站点导航', 'Site navigation')"
       >
-        <SiteNavigation
+        <DocsNavigation
+          :section="docsSection"
           :category="category?.slug"
           :en="en"
           :pathname="pathname"
         />
       </aside>
       <main id="docs-content" class="docs-main">
-        <nav
-          v-if="category"
-          class="breadcrumb"
-          :aria-label="t('面包屑', 'Breadcrumb')"
+        <Collapsible
+          v-if="outline.length"
+          :key="pathname"
+          class="docs-inline-outline"
         >
-          <a v-if="entry" :href="routeTo(category.slug)">{{
-            categoryLabel(category.slug)
-          }}</a
-          ><span v-else>{{ categoryLabel(category.slug) }}</span>
-          <template v-if="entry"
-            ><ChevronRight :size="14" aria-hidden="true" /><span
-              aria-current="page"
-              >{{ entry.name }}</span
-            ></template
-          >
-        </nav>
+          <CollapsibleTrigger class="docs-inline-outline-trigger"
+            >{{ t("本页目录", "On this page") }}<CollapsibleIndicator
+          /></CollapsibleTrigger>
+          <CollapsibleContent
+            ><DocsOutline :items="outline" :en="en"
+          /></CollapsibleContent>
+        </Collapsible>
         <slot />
       </main>
       <aside
         class="docs-resources"
-        :aria-label="t('资源与指南', 'Resources and guides')"
+        :aria-label="t('目录与资源', 'Outline and resources')"
       >
-        <DocsResources :en="en" />
+        <DocsOutline
+          v-if="outline.length"
+          :key="pathname"
+          :items="outline"
+          :en="en"
+        />
+        <DocsResources :en="en" compact />
       </aside>
     </div>
     <SiteFooter v-if="home" :en="en" />

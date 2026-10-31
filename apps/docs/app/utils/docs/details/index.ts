@@ -9,6 +9,7 @@ export const DETAILS_VERSION = catalog.product.version;
 const api = apiData as unknown as ComponentDocs;
 const entries = catalog.categories.flatMap(category => category.components.map(entry => ({ category: category.slug, entry })));
 const nativeBinding: Record<string, [string,string]> = {
+  "table-of-contents": ['Pass items with stable section IDs and a target article element or selector. Use modelValue and update:modelValue to observe the reading position; offset defaults to 88px.', '传入包含稳定章节 ID 的 items，以及正文元素或选择器 target。通过 modelValue 与 update:modelValue 读取阅读位置；offset 默认 88px。'],
   "aspect-ratio": ['Bind a numeric ratio, for example :ratio="16 / 9", and place media in the default slot.', '绑定数值比例，例如 :ratio="16 / 9"，并在默认插槽放入媒体。'],
   "multi-select": ['Use modelValue as a string array with update:modelValue to own the selected values; otherwise supply defaultValue.', '通过字符串数组 modelValue 与 update:modelValue 管理选中值；非受控用法使用 defaultValue。'],
   "range-slider": ['Use modelValue with update:modelValue for a controlled value. The defaultValue prop initializes an uncontrolled slider.', '通过 modelValue 与 update:modelValue 控制数值；defaultValue 只初始化非受控滑块。'],
@@ -16,6 +17,40 @@ const nativeBinding: Record<string, [string,string]> = {
   "streaming-response": ['Place changing response content in the default slot and pass streaming to control the pending presentation.', '将变化中的回复内容放在默认插槽，通过 streaming 控制等待状态的呈现。'],
   "breadcrumb": ['Choose a native destination element through the as prop, and supply the corresponding link attributes.', '通过 as 属性选择原生目标元素，并提供对应的链接属性。'],
   "theme-toggle": ['Use the useThemeToggle composable when the trigger needs custom markup; retain the same theme target and transition options.', '需要自定义触发器时使用 useThemeToggle composable，并保留相同的主题目标和过渡选项。'],
+};
+const useCases: Record<string, [string, string]> = {
+  "table-of-contents": [
+    "Add an outline to long guides, reference pages or articles so readers can jump between sections and keep their place.",
+    "用于较长的指南、参考文档或文章，让读者快速跳转章节并确认阅读位置。",
+  ],
+  button: [
+    "Use for form submission, confirmation and other explicit actions. Choose a link when the destination is another page.",
+    "用于表单提交、确认等明确操作；跳转到其他页面时使用链接。",
+  ],
+  tabs: [
+    "Use when related views share one place on the page and readers need to switch between them.",
+    "用于在同一位置切换相关视图，例如预览、用法和源码。",
+  ],
+  switch: [
+    "Use for a setting that takes effect immediately, such as enabling notifications or changing a preference.",
+    "用于即时生效的设置，例如通知开关或偏好设置。",
+  ],
+  collapsible: [
+    "Use for optional details that readers can reveal without leaving the current context.",
+    "用于按需展开补充说明，在保持阅读上下文的同时减少页面占用。",
+  ],
+  breadcrumb: [
+    "Use on nested pages to show the current location and offer direct links to parent pages.",
+    "用于具有层级关系的页面，帮助读者确认当前位置并返回上级页面。",
+  ],
+  "animated-sidebar": [
+    "Use for grouped application navigation where readers move between several areas of a workspace.",
+    "用于工作区的分组导航，在多个功能区域之间切换。",
+  ],
+  "bottom-sheet": [
+    "Use on small screens for a focused set of navigation links, settings or actions.",
+    "用于小屏幕上的导航、设置或一组相关操作。",
+  ],
 };
 function about(category: string, slug: string, en: boolean): ComponentAbout {
   const record = entries.find(value => value.category === category && value.entry.slug === slug)!;
@@ -31,7 +66,7 @@ function about(category: string, slug: string, en: boolean): ComponentAbout {
   const feedback = events.length ? choose(`Observe ${events.join(", ")} to connect the component to application state.`, `监听 ${events.join("、")}，将组件连接到应用状态。`) : choose(`Provide content through ${slots.length ? slots.join(", ") : "the documented composition"}; application effects remain with the consumer.`, `通过${slots.length ? slots.join("、") + " 插槽" : "文档中的组合方式"}提供内容，应用副作用由调用方管理。`);
   return {
     overview: choose(copy.en, copy.zh),
-    useWhen: [choose(`Use ${entry.name} when the interface needs this behavior: ${copy.en.charAt(0).toLowerCase() + copy.en.slice(1)}`, `当界面需要以下行为时使用 ${entry.name}：${copy.zh}`)],
+    useWhen: [useCases[slug] ? choose(...useCases[slug]) : choose(`Use ${entry.name} when the interface needs this behavior: ${copy.en.charAt(0).toLowerCase() + copy.en.slice(1)}`, `当界面需要以下行为时使用 ${entry.name}：${copy.zh}`)],
     accessibility: choose("Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.", "为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。"),
     faq: [
       { question: choose(`How do I configure ${entry.name}?`, `如何配置 ${entry.name}？`), answer: choose(nativeBinding[slug]?.[0] ?? config, nativeBinding[slug]?.[1] ?? config) },

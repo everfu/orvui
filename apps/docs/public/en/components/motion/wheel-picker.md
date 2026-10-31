@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Wheel Picker
 
 > Select a value from a rotating wheel with momentum and row snapping.
 
-Select a value from a rotating wheel with momentum and row snapping.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Wheel Picker when the interface needs this behavior: select a value from a rotating wheel with momentum and row snapping.
 
+<a id="install"></a>
 ## Install
 
 ### Wheel Picker — Registry source
@@ -53,8 +55,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `motion-v@^1.10.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Wheel Picker
 
 **Registry source**
@@ -95,6 +99,18 @@ watch([day, days], () => { if (Number(day.value) > days.value.length) day.value 
 <template><div class="flex flex-col items-center gap-4"><span class="text-sm text-muted-foreground">Born <span class="font-medium text-foreground tabular-nums">{{ month }} {{ day }}, {{ year }}</span></span><div class="flex items-stretch gap-1 rounded-3xl border border-border bg-background p-2"><WheelPicker v-model="month" :options="months" class="w-32 border-0 bg-transparent" :visible-count="7" :item-height="42" :sound="sound" aria-label="Month" /><WheelPicker v-model="day" :options="days" class="w-14 border-0 bg-transparent" :visible-count="7" :item-height="42" :sound="sound" aria-label="Day" /><WheelPicker v-model="year" :options="years" class="w-20 border-0 bg-transparent" :visible-count="7" :item-height="42" :sound="sound" aria-label="Year" /></div><Switch v-model="sound" label="Tick sound" class="origin-left scale-[0.85] [&_label]:text-sm" /></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `WheelPicker` | `v-model` | `string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### WheelPicker
@@ -119,12 +135,15 @@ watch([day, days], () => { if (Number(day.value) > days.value.length) day.value 
 | `update:modelValue` | — | — |
 | `change` | — | — |
 
+<a id="about"></a>
 ## About Wheel Picker
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Wheel Picker?**
@@ -139,6 +158,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Range Slider](https://orvui.efu.me/en/components/motion/range-slider): Adjust a numeric value on a track using drag gestures or keyboard steps.
+- [Checkbox](https://orvui.efu.me/en/components/motion/checkbox): Represent checked, unchecked and mixed values with an animated check mark.
+- [Radio Group](https://orvui.efu.me/en/components/motion/radio): Choose one value from a keyboard-navigable group of labeled options.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/wheel-picker.json

@@ -61,7 +61,7 @@ This documentation uses Nuxt SSR. Examples explicitly import Vue components; a d
 
 ## Keep notices and continue
 
-Keep MIT, NOTICE and applicable shader and font licenses with copied source. Continue with [theme setup](/en/docs/theme) or browse the [component catalog](/en/components/motion).
+Keep MIT, NOTICE and applicable shader and font licenses with copied source. Continue with [theme setup](/en/docs/theme) or browse the [component catalog](/en/components).
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

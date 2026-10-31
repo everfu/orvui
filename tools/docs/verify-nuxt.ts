@@ -9,6 +9,16 @@ import {
 import { getSitePage } from "../../apps/docs/app/utils/docs/site-page-data";
 import { getComponentAbout } from "../../apps/docs/app/utils/docs/details";
 import catalog from "../catalog/components.json";
+import {
+  componentGroups,
+  groupedComponentPath,
+} from "../../apps/docs/app/utils/docs/document-sections";
+import { templateDefinitions } from "../../apps/docs/app/utils/docs/template-definitions";
+import { documentOutline } from "../../apps/docs/app/utils/docs/document-outline";
+import {
+  isComponentNew,
+  NEW_BADGE_SNAPSHOT,
+} from "../../apps/docs/app/composables/new-badge";
 
 const origin =
   process.argv[2] ?? process.env.ORVUI_NUXT_URL ?? "http://127.0.0.1:5174";
@@ -52,6 +62,41 @@ async function checkPage(page: (typeof pages)[number]) {
   ).replace(/\s+/g, " ");
   const en = page.path.startsWith("/en/");
   const fm = page.frontmatter;
+  if (fm.layout !== "home") {
+    const category = catalog.categories.find(
+      (category) => category.slug === fm.category,
+    );
+    const outline = documentOutline({
+      layout: String(fm.layout),
+      category,
+      entry: category?.components.find((entry) => entry.slug === fm.slug),
+      page: fm.sitePage as Parameters<typeof documentOutline>[0]["page"],
+      en,
+      isNew: (entry) => isComponentNew(entry, NEW_BADGE_SNAPSHOT),
+    });
+    const ids = [...body.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+    for (const item of outline) {
+      assert.equal(
+        ids.filter((id) => id === item.id).length,
+        1,
+        `${page.path}: unique outline target ${item.id}`,
+      );
+      if (fm.layout !== "templates") assert.ok(
+        body.includes(`href="#${encodeURIComponent(item.id)}"`),
+        `${page.path}: SSR outline link ${item.id}`,
+      );
+    }
+  }
+  if (fm.sitePage === "installation") {
+    assert.ok(
+      text.includes("import.meta.url"),
+      `${page.path}: literal import-meta example`,
+    );
+    assert.ok(
+      !text.includes("globalThis._importMeta_"),
+      `${page.path}: build must not rewrite example code`,
+    );
+  }
   if (fm.layout === "component") {
     const about = getComponentAbout(String(fm.category), String(fm.slug), en);
     assert.ok(about, `${page.path}: component content definition`);
@@ -84,7 +129,43 @@ async function checkPage(page: (typeof pages)[number]) {
         body.includes(`href="${page.path}/${entry.slug}"`),
         `${page.path}: SSR component link ${entry.slug}`,
       );
+  } else if (fm.layout === "components") {
+    assert.equal(
+      (body.match(/class="docs-catalog-card"/g) ?? []).length,
+      110,
+      `${page.path}: SSR component cards`,
+    );
+    for (const group of componentGroups) {
+      for (const entry of group.entries) {
+        assert.ok(
+          body.includes(`href="${groupedComponentPath(entry, en)}"`),
+          `${page.path}: component ${entry.slug}`,
+        );
+      }
+    }
+  } else if (fm.layout === "templates") {
+    assert.equal(
+      (body.match(/class="template-gallery-card"/g) ?? []).length,
+      5,
+      `${page.path}: SSR template cards`,
+    );
+    for (const template of templateDefinitions) {
+      assert.ok(
+        body.includes(`href="${en ? "/en" : ""}/templates/${template.slug}"`),
+        `${page.path}: template ${template.slug}`,
+      );
+    }
+  } else if (fm.layout === "template") {
+    assert.ok(
+      body.includes('class="template-document"'),
+      `${page.path}: SSR template document`,
+    );
+    assert.ok(
+      body.includes(`href="https://orvui-template-${fm.templateSlug}.netlify.app?lang=`) || body.includes(`href="https://orvui-template-${fm.templateSlug}.netlify.app/?lang=`),
+      `${page.path}: independent live preview`,
+    );
   } else {
+    assert.equal(fm.layout, "home", `${page.path}: recognized page layout`);
     assert.ok(body.includes('class="landing-hero"'), `${page.path}: SSR home`);
   }
   assert.ok(
@@ -180,7 +261,9 @@ const registry = (await (
 assert.ok(registry.items.length >= 109, "Complete registry index");
 const downloads = pages
   .filter((page) =>
-    ["component", "site-page"].includes(String(page.frontmatter.layout)),
+    ["component", "site-page", "components", "templates", "template"].includes(
+      String(page.frontmatter.layout),
+    ),
   )
   .map((page) => `${page.path}.md`);
 const rawSources = catalog.categories.flatMap((category) =>
@@ -188,6 +271,10 @@ const rawSources = catalog.categories.flatMap((category) =>
 );
 const resources = [
   ...new Set([
+    ...templateDefinitions.flatMap((template) => [
+      `/templates/${template.slug}/preview.png`,
+    ]),
+    "/templates/manifest.json",
     "/favicon.svg",
     "/social/orvui-v2.png",
     "/fonts/source/geist-latin-400-normal.woff2",
@@ -236,7 +323,9 @@ for (const path of resources) {
       );
     if (path.endsWith(".md"))
       assert.match(
-        new TextDecoder().decode(data),
+        new TextDecoder()
+          .decode(data)
+          .replace(/^(?:<a id="[^"<>]+"><\/a>\r?\n)+/, ""),
         /^(?:# |---\r?\n)/,
         `${path}: Markdown body`,
       );

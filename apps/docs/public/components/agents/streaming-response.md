@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Streaming Response
 
 > 组合持续变化的助手回复，包括文字、附件、引用和操作。
 
-组合持续变化的助手回复，包括文字、附件、引用和操作。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Streaming Response：组合持续变化的助手回复，包括文字、附件、引用和操作。
 
+<a id="install"></a>
 ## 安装
 
 ### Streaming Response — 复制源码
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Streaming Response
 
 **复制源码**
@@ -350,8 +354,7 @@ onBeforeUnmount(() => {
 
 ## 组件指南
 
-组合持续变化的助手回复，包括文字、附件、引用和操作。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 StreamingResponse 组合 Streaming Response，并从该组件的公开入口导入。
@@ -362,6 +365,11 @@ Message
     └── MessageBubble
         └── StreamingResponse
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+组合持续变化的助手回复，包括文字、附件、引用和操作。
 
 ### 生命周期
 
@@ -411,6 +419,19 @@ Usage 区域通过 Vue props、事件与插槽组合 StreamingResponse，请选�
 - 适用: 当界面需要以下行为时使用 Streaming Response：组合持续变化的助手回复，包括文字、附件、引用和操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `StreamingResponse` | `v-model:sourcesOpen` | `boolean` | `update:sourcesOpen` |
+| `StreamingResponse` | `v-model:feedback` | `null \| "up" \| "down"` | `update:feedback` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### StreamingResponse
@@ -449,12 +470,15 @@ Usage 区域通过 Vue props、事件与插槽组合 StreamingResponse，请选�
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## 关于 Streaming Response
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Streaming Response？**
@@ -469,6 +493,14 @@ Usage 区域通过 Vue props、事件与插槽组合 StreamingResponse，请选�
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Code Block](https://orvui.efu.me/components/agents/code-block): 呈现带高亮的代码，并支持行控件、文件标签与复制操作。
+- [Citations](https://orvui.efu.me/components/agents/citations): 将行内引用标记与可检查的来源条目和链接连接。
+- [Chat App](https://orvui.efu.me/components/agents/chat-app): 将导航、会话内容和提示输入区组合为助手工作空间。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/streaming-response.json

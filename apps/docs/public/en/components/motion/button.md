@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Button
 
 > Use a pressable action surface with magnetic, stateful and metallic alternatives.
 
-Use a pressable action surface with magnetic, stateful and metallic alternatives.
+<a id="when-to-use"></a>
 
 ## When to use it
 
-- Use Button when the interface needs this behavior: use a pressable action surface with magnetic, stateful and metallic alternatives.
+- Use for form submission, confirmation and other explicit actions. Choose a link when the destination is another page.
 
+<a id="install"></a>
 ## Install
 
 ### Button — Registry source
@@ -82,8 +84,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Button
 
 **Registry source**
@@ -120,6 +124,7 @@ const variants = ["outline", "ghost"] as const;
 </template>
 ```
 
+<a id="metallic"></a>
 ### Metallic Button
 
 Move a straight highlight around a chrome-like rim on a neutral action surface.
@@ -152,6 +157,7 @@ import { MetallicButton } from "@orvui/vue/motion/button";
 </div></template>
 ```
 
+<a id="base"></a>
 ### Button
 
 Compare button sizes and visual variants, including hover lift and press scale.
@@ -190,6 +196,7 @@ const variants = ["outline", "ghost"] as const;
 </template>
 ```
 
+<a id="stateful"></a>
 ### Stateful Button
 
 Switch between idle, loading, success and failure while width follows the current content.
@@ -246,6 +253,7 @@ onBeforeUnmount(() => { scheduled.forEach(timer => clearTimeout(timer)); schedul
 </div></template>
 ```
 
+<a id="magnetic"></a>
 ### Magnetic Button
 
 Wrap the action in Magnetic so its surface follows nearby pointer movement.
@@ -278,6 +286,12 @@ const alternatives = [{ variant: "secondary", strength: 0.25, label: "Subtle pul
 </div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Button
@@ -355,12 +369,15 @@ const alternatives = [{ variant: "secondary", strength: 0.25, label: "Subtle pul
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Button
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Button?**
@@ -375,6 +392,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Select](https://orvui.efu.me/en/components/motion/select): Choose from a floating list whose panel can expand continuously from its trigger.
+- [Switch](https://orvui.efu.me/en/components/motion/switch): Toggle a binary setting with a moving thumb and optional descriptive label.
+- [Checkbox](https://orvui.efu.me/en/components/motion/checkbox): Represent checked, unchecked and mixed values with an animated check mark.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/button.json

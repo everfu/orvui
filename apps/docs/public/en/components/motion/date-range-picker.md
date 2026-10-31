@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Date Range Picker
 
 > Choose the beginning and end of a date interval in an inline or floating calendar.
 
-Choose the beginning and end of a date interval in an inline or floating calendar.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Date Range Picker when the interface needs this behavior: choose the beginning and end of a date interval in an inline or floating calendar.
 
+<a id="install"></a>
 ## Install
 
 ### Date Range Picker — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Date Range Picker
 
 **Registry source**
@@ -114,6 +118,19 @@ const reporting = {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `DateRangePicker` | `v-model` | `null \| DateRange` | `update:modelValue` |
+| `DateRangePicker` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### DateRangePicker
@@ -259,12 +276,15 @@ const reporting = {
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Date Range Picker
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Date Range Picker?**
@@ -279,6 +299,14 @@ Observe update:modelValue, valueChange, change, update:open, openChange to conne
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Card](https://orvui.efu.me/en/components/motion/card): Assemble a card from heading, content, actions and footer parts with optional selection.
+- [Sortable List](https://orvui.efu.me/en/components/motion/sortable-stack): Reorder a list with pointer or keyboard input and offer an undo operation.
+- [Color Picker](https://orvui.efu.me/en/components/motion/color-picker): Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/date-range-picker.json

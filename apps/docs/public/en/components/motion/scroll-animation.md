@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Scroll Animation
 
 > Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
 
-Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Scroll Animation when the interface needs this behavior: connect scrolling to progress, parallax, reveal effects and deliberate navigation.
 
+<a id="install"></a>
 ## Install
 
 ### Scroll Animation — Registry source
@@ -100,8 +102,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Scroll Animation
 
 **Registry source**
@@ -136,6 +140,7 @@ const sections = Array.from({ length: 16 }, (_, index) => index + 1);
 </template>
 ```
 
+<a id="smooth-scroll"></a>
 ### Smooth Scroll
 
 Provide Lenis scrolling and share offset, velocity and progress through useSmoothScroll.
@@ -172,6 +177,7 @@ const sections = Array.from({ length: 16 }, (_, index) => index + 1);
 </template>
 ```
 
+<a id="scroll-progress"></a>
 ### Scroll Progress
 
 Render scrolling progress as a bar or ring, with optional spring smoothing.
@@ -226,6 +232,7 @@ onBeforeUnmount(() => fraction.destroy());
 </template>
 ```
 
+<a id="parallax"></a>
 ### Parallax
 
 Offset content along either axis according to its position and configured speed.
@@ -284,6 +291,7 @@ const layers = [
 </template>
 ```
 
+<a id="scroll-to"></a>
 ### Scroll To
 
 Move the active scroll container to an element, selector or numeric offset.
@@ -326,6 +334,7 @@ const sections = ["Intro", "Features", "Pricing", "FAQ"].map(label => ({ label, 
 </template>
 ```
 
+<a id="scroll-reveal"></a>
 ### Scroll Reveal
 
 Reveal content when it crosses the viewport boundary, once or on each entry.
@@ -370,6 +379,12 @@ const samples = ["Spring slide", "Blur in", "Staggered by delay", "Reveal once"]
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ScrollTo
@@ -462,12 +477,15 @@ const samples = ["Spring slide", "Blur in", "Staggered by delay", "Reveal once"]
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Scroll Animation
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Scroll Animation?**
@@ -482,6 +500,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Tabs](https://orvui.efu.me/en/components/motion/tabs): Switch between associated panels using a moving indicator and accessible tab controls.
+- [Shared Layout Background](https://orvui.efu.me/en/components/motion/shared-layout-bg): Move one background surface between registered items to indicate a current selection.
+- [Preview Rail](https://orvui.efu.me/en/components/motion/preview-rail): Preview navigation targets from a compact rail that expands around the focused item.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/scroll-animation.json

@@ -2,6 +2,9 @@ import type { CatalogCategory } from "../../../../../tools/registry/types";
 import type { NewBadgeEntry } from "../../composables/new-badge";
 import { categoryNames, descriptions } from "./i18n";
 import { componentPath, docsPath } from "./docs-routes";
+import { componentGroup } from "./document-sections";
+import { templateEditorial } from "./template-editorial";
+import { templateDefinitions } from "./template-definitions";
 import { localize, sitePages } from "./site-page-data";
 export interface SearchRecord {
   id: string;
@@ -20,8 +23,13 @@ export function buildSiteSearchIndex(
 ) {
   const records: SearchRecord[] = [];
   for (const category of categories) {
-    const group = categoryNames[category.slug]?.[en ? 1 : 0] ?? category.name;
     for (const component of category.components) {
+      const functional = componentGroup(component.slug);
+      const group = functional
+        ? en
+          ? functional.en
+          : functional.zh
+        : (categoryNames[category.slug]?.[en ? 1 : 0] ?? category.name);
       const href = componentPath(category.slug, component.slug, en);
       const common = [
         component.slug,
@@ -98,5 +106,45 @@ export function buildSiteSearchIndex(
       kind: "page",
     });
   }
+  for (const path of ["components", "templates"])
+    records.push({
+      id: path,
+      label:
+        path === "components"
+          ? en
+            ? "All components"
+            : "全部组件"
+          : en
+            ? "All templates"
+            : "全部模板",
+      href: `${en ? "/en" : ""}/${path}`,
+      group: pageGroup,
+      keywords: [path],
+      kind: "page",
+    });
+  for (const template of templateDefinitions)
+    records.push({
+      id: `template-${template.slug}`,
+      label: template.name,
+      href: `${en ? "/en" : ""}/templates/${template.slug}`,
+      group: en ? "Templates" : "模板",
+      keywords: [
+        template.slug,
+        template.zh,
+        template.en,
+        template.description.zh,
+        template.description.en,
+        templateEditorial[template.slug].purpose.zh,
+        templateEditorial[template.slug].purpose.en,
+        ...templateEditorial[template.slug].walkthrough.flatMap((step) => [
+          step.zh,
+          step.en,
+        ]),
+        ...template.pages.flatMap(page => [page.zh, page.en]),
+        "template",
+        "模板",
+      ],
+      kind: "page",
+    });
   return records;
 }

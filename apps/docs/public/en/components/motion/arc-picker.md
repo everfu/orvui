@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Arc Picker
 
 > Move a curved list of labels through a fixed selection point using gestures or keys.
 
-Move a curved list of labels through a fixed selection point using gestures or keys.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Arc Picker when the interface needs this behavior: move a curved list of labels through a fixed selection point using gestures or keys.
 
+<a id="install"></a>
 ## Install
 
 ### Arc Picker — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Arc Picker
 
 **Registry source**
@@ -90,6 +94,18 @@ const side = ref<ArcPickerSide>("right");
 <template><div class="w-full max-w-xl py-5"><fieldset class="flex flex-wrap items-center justify-center gap-1 px-4"><legend class="sr-only">Curve side</legend><Button v-for="direction in directions" :key="direction" size="sm" :variant="side === direction ? 'secondary' : 'ghost'" :aria-pressed="side === direction" @click="side = direction" class="capitalize">{{ direction }}</Button></fieldset><div class="my-8 flex min-h-108 items-center sm:my-10"><ArcPicker v-model="value" :options="options" aria-label="Time of day" :side="side" :radius="260" :visible-count="9" :item-height="48" /></div><p class="px-6 text-center text-xs text-muted-foreground">Drag {{ side === 'top' || side === 'bottom' ? 'horizontally' : 'vertically' }}, scroll or use the arrow keys.</p></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ArcPicker` | `v-model` | `string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ArcPicker
@@ -117,12 +133,15 @@ const side = ref<ArcPickerSide>("right");
 | `update:modelValue` | — | — |
 | `change` | — | — |
 
+<a id="about"></a>
 ## About Arc Picker
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Arc Picker?**
@@ -137,6 +156,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Color Picker](https://orvui.efu.me/en/components/motion/color-picker): Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+- [Range Slider](https://orvui.efu.me/en/components/motion/range-slider): Adjust a numeric value on a track using drag gestures or keyboard steps.
+- [Wheel Picker](https://orvui.efu.me/en/components/motion/wheel-picker): Select a value from a rotating wheel with momentum and row snapping.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/arc-picker.json

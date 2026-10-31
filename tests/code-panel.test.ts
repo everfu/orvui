@@ -132,6 +132,22 @@ it("measures long content, expands once, and releases its observer on unmount", 
   wrappers.splice(wrappers.indexOf(wrapper), 1);
   expect(observers[0].disconnect).toHaveBeenCalledOnce();
 });
+it("keeps collapsed previews at the start when native scrolling settles after collapse", async () => {
+  const wrapper = render({
+    code: Array.from({ length: 40 }, (_, index) => `line ${index}`).join("\n"),
+  });
+  await settle();
+  const region = wrapper.find<HTMLElement>(".code-scroll");
+  await wrapper.find(".code-expand-button").trigger("click");
+  region.element.scrollTop = 120;
+  await region.trigger("scroll");
+  expect(region.element.scrollTop).toBe(120);
+  await wrapper.find(".code-expand-button").trigger("click");
+  expect(region.element.scrollTop).toBe(0);
+  region.element.scrollTop = 90;
+  await region.trigger("scroll");
+  expect(region.element.scrollTop).toBe(0);
+});
 it("does not crop short content and reacts to subsequent resize measurements", async () => {
   height = 200;
   const wrapper = render({ code: "short" });

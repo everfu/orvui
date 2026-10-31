@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Project Folder
 
 > Fan out document previews and expand a selected folder into a focused surface.
 
-Fan out document previews and expand a selected folder into a focused surface.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Project Folder when the interface needs this behavior: fan out document previews and expand a selected folder into a focused surface.
 
+<a id="install"></a>
 ## Install
 
 ### Project Folder — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Project Folder
 
 **Registry source**
@@ -154,6 +158,19 @@ const previews = sheets.map(([id, background], index) => ({
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ProjectFolder` | `v-model:open` | `boolean` | `update:open` |
+| `ProjectFolder` | `v-model:expanded` | `boolean` | `update:expanded` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ProjectFolder
@@ -190,12 +207,15 @@ const previews = sheets.map(([id, background], index) => ({
 | --- | --- | --- | --- |
 | `preview` | — | `preview: preview` | — |
 
+<a id="about"></a>
 ## About Project Folder
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Project Folder?**
@@ -210,6 +230,14 @@ Observe update:open, openChange, update:expanded, expandedChange, click to conne
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Card Folder](https://orvui.efu.me/en/components/blocks/card-folder): Reveal a group of cards from a folded pocket with a coordinated opening movement.
+- [Expandable Action Bar](https://orvui.efu.me/en/components/blocks/expandable-action-bar): Reveal labels around the active action in a compact row of icon controls.
+- [Notification Stack](https://orvui.efu.me/en/components/blocks/notification-stack): Expand a compact stack of notifications into separately readable entries.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/project-folder.json

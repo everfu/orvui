@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Donut Chart
 
 > Compare parts of a total with a ring, selectable legend and central value.
 
-Compare parts of a total with a ring, selectable legend and central value.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Donut Chart when the interface needs this behavior: compare parts of a total with a ring, selectable legend and central value.
 
+<a id="install"></a>
 ## Install
 
 ### Donut Chart — Registry source
@@ -53,8 +55,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Donut Chart
 
 **Registry source**
@@ -167,6 +171,18 @@ function select(id: string) {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `DonutChart` | `v-model:activeId` | `null \| string` | `update:activeId` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### DonutChart
@@ -230,12 +246,15 @@ function select(id: string) {
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Donut Chart
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Donut Chart?**
@@ -250,6 +269,14 @@ Observe update:activeId, activeChange, select to connect the component to applic
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Composition Chart](https://orvui.efu.me/en/charts/composition-chart): Compare contributions across categories with normalized bars or stacked areas.
+- [Treemap](https://orvui.efu.me/en/charts/treemap): Compare hierarchical values using nested rectangles whose area follows each value.
+- [Status Bar](https://orvui.efu.me/en/charts/status-bar): Summarize counts across named states in a proportional segmented bar.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/donut-chart.json

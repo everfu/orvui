@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Heat Calendar
 
 > Show daily activity in a compact calendar grid with exact values available on inspection.
 
-Show daily activity in a compact calendar grid with exact values available on inspection.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Heat Calendar when the interface needs this behavior: show daily activity in a compact calendar grid with exact values available on inspection.
 
+<a id="install"></a>
 ## Install
 
 ### Heat Calendar — Registry source
@@ -51,8 +53,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Heat Calendar
 
 **Registry source**
@@ -105,6 +109,18 @@ const end = new Date("2026-10-25T00:00:00Z");
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `HeatCalendar` | `v-model:selection` | `null \| HeatCalendarSelection` | `update:selection` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### HeatCalendar
@@ -155,12 +171,15 @@ const end = new Date("2026-10-25T00:00:00Z");
 | --- | --- | --- | --- |
 | `default` | — | `tooltip: calendar.tooltip` | — |
 
+<a id="about"></a>
 ## About Heat Calendar
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Heat Calendar?**
@@ -175,6 +194,14 @@ Observe update:selection, selectionChange to connect the component to applicatio
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Returns Calendar](https://orvui.efu.me/en/charts/returns-calendar): Compare signed daily returns with a calendar, month totals and optional day content.
+- [Price Target Fan](https://orvui.efu.me/en/charts/price-target-fan): Compare price forecasts around a shared origin using projected target paths.
+- [Treemap](https://orvui.efu.me/en/charts/treemap): Compare hierarchical values using nested rectangles whose area follows each value.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/heat-calendar.json

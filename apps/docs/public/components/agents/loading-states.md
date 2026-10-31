@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Agent Loading States
 
 > 通过进度、推理和微光显示传达助手工作仍在进行。
 
-通过进度、推理和微光显示传达助手工作仍在进行。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Agent Loading States：通过进度、推理和微光显示传达助手工作仍在进行。
 
+<a id="install"></a>
 ## 安装
 
 ### Agent Loading States — 复制源码
@@ -71,8 +73,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Agent Loading States
 
 **复制源码**
@@ -113,6 +117,7 @@ const variants = ["cascade", "swap", "scramble"] as const;
 </template>
 ```
 
+<a id="reasoning-text"></a>
 ### Reasoning Text
 
 呈现持续变化的推理文字，并明确表示工作尚未结束。
@@ -193,6 +198,7 @@ const examples = (
 </template>
 ```
 
+<a id="thinking-shimmer"></a>
 ### Thinking Shimmer
 
 在移动文字高光下保持可读的等待标签。
@@ -225,6 +231,7 @@ const duration = 1.8;
 </template>
 ```
 
+<a id="agent-progress"></a>
 ### Agent Progress
 
 将进度指示器与描述当前阶段的标签组合。
@@ -263,8 +270,7 @@ const initial = 151.6;
 
 ## 组件指南
 
-通过进度、推理和微光显示传达助手工作仍在进行。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 AgentProgress, ReasoningText, ThinkingShimmer 组合 Agent Loading States，并从该组件的公开入口导入。
@@ -276,6 +282,11 @@ Message
     ├── AgentProgress
     └── ReasoningText
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+通过进度、推理和微光显示传达助手工作仍在进行。
 
 ### 生命周期
 
@@ -325,6 +336,12 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentProgress, ReasoningTex
 - 适用: 当界面需要以下行为时使用 Agent Loading States：通过进度、推理和微光显示传达助手工作仍在进行。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+此示例组合没有声明成对的受控属性与 update 事件。使用已列出的属性、原生事件和插槽组合内容；不要为它添加未公开的 v-model。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### AgentProgress
@@ -370,12 +387,15 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentProgress, ReasoningTex
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## 关于 Agent Loading States
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Agent Loading States？**
@@ -390,6 +410,14 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentProgress, ReasoningTex
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Todo List](https://orvui.efu.me/components/agents/todo-list): 展示带展开详情和明确任务状态的工作条目序列。
+- [Message](https://orvui.efu.me/components/agents/message): 使用内容、附件、来源与操作部件组合会话条目。
+- [Prompt Input](https://orvui.efu.me/components/agents/prompt-input): 通过自适应高度文本框、附件与键盘操作编写并提交提示词。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/loading-states.json

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Tool Result
 
 > 在同一表面呈现工具调用状态、摘要与可展开结果。
 
-在同一表面呈现工具调用状态、摘要与可展开结果。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Tool Result：在同一表面呈现工具调用状态、摘要与可展开结果。
 
+<a id="install"></a>
 ## 安装
 
 ### Tool Result — 复制源码
@@ -71,8 +73,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Tool Result
 
 **复制源码**
@@ -229,6 +233,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="terminal-output"></a>
 ### Terminal Output
 
 结合终端外观与执行状态显示命令输出。
@@ -387,6 +392,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="request-result"></a>
 ### Request Result
 
 将请求元数据及返回内容组合为可检查的结果。
@@ -557,8 +563,7 @@ onMounted(replay);
 
 ## 组件指南
 
-在同一表面呈现工具调用状态、摘要与可展开结果。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 ToolResult, ToolResultOutput 组合 Tool Result，并从该组件的公开入口导入。
@@ -567,6 +572,11 @@ onMounted(replay);
 ToolResult
 └── ToolResultOutput
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+在同一表面呈现工具调用状态、摘要与可展开结果。
 
 ### 生命周期
 
@@ -616,6 +626,18 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolResult, ToolResultOutpu
 - 适用: 当界面需要以下行为时使用 Tool Result：在同一表面呈现工具调用状态、摘要与可展开结果。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `ToolResult` | `v-model:open` | `boolean` | `update:open` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### ToolResult
@@ -661,12 +683,15 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolResult, ToolResultOutpu
 | `code` | `string` | `(slots.default?.() ?? []).reduce( (text, node) => text + (typeof node.children === "string" ? node.children : ""), "", )` | 否 | — |
 | `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | 否 | — |
 
+<a id="about"></a>
 ## 关于 Tool Result
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Tool Result？**
@@ -681,6 +706,14 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolResult, ToolResultOutpu
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [File Diff](https://orvui.efu.me/components/agents/file-diff): 通过对齐行号与可展开上下文检查新增及删除内容。
+- [Code Block](https://orvui.efu.me/components/agents/code-block): 呈现带高亮的代码，并支持行控件、文件标签与复制操作。
+- [Todo List](https://orvui.efu.me/components/agents/todo-list): 展示带展开详情和明确任务状态的工作条目序列。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/tool-result.json

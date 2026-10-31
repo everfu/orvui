@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Expandable Control
 
 > Expand a compact control to reveal a label or trailing action without losing its position.
 
-Expand a compact control to reveal a label or trailing action without losing its position.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Expandable Control when the interface needs this behavior: expand a compact control to reveal a label or trailing action without losing its position.
 
+<a id="install"></a>
 ## Install
 
 ### Expandable Control — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Expandable Control
 
 **Registry source**
@@ -90,6 +94,19 @@ const notificationLabel = "Notifications";
 </div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ExpandableButton` | `v-model:expanded` | `boolean` | `update:expanded` |
+| `ExpandableChip` | `v-model:expanded` | `boolean` | `update:expanded` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ExpandableButton
@@ -147,12 +164,15 @@ const notificationLabel = "Notifications";
 | --- | --- | --- | --- |
 | `actionIcon` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Expandable Control
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Expandable Control?**
@@ -167,6 +187,14 @@ Observe update:expanded to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Popover](https://orvui.efu.me/en/components/motion/popover): Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+- [Theme Toggle](https://orvui.efu.me/en/components/motion/theme-toggle): Reveal a new page theme with a circle, rectangle or blinds transition.
+- [Card](https://orvui.efu.me/en/components/motion/card): Assemble a card from heading, content, actions and footer parts with optional selection.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/expandable-control.json

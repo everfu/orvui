@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Combobox
 
 > 通过输入框筛选分组选项，键盘焦点保持在输入区域。
 
-通过输入框筛选分组选项，键盘焦点保持在输入区域。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Combobox：通过输入框筛选分组选项，键盘焦点保持在输入区域。
 
+<a id="install"></a>
 ## 安装
 
 ### Combobox — 复制源码
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Combobox
 
 **复制源码**
@@ -267,8 +271,7 @@ const groups = computed(() =>
 
 ## 组件指南
 
-通过输入框筛选分组选项，键盘焦点保持在输入区域。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 Combobox, ComboboxTrigger, ComboboxInput, ComboboxContent, ComboboxList, ComboboxEmpty, ComboboxGroup, ComboboxSeparator, ComboboxLabel, ComboboxItem 组合 Combobox，并从该组件的公开入口导入。
@@ -285,6 +288,11 @@ Combobox
         │   └── ComboboxItem
         └── ComboboxSeparator
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+通过输入框筛选分组选项，键盘焦点保持在输入区域。
 
 ### 生命周期
 
@@ -330,6 +338,20 @@ Usage 区域通过 Vue props、事件与插槽组合 Combobox, ComboboxTrigger, 
 - 适用: 当界面需要以下行为时使用 Combobox：通过输入框筛选分组选项，键盘焦点保持在输入区域。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `Combobox` | `v-model` | `string` | `update:modelValue` |
+| `Combobox` | `v-model:open` | `boolean` | `update:open` |
+| `Combobox` | `v-model:query` | `string` | `update:query` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### Combobox
@@ -461,12 +483,15 @@ Usage 区域通过 Vue props、事件与插槽组合 Combobox, ComboboxTrigger, 
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## 关于 Combobox
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Combobox？**
@@ -481,6 +506,14 @@ Usage 区域通过 Vue props、事件与插槽组合 Combobox, ComboboxTrigger, 
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Multi Select](https://orvui.efu.me/components/motion/multi-select): 在可搜索控件中选择多个选项，并管理生成的标签。
+- [Sortable List](https://orvui.efu.me/components/motion/sortable-stack): 使用指针或键盘重排列表，并提供撤销操作。
+- [Image Viewer](https://orvui.efu.me/components/motion/image-viewer): 从缩略图打开画廊图片，在大图中切换、缩放或平移。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/combobox.json

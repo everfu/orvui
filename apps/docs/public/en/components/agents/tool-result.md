@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Tool Result
 
 > Present a tool call's status, summary and expandable result in one surface.
 
-Present a tool call's status, summary and expandable result in one surface.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Tool Result when the interface needs this behavior: present a tool call's status, summary and expandable result in one surface.
 
+<a id="install"></a>
 ## Install
 
 ### Tool Result — Registry source
@@ -71,8 +73,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Tool Result
 
 **Registry source**
@@ -229,6 +233,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="terminal-output"></a>
 ### Terminal Output
 
 Show command output with its terminal framing and execution state.
@@ -387,6 +392,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="request-result"></a>
 ### Request Result
 
 Present request metadata and its returned content as an inspectable result.
@@ -557,8 +563,7 @@ onMounted(replay);
 
 ## Component Guide
 
-Present a tool call's status, summary and expandable result in one surface.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Tool Result with its public parts: ToolResult, ToolResultOutput. Import these names from the component barrel.
@@ -567,6 +572,11 @@ Compose Tool Result with its public parts: ToolResult, ToolResultOutput. Import 
 ToolResult
 └── ToolResultOutput
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Present a tool call's status, summary and expandable result in one surface.
 
 ### Lifecycle
 
@@ -616,6 +626,18 @@ The Usage section composes ToolResult, ToolResultOutput through Vue props, event
 - Use when: Use Tool Result when the interface needs this behavior: present a tool call's status, summary and expandable result in one surface.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ToolResult` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ToolResult
@@ -661,12 +683,15 @@ The Usage section composes ToolResult, ToolResultOutput through Vue props, event
 | `code` | `string` | `(slots.default?.() ?? []).reduce( (text, node) => text + (typeof node.children === "string" ? node.children : ""), "", )` | No | — |
 | `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | No | — |
 
+<a id="about"></a>
 ## About Tool Result
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Tool Result?**
@@ -681,6 +706,14 @@ Observe update:open, openChange, retry to connect the component to application s
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [File Diff](https://orvui.efu.me/en/components/agents/file-diff): Inspect additions and removals with aligned line numbers and expandable context.
+- [Code Block](https://orvui.efu.me/en/components/agents/code-block): Present highlighted code with line controls, file labels and a copy operation.
+- [Todo List](https://orvui.efu.me/en/components/agents/todo-list): Show a sequence of work items with expandable details and explicit task states.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/tool-result.json

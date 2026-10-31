@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Radio Group
 
 > Choose one value from a keyboard-navigable group of labeled options.
 
-Choose one value from a keyboard-navigable group of labeled options.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Radio Group when the interface needs this behavior: choose one value from a keyboard-navigable group of labeled options.
 
+<a id="install"></a>
 ## Install
 
 ### Radio Group — Registry source
@@ -65,8 +67,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Radio Group
 
 **Registry source**
@@ -93,6 +97,7 @@ const options = [{ value: "starter", label: "Starter, free" }, { value: "pro", l
 <template><RadioGroup v-model="selected" class="min-w-48"><RadioGroupItem v-for="option in options" :key="option.value" v-bind="option" /></RadioGroup></template>
 ```
 
+<a id="default"></a>
 ### Radio Group
 
 Move the selected dot between native radio choices with press feedback.
@@ -121,6 +126,7 @@ const options = [{ value: "starter", label: "Starter, free" }, { value: "pro", l
 <template><RadioGroup v-model="selected" class="min-w-48"><RadioGroupItem v-for="option in options" :key="option.value" v-bind="option" /></RadioGroup></template>
 ```
 
+<a id="description"></a>
 ### With Description
 
 Give each radio choice supporting text in its accessible description.
@@ -159,6 +165,18 @@ const options = [
 <template><RadioGroup v-model="selected" class="w-full max-w-64"><RadioGroupItem v-for="option in options" :key="option.value" v-bind="option" /></RadioGroup></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `RadioGroup` | `v-model` | `string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### RadioGroup
@@ -197,12 +215,15 @@ const options = [
 | `disabled` | `boolean` | `false` | No | — |
 | `id` | `string` | `generatedId` | No | — |
 
+<a id="about"></a>
 ## About Radio Group
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Radio Group?**
@@ -217,6 +238,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Checkbox](https://orvui.efu.me/en/components/motion/checkbox): Represent checked, unchecked and mixed values with an animated check mark.
+- [Select](https://orvui.efu.me/en/components/motion/select): Choose from a floating list whose panel can expand continuously from its trigger.
+- [Input](https://orvui.efu.me/en/components/motion/input): Edit text with optional labels, icons and validation feedback in a single field.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/radio.json

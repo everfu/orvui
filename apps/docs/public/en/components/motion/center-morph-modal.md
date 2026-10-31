@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Center Morph Modal
 
 > Expand a modal evenly around its center and return it to the same point on close.
 
-Expand a modal evenly around its center and return it to the same point on close.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Center Morph Modal when the interface needs this behavior: expand a modal evenly around its center and return it to the same point on close.
 
+<a id="install"></a>
 ## Install
 
 ### Center Morph Modal — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Center Morph Modal
 
 **Registry source**
@@ -104,6 +108,18 @@ const features = ["Animated Vue components", "Composition API and TypeScript", "
 </CenterMorphModal></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `CenterMorphModal` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### CenterMorphModal
@@ -150,12 +166,15 @@ const features = ["Animated Vue components", "Composition API and TypeScript", "
 
 ### CenterMorphModalTrigger
 
+<a id="about"></a>
 ## About Center Morph Modal
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Center Morph Modal?**
@@ -170,6 +189,14 @@ Observe update:open to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Popover](https://orvui.efu.me/en/components/motion/popover): Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+- [Select](https://orvui.efu.me/en/components/motion/select): Choose from a floating list whose panel can expand continuously from its trigger.
+- [Color Picker](https://orvui.efu.me/en/components/motion/color-picker): Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/center-morph-modal.json

@@ -42,6 +42,16 @@ const paths = [
   "/",
   "/en/",
   "/guide",
+  "/components",
+  "/en/components",
+  "/templates",
+  "/en/templates",
+  "/templates/manifest.json",
+  ...["dashboard", "mail", "chat", "finances", "crm"].flatMap((slug) => [
+    `/templates/${slug}`,
+    `/en/templates/${slug}`,
+    `/templates/${slug}/preview.png`,
+  ]),
   "/components/motion/switch",
   "/en/components/blocks/wallet-card",
   "/components/agents/tool-result",
@@ -92,6 +102,9 @@ try {
       for (const asset of assets)
         assert.equal((await fetch(origin + asset)).status, 200, asset);
     }
+  }
+  for (const filename of ["source.json", "source.zip"]) {
+    assert.equal((await fetch(origin + "/templates/dashboard/" + filename)).status, 404, filename + ": private source remains unavailable");
   }
   assert.ok(!logs.includes("ERR_ACCESS_DENIED"), logs);
   const report = {

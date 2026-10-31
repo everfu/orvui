@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Bloom Menu
 
 > Open a group of actions around a shared center and restore focus when it closes.
 
-Open a group of actions around a shared center and restore focus when it closes.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Bloom Menu when the interface needs this behavior: open a group of actions around a shared center and restore focus when it closes.
 
+<a id="install"></a>
 ## Install
 
 ### Bloom Menu — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Bloom Menu
 
 **Registry source**
@@ -120,6 +124,12 @@ const entries: BloomMenuItem[] = [
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### BloomMenu
@@ -137,12 +147,15 @@ const entries: BloomMenuItem[] = [
 | --- | --- | --- |
 | `select` | `[label: string]` | — |
 
+<a id="about"></a>
 ## About Bloom Menu
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Bloom Menu?**
@@ -157,6 +170,14 @@ Observe select to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Expandable Tabs](https://orvui.efu.me/en/components/blocks/expandable-tabs): Navigate an icon strip whose selected item expands to display its label.
+- [Expandable Action Bar](https://orvui.efu.me/en/components/blocks/expandable-action-bar): Reveal labels around the active action in a compact row of icon controls.
+- [Overflow Actions](https://orvui.efu.me/en/components/blocks/overflow-actions): Expand a compact action track to expose controls that do not fit its resting width.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/bloom-menu.json

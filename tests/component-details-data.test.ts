@@ -11,13 +11,13 @@ import catalog from "../tools/catalog/components.json";
 import { zhAboutByCategory } from "../apps/docs/app/utils/docs/details/zh-about";
 import { zhGuideExtras } from "../apps/docs/app/utils/docs/details/zh-guide-extras";
 describe("fixed component documentation baseline", () => {
-  it("provides 109 owned About entries and 18 public composition guides", () => {
-    expect(componentDetails).toHaveLength(109);
+  it("provides 110 owned About entries and 18 public composition guides", () => {
+    expect(componentDetails).toHaveLength(110);
     expect(componentDetails.filter((item) => item.guide)).toHaveLength(18);
     expect(
       new Set(componentDetails.map((item) => `${item.category}/${item.slug}`))
         .size,
-    ).toBe(109);
+    ).toBe(110);
     for (const category of catalog.categories)
       for (const component of category.components) {
         const item = componentDetails.find(
@@ -97,7 +97,7 @@ describe("fixed component documentation baseline", () => {
         ]),
       ),
     ).toEqual({
-      motion: 54,
+      motion: 55,
       blocks: 23,
       agents: 18,
       charts: 14,
@@ -140,10 +140,18 @@ describe("fixed component documentation baseline", () => {
     expect(getComponentAbout("unknown", "timeline", false)).toBeUndefined();
   });
   it("documents native Vue bindings and scoped slots", () => {
-    expect(getComponentAbout("motion", "aspect-ratio")!.faq[0].answer).toContain(':ratio="16 / 9"');
-    expect(getComponentAbout("motion", "multi-select")!.faq[0].answer).toContain("modelValue as a string array");
-    expect(getComponentAbout("charts", "returns-calendar")!.faq[0].answer).toContain("scoped default slot");
-    expect(getComponentAbout("agents", "streaming-response")!.faq[0].answer).toContain("default slot");
+    expect(
+      getComponentAbout("motion", "aspect-ratio")!.faq[0].answer,
+    ).toContain(':ratio="16 / 9"');
+    expect(
+      getComponentAbout("motion", "multi-select")!.faq[0].answer,
+    ).toContain("modelValue as a string array");
+    expect(
+      getComponentAbout("charts", "returns-calendar")!.faq[0].answer,
+    ).toContain("scoped default slot");
+    expect(
+      getComponentAbout("agents", "streaming-response")!.faq[0].answer,
+    ).toContain("default slot");
   });
   it("uses the original family scores, terms and circular tie-breaker for three related cards", () => {
     expect(
@@ -161,9 +169,18 @@ describe("fixed component documentation baseline", () => {
   });
   it("owns its native Vue content rather than transforming another framework's documentation", () => {
     expect(componentDetailsBaseline).toBe(componentDetails);
-    expect(getComponentAbout("motion", "range-slider")!.faq[0].answer).toContain("modelValue with update:modelValue");
-    expect(getComponentAbout("motion", "breadcrumb")!.faq[0].answer).toContain("as prop");
-    expect(getComponentAbout("motion", "theme-toggle")!.faq[0].answer).toContain("useThemeToggle composable");
-    for (const record of componentDetails) expect(JSON.stringify(record.about)).not.toMatch(/onValueChange|onOpenChange|React|Next\.js/);
+    expect(
+      getComponentAbout("motion", "range-slider")!.faq[0].answer,
+    ).toContain("modelValue with update:modelValue");
+    expect(getComponentAbout("motion", "breadcrumb")!.faq[0].answer).toContain(
+      "as prop",
+    );
+    expect(
+      getComponentAbout("motion", "theme-toggle")!.faq[0].answer,
+    ).toContain("useThemeToggle composable");
+    for (const record of componentDetails)
+      expect(JSON.stringify(record.about)).not.toMatch(
+        /onValueChange|onOpenChange|React|Next\.js/,
+      );
   });
 });

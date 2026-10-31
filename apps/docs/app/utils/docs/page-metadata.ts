@@ -11,6 +11,7 @@ import catalog from "../../../../../tools/catalog/components.json";
 import { documentationOrigin } from "../../../../../tools/distribution";
 import { projectCategory } from "./category-projection";
 import { descriptions } from "./i18n";
+import { findTemplate } from "./template-definitions";
 import { sitePages } from "./site-page-data";
 import { notFoundRobots } from "./shared-head";
 export { notFoundRobots } from "./shared-head";
@@ -70,6 +71,9 @@ function pageDescription(page: SocialPageData, en: boolean) {
     );
     if (definition) return definition.description[language];
   }
+  if (layout === "template") return findTemplate(String(page.frontmatter.templateSlug))?.description[language] ?? siteDescriptions[language];
+  if (layout === "templates") return en ? "Five complete Vue application templates with interactive previews and portable source." : "五套包含交互预览和完整源码的 Vue 应用模板。";
+  if (layout === "components") return en ? "Browse all 110 orvui components by purpose, from forms and navigation to AI and charts." : "按用途浏览全部 110 个 orvui 组件，覆盖表单、导航、AI 与图表。";
   const category = catalog.categories.find(
     (item) => item.slug === categorySlug,
   );

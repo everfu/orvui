@@ -18,10 +18,6 @@
 .site-shell[data-layout="docs"] .docs-main [id] {
   scroll-margin-top: calc(var(--header-height) + 32px);
 }
-.site-shell[data-layout="docs"] .docs-breadcrumb {
-  margin: 0 0 16px;
-  font-size: 14px;
-}
 .site-shell[data-layout="docs"] .support-page {
   max-width: none;
 }

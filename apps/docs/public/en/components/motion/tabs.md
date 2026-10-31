@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Tabs
 
 > Switch between associated panels using a moving indicator and accessible tab controls.
 
-Switch between associated panels using a moving indicator and accessible tab controls.
+<a id="when-to-use"></a>
 
 ## When to use it
 
-- Use Tabs when the interface needs this behavior: switch between associated panels using a moving indicator and accessible tab controls.
+- Use when related views share one place on the page and readers need to switch between them.
 
+<a id="install"></a>
 ## Install
 
 ### Tabs — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Tabs
 
 **Registry source**
@@ -86,6 +90,18 @@ const icons = [{ value: "home", text: "Home", icon: Home }, { value: "stats", te
 <template><div class="flex w-full max-w-md flex-col gap-8"><div class="flex flex-col gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Pill</span><Tabs default-value="overview" variant="pill"><TabsList><TabsTrigger v-for="section in sections" :key="section.value" :value="section.value">{{ section.label }}</TabsTrigger></TabsList><TabsContent v-for="section in sections" :key="section.value" :value="section.value" class="text-sm text-muted-foreground">{{ section.content }}</TabsContent></Tabs></div><div class="flex flex-col gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Overflow</span><Tabs default-value="Overview" class="w-full max-w-xs"><TabsList><TabsTrigger v-for="label in ['Overview', 'Activity', 'Analytics', 'Members', 'Billing', 'Settings']" :key="label" :value="label">{{ label }}</TabsTrigger></TabsList></Tabs></div><div class="flex flex-col gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Segment</span><Tabs default-value="day" variant="segment"><TabsList><TabsTrigger v-for="value in ['day', 'week', 'month']" :key="value" :value="value">{{ value[0].toUpperCase() + value.slice(1) }}</TabsTrigger></TabsList></Tabs></div><div class="flex flex-col gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Icon on selected</span><Tabs default-value="home" variant="pill" icons="selected"><TabsList><TabsTrigger v-for="entry in icons" :key="entry.value" :value="entry.value"><template #icon><component :is="entry.icon" class="size-3.5" /></template>{{ entry.text }}</TabsTrigger></TabsList></Tabs></div><div class="flex flex-col gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Underline</span><Tabs default-value="all" variant="underline"><TabsList><TabsTrigger v-for="value in ['all', 'open', 'closed']" :key="value" :value="value">{{ value[0].toUpperCase() + value.slice(1) }}</TabsTrigger></TabsList></Tabs></div></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Tabs` | `v-model` | `string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Tabs
@@ -159,12 +175,15 @@ const icons = [{ value: "home", text: "Home", icon: Home }, { value: "stats", te
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Tabs
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Tabs?**
@@ -179,6 +198,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Shared Layout Background](https://orvui.efu.me/en/components/motion/shared-layout-bg): Move one background surface between registered items to indicate a current selection.
+- [Dock](https://orvui.efu.me/en/components/motion/dock): Group compact navigation actions around an indicator that follows the active item.
+- [Scroll Animation](https://orvui.efu.me/en/components/motion/scroll-animation): Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/tabs.json

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # 404 / Not Found
 
 > 通过动态视觉呈现缺失目标，并提供返回有效内容的路径。
 
-通过动态视觉呈现缺失目标，并提供返回有效内容的路径。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 404 / Not Found：通过动态视觉呈现缺失目标，并提供返回有效内容的路径。
 
+<a id="install"></a>
 ## 安装
 
 ### 404 / Not Found — 复制源码
@@ -81,8 +83,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### 404 / Not Found
 
 **复制源码**
@@ -109,6 +113,7 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 </template>
 ```
 
+<a id="glitch"></a>
 ### Glitch
 
 让不稳定的字符显示解析为页面缺失状态码。
@@ -137,6 +142,7 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 </template>
 ```
 
+<a id="magnetic"></a>
 ### Magnetic
 
 让各状态数字跟随附近的指针移动，再回到原位。
@@ -165,6 +171,7 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 </template>
 ```
 
+<a id="spotlight"></a>
 ### Spotlight
 
 在深色表面上，用跟随指针的光照显示状态码。
@@ -193,6 +200,7 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 </template>
 ```
 
+<a id="stacked"></a>
 ### Stacked
 
 悬停或聚焦时，让状态面板下方的卡片扇形展开。
@@ -221,6 +229,7 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 </template>
 ```
 
+<a id="terminal"></a>
 ### Terminal
 
 在终端式表面内逐字输入失败的导航命令与状态码。
@@ -249,6 +258,12 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 </template>
 ```
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+此示例组合没有声明成对的受控属性与 update 事件。使用已列出的属性、原生事件和插槽组合内容；不要为它添加未公开的 v-model。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### NotFoundStacked
@@ -340,12 +355,15 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 | `browseHref` | `string` | — | 否 | — |
 | `browseLabel` | `string` | — | 否 | — |
 
+<a id="about"></a>
 ## 关于 404 / Not Found
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 404 / Not Found？**
@@ -360,6 +378,14 @@ const navigation = { homeHref: "/", browseHref: "/components/motion" };
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Dynamic Island](https://orvui.efu.me/components/blocks/dynamic-island): 在多个实时活动视图间切换紧凑胶囊，保持对象身份连续。
+- [Swipeable List](https://orvui.efu.me/components/blocks/swipeable-list): 通过指针或键盘输入，展示列表行左右两侧的操作。
+- [Fixtures](https://orvui.efu.me/components/blocks/knockout-bracket): 浏览淘汰赛轮次或径向赛程，并查看队伍与比赛元数据。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/not-found.json

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Notification Stack
 
 > Expand a compact stack of notifications into separately readable entries.
 
-Expand a compact stack of notifications into separately readable entries.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Notification Stack when the interface needs this behavior: expand a compact stack of notifications into separately readable entries.
 
+<a id="install"></a>
 ## Install
 
 ### Notification Stack — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Notification Stack
 
 **Registry source**
@@ -150,6 +154,18 @@ const items: NotificationStackItem[] = notices.map(
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `NotificationStack` | `v-model:expanded` | `boolean` | `update:expanded` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### NotificationStack
@@ -175,12 +191,15 @@ const items: NotificationStackItem[] = notices.map(
 | `expandedChange` | `[expanded: boolean]` | — |
 | `viewAll` | `[]` | — |
 
+<a id="about"></a>
 ## About Notification Stack
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Notification Stack?**
@@ -195,6 +214,14 @@ Observe update:expanded, expandedChange, viewAll to connect the component to app
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Expandable Action Bar](https://orvui.efu.me/en/components/blocks/expandable-action-bar): Reveal labels around the active action in a compact row of icon controls.
+- [Project Folder](https://orvui.efu.me/en/components/blocks/project-folder): Fan out document previews and expand a selected folder into a focused surface.
+- [Morphing Search](https://orvui.efu.me/en/components/blocks/morphing-search): Expand a search field into suggestions, recent items or editable filter chips.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/notification-stack.json

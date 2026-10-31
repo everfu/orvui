@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Card Folder
 
 > Reveal a group of cards from a folded pocket with a coordinated opening movement.
 
-Reveal a group of cards from a folded pocket with a coordinated opening movement.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Card Folder when the interface needs this behavior: reveal a group of cards from a folded pocket with a coordinated opening movement.
 
+<a id="install"></a>
 ## Install
 
 ### Card Folder — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Card Folder
 
 **Registry source**
@@ -238,6 +242,19 @@ const rings = Array.from({ length: 18 }, (_, index) => ({
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `CardFolder` | `v-model:open` | `boolean` | `update:open` |
+| `CardFolder` | `v-model:detailsVisible` | `boolean` | `update:detailsVisible` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### CardFolder
@@ -277,12 +294,15 @@ const rings = Array.from({ length: 18 }, (_, index) => ({
 | --- | --- | --- | --- |
 | `card` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Card Folder
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Card Folder?**
@@ -297,6 +317,14 @@ Observe update:open, openChange, update:detailsVisible, detailsVisibleChange, cl
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Project Folder](https://orvui.efu.me/en/components/blocks/project-folder): Fan out document previews and expand a selected folder into a focused surface.
+- [Wallet Card](https://orvui.efu.me/en/components/blocks/wallet-card): Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+- [Expandable Action Bar](https://orvui.efu.me/en/components/blocks/expandable-action-bar): Reveal labels around the active action in a compact row of icon controls.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/card-folder.json
