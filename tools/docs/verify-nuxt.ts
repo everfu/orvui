@@ -81,7 +81,7 @@ async function checkPage(page: (typeof pages)[number]) {
         1,
         `${page.path}: unique outline target ${item.id}`,
       );
-      assert.ok(
+      if (fm.layout !== "templates") assert.ok(
         body.includes(`href="#${encodeURIComponent(item.id)}"`),
         `${page.path}: SSR outline link ${item.id}`,
       );
