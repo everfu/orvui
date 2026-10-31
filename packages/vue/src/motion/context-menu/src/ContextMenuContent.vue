@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
 import { resolveElement } from "../../../lib/composables";
-import { EASE_OUT } from "../../../lib/ease";
 import { cn } from "../../../lib/utils";
 import { useMenu } from "./menu-state";
 import { useMenuSurface } from "./menu-surface";
-withDefaults(defineProps<{ ariaLabel?: string }>(), { ariaLabel: "Context menu" });
+withDefaults(defineProps<{ ariaLabel?: string }>(), {
+  ariaLabel: "Context menu",
+});
 defineSlots<{ default(): unknown }>();
 const ctx = useMenu();
-const { mounted, position, morphReady, collapsed, visualOpen, key } = useMenuSurface(ctx);
+const { mounted, position, morphReady, opacity, clipPath, key } =
+  useMenuSurface(ctx);
 </script>
 <template>
   <Teleport v-if="mounted" to="body"
@@ -16,7 +18,11 @@ const { mounted, position, morphReady, collapsed, visualOpen, key } = useMenuSur
       data-context-menu-portal
       :aria-hidden="!ctx.open.value"
       :inert="!ctx.open.value"
-      :style="{ left: position.x + 'px', top: position.y + 'px' }"
+      :style="{
+        left: position.x + 'px',
+        top: position.y + 'px',
+        visibility: ctx.open.value && !morphReady ? 'hidden' : undefined,
+      }"
       :class="
         cn(
           'fixed z-[100] [filter:drop-shadow(0_18px_28px_rgba(0,0,0,0.2))]',
@@ -31,24 +37,7 @@ const { mounted, position, morphReady, collapsed, visualOpen, key } = useMenuSur
         :aria-label="ariaLabel"
         :data-morph-ready="morphReady ? 'true' : 'false'"
         tabindex="-1"
-        :initial="false"
-        :animate="{
-          opacity: visualOpen ? 1 : 0,
-          clipPath:
-            ctx.reduce.value || ctx.modality.value === 'keyboard' || visualOpen
-              ? 'inset(0px 0px 0px 0px round 12px)'
-              : collapsed,
-        }"
-        :transition="
-          ctx.modality.value === 'keyboard'
-            ? { duration: 0 }
-            : ctx.reduce.value
-              ? { duration: 0.1, ease: EASE_OUT }
-              : {
-                  clipPath: { duration: 0.3, ease: EASE_OUT },
-                  opacity: { duration: 0.3, ease: EASE_OUT },
-                }
-        "
+        :style="{ opacity, clipPath }"
         @keydown="key"
         @contextmenu.prevent
         :class="

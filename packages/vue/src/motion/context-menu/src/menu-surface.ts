@@ -1,4 +1,6 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { animate, useMotionValue } from "motion-v";
+import { EASE_OUT } from "../../../lib/ease";
 import type { MenuState } from "./menu-state";
 const bound = (value: number, maximum: number, minimum = 0) => Math.max(minimum, Math.min(value, maximum));
 export function useMenuSurface(ctx: MenuState) {
@@ -11,6 +13,35 @@ export function useMenuSurface(ctx: MenuState) {
     return `inset(${edges.map(edge => `${edge}px`).join(" ")} round 10px)`;
   });
   const visualOpen = computed(() => ctx.open.value && morphReady.value);
+  const opacity = useMotionValue(0);
+  const clipPath = useMotionValue("inset(0px 0px 0px 0px round 10px)");
+  let animations: ReturnType<typeof animate>[] = [];
+  function stopAnimations() {
+    animations.forEach((animation) => animation.stop());
+    animations = [];
+  }
+  watch(
+    () => [visualOpen.value, ctx.reduce.value, ctx.modality.value] as const,
+    ([opened]) => {
+      if (ctx.open.value && !opened) return;
+      stopAnimations();
+      const duration =
+        ctx.modality.value === "keyboard" ? 0 : ctx.reduce.value ? 0.1 : 0.3;
+      if (ctx.reduce.value || ctx.modality.value === "keyboard")
+        clipPath.jump("inset(0px 0px 0px 0px round 12px)");
+      animations = [
+        animate(opacity, opened ? 1 : 0, { duration, ease: EASE_OUT }),
+        animate(
+          clipPath,
+          ctx.reduce.value || ctx.modality.value === "keyboard" || opened
+            ? "inset(0px 0px 0px 0px round 12px)"
+            : collapsed.value,
+          { duration, ease: EASE_OUT },
+        ),
+      ];
+    },
+    { flush: "post" },
+  );
   const frames = new Set<number>();
   let version = 0, prefix = "";
   let prefixExpiry: ReturnType<typeof setTimeout> | undefined;
@@ -22,8 +53,12 @@ export function useMenuSurface(ctx: MenuState) {
   function items() { return Array.from(ctx.contentRef.value?.querySelectorAll<HTMLElement>('[data-context-menu-item="true"]:not([data-disabled="true"])') ?? []); }
   async function prepare() {
     const token = ++version;
-    cancelFrames(); morphReady.value = false;
+    cancelFrames();
+    morphReady.value = false;
     if (!mounted.value || !ctx.open.value) return;
+    // An interrupted exit must not carry its opacity or clip into the new reveal.
+    stopAnimations();
+    opacity.jump(0);
     await nextTick();
     if (!mounted.value || !ctx.open.value || token !== version) return;
     const element = ctx.contentRef.value;
@@ -33,11 +68,23 @@ export function useMenuSurface(ctx: MenuState) {
     const left = bound(x, Math.max(8, innerWidth - width - 8), 8);
     const top = bound(y, Math.max(8, innerHeight - height - 8), 8);
     position.value = { x: left, y: top };
-    geometry.value = { width, height, x: bound(x - left, Math.max(12, width - 12), 12), y: bound(y - top, Math.max(12, height - 12), 12) };
+    geometry.value = {
+      width,
+      height,
+      x: bound(x - left, Math.max(12, width - 12), 12),
+      y: bound(y - top, Math.max(12, height - 12), 12),
+    };
+    clipPath.jump(ctx.reduce.value || ctx.modality.value === "keyboard"
+      ? "inset(0px 0px 0px 0px round 12px)" : collapsed.value);
     element.dataset.invocation = String(ctx.invocation.value);
-    if (ctx.reduce.value || ctx.modality.value === "keyboard") morphReady.value = true;
-    else frame(() => frame(() => { morphReady.value = true; }, token), token);
-    frame(() => items()[0]?.focus({ preventScroll: true }), token);
+    async function reveal() {
+      morphReady.value = true;
+      await nextTick();
+      if (mounted.value && ctx.open.value && token === version)
+        items()[0]?.focus({ preventScroll: true });
+    }
+    if (ctx.reduce.value || ctx.modality.value === "keyboard") void reveal();
+    else frame(() => frame(() => { void reveal(); }, token), token);
   }
   function key(event: KeyboardEvent) {
     if (event.defaultPrevented) return;
@@ -60,6 +107,6 @@ export function useMenuSurface(ctx: MenuState) {
   }
   watch(() => [ctx.open.value, ctx.invocation.value, ctx.point.value], prepare, { flush: "post" });
   onMounted(() => { mounted.value = true; void prepare(); });
-  onBeforeUnmount(() => { mounted.value = false; ++version; cancelFrames(); clearTimeout(prefixExpiry); });
-  return { mounted, morphReady, position, collapsed, visualOpen, key };
+  onBeforeUnmount(() => { mounted.value = false; ++version; cancelFrames(); stopAnimations(); clearTimeout(prefixExpiry); });
+  return { mounted, morphReady, position, opacity, clipPath, key };
 }

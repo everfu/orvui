@@ -72,8 +72,8 @@ function checked(value: boolean) { offline.value = value; message.value = value 
                 ><Check aria-hidden="true" class="h-3 w-3 text-success" />{{
                   message
                 }}</motion.span
-              ><span v-else class="text-[10px] text-muted-foreground"
-                >or long-press · Shift + F10</span
+              ><motion.span v-else key="hint" class="text-[10px] text-muted-foreground"
+                >or long-press · Shift + F10</motion.span
               ></AnimatePresence
             >
           </div>
