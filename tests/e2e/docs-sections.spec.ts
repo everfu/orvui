@@ -1,7 +1,12 @@
 import { expect, test } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.route("https://orvui-template-*.netlify.app/**", route => route.fulfill({contentType:"text/html",body:'<!doctype html><script>parent.postMessage({type:"orvui:template-ready"},new URLSearchParams(location.search).get("parentOrigin"))</script><h1>Template preview fixture</h1>'}));
+  await page.route("https://orvui-template-*.netlify.app/**", (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: '<!doctype html><script>parent.postMessage({type:"orvui:template-ready"},new URLSearchParams(location.search).get("parentOrigin"))</script><h1>Template preview fixture</h1>',
+    }),
+  );
   await page.route("https://api.github.com/repos/everfu/orvui", (route) =>
     route.fulfill({ json: { stargazers_count: 1234 } }),
   );
@@ -54,13 +59,17 @@ test("route tabs partition guides, components, templates and dated releases", as
         ),
     )
     .toBe(true);
-  await page
-    .locator('a.template-screenshot-link[href="/templates/dashboard"]')
-    .click();
+  await expect(
+    page.getByRole("link", { name: "查看详情", exact: true }),
+  ).toHaveCount(0);
+  await page.goto("/templates/dashboard");
   await expect(tabs.locator('[aria-current="page"]')).toHaveText("模板");
-  await expect(page.locator(".template-iframe-stage iframe")).toHaveAttribute("src", /orvui-template-dashboard\.netlify\.app/);
-  await expect(page.locator('a[download]')).toHaveCount(0);
-  await expect(page.locator('#source')).toHaveCount(0);
+  await expect(page.locator(".template-iframe-stage iframe")).toHaveAttribute(
+    "src",
+    /orvui-template-dashboard\.netlify\.app/,
+  );
+  await expect(page.locator("a[download]")).toHaveCount(0);
+  await expect(page.locator("#source")).toHaveCount(0);
   await tabs.getByRole("link", { name: "更新日志", exact: true }).click();
   await expect(page).toHaveURL(/\/changelog$/);
   await expect(tabs.locator('[aria-current="page"]')).toHaveText("更新日志");
@@ -194,14 +203,30 @@ test("component articles explain real model bindings in both languages", async (
   }
 });
 
-test("template detail embeds the independent application and hides source downloads", async ({page}) => {
-  await page.route("https://orvui-template-chat.netlify.app/**", route => route.fulfill({contentType:"text/html", body:"<!doctype html><html><body>Independent template</body></html>"}));
+test("template detail embeds the independent application and hides source downloads", async ({
+  page,
+}) => {
+  await page.route("https://orvui-template-chat.netlify.app/**", (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: "<!doctype html><html><body>Independent template</body></html>",
+    }),
+  );
   await page.goto("/en/templates/chat");
-  await expect(page.locator("#template-use-cases")).toHaveText("When to use it");
+  await expect(page.locator("#template-use-cases")).toHaveText(
+    "When to use it",
+  );
   await expect(page.locator("#preview .docs-editorial-list li")).toHaveCount(3);
   await expect(page.locator("#composition")).toContainText("Library");
-  await expect(page.locator("iframe")).toHaveAttribute("src", /orvui-template-chat\.netlify\.app/);
-  await expect(page.locator('a[download]')).toHaveCount(0);
-  await expect(page.locator('#source')).toHaveCount(0);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await expect(page.locator("iframe")).toHaveAttribute(
+    "src",
+    /orvui-template-chat\.netlify\.app/,
+  );
+  await expect(page.locator("a[download]")).toHaveCount(0);
+  await expect(page.locator("#source")).toHaveCount(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
 });
