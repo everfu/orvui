@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Agent Loading States
 
 > Communicate pending assistant work with progress, reasoning and shimmer displays.
 
-Communicate pending assistant work with progress, reasoning and shimmer displays.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Agent Loading States when the interface needs this behavior: communicate pending assistant work with progress, reasoning and shimmer displays.
 
+<a id="install"></a>
 ## Install
 
 ### Agent Loading States — Registry source
@@ -71,8 +73,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Agent Loading States
 
 **Registry source**
@@ -113,6 +117,7 @@ const variants = ["cascade", "swap", "scramble"] as const;
 </template>
 ```
 
+<a id="reasoning-text"></a>
 ### Reasoning Text
 
 Present evolving reasoning text with a clear pending-work state.
@@ -193,6 +198,7 @@ const examples = (
 </template>
 ```
 
+<a id="thinking-shimmer"></a>
 ### Thinking Shimmer
 
 Keep a readable waiting label under a moving text highlight.
@@ -225,6 +231,7 @@ const duration = 1.8;
 </template>
 ```
 
+<a id="agent-progress"></a>
 ### Agent Progress
 
 Combine a progress indicator with labels describing the current stage.
@@ -263,8 +270,7 @@ const initial = 151.6;
 
 ## Component Guide
 
-Communicate pending assistant work with progress, reasoning and shimmer displays.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Agent Loading States with its public parts: AgentProgress, ReasoningText, ThinkingShimmer. Import these names from the component barrel.
@@ -276,6 +282,11 @@ Message
     ├── AgentProgress
     └── ReasoningText
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Communicate pending assistant work with progress, reasoning and shimmer displays.
 
 ### Lifecycle
 
@@ -325,6 +336,12 @@ The Usage section composes AgentProgress, ReasoningText, ThinkingShimmer through
 - Use when: Use Agent Loading States when the interface needs this behavior: communicate pending assistant work with progress, reasoning and shimmer displays.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### AgentProgress
@@ -370,12 +387,15 @@ The Usage section composes AgentProgress, ReasoningText, ThinkingShimmer through
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Agent Loading States
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Agent Loading States?**
@@ -390,6 +410,14 @@ Provide content through the documented composition; application effects remain w
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Todo List](https://orvui.efu.me/en/components/agents/todo-list): Show a sequence of work items with expandable details and explicit task states.
+- [Message](https://orvui.efu.me/en/components/agents/message): Build a conversation entry from content, attachments, sources and action parts.
+- [Prompt Input](https://orvui.efu.me/en/components/agents/prompt-input): Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/loading-states.json

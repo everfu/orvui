@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Checkbox
 
 > Represent checked, unchecked and mixed values with an animated check mark.
 
-Represent checked, unchecked and mixed values with an animated check mark.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Checkbox when the interface needs this behavior: represent checked, unchecked and mixed values with an animated check mark.
 
+<a id="install"></a>
 ## Install
 
 ### Checkbox — Registry source
@@ -65,8 +67,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Checkbox
 
 **Registry source**
@@ -97,6 +101,7 @@ const settings = reactive({ terms: true, announcements: false });
 </div></template>
 ```
 
+<a id="default"></a>
 ### Checkbox
 
 Inspect checked and mixed states with a drawn mark and spring press feedback.
@@ -129,6 +134,7 @@ const settings = reactive({ terms: true, announcements: false });
 </div></template>
 ```
 
+<a id="description"></a>
 ### With Description
 
 Add explanatory text below the label and connect it to the checkbox description.
@@ -171,6 +177,18 @@ const options = [
 </div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Checkbox` | `v-model` | `boolean` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Checkbox
@@ -196,12 +214,15 @@ const options = [
 | `update:modelValue` | — | — |
 | `change` | — | — |
 
+<a id="about"></a>
 ## About Checkbox
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Checkbox?**
@@ -216,6 +237,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Radio Group](https://orvui.efu.me/en/components/motion/radio): Choose one value from a keyboard-navigable group of labeled options.
+- [Input](https://orvui.efu.me/en/components/motion/input): Edit text with optional labels, icons and validation feedback in a single field.
+- [Select](https://orvui.efu.me/en/components/motion/select): Choose from a floating list whose panel can expand continuously from its trigger.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/checkbox.json

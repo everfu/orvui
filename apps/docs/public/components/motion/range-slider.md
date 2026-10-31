@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Range Slider
 
 > 通过拖动手势或键盘步进，在轨道上调整数值。
 
-通过拖动手势或键盘步进，在轨道上调整数值。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Range Slider：通过拖动手势或键盘步进，在轨道上调整数值。
 
+<a id="install"></a>
 ## 安装
 
 ### Range Slider — 复制源码
@@ -89,8 +91,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Range Slider
 
 **复制源码**
@@ -115,6 +119,7 @@ const amount = ref(40);
 <template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
 ```
 
+<a id="inline"></a>
 ### Inline Slider
 
 把标签和数值放在轨道内部，附近刻度为手柄让出空间。
@@ -139,6 +144,7 @@ const spokenPixels = (value: number) => `${value} pixels`;
 <template><div class="w-full max-w-sm"><InlineSlider :default-value="48" :min="8" :max="128" :step="8" label="Icon size" aria-label="Icon size" :format-value-text="spokenPixels" /></div></template>
 ```
 
+<a id="stepped"></a>
 ### Range Slider
 
 让窄手柄在标记步进之间吸附，并强调每次落定。
@@ -165,6 +171,7 @@ const amount = ref(40);
 <template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
 ```
 
+<a id="fluid"></a>
 ### Fluid Slider
 
 使用圆润的移动填充表示数值，替代独立手柄。
@@ -191,6 +198,7 @@ const brightness = ref(35);
 <template><div class="w-full max-w-sm"><FluidSlider v-model="brightness" label="Brightness" aria-label="Brightness" /></div></template>
 ```
 
+<a id="wave"></a>
 ### Wave Slider
 
 抬高手柄附近的竖条，形成随位置移动的波形。
@@ -217,6 +225,7 @@ const gain = ref(45);
 <template><div class="flex w-full max-w-md flex-col gap-2"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Gain</span><span class="tabular-nums text-foreground">{{ gain }}</span></div><WaveSlider v-model="gain" aria-label="Gain" /></div></template>
 ```
 
+<a id="bubble"></a>
 ### Bubble Slider
 
 拖动时抬起数值气泡，让其倾斜随移动变化。
@@ -243,6 +252,7 @@ const amount = ref(28);
 <template><div class="flex w-full max-w-sm flex-col gap-1"><span class="text-sm text-muted-foreground">Drag fast and the bubble leans</span><BubbleSlider v-model="amount" aria-label="Value" /></div></template>
 ```
 
+<a id="ruler"></a>
 ### Ruler Slider
 
 指针固定在原位，带刻度的标尺在其下方移动。
@@ -269,6 +279,23 @@ const weight = ref(72.5);
 <template><div class="w-full max-w-sm"><RulerSlider v-model="weight" :min="40" :max="120" :step=".5" :gap="12" :major-every="10" unit="kg" aria-label="Weight" /></div></template>
 ```
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `RangeSlider` | `v-model` | `number` | `update:modelValue` |
+| `InlineSlider` | `v-model` | `number` | `update:modelValue` |
+| `FluidSlider` | `v-model` | `number` | `update:modelValue` |
+| `WaveSlider` | `v-model` | `number` | `update:modelValue` |
+| `BubbleSlider` | `v-model` | `number` | `update:modelValue` |
+| `RulerSlider` | `v-model` | `number` | `update:modelValue` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### RangeSlider
@@ -421,12 +448,15 @@ const weight = ref(72.5);
 | `change` | — | — |
 | `valueCommit` | — | — |
 
+<a id="about"></a>
 ## 关于 Range Slider
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Range Slider？**
@@ -441,6 +471,14 @@ const weight = ref(72.5);
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Wheel Picker](https://orvui.efu.me/components/motion/wheel-picker): 从旋转滚轮中选择数值，支持惯性与行吸附。
+- [Switch](https://orvui.efu.me/components/motion/switch): 通过移动滑块切换二元设置，并可添加说明标签。
+- [Input](https://orvui.efu.me/components/motion/input): 在同一输入框中编辑文字，并可配置标签、图标与校验反馈。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/range-slider.json

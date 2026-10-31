@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Shader Background
 
 > Render an animated background through a Vue adapter for the Paper Design shader runtime.
 
-Render an animated background through a Vue adapter for the Paper Design shader runtime.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Shader Background when the interface needs this behavior: render an animated background through a Vue adapter for the Paper Design shader runtime.
 
+<a id="install"></a>
 ## Install
 
 ### Shader Background — Registry source
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `lucide-vue-next@^0.468.0`
 - `motion-v@^1.10.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Shader Background
 
 **Registry source**
@@ -649,6 +653,12 @@ onBeforeUnmount(() => { mounted = false; clearTimeout(next); });
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ShaderBackground
@@ -668,12 +678,15 @@ onBeforeUnmount(() => { mounted = false; clearTimeout(next); });
 | --- | --- | --- | --- |
 | `fallback` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Shader Background
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Shader Background?**
@@ -688,6 +701,14 @@ Provide content through fallback; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Cylinder Carousel](https://orvui.efu.me/en/components/motion/cylinder-carousel): Arrange gallery items on a concave or convex cylinder controlled by dragging.
+- [Tilt Card](https://orvui.efu.me/en/components/motion/tilt-card): Tilt a card toward the pointer and move a highlight over its surface.
+- [Marquee](https://orvui.efu.me/en/components/motion/marquee): Repeat a horizontal or vertical content strip with optional pause on hover.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/shader-background.json

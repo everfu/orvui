@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Image Generation
 
 > 展示图像创建状态，预览输出并提供结果操作。
 
-展示图像创建状态，预览输出并提供结果操作。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Image Generation：展示图像创建状态，预览输出并提供结果操作。
 
+<a id="install"></a>
 ## 安装
 
 ### Image Generation — 复制源码
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Image Generation
 
 **复制源码**
@@ -384,8 +388,7 @@ onMounted(replay);
 
 ## 组件指南
 
-展示图像创建状态，预览输出并提供结果操作。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 ImageGeneration 组合 Image Generation，并从该组件的公开入口导入。
@@ -396,6 +399,11 @@ Message
     └── ImageGeneration
         └── GeneratedMedia
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+展示图像创建状态，预览输出并提供结果操作。
 
 ### 生命周期
 
@@ -445,6 +453,12 @@ Usage 区域通过 Vue props、事件与插槽组合 ImageGeneration，请选择
 - 适用: 当界面需要以下行为时使用 Image Generation：展示图像创建状态，预览输出并提供结果操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+此示例组合没有声明成对的受控属性与 update 事件。使用已列出的属性、原生事件和插槽组合内容；不要为它添加未公开的 v-model。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### ImageGeneration
@@ -477,12 +491,15 @@ Usage 区域通过 Vue props、事件与插槽组合 ImageGeneration，请选择
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## 关于 Image Generation
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Image Generation？**
@@ -497,6 +514,14 @@ Usage 区域通过 Vue props、事件与插槽组合 ImageGeneration，请选择
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Chat App](https://orvui.efu.me/components/agents/chat-app): 将导航、会话内容和提示输入区组合为助手工作空间。
+- [Agent Loading States](https://orvui.efu.me/components/agents/loading-states): 通过进度、推理和微光显示传达助手工作仍在进行。
+- [Code Block](https://orvui.efu.me/components/agents/code-block): 呈现带高亮的代码，并支持行控件、文件标签与复制操作。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/image-generation.json

@@ -3,7 +3,16 @@ import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   testDir: "../../tests/e2e",
-  testMatch: ["docs-nuxt.spec.ts", "home-showcase.spec.ts"],
+  testMatch: [
+    "docs-nuxt.spec.ts",
+    "home-showcase.spec.ts",
+    "docs-sections.spec.ts",
+    "docs-overviews.spec.ts",
+    "context-menu.spec.ts",
+    "command-palette.spec.ts",
+    "bloom-menu.spec.ts",
+    "image-viewer.spec.ts",
+  ],
   outputDir: "../../artifacts/reports/docs-nuxt/browser",
   reporter: [
     ["list"],

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Preview Rail
 
 > Preview navigation targets from a compact rail that expands around the focused item.
 
-Preview navigation targets from a compact rail that expands around the focused item.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Preview Rail when the interface needs this behavior: preview navigation targets from a compact rail that expands around the focused item.
 
+<a id="install"></a>
 ## Install
 
 ### Preview Rail — Registry source
@@ -53,8 +55,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Preview Rail
 
 **Registry source**
@@ -107,6 +111,18 @@ const sections = [
 <template><div class="flex w-full flex-col gap-8"><PreviewRail v-for="orientation in ['vertical', 'horizontal'] as const" :key="orientation" :items="sections" :orientation="orientation" default-active-id="docs" :class="['mx-auto w-full max-w-2xl', orientation === 'vertical' ? 'h-[360px]' : 'h-[280px]']" /></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `PreviewRail` | `v-model:activeId` | `string` | `update:activeId` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### PreviewRail
@@ -143,12 +159,15 @@ const sections = [
 | `preview` | — | `item: item` | — |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Preview Rail
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Preview Rail?**
@@ -163,6 +182,14 @@ Observe update:activeId, activeChange, itemSelect to connect the component to ap
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Dock](https://orvui.efu.me/en/components/motion/dock): Group compact navigation actions around an indicator that follows the active item.
+- [Scroll Animation](https://orvui.efu.me/en/components/motion/scroll-animation): Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+- [Shared Layout Background](https://orvui.efu.me/en/components/motion/shared-layout-bg): Move one background surface between registered items to indicate a current selection.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/preview-rail.json

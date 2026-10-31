@@ -178,3 +178,42 @@ it("starts with five localized guide links, searches the catalog and reports an 
   await settle();
   expect(labels()).toHaveLength(5);
 });
+
+it("keeps keyboard search selection when results appear under a stationary or touch pointer", async () => {
+  const wrapper = mount(SiteSearch, {
+    props: { open: true, en: false },
+    attachTo: document.body,
+  });
+  wrappers.push(wrapper);
+  await settle();
+  const input = document.querySelector<HTMLInputElement>('[role="combobox"]')!;
+  input.value = "template";
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  await settle();
+  const rows = Array.from(
+    document.querySelectorAll<HTMLElement>('[role="option"]'),
+  );
+  const chat = rows.find((row) => row.textContent?.includes("Chat"))!;
+  expect(chat).toBeDefined();
+  const selected = () =>
+    document.querySelector('[role="option"][aria-selected="true"]')
+      ?.textContent;
+  expect(selected()).toBe(rows[0].textContent);
+  chat.dispatchEvent(new MouseEvent("mouseenter"));
+  const pointer = (type: string, movement: number) => {
+    const event = new Event("pointermove", { bubbles: true });
+    Object.defineProperties(event, {
+      pointerType: { value: type },
+      movementX: { value: movement },
+      movementY: { value: 0 },
+    });
+    chat.dispatchEvent(event);
+  };
+  pointer("touch", 2);
+  pointer("mouse", 0);
+  await settle();
+  expect(selected()).toBe(rows[0].textContent);
+  pointer("mouse", 2);
+  await settle();
+  expect(selected()).toContain("Chat");
+});

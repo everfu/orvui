@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Sankey Chart
 
 > Trace weighted flows across stages using connected nodes and proportional ribbons.
 
-Trace weighted flows across stages using connected nodes and proportional ribbons.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Sankey Chart when the interface needs this behavior: trace weighted flows across stages using connected nodes and proportional ribbons.
 
+<a id="install"></a>
 ## Install
 
 ### Sankey Chart — Registry source
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Sankey Chart
 
 **Registry source**
@@ -199,6 +203,18 @@ const currency = (value: number) => `$${value.toLocaleString("en-US")}M`;
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `SankeyChart` | `v-model:activeId` | `null \| string` | `update:activeId` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### SankeyChart
@@ -253,12 +269,15 @@ const currency = (value: number) => `$${value.toLocaleString("en-US")}M`;
 | --- | --- | --- | --- |
 | `default` | — | `active: chart.active` | — |
 
+<a id="about"></a>
 ## About Sankey Chart
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Sankey Chart?**
@@ -273,6 +292,14 @@ Observe update:activeId, activeChange to connect the component to application st
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Treemap](https://orvui.efu.me/en/charts/treemap): Compare hierarchical values using nested rectangles whose area follows each value.
+- [Funnel Chart](https://orvui.efu.me/en/charts/funnel-chart): Follow successive stages and inspect conversion or loss between adjacent steps.
+- [Returns Calendar](https://orvui.efu.me/en/charts/returns-calendar): Compare signed daily returns with a calendar, month totals and optional day content.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/sankey-chart.json

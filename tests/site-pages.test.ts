@@ -146,6 +146,41 @@ describe("public support pages", () => {
     await nextTick();
     expect(reveal.text()).toContain("New surface");
   });
+  it("keeps the view-switch surface mounted through rapid changes and language updates", async () => {
+    const swap = render(SiteMotionDemo, { props: { demo: "swap", en: false } });
+    const panel = swap.get('[role="tabpanel"]').element;
+    const layers = swap
+      .findAll('[role="tabpanel"] [aria-hidden="true"]')
+      .map((layer) => layer.element);
+    const tabs = swap.findAll('[role="tab"]');
+    for (const index of [1, 0, 1]) {
+      await tabs[index].trigger("click");
+      expect(swap.findAll('[role="tabpanel"]')).toHaveLength(1);
+      expect(swap.get('[role="tabpanel"]').element).toBe(panel);
+      expect(
+        swap
+          .findAll('[role="tabpanel"] [aria-hidden="true"]')
+          .map((layer) => layer.element),
+      ).toEqual(layers);
+      expect(swap.get('[role="tabpanel"]').classes()).toContain(
+        "bg-background",
+      );
+      expect(
+        swap.get('[role="tabpanel"]').attributes("style") ?? "",
+      ).not.toMatch(/opacity|transform/);
+      expect(swap.get('[role="tabpanel"] .sr-only').text()).toBe(
+        index ? "可复制的源码" : "实时组件视图",
+      );
+      expect(swap.get('[role="tabpanel"]').attributes("aria-labelledby")).toBe(
+        tabs[index].attributes("id"),
+      );
+    }
+    await swap.setProps({ en: true });
+    expect(swap.get('[role="tabpanel"]').element).toBe(panel);
+    expect(swap.get('[role="tabpanel"] .sr-only').text()).toBe(
+      "Copy-ready source",
+    );
+  });
   it("documents only the verified Vue OpenUI bindings without adding an executable model service", () => {
     expect(openUiSnippets.install).toContain("@openuidev/vue-lang@^0.4");
     expect(openUiSnippets.install).toContain("@openuidev/lang-core@^0.4");
@@ -179,8 +214,8 @@ describe("public support pages", () => {
       expect(result).toMatchObject({
         pages: 7,
         locales: 2,
-        artifacts: 128,
-        rawSources: 109,
+        artifacts: 143,
+        rawSources: 110,
         changelogWeeks: 1,
         changelogItems: 3,
         excludedChangelogItems: 0,

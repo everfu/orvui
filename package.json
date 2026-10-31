@@ -15,7 +15,7 @@
     "api:docs": "tsx tools/registry/component-docs.ts",
     "check": "pnpm metadata:docs && pnpm typecheck && pnpm api:check && pnpm test && pnpm build",
     "docs:generate": "pnpm metadata:docs && pnpm docs:resources",
-    "docs:resources": "tsx tools/registry/site-pages.ts && tsx tools/registry/markdown-pages.ts",
+    "docs:resources": "pnpm templates:build && tsx tools/registry/site-pages.ts && tsx tools/registry/markdown-pages.ts",
     "usage:docs": "tsx tools/registry/public-usage.ts",
     "metadata:docs": "pnpm brand:sync && pnpm theme:build && pnpm api:docs && pnpm registry:build && pnpm usage:docs",
     "theme:build": "tsx tools/theme/build.ts",
@@ -36,7 +36,9 @@
     "verify:docs-nuxt:standalone": "node tools/docs/verify-standalone.mjs",
     "preview": "pnpm --filter @orvui/docs preview",
     "start": "pnpm --filter @orvui/docs start",
-    "verify:docs-netlify": "node tools/docs/verify-netlify.mjs"
+    "verify:docs-netlify": "node tools/docs/verify-netlify.mjs",
+    "templates:build": "tsx tools/docs/template-resources.ts",
+    "verify:templates": "node tools/docs/verify-templates.mjs"
   },
   "devDependencies": {
     "@paper-design/shaders": "0.0.76",

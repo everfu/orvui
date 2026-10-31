@@ -108,7 +108,7 @@ Keep the outer layout stable and change internal views with a short offset and o
 **Avoid:** Using a full page transition for a frequently changed tab.
 
 ```vue
-<AnimatePresence mode="wait" :initial="false"><motion.div :key="view" :initial="{ opacity: 0 }" :animate="{ opacity: 1 }" :exit="{ opacity: 0 }" :transition="{ duration: 0.16 }"><slot /></motion.div></AnimatePresence>
+<div class="grid rounded-xl bg-background p-4"><motion.div v-for="current in views" :key="current" class="col-start-1 row-start-1" :aria-hidden="current !== view" :inert="current !== view" :initial="false" :animate="{ opacity: current === view ? 1 : 0 }" :transition="{ duration: reduce ? 0.08 : 0.18 }"><slot :view="current" /></motion.div></div>
 ```
 
 ## Reduced motion is a designed state

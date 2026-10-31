@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Select
 
 > Choose from a floating list whose panel can expand continuously from its trigger.
 
-Choose from a floating list whose panel can expand continuously from its trigger.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Select when the interface needs this behavior: choose from a floating list whose panel can expand continuously from its trigger.
 
+<a id="install"></a>
 ## Install
 
 ### Select — Registry source
@@ -64,8 +66,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Select
 
 **Registry source**
@@ -138,6 +142,7 @@ const tools = [
 </template>
 ```
 
+<a id="default"></a>
 ### Select
 
 Compose trigger, value and options around a detached panel that chooses the available side.
@@ -212,6 +217,7 @@ const tools = [
 </template>
 ```
 
+<a id="morph"></a>
 ### Morph Select
 
 Use matching shared-layout parts so the trigger grows into the option surface.
@@ -286,6 +292,21 @@ const tools = [
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Select` | `v-model` | `string` | `update:modelValue` |
+| `Select` | `v-model:open` | `boolean` | `update:open` |
+| `MorphSelect` | `v-model` | `string` | `update:modelValue` |
+| `MorphSelect` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Select
@@ -456,12 +477,15 @@ const tools = [
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Select
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Select?**
@@ -476,6 +500,14 @@ Observe update:modelValue, valueChange, change, update:open, openChange to conne
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Radio Group](https://orvui.efu.me/en/components/motion/radio): Choose one value from a keyboard-navigable group of labeled options.
+- [Checkbox](https://orvui.efu.me/en/components/motion/checkbox): Represent checked, unchecked and mixed values with an animated check mark.
+- [Input](https://orvui.efu.me/en/components/motion/input): Edit text with optional labels, icons and validation feedback in a single field.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/select.json

@@ -166,6 +166,20 @@
           "file": "packages/vue/src/motion/breadcrumb/index.ts"
         },
         {
+          "slug": "table-of-contents",
+          "name": "Table of Contents",
+          "description": "Navigate article sections with accessible anchor links and an indicator that follows the reading position.",
+          "keywords": [
+            "toc",
+            "outline",
+            "anchor",
+            "navigation",
+            "目录",
+            "页内导航"
+          ],
+          "file": "packages/vue/src/motion/table-of-contents/index.ts"
+        },
+        {
           "slug": "tilt-card",
           "name": "Tilt Card",
           "description": "Tilt a card toward the pointer and move a highlight over its surface.",

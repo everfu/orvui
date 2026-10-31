@@ -11,12 +11,19 @@ const pages = createDocsPages();
 
 describe("shared documentation route metadata", () => {
   it("covers every current bilingual page without including public downloads", () => {
-    expect(pages).toHaveLength(242);
-    expect(pages.map((page) => page.path).sort()).toEqual(routePaths);
+    expect(pages).toHaveLength(258);
+    expect(pages.map((page) => page.path).sort()).toEqual(
+      [
+        ...routePaths,
+        "/components/motion/table-of-contents",
+        "/en/components/motion/table-of-contents",
+        ...["", "/en"].flatMap(prefix => [prefix + "/components", prefix + "/templates", ...["dashboard", "mail", "chat", "finances", "crm"].map(slug => `${prefix}/templates/${slug}`)]),
+      ].sort(),
+    );
     expect(new Set(pages.map((page) => page.path)).size).toBe(pages.length);
     expect(
       pages.filter((page) => page.frontmatter.layout === "component"),
-    ).toHaveLength(218);
+    ).toHaveLength(220);
     expect(
       pages.filter((page) => page.frontmatter.layout === "category"),
     ).toHaveLength(8);

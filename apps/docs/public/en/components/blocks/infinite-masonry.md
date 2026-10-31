@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Infinite Masonry
 
 > Lay out variable-height items in columns and request more as the visible range advances.
 
-Lay out variable-height items in columns and request more as the visible range advances.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Infinite Masonry when the interface needs this behavior: lay out variable-height items in columns and request more as the visible range advances.
 
+<a id="install"></a>
 ## Install
 
 ### Infinite Masonry — Registry source
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Infinite Masonry
 
 **Registry source**
@@ -245,6 +249,12 @@ onBeforeUnmount(() => clearTimeout(timer));
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### InfiniteMasonry
@@ -287,12 +297,15 @@ onBeforeUnmount(() => clearTimeout(timer));
 | `default` | — | `item: items[row.index]!`, `index: row.index` | — |
 | `end` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Infinite Masonry
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Infinite Masonry?**
@@ -307,6 +320,14 @@ Observe retry to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Notification Stack](https://orvui.efu.me/en/components/blocks/notification-stack): Expand a compact stack of notifications into separately readable entries.
+- [Expandable Tabs](https://orvui.efu.me/en/components/blocks/expandable-tabs): Navigate an icon strip whose selected item expands to display its label.
+- [Bloom Menu](https://orvui.efu.me/en/components/blocks/bloom-menu): Open a group of actions around a shared center and restore focus when it closes.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/infinite-masonry.json

@@ -23,9 +23,9 @@ import { Switch } from "../../../../../packages/vue/src/motion/switch";
 import HomeAppFrame from "./HomeAppFrame.vue";
 import HomeMetric from "./HomeMetric.vue";
 import HomeTrendChart from "./HomeTrendChart.vue";
-import { useSiteShell } from "../../composables/site-shell-state";
+import { useTemplateContext } from "../../templates/context";
 import { amount, currency } from "../../utils/docs/home-demo-data";
-const { t } = useSiteShell();
+const { t } = useTemplateContext();
 const active = ref("dashboard"),
   range = ref("1m"),
   allHoldings = ref(false),

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Adaptive Stepper
 
 > Adjust a bounded number while the value uses the space released by unavailable actions.
 
-Adjust a bounded number while the value uses the space released by unavailable actions.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Adaptive Stepper when the interface needs this behavior: adjust a bounded number while the value uses the space released by unavailable actions.
 
+<a id="install"></a>
 ## Install
 
 ### Adaptive Stepper — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Adaptive Stepper
 
 **Registry source**
@@ -78,6 +82,18 @@ const limits = { min: 0, max: 3, defaultValue: 2 };
 <template><div class="flex min-h-[320px] w-full items-center justify-center px-4"><AdaptiveStepper v-bind="limits" aria-label="Guests"><AdaptiveStepperDecrement /><AdaptiveStepperValue /><AdaptiveStepperIncrement /></AdaptiveStepper></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `AdaptiveStepper` | `v-model` | `number` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### AdaptiveStepper
@@ -133,12 +149,15 @@ const limits = { min: 0, max: 3, defaultValue: 2 };
 | --- | --- | --- | --- |
 | `default` | — | `value: state.value.value` | — |
 
+<a id="about"></a>
 ## About Adaptive Stepper
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Adaptive Stepper?**
@@ -153,6 +172,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Color Picker](https://orvui.efu.me/en/components/motion/color-picker): Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+- [Center Morph Modal](https://orvui.efu.me/en/components/motion/center-morph-modal): Expand a modal evenly around its center and return it to the same point on close.
+- [Select](https://orvui.efu.me/en/components/motion/select): Choose from a floating list whose panel can expand continuously from its trigger.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/adaptive-stepper.json

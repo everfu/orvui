@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Text Animation
 
 > Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
 
-Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Text Animation when the interface needs this behavior: reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
 
+<a id="install"></a>
 ## Install
 
 ### Text Animation — Registry source
@@ -81,8 +83,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Text Animation
 
 **Registry source**
@@ -107,6 +111,7 @@ const replay = ref(0);
 <template><div class="flex w-full flex-col items-center gap-8 text-center"><div :key="replay" class="flex flex-col gap-2"><TextReveal as="h2" :text="['Motion that feels', 'considered.']" class="text-balance text-4xl font-semibold leading-[0.95] tracking-[-0.04em] text-foreground sm:text-5xl" /><TextReveal text="Word by word, with a soft blur." :delay=".9" :stagger=".05" :blur="6" y-offset="20%" class="text-sm text-muted-foreground" /></div><button type="button" @click="replay += 1" class="inline-flex h-9 items-center rounded-full border border-border bg-card px-4 text-xs font-medium text-foreground press hover:border-(--color-border-strong) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Replay</button></div></template>
 ```
 
+<a id="text-scramble"></a>
 ### Text Scramble
 
 Resolve temporary characters into the target text and expose a stable accessible value.
@@ -137,6 +142,7 @@ function advance() { selected.value = (selected.value + 1) % steps.length; }
 <template><div class="flex w-full flex-col items-center gap-8 text-center"><TextScramble :text="steps[selected]" class="font-mono text-xl font-medium text-foreground" /><button type="button" @click="advance" class="inline-flex h-9 items-center rounded-full border border-border bg-card px-4 text-xs font-medium text-foreground hover:border-border-strong">Next phrase</button></div></template>
 ```
 
+<a id="chromatic-reveal"></a>
 ### Dia Text Animation
 
 Keep the sentence prefix still while a color sweep reveals each changing final word.
@@ -161,6 +167,7 @@ const adjectives = ["natural.", "intentional.", "alive."];
 <template><div class="@container flex w-full justify-center"><ChromaticTextReveal prefix="Motion that feels" :words="adjectives" :start-on-view="false" class="shrink-0 font-medium tracking-[-.04em] text-foreground [font-size:clamp(1.25rem,7.8cqw,3rem)]" /></div></template>
 ```
 
+<a id="reveal"></a>
 ### Text Reveal
 
 Introduce words or characters with a short upward movement and fading blur.
@@ -187,6 +194,7 @@ const replay = ref(0);
 <template><div class="flex w-full flex-col items-center gap-8 text-center"><div :key="replay" class="flex flex-col gap-2"><TextReveal as="h2" :text="['Motion that feels', 'considered.']" class="text-balance text-4xl font-semibold leading-[0.95] tracking-[-0.04em] text-foreground sm:text-5xl" /><TextReveal text="Word by word, with a soft blur." :delay=".9" :stagger=".05" :blur="6" y-offset="20%" class="text-sm text-muted-foreground" /></div><button type="button" @click="replay += 1" class="inline-flex h-9 items-center rounded-full border border-border bg-card px-4 text-xs font-medium text-foreground hover:border-border-strong">Replay</button></div></template>
 ```
 
+<a id="shimmer"></a>
 ### Text Shimmer
 
 Move a highlight across existing text to indicate pending work or emphasize a label.
@@ -211,6 +219,7 @@ const examples = [{ text: "Loading projects…", class: "text-3xl font-semibold"
 <template><div class="flex flex-col gap-4"><TextShimmer v-for="example in examples" :key="example.text" :duration="example.duration" :class="example.class">{{ example.text }}</TextShimmer></div></template>
 ```
 
+<a id="cascade"></a>
 ### Text Cascade
 
 Replace characters individually, letting the previous line leave before the next settles.
@@ -245,6 +254,12 @@ onBeforeUnmount(() => clearInterval(interval));
 <template><div class="flex w-full justify-center"><p class="text-lg font-medium text-foreground"><TextCascade :text="actions[selected]" /></p></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### TextReveal
@@ -323,12 +338,15 @@ onBeforeUnmount(() => clearInterval(interval));
 | --- | --- | --- | --- | --- |
 | `text` | `string` | — | Yes | — |
 
+<a id="about"></a>
 ## About Text Animation
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Text Animation?**
@@ -343,6 +361,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Number Animation](https://orvui.efu.me/en/components/motion/number): Animate numeric values with counting, rolling or position-preserving digit changes.
+- [Action Swap](https://orvui.efu.me/en/components/motion/action-swap): Replace short action text or icons using blur, rolling or staggered transitions.
+- [Loader](https://orvui.efu.me/en/components/motion/loader): Choose a compact animated indicator for an operation whose result is still pending.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/text-animation.json

@@ -9,7 +9,7 @@ const catalog = catalogData as ProductCatalog;
 import { descriptions } from "../apps/docs/app/utils/docs/i18n";
 
 describe("orvui product catalog contract", () => {
-  it("owns four categories, 109 stable components and 72 registered variants", () => {
+  it("owns four categories, 110 stable components and 72 registered variants", () => {
     expect(catalog.schemaVersion).toBe(2);
     expect(catalog.product.name).toBe("orvui");
     expect(
@@ -19,7 +19,7 @@ describe("orvui product catalog contract", () => {
           category.components.length,
         ]),
       ),
-    ).toEqual({ motion: 54, charts: 14, agents: 18, blocks: 23 });
+    ).toEqual({ motion: 55, charts: 14, agents: 18, blocks: 23 });
     expect(
       catalog.categories
         .flatMap((category) => category.components)

@@ -88,7 +88,11 @@ const date = computed(() => {
       </section>
     </template>
     <template v-if="section !== 'behavior'">
-      <section v-if="about" id="about" class="details-section details-about">
+      <section
+        v-if="about && section === 'all'"
+        id="about"
+        class="details-section details-about"
+      >
         <Collapsible>
           <h2 class="details-title">
             <CollapsibleTrigger class="details-about-trigger"
@@ -118,6 +122,23 @@ const date = computed(() => {
           >
         </Collapsible>
       </section>
+      <template v-if="about && section === 'after'">
+        <section id="about" class="details-section details-accessibility">
+          <h2 id="accessibility" class="guide-title">
+            {{ text("无障碍", "Accessibility") }}
+          </h2>
+          <p class="guide-copy">{{ about.accessibility }}</p>
+        </section>
+        <section id="faq" class="details-section details-faq">
+          <h2 class="guide-title">{{ text("常见问题", "FAQ") }}</h2>
+          <dl class="about-faq">
+            <div v-for="item in about.faq" :key="item.question">
+              <dt>{{ item.question }}</dt>
+              <dd>{{ item.answer }}</dd>
+            </div>
+          </dl>
+        </section>
+      </template>
       <section
         v-if="related.length"
         id="related-components"

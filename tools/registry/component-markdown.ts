@@ -1,8 +1,16 @@
 import { packageName, packageArchiveName } from "../distribution";
 import type { ApiComponent, ApiEntry } from "./component-docs-types";
 import type { CatalogEntry } from "./types";
+import {
+  componentBindings,
+  componentStateCopy,
+} from "../../apps/docs/app/utils/docs/component-handbook";
 import catalog from "../catalog/components.json";
 import { getVariantDescription } from "../../apps/docs/app/utils/docs/variant-descriptions";
+import {
+  relatedComponents,
+  getLocalizedDetails,
+} from "../../apps/docs/app/utils/docs/details";
 import type {
   ComponentDetailBaseline,
   AgentGuide,
@@ -85,17 +93,22 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
         : []),
       "---",
       "",
+      '<a id="overview"></a>',
       `# ${component.name}`,
       "",
       `> ${description}`,
       "",
+      '<a id="install"></a>',
       `## ${t("Install", "安装")}`,
       "",
     ];
   if (details?.about) {
-    const installHeading = lines.splice(lines.length - 2, 2);
+    const installHeading = lines.splice(lines.length - 3, 3);
     lines.push(
-      details.about.overview,
+      ...(details.about.overview !== description
+        ? [details.about.overview, ""]
+        : []),
+      '<a id="when-to-use"></a>',
       "",
       `## ${t("When to use it", "适用场景")}`,
       "",
@@ -205,7 +218,7 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
         "组件的完整依赖列表见注册表详情。",
       ),
     );
-  lines.push("", `## ${t("Usage", "用法")}`, "");
+  lines.push("", '<a id="examples"></a>', `## ${t("Usage", "用法")}`, "");
   const examples = [
     { slug: "default", name: component.name, description: "" },
     ...(component.examples ?? []),
@@ -217,6 +230,7 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
         `Missing Markdown usage for ${input.category.slug}/${component.slug}/${example.slug}`,
       );
     lines.push(
+      `<a id="${example.slug}"></a>`,
       `### ${example.name}`,
       "",
       ...(example.description
@@ -244,6 +258,28 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
     );
   }
   if (details?.guide) guideMarkdown(details.guide, lines, t, pageUrl);
+  const bindings = componentBindings(api);
+  lines.push(
+    '<a id="state-and-events"></a>',
+    `## ${t("State and events", "状态与事件")}`,
+    "",
+    (bindings.length
+      ? componentStateCopy.controlled
+      : componentStateCopy.static)[input.locale === "zh" ? "zh" : "en"],
+    "",
+  );
+  if (bindings.length)
+    lines.push(
+      `| ${t("Component", "组件")} | ${t("Vue binding", "Vue 绑定")} | ${t("Type", "类型")} | ${t("Update event", "更新事件")} |`,
+      "| --- | --- | --- | --- |",
+      ...bindings.map(
+        (binding) =>
+          `| ${inline(binding.component)} | ${inline(binding.directive)} | ${inline(binding.type)} | ${inline(binding.event)} |`,
+      ),
+      "",
+      componentStateCopy.uncontrolled[input.locale === "zh" ? "zh" : "en"],
+      "",
+    );
   const publicComponents = new Map<string, ApiComponent>();
   for (const composition of [api.default, ...Object.values(api.variants)])
     for (const component of composition.components)
@@ -251,7 +287,11 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
   for (const component of input.apiComponents ?? [])
     publicComponents.set(component.file, component);
   if (publicComponents.size)
-    lines.push(`## ${t("API Reference", "API 参考")}`, "");
+    lines.push(
+      '<a id="api-reference"></a>',
+      `## ${t("API Reference", "API 参考")}`,
+      "",
+    );
   for (const component of publicComponents.values()) {
     lines.push(`### ${component.displayName}`, "");
     if (component.props.length) {
@@ -297,17 +337,47 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
   if (details?.about) {
     const about = details.about;
     lines.push(
+      '<a id="about"></a>',
       `## ${t("About", "关于")} ${component.name}`,
       "",
+      '<a id="accessibility"></a>',
       `### ${t("Accessibility", "无障碍")}`,
       "",
       about.accessibility,
       "",
+      '<a id="faq"></a>',
       `### ${t("FAQ", "常见问题")}`,
       "",
     );
     for (const item of about.faq)
       lines.push(`**${item.question}**`, "", item.answer, "");
+  }
+  if (
+    catalog.categories.some((category) =>
+      category.components.some((entry) => entry.slug === component.slug),
+    )
+  ) {
+    const related = relatedComponents(input.category.slug, component.slug, 3);
+    if (related.length) {
+      lines.push(
+        '<a id="related-components"></a>',
+        `## ${t("Related components", "相关组件")}`,
+        "",
+      );
+      const prefix = input.locale === "zh" ? "" : "/en";
+      for (const item of related) {
+        const localized = getLocalizedDetails(
+          item.category,
+          item.slug,
+          input.locale !== "zh",
+        );
+        const path = `${prefix}/${item.category === "charts" ? "charts" : `components/${item.category}`}/${item.slug}`;
+        lines.push(
+          `- [${item.name}](${new URL(path, pageUrl).href}): ${localized?.description ?? item.description}`,
+        );
+      }
+      lines.push("");
+    }
   }
   const files = Array.from(
     new Set([
@@ -318,6 +388,7 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
     ]),
   );
   lines.push(
+    '<a id="licenses"></a>',
     `## ${t("Source", "源码")}`,
     "",
     `- ${t("Registry detail", "注册表详情")}: ${registryUrl(input.registryBaseUrl, component.slug)}`,
@@ -364,13 +435,17 @@ function guideMarkdown(
   lines.push(
     `## ${t("Component Guide", "组件指南")}`,
     "",
-    guide.introduction,
-    "",
+    '<a id="composition"></a>',
     `### ${t("Composition", "组合结构")}`,
     "",
     guide.composition.description,
     "",
     ...block(guide.composition.tree, "text"),
+    '<a id="behavior"></a>',
+    `### ${t("How it works", "工作方式")}`,
+    "",
+    guide.introduction,
+    "",
     `### ${t("Lifecycle", "生命周期")}`,
     "",
   );

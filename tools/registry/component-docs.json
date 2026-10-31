@@ -3594,6 +3594,111 @@
       },
       "variants": {}
     },
+    "motion/table-of-contents": {
+      "category": "motion",
+      "slug": "table-of-contents",
+      "publicComponents": [
+        "TableOfContents"
+      ],
+      "default": {
+        "demoFile": "packages/vue/src/motion/table-of-contents/demo.vue",
+        "primaryFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue",
+        "sourceFiles": [
+          "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+        ],
+        "components": [
+          {
+            "displayName": "TableOfContents",
+            "aliases": [
+              "TableOfContents"
+            ],
+            "file": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue",
+            "props": [
+              {
+                "name": "items",
+                "type": "TableOfContentsItem[]",
+                "required": true,
+                "defaultValue": null,
+                "defaultSource": null,
+                "description": "",
+                "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+              },
+              {
+                "name": "target",
+                "type": "string | HTMLElement | ComponentPublicInstance | Ref<HTMLElement | ComponentPublicInstance | null | undefined, HTMLElement | ComponentPublicInstance | null | undefined> | () => HTMLElement | null",
+                "required": false,
+                "defaultValue": null,
+                "defaultSource": null,
+                "description": "",
+                "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+              },
+              {
+                "name": "offset",
+                "type": "number",
+                "required": false,
+                "defaultValue": "88",
+                "defaultSource": "withDefaults",
+                "description": "",
+                "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+              },
+              {
+                "name": "modelValue",
+                "type": "string",
+                "required": false,
+                "defaultValue": "local.value",
+                "defaultSource": "fallback",
+                "description": "",
+                "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+              },
+              {
+                "name": "title",
+                "type": "string",
+                "required": false,
+                "defaultValue": "\"On this page\"",
+                "defaultSource": "withDefaults",
+                "description": "",
+                "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+              }
+            ],
+            "events": [
+              {
+                "name": "update:modelValue",
+                "signature": "[id: string]",
+                "declaration": "typed",
+                "description": ""
+              }
+            ],
+            "slots": [
+              {
+                "name": "title",
+                "signature": "() => unknown",
+                "declaration": "typed",
+                "bindings": [],
+                "description": ""
+              },
+              {
+                "name": "item",
+                "signature": "(props: { item: TableOfContentsItem; active: boolean; }) => unknown",
+                "declaration": "typed",
+                "bindings": [
+                  {
+                    "name": "item",
+                    "expression": "item"
+                  },
+                  {
+                    "name": "active",
+                    "expression": "active === item.id"
+                  }
+                ],
+                "description": ""
+              }
+            ],
+            "diagnostics": []
+          }
+        ]
+      },
+      "variants": {}
+    },
     "motion/tilt-card": {
       "category": "motion",
       "slug": "tilt-card",
@@ -35594,6 +35699,94 @@
       ],
       "diagnostics": []
     },
+    "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue": {
+      "displayName": "TableOfContents",
+      "aliases": [
+        "TableOfContents"
+      ],
+      "file": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue",
+      "props": [
+        {
+          "name": "items",
+          "type": "TableOfContentsItem[]",
+          "required": true,
+          "defaultValue": null,
+          "defaultSource": null,
+          "description": "",
+          "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+        },
+        {
+          "name": "target",
+          "type": "string | HTMLElement | ComponentPublicInstance | Ref<HTMLElement | ComponentPublicInstance | null | undefined, HTMLElement | ComponentPublicInstance | null | undefined> | () => HTMLElement | null",
+          "required": false,
+          "defaultValue": null,
+          "defaultSource": null,
+          "description": "",
+          "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "required": false,
+          "defaultValue": "88",
+          "defaultSource": "withDefaults",
+          "description": "",
+          "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+        },
+        {
+          "name": "modelValue",
+          "type": "string",
+          "required": false,
+          "defaultValue": "local.value",
+          "defaultSource": "fallback",
+          "description": "",
+          "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "defaultValue": "\"On this page\"",
+          "defaultSource": "withDefaults",
+          "description": "",
+          "sourceFile": "packages/vue/src/motion/table-of-contents/src/TableOfContents.vue"
+        }
+      ],
+      "events": [
+        {
+          "name": "update:modelValue",
+          "signature": "[id: string]",
+          "declaration": "typed",
+          "description": ""
+        }
+      ],
+      "slots": [
+        {
+          "name": "title",
+          "signature": "() => unknown",
+          "declaration": "typed",
+          "bindings": [],
+          "description": ""
+        },
+        {
+          "name": "item",
+          "signature": "(props: { item: TableOfContentsItem; active: boolean; }) => unknown",
+          "declaration": "typed",
+          "bindings": [
+            {
+              "name": "item",
+              "expression": "item"
+            },
+            {
+              "name": "active",
+              "expression": "active === item.id"
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "diagnostics": []
+    },
     "packages/vue/src/motion/tilt-card/src/TiltCard.vue": {
       "displayName": "TiltCard",
       "aliases": [
@@ -55655,13 +55848,13 @@
     }
   ],
   "summary": {
-    "entries": 109,
+    "entries": 110,
     "variants": 72,
-    "publicComponents": 400,
-    "uniqueSfcFiles": 359,
-    "props": 1401,
-    "events": 329,
-    "slots": 268,
+    "publicComponents": 401,
+    "uniqueSfcFiles": 360,
+    "props": 1406,
+    "events": 330,
+    "slots": 270,
     "diagnostics": 140
   }
 }

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Message Bubble
 
 > Render a compact conversation bubble with an avatar, metadata and optional controls.
 
-Render a compact conversation bubble with an avatar, metadata and optional controls.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Message Bubble when the interface needs this behavior: render a compact conversation bubble with an avatar, metadata and optional controls.
 
+<a id="install"></a>
 ## Install
 
 ### Message Bubble — Registry source
@@ -76,8 +78,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Message Bubble
 
 **Registry source**
@@ -430,6 +434,7 @@ onBeforeUnmount(stop);
 </template>
 ```
 
+<a id="surfaces"></a>
 ### Animated Surfaces
 
 Compare bubble surfaces for incoming and outgoing messages.
@@ -784,6 +789,7 @@ onBeforeUnmount(stop);
 </template>
 ```
 
+<a id="avatars"></a>
 ### With Avatars
 
 Combine avatar choices with message content and sender metadata.
@@ -989,6 +995,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="show-more"></a>
 ### Show More
 
 Expand a long bubble in place without moving the surrounding conversation controls.
@@ -1082,8 +1089,7 @@ const paragraphs = [
 
 ## Component Guide
 
-Render a compact conversation bubble with an avatar, metadata and optional controls.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Message Bubble with its public parts: MessageBubble, MessageBubbleContent. Import these names from the component barrel.
@@ -1095,6 +1101,11 @@ Message
     └── MessageBubble
         └── MessageBubbleContent
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Render a compact conversation bubble with an avatar, metadata and optional controls.
 
 ### Lifecycle
 
@@ -1143,6 +1154,18 @@ The Usage section composes MessageBubble, MessageBubbleContent through Vue props
 - Use when: Use Message Bubble when the interface needs this behavior: render a compact conversation bubble with an avatar, metadata and optional controls.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `MessageBubbleCollapsible` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### MessageBubble
@@ -1202,12 +1225,15 @@ The Usage section composes MessageBubble, MessageBubbleContent through Vue props
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Message Bubble
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Message Bubble?**
@@ -1222,6 +1248,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Message](https://orvui.efu.me/en/components/agents/message): Build a conversation entry from content, attachments, sources and action parts.
+- [Streaming Response](https://orvui.efu.me/en/components/agents/streaming-response): Compose a changing assistant response with text, attachments, references and actions.
+- [Message Scroller](https://orvui.efu.me/en/components/agents/message-scroller): Follow appended messages while letting readers leave and return to the latest content.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/message-bubble.json

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Streaming Response
 
 > Compose a changing assistant response with text, attachments, references and actions.
 
-Compose a changing assistant response with text, attachments, references and actions.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Streaming Response when the interface needs this behavior: compose a changing assistant response with text, attachments, references and actions.
 
+<a id="install"></a>
 ## Install
 
 ### Streaming Response — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Streaming Response
 
 **Registry source**
@@ -350,8 +354,7 @@ onBeforeUnmount(() => {
 
 ## Component Guide
 
-Compose a changing assistant response with text, attachments, references and actions.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Streaming Response with its public parts: StreamingResponse. Import these names from the component barrel.
@@ -362,6 +365,11 @@ Message
     └── MessageBubble
         └── StreamingResponse
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Compose a changing assistant response with text, attachments, references and actions.
 
 ### Lifecycle
 
@@ -411,6 +419,19 @@ The Usage section composes StreamingResponse through Vue props, events and slots
 - Use when: Use Streaming Response when the interface needs this behavior: compose a changing assistant response with text, attachments, references and actions.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `StreamingResponse` | `v-model:sourcesOpen` | `boolean` | `update:sourcesOpen` |
+| `StreamingResponse` | `v-model:feedback` | `null \| "up" \| "down"` | `update:feedback` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### StreamingResponse
@@ -449,12 +470,15 @@ The Usage section composes StreamingResponse through Vue props, events and slots
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Streaming Response
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Streaming Response?**
@@ -469,6 +493,14 @@ Observe retry, update:sourcesOpen, sourcesOpenChange, update:feedback, feedbackC
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Code Block](https://orvui.efu.me/en/components/agents/code-block): Present highlighted code with line controls, file labels and a copy operation.
+- [Citations](https://orvui.efu.me/en/components/agents/citations): Connect inline reference markers to inspectable source entries and links.
+- [Chat App](https://orvui.efu.me/en/components/agents/chat-app): Compose navigation, conversation content and a prompt area into an assistant workspace.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/streaming-response.json

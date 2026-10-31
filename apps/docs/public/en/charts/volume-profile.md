@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Volume Profile
 
 > Compare traded volume by price level with horizontal bidirectional bars.
 
-Compare traded volume by price level with horizontal bidirectional bars.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Volume Profile when the interface needs this behavior: compare traded volume by price level with horizontal bidirectional bars.
 
+<a id="install"></a>
 ## Install
 
 ### Volume Profile — Registry source
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Volume Profile
 
 **Registry source**
@@ -263,6 +267,18 @@ const session = ref("today"),
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `VolumeProfile` | `v-model:activeId` | `null \| string` | `update:activeId` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### VolumeProfile
@@ -327,12 +343,15 @@ const session = ref("today"),
 
 ### VolumeProfileSummary
 
+<a id="about"></a>
 ## About Volume Profile
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Volume Profile?**
@@ -347,6 +366,14 @@ Observe update:activeId, activeChange to connect the component to application st
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Candlestick Chart](https://orvui.efu.me/en/charts/candlestick-chart): Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
+- [Order Book](https://orvui.efu.me/en/charts/order-book): Inspect bid and ask levels, cumulative depth and price selections in a live book.
+- [Composition Chart](https://orvui.efu.me/en/charts/composition-chart): Compare contributions across categories with normalized bars or stacked areas.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/volume-profile.json

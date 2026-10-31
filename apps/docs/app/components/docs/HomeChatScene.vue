@@ -47,9 +47,9 @@ import { ReasoningText } from "../../../../../packages/vue/src/agents/loading-st
 import { CitationList } from "../../../../../packages/vue/src/agents/citations";
 import { useReducedMotion } from "../../../../../packages/vue/src/lib/composables";
 import HomeAppFrame from "./HomeAppFrame.vue";
-import { useSiteShell } from "../../composables/site-shell-state";
+import { useTemplateContext } from "../../templates/context";
 import { useSiteCopy } from "../../composables/use-site-copy";
-const { t, routeTo } = useSiteShell();
+const { t, routeTo } = useTemplateContext();
 const reduce = useReducedMotion(),
   frame = ref<InstanceType<typeof HomeAppFrame>>();
 const active = ref("showcase"),

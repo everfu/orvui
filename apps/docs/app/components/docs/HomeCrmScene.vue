@@ -36,9 +36,9 @@ import { FunnelChart } from "../../../../../packages/vue/src/charts/funnel-chart
 import HomeAppFrame from "./HomeAppFrame.vue";
 import HomeMetric from "./HomeMetric.vue";
 import HomeTrendChart from "./HomeTrendChart.vue";
-import { useSiteShell } from "../../composables/site-shell-state";
+import { useTemplateContext } from "../../templates/context";
 import { currency, initials } from "../../utils/docs/home-demo-data";
-const { t, en } = useSiteShell();
+const { t, en } = useTemplateContext();
 const active = ref("home"),
   forecast = ref<string | null>(null),
   query = ref(""),

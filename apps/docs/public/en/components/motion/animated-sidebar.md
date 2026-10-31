@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Animated Sidebar
 
 > Compose nested navigation with expanded, icon-only and mobile drawer presentations.
 
-Compose nested navigation with expanded, icon-only and mobile drawer presentations.
+<a id="when-to-use"></a>
 
 ## When to use it
 
-- Use Animated Sidebar when the interface needs this behavior: compose nested navigation with expanded, icon-only and mobile drawer presentations.
+- Use for grouped application navigation where readers move between several areas of a workspace.
 
+<a id="install"></a>
 ## Install
 
 ### Animated Sidebar — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Animated Sidebar
 
 **Registry source**
@@ -511,8 +515,7 @@ function select(item: (typeof destinations)[number]) {
 
 ## Component Guide
 
-Compose nested navigation with expanded, icon-only and mobile drawer presentations.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Animated Sidebar with its public parts: AnimatedSidebar, AnimatedSidebarClose, AnimatedSidebarContent, AnimatedSidebarFooter, AnimatedSidebarGroup, AnimatedSidebarGroupContent, AnimatedSidebarGroupLabel, AnimatedSidebarHeader, AnimatedSidebarInset, AnimatedSidebarMenu, AnimatedSidebarMenuButton, AnimatedSidebarMenuItem, AnimatedSidebarMenuSub, AnimatedSidebarMenuSubButton, AnimatedSidebarMenuSubItem, AnimatedSidebarProvider, AnimatedSidebarRail, AnimatedSidebarTrigger. Import these names from the component barrel.
@@ -527,6 +530,11 @@ AnimatedSidebarProvider
 │   └── AnimatedSidebarRail
 └── AnimatedSidebarInset
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Compose nested navigation with expanded, icon-only and mobile drawer presentations.
 
 ### Lifecycle
 
@@ -571,9 +579,23 @@ The Usage section composes AnimatedSidebar, AnimatedSidebarClose, AnimatedSideba
 
 ### Usage guidance
 
-- Use when: Use Animated Sidebar when the interface needs this behavior: compose nested navigation with expanded, icon-only and mobile drawer presentations.
+- Use when: Use for grouped application navigation where readers move between several areas of a workspace.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `AnimatedSidebarProvider` | `v-model:open` | `boolean` | `update:open` |
+| `AnimatedSidebarProvider` | `v-model:openMobile` | `boolean` | `update:openMobile` |
+| `AnimatedSidebarProvider` | `v-model:mobileOpen` | `boolean` | `update:mobileOpen` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### AnimatedSidebar
@@ -794,12 +816,15 @@ The Usage section composes AnimatedSidebar, AnimatedSidebarClose, AnimatedSideba
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Animated Sidebar
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Animated Sidebar?**
@@ -814,6 +839,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Image Viewer](https://orvui.efu.me/en/components/motion/image-viewer): Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+- [Combobox](https://orvui.efu.me/en/components/motion/combobox): Filter a grouped option list from an input while keeping keyboard focus in the field.
+- [File Tree](https://orvui.efu.me/en/components/motion/file-tree): Explore nested files and folders with expandable branches and keyboard selection.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/animated-sidebar.json

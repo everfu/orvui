@@ -245,7 +245,7 @@ it("retains the independent shader license notice instead of implying a blanket 
   );
   expect(buildComponentMarkdown(input)).toContain("LICENSE.paper-design");
 });
-it("accepts the frozen real metadata schema for all 109 entries and 72 registered examples", () => {
+it("accepts the frozen real metadata schema for all 110 entries and 72 registered examples", () => {
   const catalog = JSON.parse(
     readFileSync("tools/catalog/components.json", "utf8"),
   ) as { categories: CatalogCategory[] };
@@ -280,6 +280,6 @@ it("accepts the frozen real metadata schema for all 109 entries and 72 registere
       }
       count++;
     }
-  expect(count).toBe(109);
+  expect(count).toBe(110);
   expect(examples).toBe(72);
 });

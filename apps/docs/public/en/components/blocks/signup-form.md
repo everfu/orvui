@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Sign Up Form
 
 > Move through registration fields with local validation and explicit submission states.
 
-Move through registration fields with local validation and explicit submission states.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Sign Up Form when the interface needs this behavior: move through registration fields with local validation and explicit submission states.
 
+<a id="install"></a>
 ## Install
 
 ### Sign Up Form — Registry source
@@ -54,8 +56,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Sign Up Form
 
 **Registry source**
@@ -160,6 +164,18 @@ onBeforeUnmount(() => {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `SignUpForm` | `v-model` | `SignUpValues` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### SignUpForm
@@ -198,12 +214,15 @@ onBeforeUnmount(() => {
 | --- | --- | --- | --- |
 | `footer` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Sign Up Form
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Sign Up Form?**
@@ -218,6 +237,14 @@ Observe update:modelValue, valuesChange, success, error to connect the component
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Swipeable List](https://orvui.efu.me/en/components/blocks/swipeable-list): Reveal actions on either side of a list row with pointer or keyboard input.
+- [Feedback Widget](https://orvui.efu.me/en/components/blocks/feedback-widget): Expand a feedback trigger into a form with sending, success and retry states.
+- [Project Folder](https://orvui.efu.me/en/components/blocks/project-folder): Fan out document previews and expand a selected folder into a focused surface.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/signup-form.json

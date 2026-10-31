@@ -201,11 +201,11 @@ describe("Vue public API metadata", () => {
     );
     expect(docs.components[`${base}/Generic.vue`].diagnostics).toEqual([]);
   });
-  it("maps all 109 catalog entries and 72 examples to actual public files in the generated repository artifact", () => {
+  it("maps all 110 catalog entries and 72 examples to actual public files in the generated repository artifact", () => {
     const data = JSON.parse(
       readFileSync(resolve("tools/registry/component-docs.json"), "utf8"),
     ) as ComponentDocs;
-    expect(data.summary.entries).toBe(109);
+    expect(data.summary.entries).toBe(110);
     expect(data.summary.variants).toBe(72);
     expect(
       data.diagnostics.filter(
@@ -222,7 +222,9 @@ describe("Vue public API metadata", () => {
     );
     expect(
       data.entries["motion/image-viewer"].variants.morphing.sourceFiles,
-    ).toContain("packages/vue/src/motion/image-viewer/src/ImageViewerCaption.vue");
+    ).toContain(
+      "packages/vue/src/motion/image-viewer/src/ImageViewerCaption.vue",
+    );
     for (const entry of Object.values(data.entries))
       for (const composition of [
         entry.default,

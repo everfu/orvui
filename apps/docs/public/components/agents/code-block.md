@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Code Block
 
 > 呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 
-呈现带高亮的代码，并支持行控件、文件标签与复制操作。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Code Block：呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 
+<a id="install"></a>
 ## 安装
 
 ### Code Block — 复制源码
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Code Block
 
 **复制源码**
@@ -209,8 +213,7 @@ onMounted(replay);
 
 ## 组件指南
 
-呈现带高亮的代码，并支持行控件、文件标签与复制操作。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 CodeBlock, AgentCodeLine 组合 Code Block，并从该组件的公开入口导入。
@@ -219,6 +222,11 @@ onMounted(replay);
 StreamingResponse
 └── CodeBlock
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 
 ### 生命周期
 
@@ -268,6 +276,12 @@ Usage 区域通过 Vue props、事件与插槽组合 CodeBlock, AgentCodeLine，
 - 适用: 当界面需要以下行为时使用 Code Block：呈现带高亮的代码，并支持行控件、文件标签与复制操作。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+此示例组合没有声明成对的受控属性与 update 事件。使用已列出的属性、原生事件和插槽组合内容；不要为它添加未公开的 v-model。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### CodeBlock
@@ -296,12 +310,15 @@ Usage 区域通过 Vue props、事件与插槽组合 CodeBlock, AgentCodeLine，
 | `code` | `string` | — | 是 | — |
 | `tokens` | `AgentCodeToken[]` | — | 否 | — |
 
+<a id="about"></a>
 ## 关于 Code Block
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Code Block？**
@@ -316,6 +333,14 @@ Usage 区域通过 Vue props、事件与插槽组合 CodeBlock, AgentCodeLine，
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [File Diff](https://orvui.efu.me/components/agents/file-diff): 通过对齐行号与可展开上下文检查新增及删除内容。
+- [Tool Result](https://orvui.efu.me/components/agents/tool-result): 在同一表面呈现工具调用状态、摘要与可展开结果。
+- [Streaming Response](https://orvui.efu.me/components/agents/streaming-response): 组合持续变化的助手回复，包括文字、附件、引用和操作。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/code-block.json

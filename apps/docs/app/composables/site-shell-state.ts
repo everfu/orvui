@@ -19,6 +19,8 @@ import { useThemeToggle } from "../../../../packages/vue/src/motion/theme-toggle
 import type { SitePageSlug } from "../utils/docs/site-page-data";
 import { appearance, readStoredAppearance, type Appearance } from "../utils/docs/appearance";
 import { provideSitePreferences } from "./preferences";
+import { resolveDocsSection } from "../utils/docs/document-sections";
+import { provideTemplateContext } from "../templates/context";
 
 type Frontmatter = Record<string, unknown>;
 const catalog = catalogData as ProductCatalog;
@@ -31,6 +33,10 @@ export function createSiteShell(
 ) {
   provideSitePreferences();
   const en = computed(() => route.path.startsWith("/en/"));
+  provideTemplateContext(en, "");
+  const docsSection = computed(() => resolveDocsSection(frontmatter.value));
+  const pageLayout = computed(() => String(frontmatter.value.layout ?? ""));
+  const templateSlug = computed(() => String(frontmatter.value.templateSlug ?? ""));
   const locale = computed(() => (en.value ? "/en" : ""));
   const home = computed(() => frontmatter.value.layout === "home");
   const category = computed(() =>
@@ -185,6 +191,9 @@ export function createSiteShell(
   });
   return {
     catalog,
+    docsSection,
+    pageLayout,
+    templateSlug,
     en,
     locale,
     home,

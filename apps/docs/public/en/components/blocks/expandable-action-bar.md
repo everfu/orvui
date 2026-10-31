@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Expandable Action Bar
 
 > Reveal labels around the active action in a compact row of icon controls.
 
-Reveal labels around the active action in a compact row of icon controls.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Expandable Action Bar when the interface needs this behavior: reveal labels around the active action in a compact row of icon controls.
 
+<a id="install"></a>
 ## Install
 
 ### Expandable Action Bar — Registry source
@@ -63,8 +65,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Expandable Action Bar
 
 **Registry source**
@@ -317,6 +321,18 @@ const items = computed<ExpandableActionBarItem[]>(() =>
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ExpandableActionBar` | `v-model:expanded` | `boolean` | `update:expanded` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ExpandableActionBar
@@ -349,12 +365,15 @@ const items = computed<ExpandableActionBarItem[]>(() =>
 | --- | --- | --- | --- |
 | `item` | — | `item: item`, `expanded: expanded`, `active: item.active \|\| props.activeId === item.id` | — |
 
+<a id="about"></a>
 ## About Expandable Action Bar
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Expandable Action Bar?**
@@ -369,6 +388,14 @@ Observe update:expanded, expandedChange, action to connect the component to appl
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Expandable Tabs](https://orvui.efu.me/en/components/blocks/expandable-tabs): Navigate an icon strip whose selected item expands to display its label.
+- [Overflow Actions](https://orvui.efu.me/en/components/blocks/overflow-actions): Expand a compact action track to expose controls that do not fit its resting width.
+- [Bloom Menu](https://orvui.efu.me/en/components/blocks/bloom-menu): Open a group of actions around a shared center and restore focus when it closes.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/expandable-action-bar.json

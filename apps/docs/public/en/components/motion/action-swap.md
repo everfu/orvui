@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Action Swap
 
 > Replace short action text or icons using blur, rolling or staggered transitions.
 
-Replace short action text or icons using blur, rolling or staggered transitions.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Action Swap when the interface needs this behavior: replace short action text or icons using blur, rolling or staggered transitions.
 
+<a id="install"></a>
 ## Install
 
 ### Action Swap — Registry source
@@ -99,8 +101,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Action Swap
 
 **Registry source**
@@ -161,6 +165,7 @@ onBeforeUnmount(() => clearInterval(interval));
 </AnimatePresence></div></template>
 ```
 
+<a id="cascade"></a>
 ### Cascade
 
 Send the old label's characters out and bring the replacement in one character at a time.
@@ -187,6 +192,7 @@ const actions = [{ id: "copy", label: "Copy link", icon: Copy, ariaLabel: "Copy 
 <template><div class="flex w-full justify-center"><ActionSwapCascadeButton :items="actions" variant="primary" /></div></template>
 ```
 
+<a id="blur"></a>
 ### Blur
 
 Crossfade action content with a short blur and scale transition.
@@ -225,6 +231,7 @@ const actions = [{ id: "copy", label: "Copy link", icon: Copy, ariaLabel: "Copy 
 </div></template>
 ```
 
+<a id="roll"></a>
 ### Roll
 
 Bring the next label or icon upward into its existing space.
@@ -263,6 +270,25 @@ const actions = [{ id: "send", label: "Send invite", icon: Send, ariaLabel: "Sen
 </div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ActionSwapButton` | `v-model` | `string` | `update:modelValue` |
+| `ActionSwapButton` | `v-model:value` | `string` | `update:value` |
+| `ActionSwapCascadeButton` | `v-model` | `string` | `update:modelValue` |
+| `ActionSwapCascadeButton` | `v-model:value` | `string` | `update:value` |
+| `ActionSwapBlurButton` | `v-model` | `string` | `update:modelValue` |
+| `ActionSwapBlurButton` | `v-model:value` | `string` | `update:value` |
+| `ActionSwapRollButton` | `v-model` | `string` | `update:modelValue` |
+| `ActionSwapRollButton` | `v-model:value` | `string` | `update:value` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ActionSwapButton
@@ -419,12 +445,15 @@ const actions = [{ id: "send", label: "Send invite", icon: Send, ariaLabel: "Sen
 | `default` | — | `v-bind: slotProps` | — |
 | `icon` | — | `v-bind: slotProps` | — |
 
+<a id="about"></a>
 ## About Action Swap
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Action Swap?**
@@ -439,6 +468,14 @@ Observe update:modelValue, change, update:value, valueChange, click to connect t
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Text Animation](https://orvui.efu.me/en/components/motion/text-animation): Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+- [Number Animation](https://orvui.efu.me/en/components/motion/number): Animate numeric values with counting, rolling or position-preserving digit changes.
+- [Animated Badge](https://orvui.efu.me/en/components/motion/animated-badge): Pair a compact status label with an icon and optional pulse feedback.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/action-swap.json

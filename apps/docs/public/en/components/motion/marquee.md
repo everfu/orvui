@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Marquee
 
 > Repeat a horizontal or vertical content strip with optional pause on hover.
 
-Repeat a horizontal or vertical content strip with optional pause on hover.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Marquee when the interface needs this behavior: repeat a horizontal or vertical content strip with optional pause on hover.
 
+<a id="install"></a>
 ## Install
 
 ### Marquee — Registry source
@@ -52,8 +54,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Marquee
 
 **Registry source**
@@ -84,6 +88,12 @@ const names = "Vercel,Linear,Stripe,Figma,GitHub,Notion,Loom,Raycast".split(",")
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Marquee
@@ -98,12 +108,15 @@ const names = "Vercel,Linear,Stripe,Figma,GitHub,Notion,Loom,Raycast".split(",")
 | `gap` | `string` | `"1rem"` | No | — |
 | `fade` | `boolean` | `true` | No | — |
 
+<a id="about"></a>
 ## About Marquee
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Marquee?**
@@ -118,6 +131,14 @@ Provide content through the documented composition; application effects remain w
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Cylinder Carousel](https://orvui.efu.me/en/components/motion/cylinder-carousel): Arrange gallery items on a concave or convex cylinder controlled by dragging.
+- [Tilt Card](https://orvui.efu.me/en/components/motion/tilt-card): Tilt a card toward the pointer and move a highlight over its surface.
+- [Theme Toggle](https://orvui.efu.me/en/components/motion/theme-toggle): Reveal a new page theme with a circle, rectangle or blinds transition.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/marquee.json

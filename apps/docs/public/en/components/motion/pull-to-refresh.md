@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Pull to Refresh
 
 > Turn a downward pull into a deliberate asynchronous refresh with visible progress.
 
-Turn a downward pull into a deliberate asynchronous refresh with visible progress.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Pull to Refresh when the interface needs this behavior: turn a downward pull into a deliberate asynchronous refresh with visible progress.
 
+<a id="install"></a>
 ## Install
 
 ### Pull to Refresh — Registry source
@@ -63,8 +65,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Pull to Refresh
 
 **Registry source**
@@ -119,6 +123,12 @@ onBeforeUnmount(() => { disposed = true; clearTimeout(timer); release?.(); });
 <template><div class="flex min-h-[34rem] w-full items-center justify-center p-4"><div class="w-full max-w-sm overflow-hidden rounded-[2rem] border border-border bg-background shadow-2xl"><PullToRefresh ariaLabel="Activity feed" class="h-[30rem]" :on-refresh="refresh"><header class="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-background/90 px-5 py-4 backdrop-blur-md"><div><p class="font-semibold text-foreground">Activity</p><p class="text-xs text-muted-foreground">Pull down to check for updates</p></div><span class="rounded-full bg-muted px-2.5 py-1 font-mono text-[10px] text-muted-foreground">{{ refreshes ? `${refreshes} refreshed` : 'live' }}</span></header><div class="divide-y divide-border px-2 pb-3"><article v-for="update in updates" :key="update.id" class="flex gap-3 px-3 py-4"><div class="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-border bg-card text-muted-foreground shadow-sm"><component :is="update.icon" class="h-4 w-4" /></div><div class="min-w-0 flex-1"><div class="flex items-start justify-between gap-3"><p class="text-sm font-medium text-foreground">{{ update.title }}</p><span class="shrink-0 font-mono text-[10px] text-muted-foreground">{{ update.time }}</span></div><p class="mt-1 text-xs leading-relaxed text-muted-foreground">{{ update.detail }}</p></div></article></div></PullToRefresh></div></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### PullToRefresh
@@ -152,12 +162,15 @@ onBeforeUnmount(() => { disposed = true; clearTimeout(timer); release?.(); });
 | --- | --- | --- | --- |
 | `default` | — | `status: status`, `progress: amount` | — |
 
+<a id="about"></a>
 ## About Pull to Refresh
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Pull to Refresh?**
@@ -172,6 +185,14 @@ Observe error to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Wheel Picker](https://orvui.efu.me/en/components/motion/wheel-picker): Select a value from a rotating wheel with momentum and row snapping.
+- [Animated Color Selector](https://orvui.efu.me/en/components/motion/color-selector): Choose one named swatch with a moving selection outline and native radio behavior.
+- [Animated Sidebar](https://orvui.efu.me/en/components/motion/animated-sidebar): Compose nested navigation with expanded, icon-only and mobile drawer presentations.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/pull-to-refresh.json

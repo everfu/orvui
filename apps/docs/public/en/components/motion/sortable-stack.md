@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Sortable List
 
 > Reorder a list with pointer or keyboard input and offer an undo operation.
 
-Reorder a list with pointer or keyboard input and offer an undo operation.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Sortable List when the interface needs this behavior: reorder a list with pointer or keyboard input and offer an undo operation.
 
+<a id="install"></a>
 ## Install
 
 ### Sortable List — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Sortable List
 
 **Registry source**
@@ -102,6 +106,19 @@ const priorities = [
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `SortableList` | `v-model` | `any[]` | `update:modelValue` |
+| `SortableList` | `v-model:items` | `any[]` | `update:items` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### SortableList
@@ -194,12 +211,15 @@ const priorities = [
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Sortable List
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Sortable List?**
@@ -214,6 +234,14 @@ Observe update:modelValue, update:items, itemsChange, change to connect the comp
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Date Range Picker](https://orvui.efu.me/en/components/motion/date-range-picker): Choose the beginning and end of a date interval in an inline or floating calendar.
+- [Animated Color Selector](https://orvui.efu.me/en/components/motion/color-selector): Choose one named swatch with a moving selection outline and native radio behavior.
+- [Image Viewer](https://orvui.efu.me/en/components/motion/image-viewer): Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/sortable-stack.json

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Citations
 
 > Connect inline reference markers to inspectable source entries and links.
 
-Connect inline reference markers to inspectable source entries and links.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Citations when the interface needs this behavior: connect inline reference markers to inspectable source entries and links.
 
+<a id="install"></a>
 ## Install
 
 ### Citations — Registry source
@@ -56,8 +58,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Citations
 
 **Registry source**
@@ -250,8 +254,7 @@ onMounted(replay);
 
 ## Component Guide
 
-Connect inline reference markers to inspectable source entries and links.
-
+<a id="composition"></a>
 ### Composition
 
 Compose Citations with its public parts: Citation, Citations, CitationList, CitationFavicon. Import these names from the component barrel.
@@ -263,6 +266,11 @@ StreamingResponse
     ├── CitationStack
     └── CitationList
 ```
+
+<a id="behavior"></a>
+### How it works
+
+Connect inline reference markers to inspectable source entries and links.
 
 ### Lifecycle
 
@@ -311,6 +319,18 @@ The Usage section composes Citation, Citations, CitationList, CitationFavicon th
 - Use when: Use Citations when the interface needs this behavior: connect inline reference markers to inspectable source entries and links.
 - Avoid when: Choose another composition if its documented interaction model does not fit the task.
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Citations` | `v-model:open` | `boolean` | `update:open` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Citation
@@ -361,12 +381,15 @@ The Usage section composes Citation, Citations, CitationList, CitationFavicon th
 | `url` | `string` | — | No | — |
 | `icon` | `boolean \| null \| string \| number \| void \| VNode<RendererNode, RendererElement, { [key: string]: any; }> \| VNodeArrayChildren \| ComponentOptions<any, any, any, ComputedOptions, MethodOptions, any, any, any, string, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions> \| FunctionalComponent<any, {}, any, {}> \| ComponentPublicInstanceConstructor<any, any, any, any, ComputedOptions, MethodOptions>` | — | No | — |
 
+<a id="about"></a>
 ## About Citations
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Citations?**
@@ -381,6 +404,14 @@ Provide content through the documented composition; application effects remain w
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Message](https://orvui.efu.me/en/components/agents/message): Build a conversation entry from content, attachments, sources and action parts.
+- [Todo List](https://orvui.efu.me/en/components/agents/todo-list): Show a sequence of work items with expandable details and explicit task states.
+- [Streaming Response](https://orvui.efu.me/en/components/agents/streaming-response): Compose a changing assistant response with text, attachments, references and actions.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/citations.json

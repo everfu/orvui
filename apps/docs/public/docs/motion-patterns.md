@@ -108,7 +108,7 @@
 **避免:** 让频繁切换的标签页触发整页转场。
 
 ```vue
-<AnimatePresence mode="wait" :initial="false"><motion.div :key="view" :initial="{ opacity: 0 }" :animate="{ opacity: 1 }" :exit="{ opacity: 0 }" :transition="{ duration: 0.16 }"><slot /></motion.div></AnimatePresence>
+<div class="grid rounded-xl bg-background p-4"><motion.div v-for="current in views" :key="current" class="col-start-1 row-start-1" :aria-hidden="current !== view" :inert="current !== view" :initial="false" :animate="{ opacity: current === view ? 1 : 0 }" :transition="{ duration: reduce ? 0.08 : 0.18 }"><slot :view="current" /></motion.div></div>
 ```
 
 ## 减少动态效果是一种设计状态

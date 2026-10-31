@@ -61,7 +61,7 @@ import { Button } from '@/components/orvui/motion/button'
 
 ## 保留许可，继续探索
 
-复制源码时保留 MIT、NOTICE 及适用的独立 Shader 和字体许可。接下来阅读[主题设置](/docs/theme)，或从[组件目录](/components/motion)选择下一个组件。
+复制源码时保留 MIT、NOTICE 及适用的独立 Shader 和字体许可。接下来阅读[主题设置](/docs/theme)，或从[组件目录](/components)选择下一个组件。
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

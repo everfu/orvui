@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Agent Activity
 
 > 将持续变化的助手活动组织为可展开步骤与完成摘要。
 
-将持续变化的助手活动组织为可展开步骤与完成摘要。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Agent Activity：将持续变化的助手活动组织为可展开步骤与完成摘要。
 
+<a id="install"></a>
 ## 安装
 
 ### Agent Activity — 复制源码
@@ -94,8 +96,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Agent Activity
 
 **复制源码**
@@ -372,6 +376,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="streaming-text"></a>
 ### Streaming Text
 
 随内容到达追加活动文字，并在分组中保留已完成步骤。
@@ -596,6 +601,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="reasoning-steps"></a>
 ### Reasoning Steps
 
 将推理序列展示为独立步骤，并可折叠为摘要。
@@ -786,6 +792,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="web-search"></a>
 ### Web Search
 
 用可识别的来源图标展示搜索及其结果。
@@ -1024,6 +1031,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="tool-calls"></a>
 ### Tool Calls
 
 跟踪工具调用，并展示等待与完成状态。
@@ -1218,6 +1226,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="mixed-activity"></a>
 ### Mixed Activity
 
 把推理、搜索、消息和工具组合为同一变化中的活动分组。
@@ -1496,6 +1505,7 @@ onMounted(replay);
 </template>
 ```
 
+<a id="agent-trace"></a>
 ### Agent Trace
 
 汇总工具调用数和消息数，同时保留各个独立步骤。
@@ -1724,8 +1734,7 @@ onMounted(replay);
 
 ## 组件指南
 
-将持续变化的助手活动组织为可展开步骤与完成摘要。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 AgentActivity 组合 Agent Activity，并从该组件的公开入口导入。
@@ -1735,6 +1744,11 @@ Message
 └── MessageContent
     └── AgentActivity
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+将持续变化的助手活动组织为可展开步骤与完成摘要。
 
 ### 生命周期
 
@@ -1784,6 +1798,18 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentActivity，请选择�
 - 适用: 当界面需要以下行为时使用 Agent Activity：将持续变化的助手活动组织为可展开步骤与完成摘要。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `AgentActivity` | `v-model:open` | `boolean` | `update:open` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### AgentActivity
@@ -1818,12 +1844,15 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentActivity，请选择�
 | `working-status` | `(context: { label: Content; duration: number; }) => VNodeChild` | `label: label`, `duration: duration` | — |
 | `completed-status` | `(context: { summary: Content; duration: number; }) => VNodeChild` | `summary: summary`, `duration: duration` | — |
 
+<a id="about"></a>
 ## 关于 Agent Activity
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Agent Activity？**
@@ -1838,6 +1867,14 @@ Usage 区域通过 Vue props、事件与插槽组合 AgentActivity，请选择�
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Tool Result](https://orvui.efu.me/components/agents/tool-result): 在同一表面呈现工具调用状态、摘要与可展开结果。
+- [Tool Approval](https://orvui.efu.me/components/agents/tool-approval): 为待执行工具操作展示说明，并请求明确决策。
+- [Agent Loading States](https://orvui.efu.me/components/agents/loading-states): 通过进度、推理和微光显示传达助手工作仍在进行。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/agent-activity.json

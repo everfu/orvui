@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Dynamic Island
 
 > Switch a compact capsule between live activity views without changing its identity.
 
-Switch a compact capsule between live activity views without changing its identity.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Dynamic Island when the interface needs this behavior: switch a compact capsule between live activity views without changing its identity.
 
+<a id="install"></a>
 ## Install
 
 ### Dynamic Island — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `lucide-vue-next@^0.468.0`
 - `tailwind-merge@^3.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Dynamic Island
 
 **Registry source**
@@ -284,6 +288,12 @@ const clock = (seconds: number) =>
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### DynamicIsland
@@ -316,12 +326,15 @@ const clock = (seconds: number) =>
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Dynamic Island
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Dynamic Island?**
@@ -336,6 +349,14 @@ Provide content through compact, default; application effects remain with the co
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Swipeable List](https://orvui.efu.me/en/components/blocks/swipeable-list): Reveal actions on either side of a list row with pointer or keyboard input.
+- [404 / Not Found](https://orvui.efu.me/en/components/blocks/not-found): Present a missing destination with an animated visual and a route back to useful content.
+- [Expandable Tabs](https://orvui.efu.me/en/components/blocks/expandable-tabs): Navigate an icon strip whose selected item expands to display its label.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/dynamic-island.json

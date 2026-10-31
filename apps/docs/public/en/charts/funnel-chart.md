@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Funnel Chart
 
 > Follow successive stages and inspect conversion or loss between adjacent steps.
 
-Follow successive stages and inspect conversion or loss between adjacent steps.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Funnel Chart when the interface needs this behavior: follow successive stages and inspect conversion or loss between adjacent steps.
 
+<a id="install"></a>
 ## Install
 
 ### Funnel Chart — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Funnel Chart
 
 **Registry source**
@@ -212,6 +216,12 @@ function nextCohort() {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### FunnelChart
@@ -237,12 +247,15 @@ function nextCohort() {
 
 ### FunnelChartSummary
 
+<a id="about"></a>
 ## About Funnel Chart
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Funnel Chart?**
@@ -257,6 +270,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Bump Chart](https://orvui.efu.me/en/charts/bump-chart): Follow changes in series rank over time and pin a series for closer inspection.
+- [Liquidity Heatmap](https://orvui.efu.me/en/charts/liquidity-heatmap): Inspect liquidity across time and price through a grid with selectable intensity bands.
+- [Sankey Chart](https://orvui.efu.me/en/charts/sankey-chart): Trace weighted flows across stages using connected nodes and proportional ribbons.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/funnel-chart.json

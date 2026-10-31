@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import { useId } from "vue";
-import { motion } from "motion-v";
 import { ArrowRight } from "lucide-vue-next";
-import {
-  useMediaQuery,
-  useReducedMotion,
-} from "../../../../../packages/vue/src/lib/composables";
-import { SPRING_PRESS } from "../../../../../packages/vue/src/lib/ease";
-const props = defineProps<{ en: boolean }>();
+import { ButtonLink } from "../../../../../packages/vue/src/motion/button";
+const props = defineProps<{ en: boolean; compact?: boolean }>();
 const id = useId();
-const reduce = useReducedMotion();
-const canHover = useMediaQuery("(hover: hover) and (pointer: fine)");
 const t = (zh: string, en: string) => (props.en ? en : zh);
 const path = (value: string) => `${props.en ? "/en" : ""}${value}`;
 </script>
 <template>
-  <div class="docs-resource-stack">
+  <div class="docs-resource-stack" :class="{ 'is-compact': compact }">
     <section class="docs-start-card" :aria-labelledby="`${id}-start`">
       <div class="docs-start-hero" aria-hidden="true">
         <span>orvui</span><span class="docs-vue-badge">Vue</span>
@@ -27,24 +20,21 @@ const path = (value: string) => `${props.en ? "/en" : ""}${value}`;
         <p>
           {{
             t(
-              "安装 Vue 组件包，或通过 shadcn-vue 与完整源码开始。",
-              "Install the Vue package, or start with shadcn-vue and the complete source.",
+              "安装组件包，或按需复制组件源码。",
+              "Install the package or copy the components you need.",
             )
           }}
         </p>
       </div>
-      <motion.a
+      <ButtonLink
         :href="path('/docs/installation')"
         class="docs-install-link site-action site-action--lg site-action--primary"
-        :while-press="reduce ? undefined : { scale: 0.97 }"
-        :while-hover="reduce || !canHover ? undefined : { scale: 1.02 }"
-        :transition="SPRING_PRESS"
       >
         <span class="docs-install-link-inner">
           {{ t("安装指南", "Installation guide")
           }}<ArrowRight :size="14" aria-hidden="true" />
         </span>
-      </motion.a>
+      </ButtonLink>
     </section>
   </div>
 </template>
@@ -53,6 +43,33 @@ const path = (value: string) => `${props.en ? "/en" : ""}${value}`;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.is-compact .docs-start-card {
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--card);
+}
+.is-compact .docs-start-hero {
+  display: none;
+}
+.is-compact .docs-start-copy {
+  padding: 0 0 16px;
+}
+.is-compact .docs-start-copy h2 {
+  font-size: 14px;
+  line-height: 20px;
+}
+.is-compact .docs-start-copy p {
+  font-size: 12px;
+  line-height: 20px;
+}
+.is-compact .docs-install-link {
+  min-height: 36px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.is-compact .docs-install-link-inner {
+  padding: 6px 10px;
 }
 .docs-start-card {
   padding: 8px;

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Status Bar
 
 > Summarize counts across named states in a proportional segmented bar.
 
-Summarize counts across named states in a proportional segmented bar.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Status Bar when the interface needs this behavior: summarize counts across named states in a proportional segmented bar.
 
+<a id="install"></a>
 ## Install
 
 ### Status Bar — Registry source
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `lucide-vue-next@^0.468.0`
 - `tailwind-merge@^3.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Status Bar
 
 **Registry source**
@@ -260,6 +264,18 @@ const api = computed(() =>
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `StatusBar` | `v-model:activeId` | `null \| string` | `update:activeId` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### StatusBar
@@ -331,12 +347,15 @@ const api = computed(() =>
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Status Bar
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Status Bar?**
@@ -351,6 +370,14 @@ Observe update:activeId, activeChange to connect the component to application st
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Composition Chart](https://orvui.efu.me/en/charts/composition-chart): Compare contributions across categories with normalized bars or stacked areas.
+- [Bump Chart](https://orvui.efu.me/en/charts/bump-chart): Follow changes in series rank over time and pin a series for closer inspection.
+- [Funnel Chart](https://orvui.efu.me/en/charts/funnel-chart): Follow successive stages and inspect conversion or loss between adjacent steps.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/status-bar.json

@@ -156,7 +156,7 @@ pnpm build
 pnpm dev
 ```
 
-The type-check command targets the Vite template’s tsconfig.app.json. For an existing project, select the configuration that checks src/. Check the button’s styles and press feedback, then verify state and events for your chosen components. Install dependencies imported directly by an example. Keep MIT, NOTICE and separate shader licenses with the installed source. See [Theme setup](/en/docs/theme) for overrides, then explore the [component catalog](/en/components/motion).
+The type-check command targets the Vite template’s tsconfig.app.json. For an existing project, select the configuration that checks src/. Check the button’s styles and press feedback, then verify state and events for your chosen components. Install dependencies imported directly by an example. Keep MIT, NOTICE and separate shader licenses with the installed source. See [Theme setup](/en/docs/theme) for overrides, then explore the [component catalog](/en/components).
 
 ## Next steps
 

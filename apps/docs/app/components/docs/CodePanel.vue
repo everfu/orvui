@@ -84,9 +84,16 @@ let measurement: ResizeObserver | undefined;
 const measure = () => {
   if (content.value) canExpand.value = content.value.scrollHeight > 320;
 };
-function toggleExpanded() {
+function resetCollapsedScroll() {
+  const element = content.value;
+  if (!expanded.value && element && element.scrollTop !== 0)
+    element.scrollTop = 0;
+}
+async function toggleExpanded() {
   expanded.value = !expanded.value;
-  if (!expanded.value && content.value) content.value.scrollTop = 0;
+  // Apply the collapsed layout before resetting the viewport to its first line.
+  await nextTick();
+  resetCollapsedScroll();
 }
 async function renderCode() {
   const token = ++revision;
@@ -164,6 +171,7 @@ onBeforeUnmount(() => {
         :id="`${id}-code`"
         ref="content"
         class="code-scroll"
+        @scroll.passive="resetCollapsedScroll"
         :class="
           expanded
             ? 'is-expanded'

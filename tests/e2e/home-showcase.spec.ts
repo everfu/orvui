@@ -48,11 +48,14 @@ async function scene(page: Page, id: string, en = false) {
     })
     .getByRole("tab", { name: item[en ? 2 : 1], exact: true })
     .click();
-  await expect(page.locator(`[data-scene="${id}"]`)).toBeVisible();
+  // Scenes load on demand; wait for the existing completion state before
+  // asserting their content, including on a cold local browser cache.
   await expect(page.locator(".home-scene-panel")).toHaveAttribute(
     "aria-busy",
     "false",
+    { timeout: 30000 },
   );
+  await expect(page.locator(`[data-scene="${id}"]`)).toBeVisible();
 }
 async function noOverflow(page: Page) {
   expect(

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Chat App
 
 > Compose navigation, conversation content and a prompt area into an assistant workspace.
 
-Compose navigation, conversation content and a prompt area into an assistant workspace.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Chat App when the interface needs this behavior: compose navigation, conversation content and a prompt area into an assistant workspace.
 
+<a id="install"></a>
 ## Install
 
 ### Chat App — Registry source
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Chat App
 
 **Registry source**
@@ -1622,6 +1626,20 @@ onBeforeUnmount(() => {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ChatApp` | `v-model:open` | `boolean` | `update:open` |
+| `ChatApp` | `v-model:openMobile` | `boolean` | `update:openMobile` |
+| `ChatApp` | `v-model:mobileOpen` | `boolean` | `update:mobileOpen` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ChatApp
@@ -1656,12 +1674,15 @@ onBeforeUnmount(() => {
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Chat App
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Chat App?**
@@ -1676,6 +1697,14 @@ Observe update:open, openChange, update:openMobile, openMobileChange, update:mob
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Message](https://orvui.efu.me/en/components/agents/message): Build a conversation entry from content, attachments, sources and action parts.
+- [Prompt Input](https://orvui.efu.me/en/components/agents/prompt-input): Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
+- [Code Block](https://orvui.efu.me/en/components/agents/code-block): Present highlighted code with line controls, file labels and a copy operation.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/chat-app.json

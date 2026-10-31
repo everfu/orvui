@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Status Bar
 
 > 在按比例分段的条形图中汇总各命名状态的数量。
 
-在按比例分段的条形图中汇总各命名状态的数量。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Status Bar：在按比例分段的条形图中汇总各命名状态的数量。
 
+<a id="install"></a>
 ## 安装
 
 ### Status Bar — 复制源码
@@ -55,8 +57,10 @@ import '@orvui/vue/style.css';
 - `lucide-vue-next@^0.468.0`
 - `tailwind-merge@^3.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Status Bar
 
 **复制源码**
@@ -260,6 +264,18 @@ const api = computed(() =>
 </template>
 ```
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `StatusBar` | `v-model:activeId` | `null \| string` | `update:activeId` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### StatusBar
@@ -331,12 +347,15 @@ const api = computed(() =>
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## 关于 Status Bar
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Status Bar？**
@@ -351,6 +370,14 @@ const api = computed(() =>
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Composition Chart](https://orvui.efu.me/charts/composition-chart): 使用归一化柱形或堆叠面积比较不同分类的组成贡献。
+- [Bump Chart](https://orvui.efu.me/charts/bump-chart): 跟踪序列排名随时间的变化，并固定某条序列以便检查。
+- [Funnel Chart](https://orvui.efu.me/charts/funnel-chart): 跟踪连续阶段，并检查相邻步骤之间的转化与流失。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/status-bar.json

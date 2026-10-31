@@ -16,6 +16,8 @@ const current = vi.hoisted(() => ({
 }));
 import SiteLayout from "../apps/docs/app/components/docs/SiteLayout.vue";
 import DocsPageContent from "../apps/docs/app/components/docs/DocsPageContent.vue";
+import { sitePages } from "../apps/docs/app/utils/docs/site-page-data";
+import { templateDefinitions } from "../apps/docs/app/utils/docs/template-definitions";
 
 // Exercise the same shell/page composition used by Nuxt, including its slot.
 const Layout = (props: InstanceType<typeof SiteLayout>["$props"]) =>
@@ -115,3 +117,69 @@ it.each([false, true])(
     );
   },
 );
+
+it.each(sitePages.flatMap((page) => [false, true].map((en) => ({ page, en }))))(
+  "hydrates the $page.slug guide and its outline en=$en",
+  async ({ page, en }) => {
+    const route = { path: `${en ? "/en" : ""}${page.path}` };
+    const frontmatter = { layout: "site-page", sitePage: page.slug };
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    const props = { frontmatter, route, router: { go: async () => {} } };
+    host = document.createElement("div");
+    host.innerHTML = await renderToString(createSSRApp(Layout, props));
+    document.body.append(host);
+    app = createSSRApp(Layout, props);
+    app.mount(host);
+    await flushPromises();
+    await nextTick();
+    const messages = [...warn.mock.calls, ...error.mock.calls]
+      .flat()
+      .map(String)
+      .join("\n");
+    expect(messages).not.toMatch(
+      /hydration|mismatch|injection.*not found|Unhandled error/i,
+    );
+  },
+);
+
+it.each(
+  [false, true].flatMap((en) => [
+    { en, layout: "components", path: "/components", templateSlug: "" },
+    { en, layout: "templates", path: "/templates", templateSlug: "" },
+    ...templateDefinitions.map((template) => ({
+      en,
+      layout: "template",
+      path: "/templates/" + template.slug,
+      templateSlug: template.slug,
+    })),
+  ]),
+)("hydrates the $path section and template content en=$en", async (record) => {
+  const props = {
+    frontmatter: {
+      layout: record.layout,
+      templateSlug: record.templateSlug,
+      docsSection: record.layout === "components" ? "components" : "templates",
+    },
+    route: { path: (record.en ? "/en" : "") + record.path },
+    router: { go: async () => {} },
+  };
+  const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+  const error = vi.spyOn(console, "error").mockImplementation(() => {});
+  host = document.createElement("div");
+  host.innerHTML = await renderToString(createSSRApp(Layout, props));
+  document.body.append(host);
+  app = createSSRApp(Layout, props);
+  app.mount(host);
+  await flushPromises();
+  await nextTick();
+  expect(host.querySelectorAll(".docs-section-tab")).toHaveLength(4);
+  expect(host.querySelector("main#docs-content h1")).toBeTruthy();
+  const messages = [...warn.mock.calls, ...error.mock.calls]
+    .flat()
+    .map(String)
+    .join("\n");
+  expect(messages).not.toMatch(
+    /hydration|mismatch|injection.*not found|Unhandled error/i,
+  );
+});

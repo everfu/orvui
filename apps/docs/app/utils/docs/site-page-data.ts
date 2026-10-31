@@ -281,8 +281,8 @@ export const sitePages: SitePageDefinition[] = [
         title: bi("状态与组合", "State and composition"),
         blocks: [
           paragraph(
-            '表单使用 v-model，弹层使用 v-model:open。组件的默认状态、插槽与组合式子组件以每页 API 为准；从<a href="/components/motion">组件目录</a>选择所需控件。',
-            'Use v-model for forms and v-model:open for overlays. Each component page documents default state, slots and composable parts. Explore the <a href="/components/motion">component catalog</a>.',
+            '表单使用 v-model，弹层使用 v-model:open。组件的默认状态、插槽与组合式子组件以每页 API 为准；从<a href="/components">组件目录</a>选择所需控件。',
+            'Use v-model for forms and v-model:open for overlays. Each component page documents default state, slots and composable parts. Explore the <a href="/components">component catalog</a>.',
           ),
         ],
       },

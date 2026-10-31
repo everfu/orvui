@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Composition Chart
 
 > Compare contributions across categories with normalized bars or stacked areas.
 
-Compare contributions across categories with normalized bars or stacked areas.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Composition Chart when the interface needs this behavior: compare contributions across categories with normalized bars or stacked areas.
 
+<a id="install"></a>
 ## Install
 
 ### Composition Chart — Registry source
@@ -51,8 +53,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Composition Chart
 
 **Registry source**
@@ -191,6 +195,18 @@ const formatVisits = (value: number) => `${value.toLocaleString("en")} visits`;
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `CompositionChart` | `v-model:period` | `string` | `update:period` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### CompositionChart
@@ -227,12 +243,15 @@ const formatVisits = (value: number) => `${value.toLocaleString("en")} visits`;
 
 ### CompositionChartLegend
 
+<a id="about"></a>
 ## About Composition Chart
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Composition Chart?**
@@ -247,6 +266,14 @@ Observe update:period, periodChange to connect the component to application stat
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Status Bar](https://orvui.efu.me/en/charts/status-bar): Summarize counts across named states in a proportional segmented bar.
+- [Liquidity Heatmap](https://orvui.efu.me/en/charts/liquidity-heatmap): Inspect liquidity across time and price through a grid with selectable intensity bands.
+- [Bump Chart](https://orvui.efu.me/en/charts/bump-chart): Follow changes in series rank over time and pin a series for closer inspection.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/composition-chart.json

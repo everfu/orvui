@@ -83,3 +83,7 @@ Validate at equal viewport, locale, theme and interaction state. Check keyboard 
 Loader's SVG loops must render a single valid frame during SSR, hydration and preference changes, retaining their existing trajectories and timing. Wheel Picker's reduced-motion list centers its accepted value on first render and follows controlled value, option and item-height updates without smooth scrolling. Homepage compositions must account for wrapper elements when sizing magnetic buttons and leave space for OTP completion feedback inside the column.
 
 All work is local. Publishing, pushing and deployment require a separate user request.
+
+## Independent application templates
+
+The Templates index references the HeroUI Templates gallery with a wide frame, no side rails, and a three/two/one-column responsive grid of real application screenshots, names, summaries, detail links and live-preview links. Five independent private repositories own complete multi-page Vue applications; Netlify hosts their public demos. Documentation embeds those deployments and synchronizes locale, appearance and the eleven palettes with validated parent/child messages. Keep bilingual routes, Markdown, search and reading outlines synchronized. Complete source JSON, ZIP archives, source panels and source maps must not enter public template artifacts. Homepage scenes remain available independently. Template data and actions are local to the browser, with persistent edits and a reset action. Preserve component geometry, motion and notices.

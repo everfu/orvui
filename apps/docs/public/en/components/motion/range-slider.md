@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Range Slider
 
 > Adjust a numeric value on a track using drag gestures or keyboard steps.
 
-Adjust a numeric value on a track using drag gestures or keyboard steps.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Range Slider when the interface needs this behavior: adjust a numeric value on a track using drag gestures or keyboard steps.
 
+<a id="install"></a>
 ## Install
 
 ### Range Slider — Registry source
@@ -89,8 +91,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Range Slider
 
 **Registry source**
@@ -115,6 +119,7 @@ const amount = ref(40);
 <template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
 ```
 
+<a id="inline"></a>
 ### Inline Slider
 
 Keep the label and value inside the track while nearby ticks move aside for the handle.
@@ -139,6 +144,7 @@ const spokenPixels = (value: number) => `${value} pixels`;
 <template><div class="w-full max-w-sm"><InlineSlider :default-value="48" :min="8" :max="128" :step="8" label="Icon size" aria-label="Icon size" :format-value-text="spokenPixels" /></div></template>
 ```
 
+<a id="stepped"></a>
 ### Range Slider
 
 Snap a narrow handle between marked steps and emphasize each landing.
@@ -165,6 +171,7 @@ const amount = ref(40);
 <template><div class="flex w-full max-w-sm flex-col gap-3"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Drag the handle</span><span class="tabular-nums text-foreground">{{ amount }}</span></div><RangeSlider v-model="amount" :step="5" aria-label="Value" /></div></template>
 ```
 
+<a id="fluid"></a>
 ### Fluid Slider
 
 Represent the value with a rounded moving fill instead of a separate thumb.
@@ -191,6 +198,7 @@ const brightness = ref(35);
 <template><div class="w-full max-w-sm"><FluidSlider v-model="brightness" label="Brightness" aria-label="Brightness" /></div></template>
 ```
 
+<a id="wave"></a>
 ### Wave Slider
 
 Raise neighboring bars around the handle to form a traveling wave.
@@ -217,6 +225,7 @@ const gain = ref(45);
 <template><div class="flex w-full max-w-md flex-col gap-2"><div class="flex items-center justify-between text-sm text-muted-foreground"><span>Gain</span><span class="tabular-nums text-foreground">{{ gain }}</span></div><WaveSlider v-model="gain" aria-label="Gain" /></div></template>
 ```
 
+<a id="bubble"></a>
 ### Bubble Slider
 
 Lift a value bubble while dragging and let its tilt respond to movement.
@@ -243,6 +252,7 @@ const amount = ref(28);
 <template><div class="flex w-full max-w-sm flex-col gap-1"><span class="text-sm text-muted-foreground">Drag fast and the bubble leans</span><BubbleSlider v-model="amount" aria-label="Value" /></div></template>
 ```
 
+<a id="ruler"></a>
 ### Ruler Slider
 
 Keep the pointer still while the marked ruler moves beneath it.
@@ -269,6 +279,23 @@ const weight = ref(72.5);
 <template><div class="w-full max-w-sm"><RulerSlider v-model="weight" :min="40" :max="120" :step=".5" :gap="12" :major-every="10" unit="kg" aria-label="Weight" /></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `RangeSlider` | `v-model` | `number` | `update:modelValue` |
+| `InlineSlider` | `v-model` | `number` | `update:modelValue` |
+| `FluidSlider` | `v-model` | `number` | `update:modelValue` |
+| `WaveSlider` | `v-model` | `number` | `update:modelValue` |
+| `BubbleSlider` | `v-model` | `number` | `update:modelValue` |
+| `RulerSlider` | `v-model` | `number` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### RangeSlider
@@ -421,12 +448,15 @@ const weight = ref(72.5);
 | `change` | — | — |
 | `valueCommit` | — | — |
 
+<a id="about"></a>
 ## About Range Slider
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Range Slider?**
@@ -441,6 +471,14 @@ Observe update:modelValue, change, valueCommit to connect the component to appli
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Wheel Picker](https://orvui.efu.me/en/components/motion/wheel-picker): Select a value from a rotating wheel with momentum and row snapping.
+- [Switch](https://orvui.efu.me/en/components/motion/switch): Toggle a binary setting with a moving thumb and optional descriptive label.
+- [Input](https://orvui.efu.me/en/components/motion/input): Edit text with optional labels, icons and validation feedback in a single field.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/range-slider.json

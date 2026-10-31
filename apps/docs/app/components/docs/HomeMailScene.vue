@@ -21,9 +21,9 @@ import { Button } from "../../../../../packages/vue/src/motion/button";
 import { Input } from "../../../../../packages/vue/src/motion/input";
 import { Drawer } from "../../../../../packages/vue/src/motion/drawer";
 import HomeAppFrame from "./HomeAppFrame.vue";
-import { useSiteShell } from "../../composables/site-shell-state";
+import { useTemplateContext } from "../../templates/context";
 import { initials } from "../../utils/docs/home-demo-data";
-const { t } = useSiteShell();
+const { t } = useTemplateContext();
 const frame = ref<InstanceType<typeof HomeAppFrame>>();
 const active = ref("inbox"),
   query = ref(""),

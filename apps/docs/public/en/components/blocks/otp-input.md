@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # OTP Input
 
 > Enter or paste a fixed-length code through grouped fields with completion feedback.
 
-Enter or paste a fixed-length code through grouped fields with completion feedback.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use OTP Input when the interface needs this behavior: enter or paste a fixed-length code through grouped fields with completion feedback.
 
+<a id="install"></a>
 ## Install
 
 ### OTP Input — Registry source
@@ -53,8 +55,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### OTP Input
 
 **Registry source**
@@ -121,6 +125,18 @@ function reset() {
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `OTPInput` | `v-model` | `string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### OTPInput
@@ -152,12 +168,15 @@ function reset() {
 | `change` | `[value: string]` | — |
 | `complete` | `[value: string]` | — |
 
+<a id="about"></a>
 ## About OTP Input
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure OTP Input?**
@@ -172,6 +191,14 @@ Observe update:modelValue, change, complete to connect the component to applicat
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Feedback Widget](https://orvui.efu.me/en/components/blocks/feedback-widget): Expand a feedback trigger into a form with sending, success and retry states.
+- [Availability Scheduler](https://orvui.efu.me/en/components/blocks/availability-scheduler): Edit weekly availability as time ranges and copy a schedule to selected days.
+- [File Upload](https://orvui.efu.me/en/components/blocks/file-upload): Manage files, previews, progress and retry actions in a queue or attachment workspace.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/otp-input.json

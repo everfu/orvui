@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Animated CTA Buttons
 
 > Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
 
-Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Animated CTA Buttons when the interface needs this behavior: confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
 
+<a id="install"></a>
 ## Install
 
 ### Animated CTA Buttons — Registry source
@@ -71,8 +73,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Animated CTA Buttons
 
 **Registry source**
@@ -97,6 +101,7 @@ import { ExpandingArrowButton } from "@orvui/vue/motion/expanding-arrow-button";
 </template>
 ```
 
+<a id="expanding-arrow"></a>
 ### Expanding Arrow Button
 
 Expand the accent end of the button and extend its dotted arrow path on focus or hover.
@@ -123,6 +128,7 @@ import { ExpandingArrowButton } from "@orvui/vue/motion/expanding-arrow-button";
 </template>
 ```
 
+<a id="hold-action"></a>
 ### Hold Action Button
 
 Hold until the horizontal or vertical fill reaches its endpoint; release early to cancel.
@@ -165,6 +171,7 @@ onBeforeUnmount(() => clearTimeout(expiry));
 </template>
 ```
 
+<a id="slide-action"></a>
 ### Slide Action Button
 
 Drag the handle to confirm; an incomplete gesture springs back without submitting.
@@ -207,6 +214,12 @@ onBeforeUnmount(() => clearTimeout(expiry));
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ExpandingArrowButton
@@ -279,12 +292,15 @@ onBeforeUnmount(() => clearTimeout(expiry));
 | `default` | `() => VNodeChild` | — | — |
 | `completeLabel` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Animated CTA Buttons
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Animated CTA Buttons?**
@@ -299,6 +315,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Action Swap](https://orvui.efu.me/en/components/motion/action-swap): Replace short action text or icons using blur, rolling or staggered transitions.
+- [Expandable Control](https://orvui.efu.me/en/components/motion/expandable-control): Expand a compact control to reveal a label or trailing action without losing its position.
+- [Card](https://orvui.efu.me/en/components/motion/card): Assemble a card from heading, content, actions and footer parts with optional selection.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/expanding-arrow-button.json

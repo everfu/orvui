@@ -81,7 +81,7 @@ it.each([true, false])(
     expect(markdown).not.toContain("/components/motion/sankey-chart");
   },
 );
-it("retains the real default and each registered variant Usage in all 109 static documents", () => {
+it("retains the real default and each registered variant Usage in all 110 static documents", () => {
   let roots = 0,
     variants = 0;
   for (const category of categories)
@@ -104,6 +104,6 @@ it("retains the real default and each registered variant Usage in all 109 static
       expect(markdown, component.slug).toContain(value.details!.about.overview);
       roots++;
     }
-  expect(roots).toBe(109);
+  expect(roots).toBe(110);
   expect(variants).toBe(72);
 });

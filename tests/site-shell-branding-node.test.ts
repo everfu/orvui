@@ -24,7 +24,7 @@ it.each([false, true])(
     const visibleText = html.replace(/<[^>]*>/g, " ");
     expect(html).toContain(`href="${en ? "/en" : ""}/components/motion"`);
     expect(html).toContain("hero-count");
-    expect(html).toContain("109");
+    expect(html).toContain("110");
     expect(html).toContain("shadcn-vue");
     expect(html.indexOf('class="home-install"')).toBeLessThan(
       html.indexOf('class="home-showcase"'),

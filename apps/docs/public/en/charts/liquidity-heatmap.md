@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Liquidity Heatmap
 
 > Inspect liquidity across time and price through a grid with selectable intensity bands.
 
-Inspect liquidity across time and price through a grid with selectable intensity bands.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Liquidity Heatmap when the interface needs this behavior: inspect liquidity across time and price through a grid with selectable intensity bands.
 
+<a id="install"></a>
 ## Install
 
 ### Liquidity Heatmap — Registry source
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Liquidity Heatmap
 
 **Registry source**
@@ -195,6 +199,12 @@ const formatPrice = (price: number) => `$${price.toFixed(2)}`;
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### LiquidityHeatmap
@@ -221,12 +231,15 @@ const formatPrice = (price: number) => `$${price.toFixed(2)}`;
 
 ### LiquidityHeatmapLegend
 
+<a id="about"></a>
 ## About Liquidity Heatmap
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Liquidity Heatmap?**
@@ -241,6 +254,14 @@ Provide content through default; application effects remain with the consumer.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Order Book](https://orvui.efu.me/en/charts/order-book): Inspect bid and ask levels, cumulative depth and price selections in a live book.
+- [Bump Chart](https://orvui.efu.me/en/charts/bump-chart): Follow changes in series rank over time and pin a series for closer inspection.
+- [Composition Chart](https://orvui.efu.me/en/charts/composition-chart): Compare contributions across categories with normalized bars or stacked areas.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/liquidity-heatmap.json

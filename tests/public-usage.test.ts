@@ -235,11 +235,11 @@ it("rejects pre-existing private package paths and application aliases instead o
 });
 it("maps all real defaults, registered variants and standalone examples to safe public imports", () => {
   expect(publicUsage.summary).toMatchObject({
-    entries: 109,
+    entries: 110,
     variants: 72,
-    files: 187,
+    files: 188,
     wrappersExpanded: 0,
-    publicModules: 110,
+    publicModules: 111,
   });
   expect(publicUsage.diagnostics).toEqual([]);
   const publicModules = new Set([
@@ -319,7 +319,9 @@ it("pairs every registry Usage import with real installed targets and includes d
       0,
     );
     for (const target of snippet.registryTargets) {
-      expect(target.startsWith("src/components/orvui/"), snippet.file).toBe(true);
+      expect(target.startsWith("src/components/orvui/"), snippet.file).toBe(
+        true,
+      );
       expect(installed.has(target), snippet.file + " -> " + target).toBe(true);
     }
     const dependencyName = (specifier: string) => {

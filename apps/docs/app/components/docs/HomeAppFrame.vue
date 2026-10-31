@@ -16,7 +16,7 @@ import {
   AnimatedToastStack,
   useAnimatedToastStack,
 } from "../../../../../packages/vue/src/motion/animated-toast-stack";
-import { useSiteShell } from "../../composables/site-shell-state";
+import { useTemplateContext } from "../../templates/context";
 
 export interface HomeNavItem {
   id: string;
@@ -36,7 +36,7 @@ withDefaults(
   { user: "Alex Morgan" },
 );
 const emit = defineEmits<{ "update:active": [value: string] }>();
-const { t } = useSiteShell();
+const { t } = useTemplateContext();
 const mobileOpen = ref(false);
 const { toasts, showToast, dismissToast } = useAnimatedToastStack({
   limit: 3,
@@ -84,15 +84,16 @@ defineExpose({ notify });
       <AnimatedSidebarContent>
         <AnimatedSidebarMenu class="[&_svg]:size-4">
           <template v-for="(item, index) in items" :key="item.id">
-            <p
+            <li
               v-if="
                 item.group &&
                 (index === 0 || item.group !== items[index - 1].group)
               "
               class="home-nav-group"
+              role="presentation"
             >
               {{ item.group }}
-            </p>
+            </li>
             <AnimatedSidebarMenuItem
               ><AnimatedSidebarMenuButton
                 :is-active="active === item.id"

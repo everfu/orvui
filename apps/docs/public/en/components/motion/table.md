@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Table
 
 > Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
 
-Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Table when the interface needs this behavior: inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
 
+<a id="install"></a>
 ## Install
 
 ### Table — Registry source
@@ -73,8 +75,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Table
 
 **Registry source**
@@ -351,6 +355,7 @@ const data = buildPeople(10000),
 </template>
 ```
 
+<a id="data"></a>
 ### Data Table
 
 Browse virtualized rows with selection, sorting and adjustable column placement.
@@ -629,6 +634,7 @@ const data = buildPeople(10000),
 </template>
 ```
 
+<a id="editable"></a>
 ### Editable Table
 
 Edit cell values while retaining the table's keyboard and row navigation.
@@ -827,6 +833,7 @@ function deleteColumn(key: string) {
 </template>
 ```
 
+<a id="async"></a>
 ### Async Table
 
 Load another page through onEndReached and retain explicit loading and failure states.
@@ -1135,6 +1142,19 @@ onBeforeUnmount(() => clearTimeout(request));
 </template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `Table` | `v-model:selectedRowIds` | `string[]` | `update:selectedRowIds` |
+| `Table` | `v-model:sort` | `null \| SortState` | `update:sort` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Table
@@ -1198,12 +1218,15 @@ onBeforeUnmount(() => clearTimeout(request));
 | `empty` | `() => VNodeChild` | — | — |
 | `['cell-' + column.key]` | — | `row: rows[virtual.index].row`, `value: rows[virtual.index].row[column.key]`, `row-id: rows[virtual.index].id` | — |
 
+<a id="about"></a>
 ## About Table
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Table?**
@@ -1218,6 +1241,14 @@ Observe update:selectedRowIds, selectionChange, update:sort, sortChange, columnR
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Input](https://orvui.efu.me/en/components/motion/input): Edit text with optional labels, icons and validation feedback in a single field.
+- [Select](https://orvui.efu.me/en/components/motion/select): Choose from a floating list whose panel can expand continuously from its trigger.
+- [Checkbox](https://orvui.efu.me/en/components/motion/checkbox): Represent checked, unchecked and mixed values with an animated check mark.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/table.json

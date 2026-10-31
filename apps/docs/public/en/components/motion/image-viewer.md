@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Image Viewer
 
 > Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
 
-Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Image Viewer when the interface needs this behavior: open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
 
+<a id="install"></a>
 ## Install
 
 ### Image Viewer — Registry source
@@ -60,8 +62,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Image Viewer
 
 **Registry source**
@@ -94,6 +98,7 @@ const photos = subjects.map(([id, photo, alt, caption]) => ({ id, src: `https://
 <template><div class="w-full max-w-xl"><div class="mb-5 flex items-end justify-between gap-3"><div><p class="mb-1 text-[10px] font-medium uppercase tracking-[.18em] text-muted-foreground">Collected moments</p><h3 class="text-lg font-medium tracking-tight">Look a little closer.</h3></div><span class="text-xs text-muted-foreground">3 photographs</span></div><ImageViewer :images="photos" label="Collected photographs"><ImageViewerGallery class="grid-cols-3 gap-2 sm:gap-3"><ImageViewerThumbnail v-for="photo in photos" :key="photo.id" :image-id="photo.id" /></ImageViewerGallery><ImageViewerContent><template #header><ImageViewerCounter /><ImageViewerClose /></template><ImageViewerPrevious /><ImageViewerCaption /><ImageViewerNext /></ImageViewerContent></ImageViewer><p class="mt-4 text-xs text-muted-foreground">Open a photograph. Swipe or use the arrows to explore.</p></div></template>
 ```
 
+<a id="morphing"></a>
 ### Morphing
 
 Keep the selected thumbnail connected to a full gallery view with navigation, zoom and pan.
@@ -128,6 +133,18 @@ const photos = subjects.map(([id, photo, alt, caption]) => ({ id, src: `https://
 <template><div class="w-full max-w-xl"><div class="mb-5 flex items-end justify-between gap-3"><div><p class="mb-1 text-[10px] font-medium uppercase tracking-[.18em] text-muted-foreground">Collected moments</p><h3 class="text-lg font-medium tracking-tight">Look a little closer.</h3></div><span class="text-xs text-muted-foreground">3 photographs</span></div><ImageViewer :images="photos" label="Collected photographs"><ImageViewerGallery class="grid-cols-3 gap-2 sm:gap-3"><ImageViewerThumbnail v-for="photo in photos" :key="photo.id" :image-id="photo.id" /></ImageViewerGallery><ImageViewerContent><template #header><ImageViewerCounter /><ImageViewerClose /></template><ImageViewerPrevious /><ImageViewerCaption /><ImageViewerNext /></ImageViewerContent></ImageViewer><p class="mt-4 text-xs text-muted-foreground">Open a photograph. Swipe or use the arrows to explore.</p></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `ImageViewer` | `v-model` | `null \| string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### ImageViewer
@@ -268,12 +285,15 @@ const photos = subjects.map(([id, photo, alt, caption]) => ({ id, src: `https://
 | --- | --- | --- | --- |
 | `default` | `() => VNodeChild` | — | — |
 
+<a id="about"></a>
 ## About Image Viewer
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Image Viewer?**
@@ -288,6 +308,14 @@ Observe update:modelValue, valueChange, change to connect the component to appli
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Animated Color Selector](https://orvui.efu.me/en/components/motion/color-selector): Choose one named swatch with a moving selection outline and native radio behavior.
+- [Combobox](https://orvui.efu.me/en/components/motion/combobox): Filter a grouped option list from an input while keeping keyboard focus in the field.
+- [File Tree](https://orvui.efu.me/en/components/motion/file-tree): Explore nested files and folders with expandable branches and keyboard selection.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/image-viewer.json

@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Bouncy Accordion
 
 > Expand a section in a single-open group with connected spring layout movement.
 
-Expand a section in a single-open group with connected spring layout movement.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Bouncy Accordion when the interface needs this behavior: expand a section in a single-open group with connected spring layout movement.
 
+<a id="install"></a>
 ## Install
 
 ### Bouncy Accordion — Registry source
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Bouncy Accordion
 
 **Registry source**
@@ -102,6 +106,18 @@ const items = records.map(([id, title, description, icon]) => ({ id, title, desc
 <template><div class="flex min-h-96 w-full items-center justify-center"><div class="w-full max-w-sm h-[480px]"><BouncyAccordion :items="items" default-value="calendar" /></div></div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+Bind the states below when a form, router or parent owns them. v-model is shorthand for a prop and its update event; keep the value type consistent with the API.
+
+| Component | Vue binding | Type | Update event |
+| --- | --- | --- | --- |
+| `BouncyAccordion` | `v-model` | `null \| string` | `update:modelValue` |
+
+Omit optional controlled props to use their documented default behavior; a fixed false or empty value does not mean omitted. Handle async requests and persistence in the application, then pass the result back.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### BouncyAccordion
@@ -130,12 +146,15 @@ const items = records.map(([id, title, description, icon]) => ({ id, title, desc
 | `title` | — | `v-bind: scope` | — |
 | `content` | — | `v-bind: scope` | — |
 
+<a id="about"></a>
 ## About Bouncy Accordion
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Bouncy Accordion?**
@@ -150,6 +169,14 @@ Observe update:modelValue, change to connect the component to application state.
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Table](https://orvui.efu.me/en/components/motion/table): Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
+- [Sortable List](https://orvui.efu.me/en/components/motion/sortable-stack): Reorder a list with pointer or keyboard input and offer an undo operation.
+- [Popover](https://orvui.efu.me/en/components/motion/popover): Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/bouncy-accordion.json

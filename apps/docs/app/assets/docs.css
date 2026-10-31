@@ -2,6 +2,8 @@
 @import "./css/style.css";
 @import "./css/docs-layout.css";
 @import "./css/site-controls.css";
+@import "./css/docs-redesign.css";
+@import "./css/docs-sections.css";
 
 @source "../**/*.{vue,ts}";
 @source not "../**/tests/**";

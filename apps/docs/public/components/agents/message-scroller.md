@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Message Scroller
 
 > 在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 
-在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Message Scroller：在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 
+<a id="install"></a>
 ## 安装
 
 ### Message Scroller — 复制源码
@@ -58,8 +60,10 @@ import '@orvui/vue/style.css';
 - `tailwindcss@^4.0.0`
 - `lucide-vue-next@^0.468.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Message Scroller
 
 **复制源码**
@@ -512,8 +516,7 @@ onBeforeUnmount(stop);
 
 ## 组件指南
 
-在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 MessageScroller 组合 Message Scroller，并从该组件的公开入口导入。
@@ -524,6 +527,11 @@ MessageScroller
     └── Message
         └── MessageContent
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 
 ### 生命周期
 
@@ -573,6 +581,12 @@ Usage 区域通过 Vue props、事件与插槽组合 MessageScroller，请选择
 - 适用: 当界面需要以下行为时使用 Message Scroller：在新消息加入时跟随内容，同时允许读者离开并返回最新位置。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+此示例组合没有声明成对的受控属性与 update 事件。使用已列出的属性、原生事件和插槽组合内容；不要为它添加未公开的 v-model。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### MessageScroller
@@ -601,12 +615,15 @@ Usage 区域通过 Vue props、事件与插槽组合 MessageScroller，请选择
 | --- | --- | --- |
 | `followChange` | `[following: boolean]` | — |
 
+<a id="about"></a>
 ## 关于 Message Scroller
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Message Scroller？**
@@ -621,6 +638,14 @@ Usage 区域通过 Vue props、事件与插槽组合 MessageScroller，请选择
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Message](https://orvui.efu.me/components/agents/message): 使用内容、附件、来源与操作部件组合会话条目。
+- [Chat App](https://orvui.efu.me/components/agents/chat-app): 将导航、会话内容和提示输入区组合为助手工作空间。
+- [Tool Result](https://orvui.efu.me/components/agents/tool-result): 在同一表面呈现工具调用状态、摘要与可展开结果。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/message-scroller.json

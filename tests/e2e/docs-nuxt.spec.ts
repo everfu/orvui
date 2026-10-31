@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { fileURLToPath } from "node:url";
 
 async function visitDocs(page: Page, href: string) {
@@ -55,6 +55,271 @@ test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("orvui-theme", "dark"));
   // Check errors after each interaction flow, including hydration warnings.
   (page as typeof page & { docsErrors: string[] }).docsErrors = errors;
+});
+
+for (const reducedMotion of ["no-preference", "reduce"] as const) {
+  test(`motion guide tabs keep their surface during rapid switches (${reducedMotion})`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/docs/motion-patterns");
+    const tabs = page.getByRole("tablist", { name: "示例视图", exact: true });
+    // Wait for this example's hydration through its own interaction, without
+    // depending on optional header statistics or arbitrary page-load delays.
+    await expect(async () => {
+      await tabs.getByRole("tab", { name: "代码", exact: true }).click();
+      await expect(
+        tabs.getByRole("tab", { name: "代码", exact: true }),
+      ).toHaveAttribute("aria-selected", "true", { timeout: 500 });
+    }).toPass({ timeout: 30000 });
+    await tabs.getByRole("tab", { name: "预览", exact: true }).click();
+    await expect(
+      tabs
+        .locator("..")
+        .locator('[role="tabpanel"] [aria-hidden="true"]')
+        .filter({ hasText: "实时组件视图" }),
+    ).toHaveCSS("opacity", "1");
+    await tabs.scrollIntoViewIfNeeded();
+    const recordSwitch = (target: 0 | 1, rapid = false) =>
+      tabs.evaluate(
+        async (list, selection) => {
+          const root = list.parentElement!;
+          const panel = root.querySelector<HTMLElement>('[role="tabpanel"]')!;
+          const buttons =
+            list.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+          const height = root.getBoundingClientRect().height;
+          const samples: {
+            stable: boolean;
+            height: number;
+            opacity: number;
+            elapsed: number;
+            layers: number[];
+          }[] = [];
+          const start = performance.now();
+          buttons[selection.target].click();
+          if (selection.rapid) {
+            setTimeout(() => buttons[0].click(), 40);
+            setTimeout(() => buttons[1].click(), 80);
+          }
+          await new Promise<void>((resolve) => {
+            function sample() {
+              const current =
+                root.querySelector<HTMLElement>('[role="tabpanel"]');
+              const layers = current?.querySelectorAll<HTMLElement>(
+                '[aria-hidden="true"]',
+              );
+              samples.push({
+                stable: current === panel,
+                height: Math.abs(root.getBoundingClientRect().height - height),
+                opacity: current
+                  ? Number(getComputedStyle(current).opacity)
+                  : 0,
+                elapsed: performance.now() - start,
+                layers: Array.from(layers ?? [], (layer) =>
+                  Number(getComputedStyle(layer).opacity),
+                ),
+              });
+              if (performance.now() - start < 600)
+                requestAnimationFrame(sample);
+              else resolve();
+            }
+            requestAnimationFrame(sample);
+          });
+          return samples;
+        },
+        { target, rapid },
+      );
+    for (const scenario of [
+      { target: 1, rapid: false },
+      { target: 0, rapid: false },
+      { target: 1, rapid: true },
+    ] as const) {
+      const result = await recordSwitch(scenario.target, scenario.rapid);
+      expect(result.length).toBeGreaterThan(5);
+      expect(
+        result.every((frame) => frame.stable && frame.layers.length === 2),
+      ).toBe(true);
+      expect(Math.max(...result.map((frame) => frame.height))).toBeLessThan(1);
+      expect(Math.min(...result.map((frame) => frame.opacity))).toBe(1);
+      // A non-empty panel alone misses a one-frame swap back to the old text.
+      // Check each layer through completion, after the last rapid selection.
+      const frames = scenario.rapid
+        ? result.filter((frame) => frame.elapsed >= 120)
+        : result;
+      for (let index = 1; index < frames.length; index++) {
+        expect(
+          frames[index].layers[scenario.target] -
+            frames[index - 1].layers[scenario.target],
+        ).toBeGreaterThanOrEqual(-0.02);
+        expect(
+          frames[index].layers[1 - scenario.target] -
+            frames[index - 1].layers[1 - scenario.target],
+        ).toBeLessThanOrEqual(0.02);
+      }
+      expect(result.at(-1)!.layers).toEqual(scenario.target ? [0, 1] : [1, 0]);
+    }
+    await expect(
+      tabs.getByRole("tab", { name: "代码", exact: true }),
+    ).toHaveAttribute("aria-selected", "true");
+    await expect(tabs.locator("..").getByRole("tabpanel")).toHaveAccessibleName(
+      "代码",
+    );
+    await expect(
+      tabs.locator("..").locator('[role="tabpanel"] .sr-only'),
+    ).toHaveText("可复制的源码");
+    await expect(
+      tabs
+        .locator("..")
+        .locator('[role="tabpanel"] [aria-hidden="true"]')
+        .filter({ hasText: "可复制的源码" }),
+    ).toHaveCSS("opacity", "1");
+    await tabs
+      .locator("..")
+      .screenshot({ path: test.info().outputPath("tabs-code.png") });
+  });
+}
+
+for (const reducedMotion of ["no-preference", "reduce"] as const) {
+  test(`sidebar and public collapsible fades do not flash (${reducedMotion})`, async ({
+    page,
+  }, info) => {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/docs/motion-patterns");
+    if (info.project.name === "mobile") {
+      await expect(async () => {
+        await page
+          .getByRole("button", { name: "打开导航", exact: true })
+          .click();
+        await expect(page.locator(".mobile-menu-content")).toBeVisible({
+          timeout: 500,
+        });
+      }).toPass({ timeout: 30000 });
+    }
+    const navigation = page.locator(
+      info.project.name === "mobile"
+        ? ".mobile-menu-content .docs-navigation"
+        : ".docs-sidebar .docs-navigation",
+    );
+    const sidebarTrigger = navigation.getByRole("button", {
+      name: "开始使用",
+      exact: true,
+    });
+    // Prove this group has hydrated before sampling either direction.
+    await expect(async () => {
+      await sidebarTrigger.click();
+      await expect(sidebarTrigger).toHaveAttribute("aria-expanded", "false", {
+        timeout: 500,
+      });
+    }).toPass({ timeout: 30000 });
+    await verifyFade(sidebarTrigger, 1);
+    await verifyFade(sidebarTrigger, 0);
+    await navigation.screenshot({
+      path: info.outputPath("sidebar-collapsed.png"),
+    });
+    await verifyFade(sidebarTrigger, 1);
+
+    await page.goto("/components/motion/collapsible");
+    const demo = page.locator(".demo-content").first();
+    await expect(demo).toHaveAttribute("aria-busy", "false", {
+      timeout: 30000,
+    });
+    const demoTrigger = demo.getByRole("button", {
+      name: "More details",
+      exact: true,
+    });
+    await verifyFade(demoTrigger, 1);
+    await verifyFade(demoTrigger, 0);
+
+    async function verifyFade(trigger: Locator, target: 0 | 1) {
+      const values = await trigger.evaluate(async (button) => {
+        const panel = document.getElementById(
+          button.getAttribute("aria-controls")!,
+        )!;
+        const inner = panel.firstElementChild!;
+        const values: number[] = [];
+        const start = performance.now();
+        (button as HTMLButtonElement).click();
+        await new Promise<void>((resolve) => {
+          function sample() {
+            values.push(Number(getComputedStyle(inner).opacity));
+            if (performance.now() - start < 650) requestAnimationFrame(sample);
+            else resolve();
+          }
+          requestAnimationFrame(sample);
+        });
+        return values;
+      });
+      expect(values.length).toBeGreaterThan(5);
+      for (let index = 1; index < values.length; index++) {
+        expect(
+          (values[index] - values[index - 1]) * (target ? 1 : -1),
+        ).toBeGreaterThanOrEqual(-0.02);
+      }
+      expect(values.at(-1)).toBe(target);
+      await expect(trigger).toHaveAttribute(
+        "aria-expanded",
+        target ? "true" : "false",
+      );
+    }
+  });
+}
+
+test("language popup opacity does not flash when opening or closing", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/docs/installation");
+  await expect(page.locator(".github-control").first()).toHaveText("1.2k", {
+    timeout: 15000,
+  });
+  await openSettings(page);
+  const language = page.getByRole("button", {
+    name: "选择语言，当前：简体中文",
+    exact: true,
+  });
+  const menu = page.locator(".language-panel");
+  const sampleOpacity = () =>
+    page.evaluate(
+      () =>
+        new Promise<number[]>((resolve) => {
+          const values: number[] = [];
+          const start = performance.now();
+          function sample() {
+            const panel = document.querySelector(".language-panel");
+            values.push(panel ? Number(getComputedStyle(panel).opacity) : 0);
+            if (performance.now() - start < 1000) requestAnimationFrame(sample);
+            else resolve(values);
+          }
+          requestAnimationFrame(sample);
+        }),
+    );
+  function expectMonotonic(values: number[], direction: 1 | -1) {
+    expect(values.length).toBeGreaterThan(5);
+    for (let i = 1; i < values.length; i++) {
+      expect((values[i] - values[i - 1]) * direction).toBeGreaterThanOrEqual(
+        -0.02,
+      );
+    }
+  }
+
+  await language.click();
+  await expect(menu).toBeVisible();
+  const entering = await sampleOpacity();
+  expectMonotonic(entering, 1);
+  expect(entering.at(-1)).toBe(1);
+  await expect(menu.locator("[aria-current=page]")).toBeFocused();
+  await language.click();
+  expectMonotonic(await sampleOpacity(), -1);
+  await expect(menu).toHaveCount(0);
+
+  // Closing before the entrance spring settles must not flash either.
+  await language.click();
+  await expect
+    .poll(() => menu.evaluate((el) => Number(getComputedStyle(el).opacity)))
+    .toBeGreaterThan(0.1);
+  await language.click();
+  expectMonotonic(await sampleOpacity(), -1);
+  await expect(menu).toHaveCount(0);
 });
 
 test("documentation typography and code frames fit desktop and mobile", async ({
@@ -288,7 +553,7 @@ test("responsive geometry, mobile navigation and localized 404 recovery", async 
   page,
 }, info) => {
   await visitDocs(page, "/guide");
-  await expect(page.locator(".site-header")).toHaveCSS("height", "56px");
+  await expect(page.locator(".site-header")).toHaveCSS("height", "100px");
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
@@ -299,13 +564,13 @@ test("responsive geometry, mobile navigation and localized 404 recovery", async 
     await expect(page.getByRole("dialog")).toBeVisible();
     await page
       .getByRole("dialog")
-      .getByRole("link", { name: "安装指南", exact: true })
+      .getByRole("link", { name: "安装", exact: true })
       .click();
     await expect(page).toHaveURL(/\/docs\/installation$/);
     await expect(page.getByRole("dialog")).not.toBeVisible();
   } else {
-    await expect(page.locator(".docs-sidebar")).toHaveCSS("width", "240px");
-    await expect(page.locator(".docs-resources")).toHaveCSS("width", "320px");
+    await expect(page.locator(".docs-sidebar")).toHaveCSS("width", "256px");
+    await expect(page.locator(".docs-resources")).toHaveCSS("width", "224px");
   }
   await page.screenshot({
     path: `artifacts/reports/docs-nuxt/${info.project.name}.png`,
@@ -320,28 +585,31 @@ test("responsive geometry, mobile navigation and localized 404 recovery", async 
   await expect(page.locator(".hero-count")).toBeVisible();
 });
 
-test("long code expands, scrolls and collapses with localized controls", async ({
-  page,
-}) => {
-  await visitDocs(page, "/docs/theme");
-  const panel = page.locator(".code-panel").filter({
-    has: page.locator(".code-file-name", { hasText: "globals.css" }),
+for (const reducedMotion of ["no-preference", "reduce"] as const) {
+  test(`long code expands, scrolls and collapses with localized controls (${reducedMotion})`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion });
+    await visitDocs(page, "/docs/theme");
+    const panel = page.locator(".code-panel").filter({
+      has: page.locator(".code-file-name", { hasText: "globals.css" }),
+    });
+    const expand = panel.getByRole("button", { name: "展开代码", exact: true });
+    await expand.click();
+    await expect(
+      panel.getByRole("button", { name: "收起代码", exact: true }),
+    ).toHaveAttribute("aria-expanded", "true");
+    const region = panel.getByRole("region");
+    await region.focus();
+    await region.press("End");
+    await expect
+      .poll(() => region.evaluate((el) => el.scrollTop))
+      .toBeGreaterThan(0);
+    await panel.getByRole("button", { name: "收起代码", exact: true }).click();
+    await expect(expand).toHaveAttribute("aria-expanded", "false");
+    await expect.poll(() => region.evaluate((el) => el.scrollTop)).toBe(0);
   });
-  const expand = panel.getByRole("button", { name: "展开代码", exact: true });
-  await expand.click();
-  await expect(
-    panel.getByRole("button", { name: "收起代码", exact: true }),
-  ).toHaveAttribute("aria-expanded", "true");
-  const region = panel.getByRole("region");
-  await region.focus();
-  await region.press("End");
-  await expect
-    .poll(() => region.evaluate((el) => el.scrollTop))
-    .toBeGreaterThan(0);
-  await panel.getByRole("button", { name: "收起代码", exact: true }).click();
-  await expect(expand).toHaveAttribute("aria-expanded", "false");
-  await expect.poll(() => region.evaluate((el) => el.scrollTop)).toBe(0);
-});
+}
 
 test("header controls and palette match the compact layout and support keyboard dismissal", async ({
   page,
@@ -461,6 +729,186 @@ test("header controls and palette match the compact layout and support keyboard 
   await expect(page).toHaveURL(/\/en\/guide$/);
   await page.screenshot({
     path: `artifacts/reports/heroui-header/${info.project.name}-header-english.png`,
+    animations: "disabled",
+  });
+});
+
+test("document outline supports deep links, history and reading position without recording scrolls", async ({
+  page,
+}, info) => {
+  await visitDocs(page, "/en/components/motion/switch?case=outline#install");
+  const outline =
+    info.project.name === "mobile"
+      ? page.locator(".docs-inline-outline")
+      : page.locator(".docs-resources");
+  if (info.project.name === "mobile")
+    await outline
+      .getByRole("button", { name: "On this page", exact: true })
+      .click();
+  const links = outline.locator(".orvui-toc-link");
+  expect(await links.count()).toBeGreaterThan(6);
+  const missing = await links.evaluateAll((elements) =>
+    elements.flatMap((link) => {
+      const id = decodeURIComponent(link.getAttribute("href")!.slice(1));
+      const target = document.getElementById(id);
+      return !target || target.closest(".preview-stage") ? [id] : [];
+    }),
+  );
+  expect(missing).toEqual([]);
+  await outline.getByRole("link", { name: "FAQ", exact: true }).click();
+  await expect(page).toHaveURL(/\?case=outline#faq$/);
+  await expect(outline.locator('[aria-current="location"]')).toHaveText("FAQ");
+  await page.goBack();
+  await expect(page).toHaveURL(/\?case=outline#install$/);
+  await expect(outline.locator('[aria-current="location"]')).toHaveText(
+    "Installation",
+  );
+  const history = await page.evaluate(() => window.history.length);
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await expect(outline.locator('[aria-current="location"]')).toHaveText(
+    "Overview",
+  );
+  expect(await page.evaluate(() => window.history.length)).toBe(history);
+});
+
+test("all navigation groups remain reachable from chart pages", async ({
+  page,
+}, info) => {
+  await visitDocs(page, "/en/charts/donut-chart");
+  if (info.project.name === "mobile") await openSettings(page);
+  const navigation =
+    info.project.name === "mobile"
+      ? page.locator(".mobile-menu-content .docs-navigation")
+      : page.locator(".docs-sidebar .docs-navigation");
+  await expect(navigation.locator(".docs-nav-group-trigger")).toHaveCount(11);
+  await navigation
+    .getByRole("link", { name: "Table of Contents", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/en\/components\/motion\/table-of-contents$/);
+  await expect(page.locator("#docs-content h1")).toHaveText(
+    "Table of Contents",
+  );
+  await expect(page.locator(".demo-content")).toHaveAttribute(
+    "aria-busy",
+    "false",
+  );
+  await expect(page.locator(".demo-content .orvui-toc")).toBeVisible();
+  if (info.project.name === "mobile")
+    await expect(page.getByRole("dialog")).not.toBeVisible();
+});
+
+test("documentation layout fits the responsive and language/appearance matrix", async ({
+  page,
+}, info) => {
+  test.skip(
+    info.project.name !== "desktop",
+    "The matrix explicitly sets every viewport.",
+  );
+  test.setTimeout(150000);
+  for (const width of [1440, 1280, 1024, 768, 390]) {
+    await page.setViewportSize({ width, height: 1000 });
+    for (const en of [false, true]) {
+      const prefix = en ? "/en" : "";
+      await page.emulateMedia({
+        reducedMotion: en ? "no-preference" : "reduce",
+      });
+      await visitDocs(page, `${prefix}/docs/installation`);
+      const viteExample = page.locator(".code-panel").filter({
+        has: page.locator(".code-file-name", { hasText: "vite.config.ts" }),
+      });
+      await expect(viteExample).toContainText("import.meta.url");
+      await expect(viteExample).not.toContainText("globalThis._importMeta_");
+      if (en) {
+        await openSettings(page);
+        await page
+          .getByRole("tab", { name: "Light theme", exact: true })
+          .click();
+        if (await page.locator(".mobile-header-settings").isVisible())
+          await page.keyboard.press("Escape");
+      }
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      await expect(page.locator(".site-header")).toHaveCSS("height", "100px");
+      if (width >= 1280) {
+        await expect(page.locator(".docs-sidebar")).toHaveCSS("width", "256px");
+        await expect(page.locator(".docs-resources")).toHaveCSS(
+          "width",
+          "224px",
+        );
+        await expect(page.locator(".docs-inline-outline")).not.toBeVisible();
+      } else {
+        await expect(page.locator(".docs-resources")).not.toBeVisible();
+        await expect(
+          page.locator(".docs-inline-outline-trigger"),
+        ).toBeVisible();
+      }
+      await page.screenshot({
+        path: `artifacts/reports/docs-redesign/${width}-${en ? "en-light" : "zh-dark"}.png`,
+        animations: "disabled",
+      });
+    }
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  for (const path of [
+    "/components/motion/button",
+    "/en/components/agents/tool-result",
+    "/en/charts",
+    "/changelog",
+  ]) {
+    await visitDocs(page, path);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.screenshot({
+      path: `artifacts/reports/docs-redesign/${path.replaceAll("/", "-").slice(1)}.png`,
+      animations: "disabled",
+    });
+  }
+});
+
+test("sidebar uses plain group headings and keeps its current row clear", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "desktop", "Desktop sidebar only.");
+  await visitDocs(page, "/guide");
+  const sidebar = page.locator(".docs-sidebar");
+  await expect(
+    sidebar.locator(".docs-navigation-eyebrow, .docs-nav-start"),
+  ).toHaveCount(0);
+  await expect(sidebar.locator('a[aria-current="page"]')).toHaveText("介绍");
+  await expect(sidebar.locator('a[aria-current="page"] svg')).toBeVisible();
+  await page.screenshot({
+    path: "artifacts/reports/docs-redesign/sidebar-guide.png",
+    animations: "disabled",
+  });
+  await visitDocs(page, "/components/motion/button");
+  const current = sidebar.locator('a[aria-current="page"]');
+  await expect(current).toBeVisible();
+  await expect(current).toHaveText("Button");
+  const heading = sidebar.getByRole("button", {
+    name: "基础操作 5",
+    exact: true,
+  });
+  await expect(heading).toBeVisible();
+  await expect
+    .poll(() =>
+      heading.evaluate((el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+          document
+            .elementFromPoint(rect.x + 12, rect.y + rect.height / 2)
+            ?.closest(".docs-nav-group-trigger") === el
+        );
+      }),
+    )
+    .toBe(true);
+  await page.screenshot({
+    path: "artifacts/reports/docs-redesign/sidebar-component.png",
     animations: "disabled",
   });
 });

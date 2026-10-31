@@ -68,6 +68,12 @@ const { query, root, input, list, rows, active, moveTo, select, keydown } =
     open,
     () => {},
   );
+function moveWithPointer(event: PointerEvent, id: string) {
+  // Filtering can move a new result under a stationary pointer. Only deliberate
+  // mouse movement should change the keyboard selection; touch keeps it intact.
+  if (event.pointerType === "mouse" && (event.movementX || event.movementY))
+    moveTo(id);
+}
 watch(
   query,
   (value) => {
@@ -145,7 +151,7 @@ watch(
               :aria-selected="index === active"
               :data-index="index"
               class="site-search-result"
-              @mouseenter="moveTo(item.id)"
+              @pointermove="moveWithPointer($event, item.id)"
               @click="select(item)"
             >
               <RenderNode v-if="item.icon" :node="item.icon" />

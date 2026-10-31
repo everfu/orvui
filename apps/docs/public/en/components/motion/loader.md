@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Loader
 
 > Choose a compact animated indicator for an operation whose result is still pending.
 
-Choose a compact animated indicator for an operation whose result is still pending.
+<a id="when-to-use"></a>
 
 ## When to use it
 
 - Use Loader when the interface needs this behavior: choose a compact animated indicator for an operation whose result is still pending.
 
+<a id="install"></a>
 ## Install
 
 ### Loader — Registry source
@@ -51,8 +53,10 @@ import '@orvui/vue/style.css';
 - `motion-v@^1.10.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## Usage
 
+<a id="default"></a>
 ### Loader
 
 **Registry source**
@@ -89,6 +93,12 @@ const variants: [LoaderVariant, string][] = [
 </div></template>
 ```
 
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
 ## API Reference
 
 ### Loader
@@ -102,12 +112,15 @@ const variants: [LoaderVariant, string][] = [
 | `speed` | `number` | `1` | No | — |
 | `label` | `string` | `"Loading"` | No | — |
 
+<a id="about"></a>
 ## About Loader
 
+<a id="accessibility"></a>
 ### Accessibility
 
 Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
 
+<a id="faq"></a>
 ### FAQ
 
 **How do I configure Loader?**
@@ -122,6 +135,14 @@ Provide content through the documented composition; application effects remain w
 
 Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
 
+<a id="related-components"></a>
+## Related components
+
+- [Animated Badge](https://orvui.efu.me/en/components/motion/animated-badge): Pair a compact status label with an icon and optional pulse feedback.
+- [Text Animation](https://orvui.efu.me/en/components/motion/text-animation): Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+- [Number Animation](https://orvui.efu.me/en/components/motion/number): Animate numeric values with counting, rolling or position-preserving digit changes.
+
+<a id="licenses"></a>
 ## Source
 
 - Registry detail: https://orvui.efu.me/r/loader.json

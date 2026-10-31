@@ -10,16 +10,18 @@ license: "MIT"
 productVersion: "0.1.0"
 ---
 
+<a id="overview"></a>
 # Tool Approval
 
 > 为待执行工具操作展示说明，并请求明确决策。
 
-为待执行工具操作展示说明，并请求明确决策。
+<a id="when-to-use"></a>
 
 ## 适用场景
 
 - 当界面需要以下行为时使用 Tool Approval：为待执行工具操作展示说明，并请求明确决策。
 
+<a id="install"></a>
 ## 安装
 
 ### Tool Approval — 复制源码
@@ -59,8 +61,10 @@ import '@orvui/vue/style.css';
 - `tailwind-merge@^3.0.0`
 - `tailwindcss@^4.0.0`
 
+<a id="examples"></a>
 ## 用法
 
+<a id="default"></a>
 ### Tool Approval
 
 **复制源码**
@@ -243,8 +247,7 @@ function replay() {
 
 ## 组件指南
 
-为待执行工具操作展示说明，并请求明确决策。
-
+<a id="composition"></a>
 ### 组合结构
 
 使用公开部件 ToolApproval, ToolApprovalCode 组合 Tool Approval，并从该组件的公开入口导入。
@@ -255,6 +258,11 @@ Message
     └── ToolApproval
         └── ToolApprovalCode
 ```
+
+<a id="behavior"></a>
+### 工作方式
+
+为待执行工具操作展示说明，并请求明确决策。
 
 ### 生命周期
 
@@ -304,6 +312,18 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolApproval, ToolApprovalC
 - 适用: 当界面需要以下行为时使用 Tool Approval：为待执行工具操作展示说明，并请求明确决策。
 - 不适用: 如果文档定义的交互模型不适合任务，应选择其他组合。
 
+<a id="state-and-events"></a>
+## 状态与事件
+
+需要由表单、路由或父组件管理时，绑定下列状态并接收对应更新。v-model 是属性与 update 事件的简写；值的类型应与 API 一致。
+
+| 组件 | Vue 绑定 | 类型 | 更新事件 |
+| --- | --- | --- | --- |
+| `ToolApproval` | `v-model:open` | `boolean` | `update:open` |
+
+可选受控属性未传入时，按组件文档的默认行为工作；不要用固定的 false 或空值代替未传入。异步请求和持久化在应用中处理，再把结果传回组件。
+
+<a id="api-reference"></a>
 ## API 参考
 
 ### ToolApproval
@@ -345,12 +365,15 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolApproval, ToolApprovalC
 | `code` | `string` | — | 是 | — |
 | `language` | `"text" \| "bash" \| "diff" \| "json" \| "tsx" \| "typescript" \| "javascript" \| "vue" \| "css" \| "html"` | `"bash"` | 否 | — |
 
+<a id="about"></a>
 ## 关于 Tool Approval
 
+<a id="accessibility"></a>
 ### 无障碍
 
 为交互控件提供明确的无障碍名称。保留文档中的键盘路径、可见焦点与减少动态效果状态；自定义插槽应继续保留所替代部件的语义。
 
+<a id="faq"></a>
 ### 常见问题
 
 **如何配置 Tool Approval？**
@@ -365,6 +388,14 @@ Usage 区域通过 Vue props、事件与插槽组合 ToolApproval, ToolApprovalC
 
 可以在 Vue SSR 应用中正常渲染。服务端与客户端的初始 props 应保持一致；浏览器测量与交互资源在挂载后启动。
 
+<a id="related-components"></a>
+## 相关组件
+
+- [Approval Card](https://orvui.efu.me/components/agents/approval-card): 在助手继续工作前，引导用户完成一个或多个决策步骤。
+- [Agent Activity](https://orvui.efu.me/components/agents/agent-activity): 将持续变化的助手活动组织为可展开步骤与完成摘要。
+- [Tool Result](https://orvui.efu.me/components/agents/tool-result): 在同一表面呈现工具调用状态、摘要与可展开结果。
+
+<a id="licenses"></a>
 ## 源码
 
 - 注册表详情: https://orvui.efu.me/r/tool-approval.json
