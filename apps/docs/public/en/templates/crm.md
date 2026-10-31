@@ -18,7 +18,7 @@ For accounts, opportunities, contacts and team follow-up management.
 
 <a id="template-walkthrough"></a>
 ### Try it
-1. Search for Northstar in Accounts, open its detail and edit the record.
+1. Search for NVIDIA in Accounts, open its detail and edit the record.
 2. Follow related records to contacts and opportunities, then update an opportunity stage.
 3. Complete tasks, record meetings or notes, and save list filters.
 
@@ -34,6 +34,7 @@ For accounts, opportunities, contacts and team follow-up management.
 - Meetings
 - Notes
 - New list
+- Sponsor gaps
 - At risk
 - Warm contacts
 

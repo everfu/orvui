@@ -15,8 +15,8 @@ export const templateEditorial: Record<
         en: "Change the overview reporting period and inspect the metrics and charts.",
       },
       {
-        zh: "打开订单，搜索 Northstar 并编辑一条记录；刷新后检查更改。",
-        en: "Open Orders, search for Northstar and edit a record. Refresh to check the saved changes.",
+        zh: "打开订单，搜索 Kate 并编辑一条记录；刷新后检查更改。",
+        en: "Open Orders, search for Kate and edit a record. Refresh to check the saved changes.",
       },
       {
         zh: "在追踪中完成任务，并在设置中调整工作空间偏好。",
@@ -71,8 +71,8 @@ export const templateEditorial: Record<
     },
     walkthrough: [
       {
-        zh: "在客户列表搜索 Northstar，打开详情并编辑记录。",
-        en: "Search for Northstar in Accounts, open its detail and edit the record.",
+        zh: "在客户列表搜索 NVIDIA，打开详情并编辑记录。",
+        en: "Search for NVIDIA in Accounts, open its detail and edit the record.",
       },
       {
         zh: "通过关联记录查看联系人和商机，切换商机状态。",

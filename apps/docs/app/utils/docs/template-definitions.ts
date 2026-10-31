@@ -151,7 +151,7 @@ const applicationPages = {
       en: "Home",
     },
     {
-      id: "next",
+      id: "up-next",
       zh: "接下来",
       en: "Up next",
     },
@@ -195,13 +195,14 @@ const applicationPages = {
       zh: "新建列表",
       en: "New list",
     },
+    { id: "lists/sponsor-gaps", zh: "待补充决策人", en: "Sponsor gaps" },
     {
-      id: "risk",
+      id: "lists/at-risk",
       zh: "风险客户",
       en: "At risk",
     },
     {
-      id: "warm",
+      id: "lists/warm-contacts",
       zh: "潜在客户",
       en: "Warm contacts",
     },

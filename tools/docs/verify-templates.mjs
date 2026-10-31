@@ -46,7 +46,7 @@ try {
           "?lang=zh&appearance=dark",
         { waitUntil: "networkidle" },
       );
-      await expect(page.locator(".home-app-frame")).toBeVisible();
+      await expect(page.locator(".template-application")).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
       if (process.argv.includes("--screenshots"))
         await page.screenshot({
@@ -59,6 +59,9 @@ try {
         animations: "disabled",
         timeout: 15000,
       });
+      await page
+        .getByRole("button", { name: /工作空间偏好|账户菜单/, exact: false })
+        .click();
       for (const palette of [
         "default",
         "violet",
@@ -73,7 +76,7 @@ try {
         "lime",
       ]) {
         await page
-          .locator(".application-preferences select")
+          .getByRole("combobox", { name: /主题配色|Color theme/ })
           .selectOption(palette);
         if (palette === "default")
           await expect(page.locator("html")).not.toHaveAttribute("data-theme");
@@ -89,22 +92,21 @@ try {
       await expect(page.locator("html")).not.toHaveClass(/dark/);
       await page.getByRole("button", { name: "切换语言", exact: true }).click();
       await expect(page.locator("html")).toHaveAttribute("lang", "en");
+      await page.keyboard.press("Escape");
       await page.setViewportSize({ width: 390, height: 844 });
       await expect(
-        page.getByRole("button", { name: "Toggle sidebar", exact: true }),
-      ).toHaveAttribute("aria-expanded", "false");
+        page.getByRole("button", { name: /Toggle sidebar|Open navigation/ }),
+      ).toBeVisible();
       await page
-        .getByRole("button", { name: "Toggle sidebar", exact: true })
+        .getByRole("button", { name: /Toggle sidebar|Open navigation/ })
         .click();
-      await expect(page.locator("[data-mobile]")).toHaveAttribute(
-        "aria-hidden",
-        "false",
-      );
+      await expect(
+        page.getByRole("button", { name: "Close sidebar", exact: true }),
+      ).toBeVisible();
       await page.keyboard.press("Escape");
-      await expect(page.locator("[data-mobile]")).toHaveAttribute(
-        "aria-hidden",
-        "true",
-      );
+      await expect(
+        page.getByRole("button", { name: "Close sidebar", exact: true }),
+      ).not.toBeVisible();
       if (
         !(await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth,
