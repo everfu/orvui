@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { defineNuxtConfig } from "nuxt/config";
 import type { NuxtConfig } from "nuxt/schema";
 import tailwindcss from "@tailwindcss/vite";
-import { createDocsPages } from "../../tools/docs/routes";
+import { createDocsPages } from "./app/utils/docs/route-manifest";
 import { appearanceBootstrap } from "./app/utils/docs/appearance";
 
 const path = (value: string) => fileURLToPath(new URL(value, import.meta.url));

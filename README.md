@@ -33,11 +33,11 @@
 
 ### 从交互控件到完整界面
 
-109 个组件、72 个注册示例，覆盖四类常见界面需求。
+110 个组件、72 个注册示例，覆盖四类常见界面需求。
 
 | 分类                                                | 内容                                 | 组件数 |
 | --------------------------------------------------- | ------------------------------------ | -----: |
-| [Motion](https://orvui.efu.me/components/motion)    | 按钮、选择器、浮层与动效交互         |     54 |
+| [Motion](https://orvui.efu.me/components/motion)    | 按钮、选择器、浮层与动效交互         |     55 |
 | [Blocks](https://orvui.efu.me/components/blocks)    | 表单、文件上传、命令面板与组合模块   |     23 |
 | [AI Agents](https://orvui.efu.me/components/agents) | 消息、提示输入、工具调用与代理工作区 |     18 |
 | [Charts](https://orvui.efu.me/charts)               | 交互图表与数据可视化                 |     14 |
@@ -115,16 +115,18 @@ import "@orvui/vue/style.css";
 
 ```sh
 pnpm install
-pnpm dev
+pnpm docs:dev
 ```
 
-文档站使用 Nuxt SSR，开发地址以 Nuxt 启动时的输出为准，通常为 `http://localhost:3000`。运行 `pnpm build` 构建生产产物，使用 `pnpm preview` 预览，或 `pnpm start` 启动独立 Node 服务。
+文档站使用 Nuxt SSR，开发地址以 Nuxt 启动时的输出为准，通常为 `http://localhost:3000`。运行 `pnpm docs:build` 构建文档站，使用 `pnpm docs:preview` 预览；`pnpm build` 构建整个工作区。
+
+`pnpm docs:dev`、`pnpm docs:build`、`pnpm docs:preview` 和 `pnpm docs:typecheck` 直接调用 Nuxt 原生命令。新增组件或修改 API、演示导入及生成资源来源后，运行 `pnpm docs:resources`；完整工作区构建 `pnpm build` 会自动生成。使用 `pnpm check` 依次执行构建、类型检查和测试。
 
 开发、测试与构建配置见 [文档站说明](./apps/docs/README.md)。
 
 ## 贡献
 
-欢迎改进组件、示例和文档。请先阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)，了解目录约定、兼容要求、构建检查与分发验证；外观和行为约定见 [design.md](./design.md)。
+欢迎改进组件、示例和文档。请先阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)，了解目录约定、兼容要求、基础检查与本地分发构建；外观和行为约定见 [design.md](./design.md)。
 
 ## 许可
 

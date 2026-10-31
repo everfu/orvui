@@ -72,7 +72,8 @@ test("compact installation and six real component compositions", async ({
   const install = await page.locator(".home-install").boundingBox();
   const showcase = await page.locator(".home-showcase").boundingBox();
   expect(install!.y + install!.height).toBeLessThanOrEqual(showcase!.y + 1);
-  if (info.project.name === "desktop") expect(showcase!.y).toBeLessThan(780);
+  if (info.project.name === "home-desktop")
+    expect(showcase!.y).toBeLessThan(780);
   await expect(
     page
       .getByRole("tablist", { name: "展示场景", exact: true })
@@ -326,7 +327,7 @@ test("application sidebar supports collapse and mobile navigation", async ({
   await scene(page, "dashboard");
   const app = page.locator('[data-scene="dashboard"]');
   await app.locator('.home-app-header [data-slot="sidebar-trigger"]').click();
-  if (info.project.name === "mobile") {
+  if (info.project.use.isMobile) {
     const dialog = page.getByRole("dialog", {
       name: "示例应用导航",
       exact: true,

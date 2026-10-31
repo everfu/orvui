@@ -65,7 +65,7 @@ test("real color selector supports ring motion, keyboard, touch and reduced moti
   await expect(ring).toBeVisible();
   const initial = await ring.boundingBox();
   const violet = palette.locator('label:has([data-palette="violet"])');
-  if (info.project.name === "mobile") await violet.tap();
+  if (info.project.use.isMobile) await violet.tap();
   else await violet.click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "violet");
   await expect(palette.locator('[data-palette="violet"]')).toBeChecked();

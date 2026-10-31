@@ -3,7 +3,7 @@ import { basename, dirname, relative, resolve } from "node:path";
 import ts from "typescript";
 import { parse as parseSfc } from "vue/compiler-sfc";
 import type { CatalogCategory } from "./types";
-import type { PublicUsageImport } from "./public-usage-types";
+import type { PublicUsageImport } from "../../apps/docs/app/utils/docs/public-usage-types";
 
 export interface UsageRegistryItem {
   name: string;

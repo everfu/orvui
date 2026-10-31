@@ -33,11 +33,11 @@ Start with the [installation guide](https://orvui.efu.me/en/docs/installation), 
 
 ### From interactive controls to complete interfaces
 
-109 components and 72 registered examples cover four categories.
+110 components and 72 registered examples cover four categories.
 
 | Category                                               | Contents                                                 | Components |
 | ------------------------------------------------------ | -------------------------------------------------------- | ---------: |
-| [Motion](https://orvui.efu.me/en/components/motion)    | Buttons, pickers, overlays and animated interactions     |         54 |
+| [Motion](https://orvui.efu.me/en/components/motion)    | Buttons, pickers, overlays and animated interactions     |         55 |
 | [Blocks](https://orvui.efu.me/en/components/blocks)    | Forms, uploads, command palettes and composed interfaces |         23 |
 | [AI Agents](https://orvui.efu.me/en/components/agents) | Messages, prompt inputs, tool calls and agent workspaces |         18 |
 | [Charts](https://orvui.efu.me/en/charts)               | Interactive charts and data visualization                |         14 |
@@ -115,14 +115,16 @@ Use the pnpm version specified in `package.json`:
 
 ```sh
 pnpm install
-pnpm dev
+pnpm docs:dev
 ```
 
-The Nuxt SSR documentation uses the development address printed by Nuxt, normally `http://localhost:3000`. Use `pnpm build` for production, `pnpm preview` for a preview, and `pnpm start` for the standalone Node server. See the [docs README](./apps/docs/README.md) for verification and build configuration.
+The Nuxt SSR documentation uses the development address printed by Nuxt, normally `http://localhost:3000`. Use `pnpm docs:build` to build the docs, `pnpm docs:preview` to preview them, and `pnpm build` to build the whole workspace. See the [docs README](./apps/docs/README.md) for basic checks and build configuration.
+
+`pnpm docs:dev`, `pnpm docs:build`, `pnpm docs:preview` and `pnpm docs:typecheck` call Nuxt directly. Run `pnpm docs:resources` after adding components or changing APIs, demo imports or other generated resource inputs; the full workspace build (`pnpm build`) generates them automatically. `pnpm check` runs the build, type checks and tests in sequence.
 
 ## Contributing
 
-Contributions to components, examples and documentation are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) (Chinese) for layout conventions, compatibility requirements, build checks and consumer verification. See [design.md](./design.md) for visual and behavioral contracts.
+Contributions to components, examples and documentation are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) (Chinese) for layout conventions, compatibility requirements, basic checks and local package builds. See [design.md](./design.md) for visual and behavioral contracts.
 
 ## License
 

@@ -2,7 +2,7 @@
 import { computed, reactive } from "vue";
 import { NuxtPage, NuxtRouteAnnouncer } from "#components";
 import { useRoute, useRouter } from "#imports";
-import type { DocsPage } from "../../../tools/docs/routes";
+import type { DocsPage } from "./utils/docs/route-manifest";
 import SiteLayout from "./components/docs/SiteLayout.vue";
 import { useDocsHead } from "./composables/page-head";
 

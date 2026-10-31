@@ -32,22 +32,12 @@ contour fidelity.
 
 ## Preview and adoption
 
-From the repository root:
-
-```sh
-node assets/logo-exploration/serve.mjs
-```
-
-Open <http://127.0.0.1:5196/assets/logo-exploration/> to see the selected logo in
-black and white, its 56px navigation placement, favicon sizes, downloads, and
-the original reference image.
-
 The selected identity is applied to the documentation header and footer, the
 Chinese/English README image, browser favicon, and v2 social card. Header and
 footer share `SiteLogo.vue`, which imports the canonical horizontal SVG inline
 and inherits the site's semantic foreground color in every theme.
 
 `pnpm brand:sync` copies these source SVGs to the public brand directory and
-updates the shared README tile and documentation favicon. It runs before the
-root dev server and documentation metadata/build pipeline. Social PNG export
+updates the shared README tile and documentation favicon. It also runs during
+full workspace builds; the development server starts directly. Social PNG export
 remains an explicit browser-rendering step documented in `tools/social/README.md`.

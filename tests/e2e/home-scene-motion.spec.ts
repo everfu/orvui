@@ -1,22 +1,7 @@
-import { expect, test, type Page } from "@playwright/test";
-const errors = new WeakMap<Page, string[]>();
-test.beforeEach(async ({ page }) => {
-  const messages: string[] = [];
-  errors.set(page, messages);
-  page.on("pageerror", (error) => messages.push(error.message));
-  page.on("console", (message) => {
-    if (
-      message.type() === "error" ||
-      /hydration|mismatch/i.test(message.text())
-    )
-      messages.push(message.text());
-  });
-  await page.route("https://api.github.com/repos/everfu/orvui", (route) =>
-    route.fulfill({ json: { stargazers_count: 0 } }),
-  );
-  await page.addInitScript(() => localStorage.setItem("orvui-theme", "dark"));
-});
-test.afterEach(async ({ page }) => expect(errors.get(page)).toEqual([]));
+import { expect, type Page } from "@playwright/test";
+import { test } from "./fixtures";
+test.use({ reducedMotion: "no-preference" });
+
 const panel = (page: Page) => page.locator(".home-scene-panel");
 const select = (page: Page, name: string) =>
   page

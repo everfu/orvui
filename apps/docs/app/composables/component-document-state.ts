@@ -8,15 +8,15 @@ import {
   watch,
 } from "vue";
 import { useOverlay } from "../../../../packages/vue/src/lib/composables";
-import { demoDependencies } from "../../../../tools/registry/usage-dependencies";
-import { usageFor } from "../../../../tools/registry/public-usage-browser";
-import { buildComponentMarkdown } from "../../../../tools/registry/component-markdown";
+import { demoDependencies } from "../utils/docs/usage-dependencies";
+import { usageFor } from "../utils/docs/public-usage";
+import { buildComponentMarkdown } from "../utils/docs/component-markdown";
 import type {
   CatalogCategory,
   CatalogEntry,
 } from "../../../../tools/registry/types";
-import type { ComponentDocs } from "../../../../tools/registry/component-docs-types";
-import docsData from "../../../../tools/registry/component-docs.json";
+import type { ComponentDocs } from "../utils/docs/component-docs-types";
+import docsData from "../data/component-docs.json";
 import { getLocalizedDetails } from "../utils/docs/details";
 import type { SiteShell } from "./site-shell-state";
 const docs = docsData as unknown as ComponentDocs;

@@ -1,6 +1,6 @@
 import catalog from "../../../../../../tools/catalog/components.json";
-import apiData from "../../../../../../tools/registry/component-docs.json";
-import type { ComponentDocs } from "../../../../../../tools/registry/component-docs-types";
+import apiData from "../../../data/component-docs.json";
+import type { ComponentDocs } from "../component-docs-types";
 import { componentCopy } from "./content";
 import { compositions, credits, recommendations } from "./composition-data";
 import type { AgentGuide, ComponentAbout, ComponentDetailBaseline } from "./types";

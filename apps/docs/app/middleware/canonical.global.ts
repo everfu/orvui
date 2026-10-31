@@ -1,5 +1,5 @@
 import { defineNuxtRouteMiddleware, navigateTo } from "#imports";
-import type { DocsPage } from "../../../../tools/docs/routes";
+import type { DocsPage } from "../utils/docs/route-manifest";
 
 export default defineNuxtRouteMiddleware((route) => {
   const page = route.meta.orvuiPage as DocsPage | undefined;

@@ -6,7 +6,6 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "preview": "nuxt preview",
-    "start": "nuxt start",
     "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },

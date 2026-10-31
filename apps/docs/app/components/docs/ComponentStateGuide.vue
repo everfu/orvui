@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import metadata from "../../../../../tools/registry/component-docs.json";
-import type { ComponentDocs } from "../../../../../tools/registry/component-docs-types";
+import metadata from "../../data/component-docs.json";
+import type { ComponentDocs } from "../../utils/docs/component-docs-types";
 import {
   componentBindings,
   componentStateCopy,

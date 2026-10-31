@@ -1,14 +1,14 @@
 # 参与 orvui 开发
 
-使用根目录 `package.json` 指定的 pnpm 版本。运行 `pnpm install` 和 `pnpm dev` 启动文档站，检查终端显示的实际地址。
+使用根目录 `package.json` 指定的 pnpm 版本。运行 `pnpm install` 和 `pnpm docs:dev` 启动文档站，检查终端显示的实际地址。
 
 ## 工作区
 
 | 目录           | 职责                                           |
 | -------------- | ---------------------------------------------- |
 | `packages/vue` | `@orvui/vue` 组件源码、样式、声明与组件包      |
-| `apps/docs`    | 中文和英文文档、交互演示及可下载资源           |
-| `tools`        | 产品目录、主题和文档生成、源码注册表及消费验证 |
+| `apps/docs`    | 中文和英文文档、交互演示、生成脚本及可下载资源           |
+| `tools`        | 产品目录、主题生成、源码注册表及共享分发工具 |
 
 ## 组件目录
 
@@ -28,7 +28,7 @@
 
 演示通过组件公共入口导入公开组件。实现内部使用可移植的相对依赖；跨组件引用公开入口，共享内部模块继续使用原有位置。不要为了填满目录抽离 SFC 样式、创建空文件夹或复制第二份实现。公共类型与实现放在同一个 `src/` 中，经 `index.ts` 导出。内部路径不是推荐的消费入口。
 
-产品目录、路由和注册示例由 `tools/catalog/components.json` 管理。只有注册变体放在 `examples/*.vue`；演示辅助文件放入 `examples/internal/`，避免被误认为独立示例。修改内容后运行 `pnpm metadata:docs`，同步 API、使用代码和注册表。
+产品目录、路由和注册示例由 `tools/catalog/components.json` 管理。只有注册变体放在 `examples/*.vue`；演示辅助文件放入 `examples/internal/`，避免被误认为独立示例。新增组件或修改 API、演示导入及生成资源来源后运行 `pnpm docs:resources`，同步主题、API、使用代码、注册表和文档资源。站点操作直接使用 `pnpm docs:dev`、`pnpm docs:build`、`pnpm docs:preview` 和 `pnpm docs:typecheck` 调用 Nuxt，不执行前置生成；品牌资源单独用 `pnpm brand:sync` 复制。
 
 ## 行为与样式
 
@@ -38,23 +38,41 @@
 
 ## 测试与检查
 
-单组件测试放在组件旁的 `tests/*.test.ts`，通过公共入口测试行为；内部算法测试可以引用 `../src/`。跨组件、文档、分发及 SSR/hydration 集成测试保留在根目录 `tests/`。迁移测试时保留全部原有断言。冻结 API、组件行为及声明夹具是兼容基线，不得因目录迁移重新生成。
+单组件测试放在组件旁的 `tests/*.test.ts`，通过公共入口测试行为；内部算法测试可以引用 `../src/`。根目录 `tests/` 按职责组织：
+
+| 目录 | 内容 |
+| --- | --- |
+| `contracts/` | 公共 API、组件成员、默认值和配色兼容性 |
+| `docs/` | 文档生成、站点控件、路由和文档 SSR/hydration |
+| `distribution/` | 注册表、源码依赖、安装导入、类型生成和资源许可证 |
+| `runtime/` | 跨组件交互、共享模型和组件 SSR/hydration |
+| `e2e/` | 真实浏览器交互 |
+| `fixtures/` | 冻结契约和消费类型夹具 |
+| `helpers/` | 测试环境辅助代码 |
+
+优先测试可观察行为与实际缺陷。重复场景只保留一处；不为固定文案、内部类名或文件位置添加断言。API、安装命令、稳定锚点与许可证需要对应检查。冻结夹具不得为使测试通过而重新生成。
 
 ```sh
-pnpm metadata:docs
+pnpm docs:resources
 pnpm typecheck
-pnpm api:check
 pnpm test
 pnpm build
 pnpm exec tsx tools/registry/build.ts --strict
-pnpm theme:check
 ```
+
+浏览器测试统一使用一个配置，运行前先启动本项目文档站，并传入实际地址：
+
+```sh
+PLAYWRIGHT_BROWSERS_PATH=artifacts/browsers ORVUI_NUXT_URL=http://localhost:3000 pnpm exec playwright test --config apps/docs/playwright.config.ts
+```
+
+可追加文件名和 `--project desktop` 运行文档或浮层测试；首页使用 `home-desktop`、`home-tablet`、`home-mobile`，动态效果检查使用 `effects-desktop`、`effects-mobile`。浏览器测试不包含在 `pnpm test` 中。
 
 可以使用 `pnpm exec vitest run packages/vue/src/motion/button/tests` 检查单组件。组件测试必须从声明、发布源文件、注册表、文档源码面板和 Tailwind 扫描中排除。测试、构建、浏览器交互、视觉比较和真实消费是独立的验收层次。
 
-`pnpm build` 会生成文档元数据、组件库与类型声明，再构建文档站和下载资源。`pnpm theme:build` 根据配色约定生成 CSS，`pnpm theme:check` 检查生成结果是否一致。
+`pnpm build` 先统一生成一次资源，再构建组件库、类型声明和文档站。`pnpm check` 依次运行构建、类型检查和现有测试，不重复生成资源。公共 API 兼容性由现有基线测试检查。`pnpm theme:build` 根据配色约定生成 CSS；需要单独检查主题结果时可运行 `pnpm exec tsx tools/theme/build.ts --check`。
 
-## 分发与消费验证
+## 本地分发构建
 
 在仓库根目录打包，`prepack` 会自动构建组件库、声明、主题和源码注册表：
 
@@ -64,24 +82,7 @@ pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
 
 `pnpm package:build` 只构建分发内容，不生成归档。本地归档放在 `artifacts/packages/<version>/`，生成报告放在 `artifacts/reports/`，两者都不提交到 Git。
 
-打包后分别检查包消费、使用代码和实际 shadcn-vue CLI 安装：
-
-```sh
-node tools/verify-distribution.mjs
-node tools/verify-public-usage.mjs
-node tools/verify-registry-usage.mjs
-node tools/verify-component-install.mjs
-```
-
-验证脚本会创建隔离的临时项目，消费项目和归档解包目录位于 `artifacts/verification/`，默认将证据写入 `artifacts/reports/verification/`。使用 `ORVUI_VERIFICATION_DIR` 指定输出目录；`--archive /absolute/path.tgz`、`ORVUI_PACKAGE_ARCHIVE` 或 `ORVUI_USAGE_PACKAGE` 可选择归档，否则使用当前版本目录中的默认归档。已有 `IUI_` 环境变量别名继续兼容。两个源码安装验证脚本会启动本地注册表并调用真实 CLI。
-
-设置 `ORVUI_PREVIOUS_REGISTRY_DIRECTORY` 后，单组件安装验证还会从指定的旧注册表安装 Button，再更新到当前源码结构，检查类型、构建及使用者文件保留情况。更新源码时不要自动删除使用者目录中的旧文件或自定义内容。
-
-源码与包必须来自同一份实现。生成的注册表和 API 覆盖报告位于 `artifacts/reports/`。验证辅助模块位于 `tools/verification/`，可以独立运行其检查：
-
-```sh
-node --test tools/verification/metadata.test.mjs
-```
+源码与包必须来自同一份实现。基础检查保留现有分发、SSR/hydration 与兼容性测试，但通过构建不代表已经验证真实消费或浏览器视觉效果。工具职责见 [tools/README.md](./tools/README.md)。
 
 ## 项目约定的来源
 

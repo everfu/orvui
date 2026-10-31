@@ -7,3 +7,6 @@
 
 @source "../**/*.{vue,ts}";
 @source not "../**/tests/**";
+@source not "../data/**";
+@source not "../../scripts/**";
+@source not "../../playwright.config.ts";

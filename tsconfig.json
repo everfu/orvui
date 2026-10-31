@@ -32,7 +32,9 @@
     "packages/vue/src/**/*.ts",
     "packages/vue/src/**/*.vue",
     "tools/**/*.ts",
-    "tests/**/*.ts"
+    "tests/**/*.ts",
+    "apps/docs/scripts/**/*.ts",
+    "apps/docs/playwright.config.ts"
   ],
   "exclude": [
     "node_modules",

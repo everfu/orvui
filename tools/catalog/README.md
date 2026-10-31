@@ -2,7 +2,7 @@
 
 `components.json` schema version 2 is the maintained Web catalog. Its Vue barrels and example entries define navigation, search, documentation, installation names and copy-source registry items. Generated resources use `product.name` and `product.version`.
 
-`public-api.json` freezes the public Vue exports for the package root and component modules. `pnpm api:check` checks missing names and runtime/type changes; it does not establish prop, slot or event compatibility. Behavior and consumer type fixtures check those separately. Ordinary builds never rewrite this baseline.
+`public-api.json` freezes the public Vue exports for the package root and component modules. The public API baseline tests in `pnpm test` check missing names and runtime/type changes; they do not establish prop, slot or event compatibility. Behavior and consumer type fixtures check those separately. Ordinary builds never rewrite this baseline.
 
 The source registry follows every relative TypeScript, Vue and CSS dependency. CSS installation targets retain real `.css` names and portable `.css.txt` registry transport paths. Package imports and CLI installation use the same actual source.
 

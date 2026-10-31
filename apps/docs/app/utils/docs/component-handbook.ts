@@ -1,4 +1,4 @@
-import type { ApiEntry } from "../../../../../tools/registry/component-docs-types";
+import type { ApiEntry } from "./component-docs-types";
 
 const text = (zh: string, en: string) => ({ zh, en });
 export const componentGroupGuidance = {

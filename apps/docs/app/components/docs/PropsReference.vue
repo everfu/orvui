@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import metadata from "../../../../../tools/registry/component-docs.json";
+import metadata from "../../data/component-docs.json";
 import type {
   ApiComponent,
   ComponentDocs,
-} from "../../../../../tools/registry/component-docs-types";
+} from "../../utils/docs/component-docs-types";
 const props = withDefaults(
   defineProps<{
     category: string;

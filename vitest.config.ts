@@ -1,9 +1,10 @@
 import { defineConfig } from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 export default defineConfig({
+  publicDir: "apps/docs/public",
   plugins: [vue()],
   test: {
-    setupFiles: ["./tests/setup-browser-storage.ts"],
+    setupFiles: ["./tests/helpers/setup-browser-storage.ts"],
     environment: "happy-dom",
     environmentOptions: {
       happyDOM: { settings: { disableIframePageLoading: true } },
