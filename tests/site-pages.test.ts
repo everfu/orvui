@@ -11,19 +11,19 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, resolve } from "node:path";
-import SitePage from "../apps/docs/app/docs/SitePage.vue";
-import SiteMotionDemo from "../apps/docs/app/docs/SiteMotionDemo.vue";
+import SitePage from "../apps/docs/app/components/docs/SitePage.vue";
+import SiteMotionDemo from "../apps/docs/app/components/docs/SiteMotionDemo.vue";
 import {
   getSitePage,
   sitePages,
   siteOrigin,
   openUiSnippets,
-} from "../apps/docs/app/docs/site-page-data";
+} from "../apps/docs/app/utils/docs/site-page-data";
 import {
   changelogEntries,
   excludedChangelogItems,
-} from "../apps/docs/app/docs/site-changelog-data";
-import { sitePageMarkdown } from "../apps/docs/app/docs/site-page-markdown";
+} from "../apps/docs/app/utils/docs/site-changelog-data";
+import { sitePageMarkdown } from "../apps/docs/app/utils/docs/site-page-markdown";
 import { buildSitePages } from "../tools/registry/site-pages";
 import metadata from "../tools/registry/component-docs.json";
 import type { ComponentDocs } from "../tools/registry/component-docs-types";

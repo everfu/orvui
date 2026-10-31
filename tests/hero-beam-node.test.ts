@@ -2,7 +2,7 @@
 import { expect, it } from "vitest";
 import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import HeroBeam from "../apps/docs/app/docs/HeroBeam.vue";
+import HeroBeam from "../apps/docs/app/components/docs/HeroBeam.vue";
 const render = () =>
   renderToString(
     createSSRApp({

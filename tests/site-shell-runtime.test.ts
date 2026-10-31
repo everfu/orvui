@@ -8,8 +8,8 @@ vi.mock("../packages/vue/src/motion/theme-toggle/src/useThemeToggle", () => ({
 import {
   createSiteShell,
   type SiteShell,
-} from "../apps/docs/app/docs/site-shell-state";
-import { createComponentDocument } from "../apps/docs/app/docs/component-document-state";
+} from "../apps/docs/app/composables/site-shell-state";
+import { createComponentDocument } from "../apps/docs/app/composables/component-document-state";
 let wrapper: ReturnType<typeof mount> | undefined;
 let shell: SiteShell;
 let route: { path: string };

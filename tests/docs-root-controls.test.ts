@@ -1,13 +1,13 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { nextTick } from "vue";
-import SiteSearch from "../apps/docs/app/docs/SiteSearch.vue";
-import SiteNavigation from "../apps/docs/app/docs/SiteNavigation.vue";
-import SiteInstallCommand from "../apps/docs/app/docs/SiteInstallCommand.vue";
-import SiteInstallBlock from "../apps/docs/app/docs/SiteInstallBlock.vue";
-import CategoryPage from "../apps/docs/app/docs/CategoryPage.vue";
+import SiteSearch from "../apps/docs/app/components/docs/SiteSearch.vue";
+import SiteNavigation from "../apps/docs/app/components/docs/SiteNavigation.vue";
+import SiteInstallCommand from "../apps/docs/app/components/docs/SiteInstallCommand.vue";
+import SiteInstallBlock from "../apps/docs/app/components/docs/SiteInstallBlock.vue";
+import CategoryPage from "../apps/docs/app/components/docs/CategoryPage.vue";
 import catalog from "../tools/catalog/components.json";
-import { getSitePage } from "../apps/docs/app/docs/site-page-data";
+import { getSitePage } from "../apps/docs/app/utils/docs/site-page-data";
 import type { CatalogCategory } from "../tools/registry/types";
 
 const wrappers: VueWrapper[] = [];

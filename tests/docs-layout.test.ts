@@ -3,8 +3,8 @@ import { mount, type VueWrapper } from "@vue/test-utils";
 import {
   componentPath,
   docsPath,
-} from "../apps/docs/app/docs/docs-routes";
-import SiteNavigation from "../apps/docs/app/docs/SiteNavigation.vue";
+} from "../apps/docs/app/utils/docs/docs-routes";
+import SiteNavigation from "../apps/docs/app/components/docs/SiteNavigation.vue";
 
 const wrappers: VueWrapper[] = [];
 beforeEach(() => {

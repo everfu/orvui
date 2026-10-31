@@ -1,7 +1,7 @@
 @import "../../../../packages/vue/src/styles.css";
-@import "../docs/style.css";
-@import "../docs/docs-layout.css";
-@import "../docs/site-controls.css";
+@import "./css/style.css";
+@import "./css/docs-layout.css";
+@import "./css/site-controls.css";
 
 @source "../**/*.{vue,ts}";
 @source not "../**/tests/**";

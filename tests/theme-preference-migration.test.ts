@@ -3,7 +3,7 @@ import {
   appearanceBootstrap,
   readStoredAppearance,
   type Appearance,
-} from "../apps/docs/app/docs/appearance";
+} from "../apps/docs/app/utils/docs/appearance";
 
 function storageWith(values: Record<string, string>) {
   const entries = new Map(Object.entries(values));

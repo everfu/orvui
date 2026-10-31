@@ -2,8 +2,8 @@ import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { flushPromises, mount, type VueWrapper } from "@vue/test-utils";
 import { createSSRApp, defineComponent, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SiteGithubLink from "../apps/docs/app/docs/SiteGithubLink.vue";
-import { useGithubStars } from "../apps/docs/app/docs/github";
+import SiteGithubLink from "../apps/docs/app/components/docs/SiteGithubLink.vue";
+import { useGithubStars } from "../apps/docs/app/composables/github";
 let wrapper: VueWrapper | undefined;
 const Host = defineComponent({
   setup() {

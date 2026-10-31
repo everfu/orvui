@@ -4,7 +4,7 @@ import { compileStyle, parse } from "vue/compiler-sfc";
 import { expect, it } from "vitest";
 
 it.each(["SiteInstallCommand"])("keeps %s dark effects scoped to its actual elements", name => {
-  const filename = `apps/docs/app/docs/${name}.vue`;
+  const filename = `apps/docs/app/components/docs/${name}.vue`;
   const descriptor = parse(readFileSync(filename,"utf8"),{filename}).descriptor;
   const result = compileStyle({filename,source:descriptor.styles[0].content,id:"data-v-isolation",scoped:true});
   expect(result.errors).toEqual([]);

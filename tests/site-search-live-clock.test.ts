@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { computed, defineComponent, h, nextTick, ref } from "vue";
-import SiteSearch from "../apps/docs/app/docs/SiteSearch.vue";
-import NewBadge from "../apps/docs/app/docs/NewBadge.vue";
-import { useNewBadgeClock } from "../apps/docs/app/docs/new-badge";
+import SiteSearch from "../apps/docs/app/components/docs/SiteSearch.vue";
+import NewBadge from "../apps/docs/app/components/docs/NewBadge.vue";
+import { useNewBadgeClock } from "../apps/docs/app/composables/new-badge";
 
 const wrappers: VueWrapper[] = [];
 beforeEach(() => {

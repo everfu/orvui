@@ -1,7 +1,7 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { defineComponent, h, nextTick, ref } from "vue";
-import { useThemePanel } from "../apps/docs/app/docs/use-theme-panel";
+import { useThemePanel } from "../apps/docs/app/composables/use-theme-panel";
 let wrapper: VueWrapper | undefined;
 afterEach(() => {
   wrapper?.unmount();

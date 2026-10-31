@@ -118,7 +118,7 @@ pnpm install
 pnpm dev
 ```
 
-The Nuxt SSR documentation runs at exactly `http://127.0.0.1:5174`. Use `pnpm build` for production, `pnpm preview` for a preview, and `pnpm start` for the standalone Node server. See the [docs README](./apps/docs/README.md) for verification and build configuration.
+The Nuxt SSR documentation uses the development address printed by Nuxt, normally `http://localhost:3000`. Use `pnpm build` for production, `pnpm preview` for a preview, and `pnpm start` for the standalone Node server. See the [docs README](./apps/docs/README.md) for verification and build configuration.
 
 ## Contributing
 

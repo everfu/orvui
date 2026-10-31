@@ -16,7 +16,7 @@ disabled. This requires no remote assets. The checked-in PNG is served as-is;
 normal builds and tests do not need a browser or an image-generation service.
 
 For visual revisions, increment the PNG filename and update `socialImage.path`
-in `apps/docs/app/page-metadata.ts` together, so share caches can pick up the
+in `apps/docs/app/utils/docs/page-metadata.ts` together, so share caches can pick up the
 new image. Keep essential content inside the existing 72px horizontal margins.
 
 After `pnpm build`, run `pnpm verify:social` to check the generated HTML for

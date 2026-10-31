@@ -2,8 +2,8 @@
 import { expect, it } from "vitest";
 import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SitePreferences from "../apps/docs/app/docs/SitePreferences.vue";
-import { themesStylesheet } from "../apps/docs/app/docs/themes";
+import SitePreferences from "../apps/docs/app/components/docs/SitePreferences.vue";
+import { themesStylesheet } from "../apps/docs/app/utils/docs/themes";
 
 it("server-renders the exact complete preset CSS without browser globals or escaped CSS selectors", async () => {
   const html = await renderToString(

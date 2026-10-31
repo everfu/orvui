@@ -12,3 +12,9 @@ artifacts/
 
 **/.nuxt/
 **/.output/
+**/.data/
+**/.nitro/
+**/.cache/
+*.tsbuildinfo
+logs/
+*.log

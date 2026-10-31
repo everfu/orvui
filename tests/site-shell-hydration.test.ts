@@ -1,4 +1,4 @@
-import { createSSRApp, nextTick } from "vue";
+import { h, createSSRApp, nextTick } from "vue";
 import { renderToString } from "@vue/server-renderer";
 import { flushPromises } from "@vue/test-utils";
 import {
@@ -14,7 +14,12 @@ const current = vi.hoisted(() => ({
   path: "/components/motion/switch",
   frontmatter: { category: "motion", slug: "switch" },
 }));
-import Layout from "../apps/docs/app/docs/SiteLayout.vue";
+import SiteLayout from "../apps/docs/app/components/docs/SiteLayout.vue";
+import DocsPageContent from "../apps/docs/app/components/docs/DocsPageContent.vue";
+
+// Exercise the same shell/page composition used by Nuxt, including its slot.
+const Layout = (props: InstanceType<typeof SiteLayout>["$props"]) =>
+  h(SiteLayout, props, { default: () => h(DocsPageContent) });
 const nativeAnimate = Element.prototype.animate;
 let app: ReturnType<typeof createSSRApp> | undefined;
 let host: HTMLDivElement | undefined;

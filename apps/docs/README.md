@@ -7,7 +7,11 @@ pnpm install
 pnpm dev
 ```
 
-Development uses exactly `http://127.0.0.1:5174` and fails if the port is occupied.
+Use Node.js 24 and the workspace-pinned pnpm 10.30.3.
+Development uses Nuxt's default port selection, normally `http://localhost:3000`.
+Use the address printed by Nuxt; no fixed-port check is applied.
+The structure follows the [official Nuxt 4 starter](https://github.com/nuxt/starter/tree/v4),
+with Nuxt pinned to 4.6.3 for reproducible workspace builds.
 
 ```sh
 pnpm typecheck
@@ -18,8 +22,26 @@ HOST=127.0.0.1 PORT=5174 pnpm start
 ```
 
 The route manifest derives from the component catalog and localized guide
-content. The application lives in `app/`; documentation components, content and
-private styles live in `app/docs/`. Public components retain their own styles.
+content. The application uses Nuxt 4's `app/` structure:
+
+- `app.vue` adapts Nuxt navigation and keeps one shared shell around `NuxtPage`.
+- `pages/` validates routes and renders the current documentation content.
+- `components/docs/` contains private site components and the shell; the shell
+  owns navigation, sidebars, breadcrumbs and footer, with page content in its slot.
+- `composables/` owns reusable reactive state, subscriptions and cleanup.
+- `utils/docs/` contains pure helpers, localized content, metadata and icon provenance.
+- `assets/` contains the CSS entry and `assets/css/` its private styles.
+- `middleware/` normalizes addresses; `plugins/` enhances internal anchors.
+- `error.vue` reuses the shell for localized error recovery.
+
+There is one shared shell, so no extra Nuxt layout is needed. The site uses
+explicit imports to keep components independently testable. Public library
+components retain their own styles and implementation locations.
+
+`tsconfig.json` references Nuxt's generated app, server, shared and Node projects.
+`nuxt typecheck` prepares and checks them; shared compiler overrides belong in
+`nuxt.config.ts`. The root TypeScript config covers library, tools and integration
+tests instead of explicitly including the documentation app again.
 The 242 routes, 109 components and 72 examples share generated API information,
 registry items and downloadable Markdown. No content database is needed.
 
@@ -38,7 +60,9 @@ This checks the generated SSR handler, localized routes, 404 responses and stati
 downloads. Keep deployment state in the ignored `.netlify/` directory. Pushing
 code or deploying requires an explicit user request.
 
-After starting the production server:
+Use the preview address printed by Nuxt. Verification defaults to
+`http://127.0.0.1:5174`; set `ORVUI_NUXT_URL` to the running server's address
+when it differs. After starting the production server:
 
 ```sh
 pnpm verify:docs-nuxt
@@ -48,7 +72,7 @@ pnpm docs:nuxt:browser:install
 pnpm verify:docs-nuxt:browser
 ```
 
-Use `ORVUI_NUXT_URL` to change the browser test target. Browser tests use local
+Use `ORVUI_NUXT_URL` to change the SSR and browser test target. Browser tests use local
 fixtures for decorative external avatars. The standalone check copies only
 `.output/` and denies filesystem access to the rest of the workspace.
 Verification output, browser downloads and screenshots stay in `artifacts/`.

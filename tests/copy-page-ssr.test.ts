@@ -2,7 +2,7 @@
 import { expect, it } from "vitest";
 import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import CopyPage from "../apps/docs/app/docs/CopyPage.vue";
+import CopyPage from "../apps/docs/app/components/docs/CopyPage.vue";
 
 it("renders the split page-copy control on the server without accessing browser resources", async () => {
   expect(typeof window).toBe("undefined");

@@ -2,11 +2,11 @@ import { packageName, packageArchiveName } from "../distribution";
 import type { ApiComponent, ApiEntry } from "./component-docs-types";
 import type { CatalogEntry } from "./types";
 import catalog from "../catalog/components.json";
-import { getVariantDescription } from "../../apps/docs/app/docs/variant-descriptions";
+import { getVariantDescription } from "../../apps/docs/app/utils/docs/variant-descriptions";
 import type {
   ComponentDetailBaseline,
   AgentGuide,
-} from "../../apps/docs/app/docs/details/types";
+} from "../../apps/docs/app/utils/docs/details/types";
 
 export interface ComponentMarkdownInput {
   category: { slug: string; name: string };

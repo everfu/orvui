@@ -6,7 +6,7 @@ const docsRoutes = new Set(createDocsPages().map((page) => page.path));
 import catalogData from "../tools/catalog/components.json";
 import type { ProductCatalog } from "../tools/registry/types";
 const catalog = catalogData as ProductCatalog;
-import { descriptions } from "../apps/docs/app/docs/i18n";
+import { descriptions } from "../apps/docs/app/utils/docs/i18n";
 
 describe("orvui product catalog contract", () => {
   it("owns four categories, 109 stable components and 72 registered variants", () => {

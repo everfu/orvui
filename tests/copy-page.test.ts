@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { nextTick } from "vue";
-import CopyPage from "../apps/docs/app/docs/CopyPage.vue";
+import CopyPage from "../apps/docs/app/components/docs/CopyPage.vue";
 
 const wrappers: VueWrapper[] = [];
 const nativeAnimate = Element.prototype.animate;

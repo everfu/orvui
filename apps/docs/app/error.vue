@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive } from "vue";
 import { useRequestURL, clearError } from "#imports";
-import SiteLayout from "./docs/SiteLayout.vue";
+import SiteLayout from "./components/docs/SiteLayout.vue";
 import { NotFound } from "../../../packages/vue/src/blocks/not-found";
 import { useDocsHead } from "./composables/page-head";
 

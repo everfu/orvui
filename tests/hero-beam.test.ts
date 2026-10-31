@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { h, nextTick } from "vue";
-import HeroBeam from "../apps/docs/app/docs/HeroBeam.vue";
+import HeroBeam from "../apps/docs/app/components/docs/HeroBeam.vue";
 
 type Media = {
   matches: boolean;

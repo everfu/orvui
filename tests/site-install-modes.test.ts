@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { defineComponent, h, nextTick } from "vue";
-import SiteInstallBlock from "../apps/docs/app/docs/SiteInstallBlock.vue";
-import SiteInstallCommand from "../apps/docs/app/docs/SiteInstallCommand.vue";
+import SiteInstallBlock from "../apps/docs/app/components/docs/SiteInstallBlock.vue";
+import SiteInstallCommand from "../apps/docs/app/components/docs/SiteInstallCommand.vue";
 import { ActionSwapCascadeText } from "../packages/vue/src/motion/action-swap";
 import { readFileSync } from "node:fs";
 import packageManifest from "../packages/vue/package.json";

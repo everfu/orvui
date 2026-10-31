@@ -5,7 +5,7 @@ import { createDocsPages } from "../tools/docs/routes";
 import {
   applySocialMetadata,
   canonicalPath,
-} from "../apps/docs/app/page-metadata";
+} from "../apps/docs/app/utils/docs/page-metadata";
 
 const pages = createDocsPages();
 

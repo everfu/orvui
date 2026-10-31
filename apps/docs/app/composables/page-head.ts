@@ -1,6 +1,6 @@
 import { useHead } from "#imports";
 import type { DocsPage } from "../../../../tools/docs/routes";
-import { applySocialMetadata, documentTitle } from "../page-metadata";
+import { applySocialMetadata, documentTitle } from "../utils/docs/page-metadata";
 
 /** Each request and each client navigation receives its own metadata object. */
 export function useDocsHead(

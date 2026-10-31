@@ -6,7 +6,7 @@ import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
 import { compileStyle, parse } from "vue/compiler-sfc";
 import { expect, it } from "vitest";
-import SiteFooter from "../apps/docs/app/docs/SiteFooter.vue";
+import SiteFooter from "../apps/docs/app/components/docs/SiteFooter.vue";
 import catalog from "../tools/catalog/components.json";
 import type { CatalogCategory } from "../tools/registry/types";
 const categories = catalog.categories as CatalogCategory[];
@@ -69,7 +69,7 @@ it.each([true, false])(
   },
 );
 it("compiles isolated scoped responsive rules without reserved artwork space", () => {
-  const source = readFileSync("apps/docs/app/docs/SiteFooter.vue", "utf8");
+  const source = readFileSync("apps/docs/app/components/docs/SiteFooter.vue", "utf8");
   const descriptor = parse(source).descriptor;
   const result = compileStyle({
     filename: "SiteFooter.vue",

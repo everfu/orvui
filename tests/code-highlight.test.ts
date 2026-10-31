@@ -2,7 +2,7 @@ import { expect, it } from "vitest";
 import {
   getHighlighter,
   highlightCode,
-} from "../apps/docs/app/docs/highlight";
+} from "../apps/docs/app/utils/docs/highlight";
 
 it("loads both GitHub light and dark palettes and the Vue/source grammars once", async () => {
   const first = getHighlighter(),

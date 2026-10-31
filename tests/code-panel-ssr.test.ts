@@ -2,7 +2,7 @@
 import { expect, it } from "vitest";
 import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import CodePanel from "../apps/docs/app/docs/CodePanel.vue";
+import CodePanel from "../apps/docs/app/components/docs/CodePanel.vue";
 
 it("renders readable, escaped source without browser APIs before highlighting mounts", async () => {
   expect(typeof window).toBe("undefined");

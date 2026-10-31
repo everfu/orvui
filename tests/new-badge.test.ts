@@ -10,16 +10,16 @@ import {
 import { mount } from "@vue/test-utils";
 import { createSSRApp, defineComponent, nextTick } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import NewBadge from "../apps/docs/app/docs/NewBadge.vue";
-import CategoryPage from "../apps/docs/app/docs/CategoryPage.vue";
-import SiteSearch from "../apps/docs/app/docs/SiteSearch.vue";
-import SiteNavigation from "../apps/docs/app/docs/SiteNavigation.vue";
+import NewBadge from "../apps/docs/app/components/docs/NewBadge.vue";
+import CategoryPage from "../apps/docs/app/components/docs/CategoryPage.vue";
+import SiteSearch from "../apps/docs/app/components/docs/SiteSearch.vue";
+import SiteNavigation from "../apps/docs/app/components/docs/SiteNavigation.vue";
 import type { CatalogCategory } from "../tools/registry/types";
 import {
   getNewBadgeRemainingMs,
   isComponentNew,
   NEW_BADGE_DURATION_MS,
-} from "../apps/docs/app/docs/new-badge";
+} from "../apps/docs/app/composables/new-badge";
 
 const mounted: { unmount: () => void }[] = [];
 const nativeAnimate = Element.prototype.animate;

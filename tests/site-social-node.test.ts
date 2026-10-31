@@ -2,8 +2,8 @@
 import { readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import type { DocsHeadConfig as HeadConfig } from "../apps/docs/app/shared-head";
-import type { SocialPageData as PageData } from "../apps/docs/app/page-metadata";
+import type { DocsHeadConfig as HeadConfig } from "../apps/docs/app/utils/docs/shared-head";
+import type { SocialPageData as PageData } from "../apps/docs/app/utils/docs/page-metadata";
 import { createDocsPages } from "../tools/docs/routes";
 import {
   applySocialMetadata,
@@ -11,9 +11,9 @@ import {
   notFoundRobots,
   siteDescriptions,
   socialImage,
-} from "../apps/docs/app/page-metadata";
+} from "../apps/docs/app/utils/docs/page-metadata";
 import catalog from "../tools/catalog/components.json";
-import { sitePages } from "../apps/docs/app/docs/site-page-data";
+import { sitePages } from "../apps/docs/app/utils/docs/site-page-data";
 
 const root = resolve(import.meta.dirname, "../apps/docs");
 function page(

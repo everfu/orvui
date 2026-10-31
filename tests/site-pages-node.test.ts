@@ -2,8 +2,8 @@
 import { describe, expect, it, vi } from "vitest";
 import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SitePage from "../apps/docs/app/docs/SitePage.vue";
-import { sitePages } from "../apps/docs/app/docs/site-page-data";
+import SitePage from "../apps/docs/app/components/docs/SitePage.vue";
+import { sitePages } from "../apps/docs/app/utils/docs/site-page-data";
 describe("support pages without browser globals", () => {
   for (const page of sitePages)
     for (const en of [false, true])

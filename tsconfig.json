@@ -31,12 +31,8 @@
   "include": [
     "packages/vue/src/**/*.ts",
     "packages/vue/src/**/*.vue",
-    "apps/docs/app/docs/**/*.ts",
-    "apps/docs/app/docs/**/*.vue",
     "tools/**/*.ts",
-    "tests/**/*.ts",
-    "apps/docs/app/page-metadata.ts",
-    "apps/docs/app/shared-head.ts"
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -2,8 +2,8 @@
 import { expect, it, vi } from "vitest";
 import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SiteInstallBlock from "../apps/docs/app/docs/SiteInstallBlock.vue";
-import SiteInstallCommand from "../apps/docs/app/docs/SiteInstallCommand.vue";
+import SiteInstallBlock from "../apps/docs/app/components/docs/SiteInstallBlock.vue";
+import SiteInstallCommand from "../apps/docs/app/components/docs/SiteInstallCommand.vue";
 
 it("renders local package installation without browser globals or registry requests", async () => {
   expect(typeof window).toBe("undefined");

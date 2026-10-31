@@ -2,11 +2,11 @@
 import { expect, it } from "vitest";
 import { createSSRApp, h } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import ComponentDetails from "../apps/docs/app/docs/ComponentDetails.vue";
+import ComponentDetails from "../apps/docs/app/components/docs/ComponentDetails.vue";
 import {
   componentDetails,
   getComponentAbout,
-} from "../apps/docs/app/docs/details";
+} from "../apps/docs/app/utils/docs/details";
 it.each(
   componentDetails.map((record) => ({
     category: record.category,

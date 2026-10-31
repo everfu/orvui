@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { expect, it } from "vitest";
-import { getSitePage } from "../apps/docs/app/docs/site-page-data";
-import { sitePageMarkdown } from "../apps/docs/app/docs/site-page-markdown";
+import { getSitePage } from "../apps/docs/app/utils/docs/site-page-data";
+import { sitePageMarkdown } from "../apps/docs/app/utils/docs/site-page-markdown";
 it.each([false, true])(
   "exports the same quickstart steps, notes and file examples en=%s",
   (en) => {
@@ -22,9 +22,9 @@ it.each([false, true])(
 );
 it("keeps guide anchor IDs unique when editorial content is refreshed", async () => {
   const { sitePages, themeCss } =
-    await import("../apps/docs/app/docs/site-page-data");
+    await import("../apps/docs/app/utils/docs/site-page-data");
   const { applyGuideEditorial } =
-    await import("../apps/docs/app/docs/guide-editorial");
+    await import("../apps/docs/app/utils/docs/guide-editorial");
   const copy = structuredClone(sitePages);
   applyGuideEditorial(copy, themeCss);
   applyGuideEditorial(copy, themeCss);

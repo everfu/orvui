@@ -2,8 +2,8 @@
 import { describe, expect, it, vi } from "vitest";
 import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import NewBadge from "../apps/docs/app/docs/NewBadge.vue";
-import CategoryPage from "../apps/docs/app/docs/CategoryPage.vue";
+import NewBadge from "../apps/docs/app/components/docs/NewBadge.vue";
+import CategoryPage from "../apps/docs/app/components/docs/CategoryPage.vue";
 
 describe("New badges during real Node SSR", () => {
   it("keeps badges hidden and category ordering deterministic across request clocks without allocating timers", async () => {

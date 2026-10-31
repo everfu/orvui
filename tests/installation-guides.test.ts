@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import SitePage from "../apps/docs/app/docs/SitePage.vue";
+import SitePage from "../apps/docs/app/components/docs/SitePage.vue";
 import {
   getSitePage,
   sitePages,
   sitePageToc,
-} from "../apps/docs/app/docs/site-page-data";
-import { sitePageMarkdown } from "../apps/docs/app/docs/site-page-markdown";
+} from "../apps/docs/app/utils/docs/site-page-data";
+import { sitePageMarkdown } from "../apps/docs/app/utils/docs/site-page-markdown";
 
 describe("Web installation instructions", () => {
   for (const en of [false, true]) {
@@ -52,6 +52,7 @@ describe("Web installation instructions", () => {
         );
         expect(markdown).toContain("orvui-vue-0.1.0.tgz");
         expect(markdown).toContain("@orvui/vue/style.css");
+        expect(markdown).toContain("import './style.css'");
         expect(markdown).toContain(
           "shadcn-vue@2.8.2 add http://localhost:6111/r/button.json",
         );

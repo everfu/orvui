@@ -4,7 +4,7 @@ import { expect, it } from "vitest";
 import {
   provideSitePreferences,
   useSitePreferences,
-} from "../apps/docs/app/docs/preferences";
+} from "../apps/docs/app/composables/preferences";
 
 it("shares a shell palette across independent controls without resetting when a scene unmounts", async () => {
   const visible = ref(true);

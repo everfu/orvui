@@ -1,5 +1,5 @@
 import catalog from "../catalog/components.json";
-import { sitePages } from "../../apps/docs/app/docs/site-page-data";
+import { sitePages } from "../../apps/docs/app/utils/docs/site-page-data";
 
 export interface DocsPage {
   path: string;

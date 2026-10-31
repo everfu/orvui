@@ -114,7 +114,10 @@ test("hydrates a component and preserves query/hash during client language navig
   await control.click();
   await expect(control).not.toBeChecked();
   await page.evaluate(() => {
-    Object.assign(window, { orvuiNavigationMarker: "same-document" });
+    Object.assign(window, {
+      orvuiNavigationMarker: "same-document",
+      orvuiHeader: document.querySelector(".site-header"),
+    });
   });
   await openSettings(page);
   await page.getByRole("button", { name: "选择语言，当前：简体中文" }).click();
@@ -124,6 +127,15 @@ test("hydrates a component and preserves query/hash during client language navig
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page).toHaveTitle("Switch | orvui");
+  // The page owns demo state, while the shared header survives navigation.
+  await expect(control).toBeChecked();
+  expect(
+    await page.evaluate(
+      () =>
+        (window as typeof window & { orvuiHeader?: Element }).orvuiHeader ===
+        document.querySelector(".site-header"),
+    ),
+  ).toBe(true);
   expect(
     await page.evaluate(
       () =>
@@ -135,6 +147,7 @@ test("hydrates a component and preserves query/hash during client language navig
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
   await page.goForward();
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(control).toBeChecked();
 });
 
 test("search selects a component and cleans up its overlay", async ({

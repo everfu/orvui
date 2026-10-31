@@ -5,9 +5,9 @@ import { createDocsPages } from "./routes";
 import {
   applySocialMetadata,
   documentTitle,
-} from "../../apps/docs/app/page-metadata";
-import { getSitePage } from "../../apps/docs/app/docs/site-page-data";
-import { getComponentAbout } from "../../apps/docs/app/docs/details";
+} from "../../apps/docs/app/utils/docs/page-metadata";
+import { getSitePage } from "../../apps/docs/app/utils/docs/site-page-data";
+import { getComponentAbout } from "../../apps/docs/app/utils/docs/details";
 import catalog from "../catalog/components.json";
 
 const origin =

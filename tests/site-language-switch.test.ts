@@ -10,7 +10,7 @@ import {
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { createSSRApp, h, nextTick } from "vue";
 import { renderToString } from "@vue/server-renderer";
-import SiteLanguageSwitch from "../apps/docs/app/docs/SiteLanguageSwitch.vue";
+import SiteLanguageSwitch from "../apps/docs/app/components/docs/SiteLanguageSwitch.vue";
 
 const wrappers: VueWrapper[] = [];
 const nativeAnimate = Object.getOwnPropertyDescriptor(

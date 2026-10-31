@@ -1,9 +1,14 @@
 // @vitest-environment node
-import { createSSRApp } from "vue";
+import { h, createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";
 import { expect, it, vi } from "vitest";
 const location = vi.hoisted(() => ({ path: "/" }));
-import Layout from "../apps/docs/app/docs/SiteLayout.vue";
+import SiteLayout from "../apps/docs/app/components/docs/SiteLayout.vue";
+import DocsPageContent from "../apps/docs/app/components/docs/DocsPageContent.vue";
+
+// Exercise the same shell/page composition used by Nuxt, including its slot.
+const Layout = (props: InstanceType<typeof SiteLayout>["$props"]) =>
+  h(SiteLayout, props, { default: () => h(DocsPageContent) });
 
 it.each([false, true])(
   "renders the orvui home without upstream promotion en=%s",

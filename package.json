@@ -8,7 +8,7 @@
     "brand:sync": "node tools/branding/sync.mjs",
     "build": "pnpm metadata:docs && pnpm build:lib && pnpm docs:resources && pnpm --filter @orvui/docs build",
     "build:lib": "pnpm theme:build && pnpm --filter @orvui/vue build",
-    "typecheck": "pnpm --filter @orvui/docs exec nuxt prepare && pnpm typecheck:workspace && pnpm --filter @orvui/docs typecheck",
+    "typecheck": "pnpm typecheck:workspace && pnpm --filter @orvui/docs typecheck",
     "test": "vitest run",
     "registry:build": "tsx tools/registry/build.ts --strict",
     "api:check": "tsx tools/registry/audit-api.ts",

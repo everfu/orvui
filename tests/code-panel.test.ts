@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { nextTick } from "vue";
-import CodePanel from "../apps/docs/app/docs/CodePanel.vue";
+import CodePanel from "../apps/docs/app/components/docs/CodePanel.vue";
 import { Button } from "../packages/vue/src/motion/button";
 
 const highlighting = vi.hoisted(() => ({
@@ -9,7 +9,7 @@ const highlighting = vi.hoisted(() => ({
   fail: false,
   pending: [] as { resolve: (value: object) => void }[],
 }));
-vi.mock("../apps/docs/app/docs/highlight", () => ({
+vi.mock("../apps/docs/app/utils/docs/highlight", () => ({
   getHighlighter: vi.fn(() =>
     highlighting.fail
       ? Promise.reject(new Error("highlighter unavailable"))
