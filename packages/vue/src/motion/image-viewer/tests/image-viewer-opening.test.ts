@@ -74,6 +74,47 @@ function pendingAnimation() {
 }
 
 describe("image viewer opening and closing lifecycle", () => {
+  it("keeps thumbnails visible when a custom gallery selects an image without a viewer surface", async () => {
+    const wrapper = mount(ImageViewer, {
+      props: { images },
+      slots: { default: () => h(ImageViewerThumbnail, { imageId: "first" }) },
+      attachTo: document.body,
+    });
+    wrappers.push(wrapper);
+    await wrapper.get('button[aria-label="Open First photo"]').trigger("click");
+    await settle();
+    expect(wrapper.emitted("update:modelValue")?.at(-1)).toEqual(["first"]);
+    expect(dialog()).toBeNull();
+    expect((wrapper.get("img").element as HTMLElement).style.opacity).toBe("");
+  });
+
+  it("opens from the source image rectangle and cancels that projection on an early close", async () => {
+    const wrapper = render();
+    const source = wrapper.get('button[aria-label="Open First photo"] img').element;
+    vi.spyOn(source, "getBoundingClientRect").mockReturnValue(new DOMRect(30, 40, 200, 150));
+    const rectangle = HTMLElement.prototype.getBoundingClientRect;
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(function (this: HTMLElement) {
+      return this.hasAttribute("data-lightbox-content") && this.querySelector("img")
+        ? new DOMRect(100, 100, 800, 600) : rectangle.call(this);
+    });
+    const opening = pendingAnimation();
+    let frames: Keyframe[] = [], options: KeyframeAnimationOptions = {};
+    Object.defineProperty(Element.prototype, "animate", { configurable: true, value: function (this: Element, keyframes: Keyframe[], timing: KeyframeAnimationOptions) {
+      if (this.hasAttribute("data-lightbox-content") && timing.duration === 460) {
+        frames = keyframes; options = timing; return opening;
+      }
+      return pendingAnimation();
+    } });
+    await open(wrapper);
+    expect(frames[0].transform).toBe("translate(-70px, -60px) scale(0.25, 0.25)");
+    expect(frames.at(-1)?.transform).toBe("none");
+    expect(options.easing).toBe("cubic-bezier(0.22,1,0.36,1)");
+    expect(options.fill).toBe("both");
+    await close();
+    expect(opening.cancel).toHaveBeenCalledOnce();
+    expect((source as HTMLElement).style.opacity).toBe("");
+  });
+
   it("retains the closing image without retaining modal interaction, then removes it", async () => {
     const aside = document.createElement("aside");
     document.body.append(aside);
