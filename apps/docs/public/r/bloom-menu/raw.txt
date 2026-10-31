@@ -11,9 +11,9 @@ import {
   Link,
 } from "lucide-vue-next";
 import { RenderNode, type Content } from "../../shared";
-import { EASE_OUT } from "../../../lib/ease";
 import { cn } from "../../../lib/utils";
 import { useBloom } from "./use-bloom";
+import BloomMenuItemContent from "./BloomMenuItemContent.vue";
 export interface BloomMenuItem {
   label: string;
   icon: Content;
@@ -46,6 +46,8 @@ const {
   gridKey,
   blur,
   delay,
+  contentOpacity,
+  clipPath,
 } = useBloom(() => props.items.map((item) => item.label));
 </script>
 <template>
@@ -65,9 +67,8 @@ const {
           @focusout="blur"
           ><motion.div
             layout
-            :initial="{ opacity: 0 }"
-            :animate="{ opacity: 1 }"
-            :transition="{ delay: reduce ? 0 : 0.12, duration: 0.2 }"
+            :initial="false"
+            :style="{ opacity: contentOpacity }"
             ><div
               class="flex items-center justify-between border-b border-border px-4 py-3"
             >
@@ -86,13 +87,7 @@ const {
             </div>
             <motion.div
               :id="id"
-              :initial="reduce ? false : { clipPath: 'inset(45% 34% 45% 34%)' }"
-              :animate="{ clipPath: 'inset(0% 0% 0% 0%)' }"
-              :transition="{
-                delay: reduce ? 0 : 0.08,
-                duration: 0.45,
-                ease: EASE_OUT,
-              }"
+              :style="{ clipPath }"
               role="menu"
               :aria-labelledby="id + '-label'"
               class="grid grid-cols-3"
@@ -123,25 +118,12 @@ const {
                   close(true);
                 "
               >
-                <motion.span
-                  :initial="
-                    reduce
-                      ? { opacity: 0 }
-                      : { opacity: 0, scale: 0.85, filter: 'blur(6px)' }
-                  "
-                  :animate="{ opacity: 1, scale: 1, filter: 'blur(0px)' }"
-                  :transition="{
-                    delay: reduce ? 0 : delay(index),
-                    type: 'spring',
-                    stiffness: 440,
-                    damping: 34,
-                  }"
-                  class="flex flex-col items-center gap-2"
+                <BloomMenuItemContent :reduce="reduce" :delay="delay(index)"
                   ><span class="[&_svg]:h-5 [&_svg]:w-5"
                     ><RenderNode :node="item.icon" /></span
                   ><span class="text-sm font-medium">{{
                     item.label
-                  }}</span></motion.span
+                  }}</span></BloomMenuItemContent
                 >
               </button></motion.div
             ></motion.div

@@ -7,6 +7,8 @@ import {
   useId,
   watch,
 } from "vue";
+import { animate, useMotionValue } from "motion-v";
+import { EASE_OUT } from "../../../lib/ease";
 import {
   resolveElement,
   useFloatingLayer,
@@ -22,6 +24,24 @@ export function useBloom(labels: () => string[]) {
   const layer = useFloatingLayer(open, root);
   let restore = false,
     disposed = false;
+  const contentOpacity = useMotionValue(0);
+  const clipPath = useMotionValue("inset(45% 34% 45% 34%)");
+  let reveal: ReturnType<typeof animate>[] = [];
+  let revision = 0;
+  const stopReveal = () => { reveal.forEach(animation => animation.stop()); reveal = []; };
+  watch(open, async visible => {
+    const token = ++revision;
+    stopReveal();
+    if (!visible) return;
+    contentOpacity.jump(0);
+    clipPath.jump(reduce.value ? "inset(0% 0% 0% 0%)" : "inset(45% 34% 45% 34%)");
+    await nextTick();
+    if (disposed || token !== revision || !open.value) return;
+    reveal = [
+      animate(contentOpacity, 1, { delay: reduce.value ? 0 : 0.12, duration: 0.2 }),
+      animate(clipPath, "inset(0% 0% 0% 0%)", { delay: reduce.value ? 0 : 0.08, duration: 0.45, ease: EASE_OUT }),
+    ];
+  }, { flush: "sync" });
   const morph = computed(() =>
     reduce.value
       ? { duration: 0.15 }
@@ -93,6 +113,8 @@ export function useBloom(labels: () => string[]) {
   });
   onBeforeUnmount(() => {
     disposed = true;
+    ++revision;
+    stopReveal();
     buttons.clear();
     document.removeEventListener("keydown", shortcut, true);
     document.removeEventListener("pointerdown", outside);
@@ -118,5 +140,7 @@ export function useBloom(labels: () => string[]) {
     gridKey,
     blur,
     delay,
+    contentOpacity,
+    clipPath,
   };
 }
