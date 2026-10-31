@@ -244,6 +244,77 @@ test("portfolio ranges, holdings and CRM forecast are interactive", async ({
   await noOverflow(page);
 });
 
+test("CRM chart guide follows individual bar centers", async ({
+  page,
+}, info) => {
+  await openHome(page);
+  await scene(page, "crm");
+  const chart = page.getByRole("region", { name: "新增与成交", exact: true });
+  const slider = chart.getByRole("slider");
+  await slider.focus();
+  await slider.press("Home");
+  for (let index = 0; index < 8; index++) {
+    if (index) await slider.press("ArrowRight");
+    const period = (await slider.getAttribute("aria-valuetext"))!.split(":")[0];
+    await expect(
+      chart.locator(".home-trend-readout > span").first(),
+    ).toHaveText(period);
+    const geometry = await chart.evaluate((el, index) => {
+      const bars = [...el.querySelectorAll("rect")];
+      const first = bars[index].getBoundingClientRect();
+      const last = bars[index + bars.length / 2].getBoundingClientRect();
+      const center = (first.left + last.right) / 2;
+      const guide = el
+        .querySelector("line[stroke-dasharray]")!
+        .getBoundingClientRect();
+      const period = el.querySelector(
+        ".home-trend-readout > span",
+      )!.textContent;
+      const tick = [...el.querySelectorAll(".home-trend-axis span")]
+        .find((label) => label.textContent === period)
+        ?.getBoundingClientRect();
+      return {
+        guideDelta: Math.abs(guide.left - first.left - first.width / 2),
+        tickDelta: tick ? Math.abs(tick.left + tick.width / 2 - center) : 0,
+      };
+    }, index);
+    expect(geometry.guideDelta).toBeLessThan(0.75);
+    expect(geometry.tickDelta).toBeLessThan(0.75);
+  }
+  const plot = chart.locator(".home-trend-plot");
+  await plot.scrollIntoViewIfNeeded();
+  const bounds = (await plot.boundingBox())!;
+  const bars = await plot.locator("rect").evaluateAll((elements) =>
+    elements.map((el, index) => ({
+      index,
+      ...el.getBoundingClientRect().toJSON(),
+    })),
+  );
+  for (const bar of bars.filter((bar) => bar.height > 0)) {
+    const position = {
+      x: bar.x + bar.width / 2 - bounds.x,
+      y: bounds.height / 2,
+    };
+    if (info.project.use.hasTouch) await plot.tap({ position });
+    else await plot.hover({ position });
+    await expect(slider).toHaveValue(String(bar.index % 8));
+    const guide = (await plot.locator("line[stroke-dasharray]").boundingBox())!;
+    expect(Math.abs(guide.x - bar.x - bar.width / 2)).toBeLessThan(0.75);
+  }
+  // A zero-height series leaves the guide on the visible bar for that period.
+  const position = { x: (bounds.width * 1.5) / 8, y: bounds.height / 2 };
+  if (info.project.use.hasTouch) await plot.tap({ position });
+  else await plot.hover({ position });
+  const visibleBar = bars[1];
+  const guide = (await plot.locator("line[stroke-dasharray]").boundingBox())!;
+  expect(Math.abs(guide.x - visibleBar.x - visibleBar.width / 2)).toBeLessThan(
+    0.75,
+  );
+  await slider.press("Home");
+  await expect(slider).toHaveValue("0");
+  await noOverflow(page);
+});
+
 test("application sidebar supports collapse and mobile navigation", async ({
   page,
 }, info) => {

@@ -6,6 +6,7 @@ import { SPRING_LAYOUT } from "../../../../packages/vue/src/lib/ease";
 const props = defineProps<{ bars?: boolean; compact?: boolean }>();
 const chart = useCompositionChart();
 const inspecting = ref(false);
+const inspectedRow = ref<string | null>(null);
 const observations = computed(() =>
   chart.rows.flatMap((row) => row.values.map((value) => value ?? 0)),
 );
@@ -19,6 +20,28 @@ const peak = computed(
 );
 const x = (index: number) =>
   ((index + 0.5) * 100) / Math.max(1, chart.columns.length);
+const barWidth = computed(
+  () => 60 / Math.max(1, chart.columns.length) / Math.max(1, chart.rows.length),
+);
+const barStep = computed(
+  () => 72 / Math.max(1, chart.columns.length) / Math.max(1, chart.rows.length),
+);
+function barX(index: number, rowIndex: number) {
+  const groupWidth = barWidth.value + barStep.value * (chart.rows.length - 1);
+  return x(index) - groupWidth / 2 + rowIndex * barStep.value;
+}
+const inspectX = computed(() => {
+  if (!props.bars) return x(chart.index);
+  let rowIndex = chart.rows.findIndex(
+    (row) =>
+      row.id === inspectedRow.value && (row.values[chart.index] ?? 0) > 0,
+  );
+  if (rowIndex === -1)
+    rowIndex = chart.rows.findIndex(
+      (row) => (row.values[chart.index] ?? 0) > 0,
+    );
+  return barX(chart.index, Math.max(0, rowIndex)) + barWidth.value / 2;
+});
 const y = (value: number | null) =>
   100 - (((value ?? 0) - floor.value) / (peak.value - floor.value)) * 100;
 const lines = computed(() =>
@@ -32,6 +55,11 @@ const lines = computed(() =>
 function inspect(event: PointerEvent) {
   const box = event.currentTarget as HTMLElement;
   const bounds = box.getBoundingClientRect();
+  if (!bounds.width || !chart.columns.length) return;
+  if (event.type === "pointerdown") {
+    event.preventDefault();
+    box.querySelector("input")?.focus({ preventScroll: true });
+  }
   const index = Math.max(
     0,
     Math.min(
@@ -42,9 +70,24 @@ function inspect(event: PointerEvent) {
     ),
   );
   if (chart.columns[index]) chart.select(chart.columns[index].id);
+  if (props.bars) {
+    const pointerX = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const nearest = chart.rows
+      .map((row, rowIndex) => ({
+        id: row.id,
+        value: row.values[index] ?? 0,
+        distance: Math.abs(
+          barX(index, rowIndex) + barWidth.value / 2 - pointerX,
+        ),
+      }))
+      .filter((row) => row.value > 0)
+      .sort((a, b) => a.distance - b.distance)[0];
+    inspectedRow.value = nearest?.id ?? null;
+  }
   inspecting.value = true;
 }
 function input(event: Event) {
+  inspectedRow.value = null;
   const index = Number((event.target as HTMLInputElement).value);
   if (chart.columns[index]) chart.select(chart.columns[index].id);
   inspecting.value = true;
@@ -69,7 +112,7 @@ function input(event: Event) {
       @pointermove="
         !compact && (chart.canHover || $event.buttons === 1) && inspect($event)
       "
-      @pointerleave="inspecting = false"
+      @pointerleave="$event.pointerType !== 'touch' && (inspecting = false)"
     >
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <template v-if="!compact">
@@ -89,12 +132,8 @@ function input(event: Event) {
             <motion.rect
               v-for="(value, index) in line.values"
               :key="index"
-              :x="
-                (index * 100) / line.values.length +
-                12 / line.values.length +
-                rowIndex * (72 / line.values.length / lines.length)
-              "
-              :width="60 / line.values.length / lines.length"
+              :x="barX(index, rowIndex)"
+              :width="barWidth"
               :fill="line.color"
               :y="y(value)"
               :height="100 - y(value)"
@@ -122,14 +161,16 @@ function input(event: Event) {
               vector-effect="non-scaling-stroke"
               stroke-linejoin="round"
               stroke-linecap="round"
-              :opacity="chart.highlight && chart.highlight !== line.id ? 0.15 : 1"
+              :opacity="
+                chart.highlight && chart.highlight !== line.id ? 0.15 : 1
+              "
             />
           </template>
         </template>
         <line
           v-if="inspecting && !compact"
-          :x1="x(chart.index)"
-          :x2="x(chart.index)"
+          :x1="inspectX"
+          :x2="inspectX"
           y1="0"
           y2="100"
           stroke="var(--foreground)"
@@ -160,6 +201,7 @@ function input(event: Event) {
           chart.columns.length - 1,
         ]"
         :key="index"
+        :style="{ left: `${x(index)}%` }"
         >{{ chart.columns[index]?.id }}</span
       >
     </div>

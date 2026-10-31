@@ -697,11 +697,16 @@
   outline-offset: 4px;
 }
 .home-trend-axis {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  height: 1.5em;
   margin-top: 12px;
   font-size: 9px;
   color: var(--muted-foreground);
+}
+.home-trend-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 .home-trend.is-compact .home-trend-plot {
   height: 54px;
