@@ -70,7 +70,9 @@ test("Templates tab leads with real previews and independent live demos", async 
     .click();
   await expect(page).toHaveURL(/\/templates$/);
   await expect(page.locator(".template-gallery-card")).toHaveCount(5);
-  await expect(page.locator(".template-gallery-card img").first()).toBeInViewport({
+  await expect(
+    page.locator(".template-gallery-card img").first(),
+  ).toBeInViewport({
     ratio: 0.2,
   });
   await expect
@@ -81,13 +83,39 @@ test("Templates tab leads with real previews and independent live demos", async 
         .evaluate((el) => (el as HTMLImageElement).naturalWidth),
     )
     .toBeGreaterThan(0);
-  await expect(page.locator('a[download]')).toHaveCount(0);
-  await expect(page.locator('.template-gallery-actions a[target="_blank"]')).toHaveCount(5);
-  await expect(page.locator('.docs-sidebar')).toHaveCount(0);
-  await page.locator('a.template-screenshot-link[href="/templates/dashboard"]').focus();
-  await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/\/templates\/dashboard$/);
-  await page.goBack();
+  await expect(page.locator("a[download]")).toHaveCount(0);
+  await expect(
+    page.locator('.template-gallery-actions a[target="_blank"]'),
+  ).toHaveCount(5);
+  await expect(page.locator(".docs-sidebar")).toHaveCount(0);
+  await expect(page.locator(".template-source-status")).toHaveCount(5);
+  await expect(page.locator(".template-source-status").first()).toHaveText(
+    "暂未开放源码",
+  );
+  await expect(
+    page.getByRole("link", { name: "查看详情", exact: true }),
+  ).toHaveCount(0);
+  await expect(page.locator("#choosing-template, #start-building")).toHaveCount(
+    0,
+  );
+  await page
+    .context()
+    .route("https://orvui-template-dashboard.netlify.app/**", (route) =>
+      route.fulfill({
+        contentType: "text/html",
+        body: "<!doctype html><title>Demo preview</title><h1>Demo preview</h1>",
+      }),
+    );
+  const preview = page.locator("a.template-screenshot-link").first();
+  await preview.focus();
+  const [popup] = await Promise.all([
+    page.waitForEvent("popup"),
+    page.keyboard.press("Enter"),
+  ]);
+  await expect(popup).toHaveURL(
+    "https://orvui-template-dashboard.netlify.app/?lang=zh",
+  );
+  await popup.close();
   await expect(page).toHaveURL(/\/templates$/);
 });
 
@@ -111,7 +139,9 @@ test("overview first view fits desktop, tablet and mobile in both languages and 
         await expect(page.locator(".docs-catalog-header h1")).toBeVisible();
         const item = page
           .locator(
-            path === "templates" ? ".template-gallery-card img" : ".docs-catalog-card",
+            path === "templates"
+              ? ".template-gallery-card img"
+              : ".docs-catalog-card",
           )
           .first();
         await expect(item).toBeInViewport({ ratio: 0.2 });

@@ -35,7 +35,9 @@ export function componentsIndexMarkdown(en: boolean, origin: string) {
         componentGroupGuidance[group.id][en ? "en" : "zh"],
         "",
       ]),
-    ].join("\n").trimEnd() + "\n"
+    ]
+      .join("\n")
+      .trimEnd() + "\n"
   );
 }
 export function templatesIndexMarkdown(en: boolean, origin: string) {
@@ -59,23 +61,9 @@ export function templatesIndexMarkdown(en: boolean, origin: string) {
       "",
       template.description[en ? "en" : "zh"],
       "",
-      `[${t("查看详情", "View details")}](${origin}${en ? "/en" : ""}/templates/${template.slug}) · [${t("在线预览", "Live preview")}](${template.previewUrl})`,
+      `[${t("在线预览", "Live preview")}](${template.previewUrl}?lang=${en ? "en" : "zh"}) · ${t("暂未开放源码", "Source not yet available")}`,
       "",
     ]),
-    anchor("choosing-template"),
-    `## ${t("选择模板", "Choose a starting point")}`,
-    ...templateDefinitions.map(
-      (template) =>
-        `- **${template.name}**: ${templateEditorial[template.slug].purpose[en ? "en" : "zh"]}`,
-    ),
-    "",
-    anchor("start-building"),
-    `## ${t("开始体验", "Start exploring")}`,
-    t(
-      "在线演示公开，完整模板源码在私有仓库维护。所有操作使用本地样例数据。",
-      "Live demos are public; complete template sources are maintained in private repositories. All actions use local sample data.",
-    ),
-    "",
   ].join("\n");
 }
 export function templateMarkdown(slug: string, en: boolean, origin: string) {

@@ -86,11 +86,6 @@ export function documentOutline(input: {
     return [
       { id: "overview", label: en ? "Overview" : "概览" },
       { id: "applications", label: en ? "Workspaces" : "应用工作台" },
-      {
-        id: "choosing-template",
-        label: en ? "Choose a starting point" : "选择模板",
-      },
-      { id: "start-building", label: en ? "Make it your own" : "开始使用" },
     ];
   if (input.layout === "template")
     return templateSections.map((section) => ({

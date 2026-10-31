@@ -12,7 +12,7 @@ Full application templates built with orvui. Explore each live workspace.
 
 An interactive workspace combining metrics, sales trends, filters and a member table.
 
-[View details](https://orvui.efu.me/en/templates/dashboard) · [Live preview](https://orvui-template-dashboard.netlify.app)
+[Live preview](https://orvui-template-dashboard.netlify.app?lang=en) · Source not yet available
 
 ### Mail
 
@@ -20,7 +20,7 @@ An interactive workspace combining metrics, sales trends, filters and a member t
 
 A workspace with folders, search, message lists, reading and local composition.
 
-[View details](https://orvui.efu.me/en/templates/mail) · [Live preview](https://orvui-template-mail.netlify.app)
+[Live preview](https://orvui-template-mail.netlify.app?lang=en) · Source not yet available
 
 ### Chat
 
@@ -28,7 +28,7 @@ A workspace with folders, search, message lists, reading and local composition.
 
 A local chat composition with conversations, streaming responses, tool approval, code and citations.
 
-[View details](https://orvui.efu.me/en/templates/chat) · [Live preview](https://orvui-template-chat.netlify.app)
+[Live preview](https://orvui-template-chat.netlify.app?lang=en) · Source not yet available
 
 ### CRM
 
@@ -36,7 +36,7 @@ A local chat composition with conversations, streaming responses, tool approval,
 
 A sales workspace combining date ranges, funnels, forecasts, accounts and opportunities.
 
-[View details](https://orvui.efu.me/en/templates/crm) · [Live preview](https://orvui-template-crm.netlify.app)
+[Live preview](https://orvui-template-crm.netlify.app?lang=en) · Source not yet available
 
 ### Finances
 
@@ -44,16 +44,4 @@ A sales workspace combining date ranges, funnels, forecasts, accounts and opport
 
 Present portfolio trends, holdings and transactions with period and privacy controls.
 
-[View details](https://orvui.efu.me/en/templates/finances) · [Live preview](https://orvui-template-finances.netlify.app)
-
-<a id="choosing-template"></a>
-## Choose a starting point
-- **Dashboard**: For operations, order management and team analytics.
-- **Mail**: For complete mail organization, reading and composition workflows.
-- **Chat**: For AI conversations, tool review and saved knowledge workspaces.
-- **CRM**: For accounts, opportunities, contacts and team follow-up management.
-- **Finances**: For portfolio overviews, spending categories and transaction records.
-
-<a id="start-building"></a>
-## Start exploring
-Live demos are public; complete template sources are maintained in private repositories. All actions use local sample data.
+[Live preview](https://orvui-template-finances.netlify.app?lang=en) · Source not yet available
