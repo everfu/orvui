@@ -19,7 +19,7 @@ For operations, order management and team analytics.
 <a id="template-walkthrough"></a>
 ### Try it
 1. Change the overview reporting period and inspect the metrics and charts.
-2. Open Orders, search for Northstar and edit a record. Refresh to check the saved changes.
+2. Open Orders, search for Kate and edit a record. Refresh to check the saved changes.
 3. Complete a task in Tracker and customize workspace preferences in Settings.
 
 <a id="composition"></a>

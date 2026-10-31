@@ -87,3 +87,9 @@ All work is local. Publishing, pushing and deployment require a separate user re
 ## Independent application templates
 
 The Templates index references the HeroUI Templates gallery with a wide frame, no side rails, and a three/two/one-column responsive grid of real application screenshots, names, summaries, detail links and live-preview links. Five independent private repositories own complete multi-page Vue applications; Netlify hosts their public demos. Documentation embeds those deployments and synchronizes locale, appearance and the eleven palettes with validated parent/child messages. Keep bilingual routes, Markdown, search and reading outlines synchronized. Complete source JSON, ZIP archives, source panels and source maps must not enter public template artifacts. Homepage scenes remain available independently. Template data and actions are local to the browser, with persistent edits and a reset action. Preserve component geometry, motion and notices.
+
+### 独立模板参考与发布
+
+五套私有模板按 HeroUI Pro 的公开演示组织页面和示例内容，由 Vue 和 copy-source orvui 组件独立实现。Dashboard 包含订单、任务板、分析与组织设置；Mail 包含文件夹、阅读与撰写；Chat 包含历史、探索、资料库和工具审核；CRM 包含账户、商机、联系人、跟进资源及保存列表；Finances 包含持仓、支出、交易、收益和账户设置。实际媒体及图标来源、适用许可证保存在各私有仓库 NOTICE 和 public/licenses。
+
+目录截图必须来自对应版本的真实构建，演示地址和页面清单由 template-definitions.ts 生成公开元数据。编辑、审核、发送及资产操作只更新该应用的浏览器演示状态；已有记录和偏好在升级后保留，用户可主动重置。原有首页五场景与公共组件 API 保持兼容。模板产物不含源码映射、完整模板源文件或源码下载入口。
