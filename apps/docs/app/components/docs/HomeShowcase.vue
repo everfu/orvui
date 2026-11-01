@@ -9,7 +9,6 @@ import {
   type Component,
 } from "vue";
 import { AnimatePresence, motion } from "motion-v";
-import { ArrowUpRight } from "lucide-vue-next";
 import { useReducedMotion } from "../../../../../packages/vue/src/lib/composables";
 import { EASE_OUT } from "../../../../../packages/vue/src/lib/ease";
 import {
@@ -38,7 +37,7 @@ const sceneLoaders: Record<string, () => Promise<{ default: Component }>> = {
   finances: () => import("./HomeFinancesScene.vue"),
   crm: () => import("./HomeCrmScene.vue"),
 };
-const { t, en, locale } = useSiteShell();
+const { t, en } = useSiteShell();
 const { colorTheme } = useSitePreferences();
 const scene = ref("components");
 const displayedScene = ref("components");
@@ -112,27 +111,6 @@ const scenes = [
     :data-ready="ready"
     :aria-label="t('交互组件展台', 'Interactive component showcase')"
   >
-    <div class="home-showcase-heading">
-      <div>
-        <h2>
-          {{
-            t("从一个组件，到整个应用。", "Small details. Complete interfaces.")
-          }}
-        </h2>
-        <p>
-          {{
-            t(
-              "不止于展示。选个场景，亲手试试。",
-              "More than a preview. Pick a scene and make it yours.",
-            )
-          }}
-        </p>
-      </div>
-      <a :href="`${locale}/templates`" class="home-text-link"
-        >{{ t("探索模板", "Explore templates")
-        }}<ArrowUpRight :size="15" aria-hidden="true"
-      /></a>
-    </div>
     <div class="home-showcase-toolbar">
       <Tabs v-model="scene" variant="segment">
         <TabsList
