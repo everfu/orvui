@@ -167,13 +167,20 @@ onBeforeUnmount(() => clearInterval(timer));
 }
 .command-overflow {
   overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
   border-radius: 12px;
   background: color-mix(in oklab, var(--foreground) 4%, var(--background));
   box-shadow: inset 0 0 0 1px
     color-mix(in oklab, var(--border) 45%, transparent);
 }
+.command-overflow::-webkit-scrollbar {
+  display: none;
+}
 .command-text {
   min-width: max-content;
+  /* Animated letters must not enlarge the command's scrollable area. */
+  overflow: clip;
   white-space: nowrap;
   padding: 14px 20px;
   font-family: var(--font-geist-mono);

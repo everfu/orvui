@@ -7,6 +7,65 @@ test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("orvui-theme", "dark"));
 });
 
+for (const reducedMotion of ["no-preference", "reduce"] as const) {
+  test(`rotating install commands keep their scroll bounds (${reducedMotion})`, async ({
+    page,
+  }) => {
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/");
+    await expect(page.locator(".home-showcase")).toHaveAttribute(
+      "data-ready",
+      "true",
+    );
+    const command = page.locator(".home-install .command-overflow");
+    const frames = await command.evaluate(
+      (element) =>
+        new Promise<{ labels: string[]; overflow: number; samples: number }>(
+          (resolve) => {
+            const labels = new Set<string>();
+            const end = performance.now() + 5500;
+            let overflow = 0,
+              samples = 0;
+            function sample() {
+              const text = element.querySelector<HTMLElement>(".command-text")!;
+              labels.add(
+                text.querySelector(".command-slug .invisible")!.textContent!,
+              );
+              ++samples;
+              if (
+                element.clientHeight === 0 ||
+                element.scrollHeight !== element.clientHeight ||
+                element.scrollWidth >
+                  Math.max(element.clientWidth, text.clientWidth)
+              )
+                ++overflow;
+              if (performance.now() < end) requestAnimationFrame(sample);
+              else resolve({ labels: [...labels], overflow, samples });
+            }
+            sample();
+          },
+        ),
+    );
+    expect(frames.labels.length).toBeGreaterThanOrEqual(3);
+    expect(frames.samples).toBeGreaterThan(100);
+    expect(frames.overflow).toBe(0);
+    if (
+      await command.evaluate(
+        (element) => element.scrollWidth > element.clientWidth,
+      )
+    ) {
+      await command.hover();
+      await page.mouse.wheel(200, 0);
+      await expect
+        .poll(() => command.evaluate((element) => element.scrollLeft))
+        .toBeGreaterThan(0);
+    }
+    expect(errors).toEqual([]);
+  });
+}
+
 test("hero link uses the button spring and keeps localized navigation", async ({
   page,
 }) => {

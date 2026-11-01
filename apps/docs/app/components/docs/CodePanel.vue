@@ -290,6 +290,7 @@ onBeforeUnmount(() => {
 }
 .code-scroll {
   min-width: 0;
+  scrollbar-width: none;
   transition: max-height 200ms ease;
   outline-offset: -3px;
 }
@@ -318,10 +319,16 @@ onBeforeUnmount(() => {
   margin: 0;
   padding: 0 !important;
   overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
   background: transparent !important;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+.code-scroll::-webkit-scrollbar,
+.code-content :deep(pre::-webkit-scrollbar) {
+  display: none;
 }
 .code-content :deep(code) {
   display: block;
