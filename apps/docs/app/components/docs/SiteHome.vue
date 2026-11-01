@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { ArrowRight, Code2 } from "lucide-vue-next";
+import { ArrowRight, Code2, ArrowUpRight } from "lucide-vue-next";
 import {
   Tabs,
   TabsList,
@@ -13,6 +13,8 @@ import HomeShowcase from "./HomeShowcase.vue";
 import HeroBeam from "./HeroBeam.vue";
 import SiteInstallCommand from "./SiteInstallCommand.vue";
 import CodePanel from "./CodePanel.vue";
+import SiteLogo from "./SiteLogo.vue";
+import "../../assets/css/home-landing.css";
 import { useSiteShell } from "../../composables/site-shell-state";
 const { catalog, t, en, routeTo, description, locale, origin } = useSiteShell();
 const installation = ref("registry");
@@ -100,26 +102,28 @@ const faqs = computed(() =>
       <HeroBeam
         ><div class="hero-count">
           <a
-            :href="routeTo('motion')"
+            :href="`${locale}/components`"
             :aria-label="t('浏览组件', 'Browse components')"
-            ><Code2 :size="16" /></a
-          ><a :href="routeTo('motion')"
+            ><Code2 :size="16" aria-hidden="true" /></a
+          ><a :href="`${locale}/components`"
             ><strong>{{ inventory.length }}</strong> Vue
-            {{ t("组件", "components") }}</a
-          >
-        </div></HeroBeam
-      >
-      <h1>
-        {{ t("有生命力的动效组件", "Animated components") }}<br />{{
-          t("为", "for")
-        }}
-        <mark>Vue</mark> {{ t("打造", "") }}
+            {{ t("组件，等你探索", "components to explore")
+            }}<ArrowRight :size="13" aria-hidden="true"
+          /></a></div
+      ></HeroBeam>
+      <h1 :class="{ 'hero-title--en': en }">
+        <span class="hero-brand"
+          ><SiteLogo /><span class="sr-only">orvui — </span></span
+        >
+        <span class="hero-headline">{{
+          t("让界面，自然生动。", "Bring your interface to life.")
+        }}</span>
       </h1>
       <p class="hero-description">
         {{
           t(
-            "可复制、可组合的 Vue 动效组件。基于 Motion 和 Tailwind CSS，免费开源，完全由你掌控。",
-            "Copy-paste components for Vue, built with Motion and Tailwind CSS. Free, open source, and fully customizable.",
+            "为 Vue 打造的动效组件。复制源码，自由组合，把细节变成你的风格。",
+            "Animated components for Vue. Copy the source, compose freely, and make every detail your own.",
           )
         }}
       </p>
@@ -128,11 +132,18 @@ const faqs = computed(() =>
           >{{ t("开始使用", "Get started")
           }}<ArrowRight :size="15" aria-hidden="true" /></ButtonLink
         ><a
-          :href="routeTo('motion')"
+          :href="`${locale}/components`"
           class="secondary-link site-action site-action--lg"
-          >{{ t("浏览组件", "Browse components") }}</a
-        >
+          >{{ t("浏览组件", "Browse components")
+          }}<ArrowUpRight :size="15" aria-hidden="true"
+        /></a>
       </div>
+      <ul class="hero-stack" :aria-label="t('技术栈', 'Built with')">
+        <li>Vue 3.5</li>
+        <li>Motion</li>
+        <li>Tailwind CSS 4</li>
+        <li>TypeScript</li>
+      </ul>
     </section>
     <section class="home-install">
       <div class="home-install-inner">
@@ -163,16 +174,16 @@ const faqs = computed(() =>
     <section
       v-for="section in sections"
       :key="section.id"
-      class="landing-section"
+      class="landing-section home-releases"
     >
       <div class="section-heading">
         <div>
           <p>{{ section.eyebrow }}</p>
           <h2>{{ section.title }}</h2>
         </div>
-        <a :href="routeTo('motion')"
+        <a :href="`${locale}/components`"
           >{{ t("浏览全部组件", "Browse all components")
-          }}<ArrowRight :size="14"
+          }}<ArrowRight :size="14" aria-hidden="true"
         /></a>
       </div>
       <div class="showcase-grid">
@@ -193,6 +204,18 @@ const faqs = computed(() =>
       <div>
         <p>FAQ</p>
         <h2>{{ t("你可能想了解", "A few things to know") }}</h2>
+        <p class="home-faq-description">
+          {{
+            t(
+              "从第一次安装，到每一次自由创作。",
+              "From your first install to your next idea.",
+            )
+          }}
+        </p>
+        <a :href="`${locale}/guide`" class="home-text-link"
+          >{{ t("阅读使用指南", "Read the guide")
+          }}<ArrowUpRight :size="15" aria-hidden="true"
+        /></a>
       </div>
       <BouncyAccordion :items="faqs"
         ><template #content="{ item }"

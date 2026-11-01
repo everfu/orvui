@@ -1,0 +1,224 @@
+/* Hallmark · macrostructure: Marquee Hero + Workbench · tone: soft technical · anchor hue: existing palette
+ * genre: modern-minimal · design-system: design.md · designed-as-app
+ * Existing component springs, palettes and geometry remain the governing contract.
+ */
+@import "../../../../../tokens.css";
+
+.landing.landing--showcase .landing-hero {
+  max-width: 960px;
+  padding: var(--space-home-lg) var(--space-home-lg) var(--space-home-md);
+}
+.landing--showcase .hero-count {
+  font-size: 12px;
+}
+.landing--showcase .hero-count a:last-child {
+  gap: var(--space-home-xs);
+  padding-right: var(--space-home-sm);
+}
+.landing.landing--showcase .landing-hero h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-home-md);
+  margin-top: var(--space-home-lg);
+  min-width: 0;
+  font-family: var(--font-home-display);
+  font-size: var(--text-home-display);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  color: var(--color-home-ink);
+}
+.hero-brand {
+  --orvui-logo-height: 36px;
+  display: inline-flex;
+  line-height: 1;
+}
+.hero-headline {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.landing.landing--showcase .hero-description {
+  max-width: 480px;
+  margin: var(--space-home-sm) auto var(--space-home-lg);
+  font-size: 15px;
+  line-height: 26px;
+  text-wrap: balance;
+  color: var(--color-home-muted);
+}
+.landing--showcase .hero-actions a {
+  white-space: nowrap;
+}
+.hero-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-home-md);
+  margin: var(--space-home-md) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-home-muted);
+  font-size: 11px;
+  line-height: 20px;
+}
+.hero-stack li + li::before {
+  content: "·";
+  padding-right: var(--space-home-md);
+  color: var(--color-home-muted);
+}
+.landing.landing--showcase .home-install {
+  padding: 0 var(--space-home-lg) var(--space-home-xl);
+}
+.landing--showcase .home-install-inner {
+  max-width: 640px;
+  gap: var(--space-home-xs);
+}
+.landing--showcase .home-showcase {
+  padding-inline: var(--space-home-lg);
+}
+.home-showcase-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-home-lg);
+  padding-top: var(--space-home-lg);
+  margin-bottom: var(--space-home-lg);
+  border-top: 1px solid var(--color-home-rule);
+}
+.home-showcase-heading h2 {
+  margin: 0;
+  min-width: 0;
+  font-size: var(--text-home-heading);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.home-showcase-heading p {
+  margin: var(--space-home-xs) 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-home-muted);
+}
+.home-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-home-xs);
+  min-height: 36px;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--color-home-muted);
+}
+.home-text-link:hover,
+.home-text-link:active {
+  color: var(--color-home-ink);
+}
+.home-text-link:focus-visible {
+  outline: 2px solid var(--color-home-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.landing.landing--showcase .home-releases {
+  padding: var(--space-home-4xl) var(--space-home-lg) var(--space-home-3xl);
+}
+.landing--showcase .home-releases .section-heading {
+  align-items: center;
+}
+.landing--showcase .home-releases .section-heading p {
+  margin-bottom: var(--space-home-xs);
+  font-size: 12px;
+}
+.landing--showcase .home-releases .section-heading h2 {
+  font-size: var(--text-home-heading);
+  line-height: 1.3;
+}
+.landing--showcase .home-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: var(--space-home-3xl);
+  max-width: none;
+  margin-inline: var(--space-home-lg);
+  padding: var(--space-home-3xl) 0 var(--space-home-4xl);
+  border-top: 1px solid var(--color-home-rule);
+}
+.landing--showcase .home-faq > div:first-child {
+  margin: 0;
+  text-align: left;
+}
+.landing--showcase .home-faq h2 {
+  margin-top: var(--space-home-sm);
+  font-size: var(--text-home-heading);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.landing--showcase .home-faq .home-faq-description {
+  margin: var(--space-home-md) 0 var(--space-home-md);
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-home-muted);
+}
+@media (max-width: 1023px) {
+  .landing.landing--showcase .landing-hero {
+    padding-top: var(--space-home-xl);
+  }
+  .landing--showcase .home-faq {
+    gap: var(--space-home-xl);
+  }
+}
+@media (max-width: 767px) {
+  .landing.landing--showcase .landing-hero {
+    padding-inline: var(--space-home-md);
+  }
+  .landing.landing--showcase .landing-hero h1 {
+    gap: var(--space-home-md);
+    margin-top: var(--space-home-lg);
+    letter-spacing: -0.045em;
+  }
+  .hero-brand {
+    --orvui-logo-height: 28px;
+  }
+  .landing.landing--showcase .hero-description {
+    max-width: 400px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .landing.landing--showcase .home-install {
+    padding-inline: var(--space-home-md);
+    padding-bottom: var(--space-home-xl);
+  }
+  .landing--showcase .home-showcase {
+    padding-inline: var(--space-home-md);
+  }
+  .home-showcase-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-home-xs);
+    padding-top: var(--space-home-lg);
+    margin-bottom: var(--space-home-md);
+  }
+  .hero-stack {
+    gap: var(--space-home-xs);
+    font-size: 10px;
+  }
+  .hero-stack li + li::before {
+    padding-right: var(--space-home-xs);
+  }
+  .landing.landing--showcase .home-releases {
+    padding: var(--space-home-3xl) var(--space-home-md) var(--space-home-2xl);
+  }
+  .landing--showcase .home-releases .section-heading {
+    align-items: flex-start;
+  }
+  .landing--showcase .home-faq {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-home-lg);
+    margin-inline: var(--space-home-md);
+    padding-top: var(--space-home-2xl);
+    padding-bottom: var(--space-home-3xl);
+  }
+}

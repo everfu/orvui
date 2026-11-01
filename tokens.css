@@ -1,0 +1,18 @@
+/* Homepage layout tokens; colors resolve to the canonical eleven-palette system. */
+:root {
+  --color-home-ink: var(--foreground);
+  --color-home-muted: var(--muted-foreground);
+  --color-home-rule: var(--border);
+  --color-home-accent: var(--primary);
+  --font-home-display: var(--font-geist-sans);
+  --space-home-xs: 8px;
+  --space-home-sm: 12px;
+  --space-home-md: 16px;
+  --space-home-lg: 24px;
+  --space-home-xl: 32px;
+  --space-home-2xl: 48px;
+  --space-home-3xl: 64px;
+  --space-home-4xl: 96px;
+  --text-home-display: clamp(32px, 4.3vw, 60px);
+  --text-home-heading: clamp(24px, 2.5vw, 32px);
+}

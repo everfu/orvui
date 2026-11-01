@@ -22,7 +22,7 @@ Site actions use the shared private styles in `apps/docs/app/assets/css/site-con
 
 ## Homepage composition
 
-The homepage uses a compact centered Vue hero with installation controls immediately below it, without an explanatory installation heading. At 1440 × 900, the first viewport includes the showcase toolbar and some of its content. The showcase follows the six composition structures shown on the HeroUI homepage: Components, Dashboard, Mail, Chat, Finances and CRM, using orvui's own components, styling, motion and local sample content.
+The homepage uses a compact centered Vue hero: a catalog-derived component-count link, the orvui brand before the headline, concise bilingual copy, primary and secondary actions, and a quiet stack line. Installation controls follow immediately, without an explanatory installation heading. The single 56px homepage toolbar keeps only the orvui brand on the left, without menu items. The four documentation sections remain in the existing mobile BottomSheet. Component discovery links go to the browse-first Components index. At 1440 × 900, the first viewport includes the showcase toolbar and some of its content. A short showcase heading introduces the interactive examples and links to Templates. The showcase follows the six composition structures shown on the HeroUI homepage: Components, Dashboard, Mail, Chat, Finances and CRM, using orvui's own components, styling, motion and local sample content.
 
 Components uses a three-column composition of form controls, selection controls, slider, tabs, file actions, avatars, OTP, button variants, profile, alert, notification switch, signup, community and unsaved-change cards. Dashboard combines a sidebar, four metrics, sales and traffic charts, and an employee table. Mail combines folders, message list and reading pane. Chat combines recent conversations, reasoning, Markdown/code, tool results/approval, media, citations and prompt input. Finances combines four metrics, portfolio history, holdings and transactions. CRM combines grouped navigation, date range, six metrics, created/closed and days-to-close charts, forecast, funnel, accounts and opportunities.
 
@@ -32,7 +32,7 @@ The hero's Get started link uses the public ButtonLink primary variant at md siz
 
 Showcase scene changes preload the target module before the current scene leaves. Use a 120ms fade out followed by a 320ms entrance with a 10px upward settle and a subtle blur reveal; the latest selection wins during rapid changes. Keep one scene mounted at a time, block interaction with the transitioning content and expose its busy state. Initial SSR content appears without an entrance transition. Reduced motion uses an 80ms opacity transition without displacement or blur.
 
-Below the showcase, show at most four recent releases in catalog launch order, then FAQ and the existing footer. Do not restore the long featured-component inventory on the homepage.
+Below the showcase, show at most four recent releases in catalog launch order, then FAQ and the existing footer. FAQ uses an introduction beside the accordion on desktop and a single column below 768px. Keep the homepage styles scoped to its own composition. Reuse canonical semantic colors and Geist fonts; `tokens.css` exports only homepage layout tokens and aliases, without replacing the generated library theme. Do not restore the long featured-component inventory on the homepage.
 
 ## Documentation prose and code
 

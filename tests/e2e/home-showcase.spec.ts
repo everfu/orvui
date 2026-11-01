@@ -72,8 +72,13 @@ test("compact installation and six real component compositions", async ({
   const install = await page.locator(".home-install").boundingBox();
   const showcase = await page.locator(".home-showcase").boundingBox();
   expect(install!.y + install!.height).toBeLessThanOrEqual(showcase!.y + 1);
-  if (info.project.name === "home-desktop")
+  if (info.project.name === "home-desktop") {
     expect(showcase!.y).toBeLessThan(780);
+    // The introduction must leave actual interactive content in the first fold.
+    const panel = await page.locator(".home-scene-panel").boundingBox();
+    expect(panel!.y).toBeLessThan(840);
+    await expect(page.locator(".site-header-main nav")).toHaveCount(0);
+  }
   await expect(
     page
       .getByRole("tablist", { name: "展示场景", exact: true })
