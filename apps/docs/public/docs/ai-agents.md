@@ -2,7 +2,7 @@
 
 通过 [MCP 服务器](/docs/mcp-server)查询组件，或安装完整的 [Agent Skills](/docs/agent-skills)，按需加载组件知识。本页保留直接读取注册表与旧版 skill 的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。
 
-> 产品版本: 0.1.0
+> 产品版本: 0.1.1
 
 <a id="workflow"></a>
 
@@ -102,7 +102,7 @@ npx shadcn-vue@2.8.2 add https://orvui.efu.me/r/animated-toast-stack.json
   ],
   "meta": {
     "category": "blocks",
-    "productVersion": "0.1.0"
+    "productVersion": "0.1.1"
   },
   "files": [
     {

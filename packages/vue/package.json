@@ -1,6 +1,6 @@
 {
   "name": "@orvui/vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Animated Vue components with composable APIs, charts and copyable source.",
   "type": "module",
   "license": "MIT",

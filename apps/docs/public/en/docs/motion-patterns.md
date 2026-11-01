@@ -2,7 +2,7 @@
 
 A practical guide to deciding when something should move, choosing the right token, and shipping motion that stays fast, coherent, and accessible.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
 
 ## Four questions before motion
 

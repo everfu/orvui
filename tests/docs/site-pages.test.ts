@@ -21,6 +21,7 @@ import { sitePageMarkdown } from "../../apps/docs/app/utils/docs/site-page-markd
 import type { ComponentDocs } from "../../apps/docs/app/utils/docs/component-docs-types";
 import metadata from "../../apps/docs/app/data/component-docs.json";
 import { buildSitePages } from "../../apps/docs/scripts/resources";
+import { changelogEntries } from "../../apps/docs/app/utils/docs/site-changelog-data";
 
 const mounted: VueWrapper[] = [];
 const media = new Map<string, Set<(event: { matches: boolean }) => void>>();
@@ -166,8 +167,11 @@ describe("public support pages", () => {
         pages: sitePages.length,
         locales: 2,
         rawSources: 110,
-        changelogWeeks: 1,
-        changelogItems: 3,
+        changelogWeeks: changelogEntries.length,
+        changelogItems: changelogEntries.reduce(
+          (total, entry) => total + entry.items.length,
+          0,
+        ),
         excludedChangelogItems: 0,
       });
       for (const page of sitePages)
@@ -204,7 +208,10 @@ describe("public support pages", () => {
         "http://localhost:6111/r/registry.json",
       );
       expect(read("theme.css")).toContain("--background: oklch(99% 0 0)");
-      expect(read("changelog/rss.xml").match(/<item>/g)).toHaveLength(1);
+      const rss = read("changelog/rss.xml");
+      expect(rss.match(/<item>/g)).toHaveLength(changelogEntries.length);
+      expect(rss).toContain("orvui 0.1.1");
+      expect(rss).toContain("2026-10-26");
       expect(read("docs/motion-patterns.md")).toContain("```vue");
       expect(read("en/docs/openui.md")).toContain("Register components");
       expect(read("r/bump-chart/raw.txt")).toBe(

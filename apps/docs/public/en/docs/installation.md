@@ -37,10 +37,10 @@ The package is available on npm. Install it directly in your Vue or Nuxt applica
 pnpm add @orvui/vue
 ```
 
-To pin version 0.1.0, or upgrade an existing application from an earlier release to 0.1.0, use the command below. Keep your imports and theme overrides, then run your application's type check and build.
+To pin version 0.1.1, or upgrade an existing application from an earlier release to 0.1.1, use the command below. Keep your imports and theme overrides, then run your application's type check and build.
 
 ```bash
-pnpm add @orvui/vue@0.1.0
+pnpm add @orvui/vue@0.1.1
 ```
 
 ```vue

@@ -2,7 +2,7 @@
 
 Load component styles first, then choose a palette and appearance mode. Override semantic CSS variables to customize the parts you need while keeping components consistent.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
 
 <a id="import-order"></a>
 

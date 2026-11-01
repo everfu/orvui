@@ -2,7 +2,7 @@
 
 [OpenUI](https://www.openui.com) is a generative UI framework: instead of returning Markdown, the model emits an abstract UI tree (OpenUI Lang), and the Vue runtime maps every node to a component you register. This integration turns orvui into a custom OpenUI component library, so each generated response uses real, animated components—and only the components you allow.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
 
 <a id="workflow"></a>
 

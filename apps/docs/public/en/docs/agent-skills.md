@@ -2,7 +2,7 @@
 
 One orvui skill entrypoint with component knowledge loaded on demand. References share their APIs, examples and version with the website and MCP.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
 
 <a id="install"></a>
 

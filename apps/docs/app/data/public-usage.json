@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "productVersion": "0.1.0",
+  "productVersion": "0.1.1",
   "entries": {
     "motion/timeline": {
       "default": {

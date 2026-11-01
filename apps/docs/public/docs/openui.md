@@ -2,7 +2,7 @@
 
 [OpenUI](https://www.openui.com) 是生成式 UI 框架：模型不再返回 Markdown，而是输出抽象 UI 树（OpenUI Lang），Vue 运行时将每个节点映射到你注册的组件。将 orvui 注册为自定义 OpenUI 组件库后，每次生成的响应都会使用真实的动态组件，而且只使用你允许的组件。
 
-> 产品版本: 0.1.0
+> 产品版本: 0.1.1
 
 <a id="workflow"></a>
 

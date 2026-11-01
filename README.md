@@ -69,6 +69,12 @@ import { Button } from "@/components/orvui/motion/button";
 pnpm add @orvui/vue
 ```
 
+固定安装 0.1.1，或从 0.1.0 升级：
+
+```sh
+pnpm add @orvui/vue@0.1.1
+```
+
 ```vue
 <script setup lang="ts">
 import { Button } from "@orvui/vue/motion/button";

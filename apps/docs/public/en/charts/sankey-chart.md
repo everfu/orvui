@@ -7,7 +7,7 @@ updatedAt: "2026-10-26"
 documentation: "https://orvui.efu.me/en/charts/sankey-chart"
 markdown: "https://orvui.efu.me/en/charts/sankey-chart.md"
 license: "MIT"
-productVersion: "0.1.0"
+productVersion: "0.1.1"
 ---
 
 <a id="overview"></a>

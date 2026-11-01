@@ -5,6 +5,7 @@ import { dirname, join } from "node:path";
 import { expect, it } from "vitest";
 import { createRegistry, validateRegistryItem, writeRegistryOutputs } from "../../tools/registry/build";
 import type { ProductCatalog } from "../../tools/registry/types";
+import { packageVersion } from "../../tools/distribution";
 
 function fixture() {
   const directory = mkdtempSync(join(tmpdir(), "orvui-registry-distribution-"));
@@ -13,7 +14,7 @@ function fixture() {
     writeFileSync(join(directory, path), text);
   };
   put("packages/vue/package.json", JSON.stringify({
-    name: "@orvui/vue", version: "0.1.0", dependencies: { clsx: "^2.1.1" }, peerDependencies: { vue: "^3.5.0" },
+    name: "@orvui/vue", version: packageVersion, dependencies: { clsx: "^2.1.1" }, peerDependencies: { vue: "^3.5.0" },
   }));
   put("packages/vue/src/motion/button/index.ts", 'export { computed } from "vue";\nexport { clsx } from "clsx";');
   put("packages/vue/src/motion/button/demo.vue", "<template>Button</template>");
@@ -22,7 +23,7 @@ function fixture() {
   put("packages/vue/src/tokens.css", ":root { --primary: #0285f7; }");
   put("LICENSE", "Copyright (c) 2026 iUI contributors\r\nMIT\n");
   put("NOTICE", "Original third-party notice\r\n");
-  const catalog: ProductCatalog = { schemaVersion: 2, product: { name: "orvui", version: "0.1.0", description: "Components" }, categories: [{
+  const catalog: ProductCatalog = { schemaVersion: 2, product: { name: "orvui", version: packageVersion, description: "Components" }, categories: [{
     slug: "motion", name: "Motion", description: "Motion", components: [{ slug: "button", name: "Button", description: "Button", file: "", examples: [{
       slug: "secondary", name: "Secondary Button", file: "", previewFile: "", previewKey: "", installSlug: "button-secondary",
     }] }],

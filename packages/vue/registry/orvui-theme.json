@@ -34,7 +34,7 @@
   ],
   "meta": {
     "product": "orvui",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "package": "@orvui/vue",
     "registry": "https://orvui.efu.me/r/orvui-theme.json"
   }

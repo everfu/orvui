@@ -69,6 +69,12 @@ The package includes compiled styles and requires no additional Tailwind setup. 
 pnpm add @orvui/vue
 ```
 
+Pin version 0.1.1, or upgrade from 0.1.0:
+
+```sh
+pnpm add @orvui/vue@0.1.1
+```
+
 ```vue
 <script setup lang="ts">
 import { Button } from "@orvui/vue/motion/button";

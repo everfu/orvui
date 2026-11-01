@@ -7,7 +7,7 @@ updatedAt: "2026-10-26"
 documentation: "https://orvui.efu.me/en/charts/status-bar"
 markdown: "https://orvui.efu.me/en/charts/status-bar.md"
 license: "MIT"
-productVersion: "0.1.0"
+productVersion: "0.1.1"
 ---
 
 <a id="overview"></a>

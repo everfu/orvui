@@ -2,7 +2,7 @@
 
 Query actual orvui APIs, source, styles and themes through the online MCP server. Public and read-only: connect with the server URL, without a local server or token.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
 
 <a id="setup"></a>
 

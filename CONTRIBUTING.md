@@ -77,7 +77,7 @@ PLAYWRIGHT_BROWSERS_PATH=artifacts/browsers ORVUI_NUXT_URL=http://localhost:3000
 在仓库根目录打包，`prepack` 会自动构建组件库、声明、主题和源码注册表：
 
 ```sh
-pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
+pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.1"
 ```
 
 `pnpm package:build` 只构建分发内容，不生成归档。本地归档放在 `artifacts/packages/<version>/`，生成报告放在 `artifacts/reports/`，两者都不提交到 Git。

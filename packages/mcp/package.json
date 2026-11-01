@@ -1,6 +1,6 @@
 {
   "name": "@orvui/vue-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Offline component documentation, source and skills for orvui Vue.",
   "type": "module",
   "license": "MIT",

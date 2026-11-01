@@ -2,7 +2,17 @@
 
 orvui release notes and compatibility changes. The component package is available on npm; see the installation guide to get started.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
+
+## 2026-11-01 — orvui 0.1.1
+
+<a id="week-2026-11-01"></a>
+Updated npm installation guides, with a public MCP endpoint and component skills loaded on demand.
+
+- **fixed** Corrected installation instructions for the existing npm package, including upgrades from 0.1.0 to 0.1.1 and Nuxt stylesheet setup. [Installation](/docs/installation)
+- **new** The public read-only MCP provides component documentation, source, styles and theme queries through a URL connection. [MCP](/docs/mcp-server)
+- **new** The complete Agent Skills archive includes Chinese and English references for 110 components and 72 registered variants. [Agent Skills](/docs/agent-skills)
+- **improved** The package, registry and AI resources share version 0.1.1, retaining public APIs, motion, eleven palettes and semantic theme overrides.
 
 ## 2026-10-26 — Component implementation update
 

@@ -2,7 +2,7 @@
 
 Query components with the [MCP Server](/en/docs/mcp-server) or install the complete [Agent Skills](/en/docs/agent-skills) to load component knowledge on demand. This page retains the direct registry and legacy skill workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.
 
-> Product version: 0.1.0
+> Product version: 0.1.1
 
 <a id="workflow"></a>
 
@@ -102,7 +102,7 @@ Internal helpers (for example `lib/utils.ts`) ship inline as `registry:lib` file
   ],
   "meta": {
     "category": "blocks",
-    "productVersion": "0.1.0"
+    "productVersion": "0.1.1"
   },
   "files": [
     {
