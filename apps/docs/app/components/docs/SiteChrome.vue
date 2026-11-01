@@ -10,6 +10,7 @@ import { documentationSections } from "../../utils/docs/document-sections";
 import SiteSearch from "./SiteSearch.vue";
 import SitePreferences from "./SitePreferences.vue";
 import SiteLanguageSwitch from "./SiteLanguageSwitch.vue";
+import SiteVersionSwitch from "./SiteVersionSwitch.vue";
 import SiteLogo from "./SiteLogo.vue";
 import { useSiteShell } from "../../composables/site-shell-state";
 const {
@@ -19,6 +20,8 @@ const {
   en,
   locale,
   pathname,
+  addressPath,
+  channel,
   suffix,
   alternate,
   mobileMenu,
@@ -36,6 +39,11 @@ const stars = useGithubStars();
       <a class="brand" :href="`${locale}/`" aria-label="orvui home"
         ><SiteLogo class="site-logo--header"
       /></a>
+      <SiteVersionSwitch
+        :en="en"
+        :channel="channel"
+        :current-href="addressPath + suffix"
+      />
       <div class="header-tools">
         <button
           class="icon-button site-action site-action--icon header-control"
@@ -53,7 +61,7 @@ const stars = useGithubStars();
           <SiteAppearanceSwitch />
           <SiteLanguageSwitch
             :en="en"
-            :current-href="pathname + suffix"
+            :current-href="addressPath + suffix"
             :alternate-href="alternate"
           />
           <SiteGithubLink :stars="stars" :en="en" />
@@ -88,7 +96,7 @@ const stars = useGithubStars();
         <SiteGithubLink :stars="stars" :en="en" />
         <SiteLanguageSwitch
           :en="en"
-          :current-href="pathname + suffix"
+          :current-href="addressPath + suffix"
           :alternate-href="alternate"
         />
         <SiteAppearanceSwitch />

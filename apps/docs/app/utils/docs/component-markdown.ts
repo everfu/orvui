@@ -1,3 +1,7 @@
+import {
+  betaArchiveName,
+  type ReleaseChannel,
+} from "../../../../../tools/release-channels";
 import { packageName } from "../../../../../tools/distribution";
 import type { ApiComponent, ApiEntry } from "./component-docs-types";
 import type { CatalogEntry } from "../../../../../tools/registry/types";
@@ -28,6 +32,7 @@ export interface ComponentMarkdownInput {
   dependencies?: string[];
   locale?: "zh" | "en";
   productVersion?: string;
+  channel?: ReleaseChannel;
   /** Optional additional public exports that are not used by a registered demo. */
   apiComponents?: ApiComponent[];
 }
@@ -177,12 +182,22 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
     "",
     `### ${t("Component package", "组件包")}`,
     "",
-    t(
-      "Install the published component package from npm in your application directory.",
-      "在你的应用目录从 npm 安装已发布的组件包。",
-    ),
+    input.channel === "beta"
+      ? t(
+          "Install the local Beta archive; see the Beta installation guide to build it.",
+          "安装本地 Beta 归档，制作方法见 Beta 安装指南。",
+        )
+      : t(
+          "Install the published component package from npm in your application directory.",
+          "在你的应用目录从 npm 安装已发布的组件包。",
+        ),
     "",
-    ...block(`pnpm add ${packageName}`, "bash"),
+    ...block(
+      input.channel === "beta"
+        ? `pnpm add ./${betaArchiveName}`
+        : `pnpm add ${packageName}`,
+      "bash",
+    ),
     ...(input.demoDependencies?.length
       ? [...block(`pnpm add ${input.demoDependencies.join(" ")}`, "bash")]
       : []),

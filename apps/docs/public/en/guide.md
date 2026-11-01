@@ -1,67 +1,83 @@
-# Get started with orvui
+# Introduction
 
-Add composable, interactive components to a Vue 3.5 application. Choose a component, install its source or npm package, and adapt its appearance and behavior to your product.
+Build expressive, composable interfaces for Vue.
 
 
-<a id="installation"></a>
-
-## Start with one component
-
-1. **Prepare your project** — Use Vue 3.5 and TypeScript. Source installation uses Tailwind CSS 4; the package includes compiled styles.
-
-2. **Choose an installation path** — Copy the source to edit the implementation in your app, or use the package for prebuilt imports.
-
-3. **Run your first example** — Check the button styles and press feedback before connecting application state.
-
-Follow the [installation guide](/en/docs/installation). This example installs the Button source.
-
-```bash
-pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
-```
-
-> **Tip**: The package is available on npm. Follow the installation guide to install @orvui/vue for prebuilt components.
-
-<a id="import-components"></a>
-
-## Add your first button
-
-Complete [source setup](/en/docs/installation#source-setup), then import the installed component.
-
-```vue
-<script setup lang="ts">
-import { Button } from '@/components/orvui/motion/button'
-</script>
-
-<template>
-  <Button>Continue</Button>
-</template>
-```
-
-You should see an interactive button with a visible keyboard focus indicator and press feedback.
-
-<a id="copy-source"></a>
-
-## Make the source your own
-
-Source lives in `src/components/orvui/`, including relative helpers, styles and licenses. Install individual components and add extra dependencies only when the selected example needs them.
+orvui is an open-source component library built with Vue 3.5, the Composition API and TypeScript. It combines interactive motion, semantic themes and state bindings, with a prebuilt package and individually installable source.
 
 <a id="state"></a>
 
-## Connect state and compose components
+<a id="why-orvui"></a>
 
-Form components use `v-model`; overlays typically use `v-model:open`. Compose related parts with child components, slots and composables. Each API reference defines exact names and defaults.
+## Why orvui?
 
+- **Considered defaults** — Buttons, forms and charts share typography, spacing and eleven palettes. Start with the defaults and customize the parts your product needs.
+
+- **Motion with purpose** — Press feedback, layout changes and overlay transitions clarify interaction and respect reduced-motion preferences.
+
+- **Compose the Vue way** — Connect state through v-model, slots, child components and composables. Type declarations and component API references describe each interface.
+
+- **Room to make it yours** — Adjust themes with semantic CSS variables and compose content through props and slots. Copy individual components when you need to change their internals.
+
+- **Keyboard and server rendering** — Forms and overlays provide keyboard interactions, focus management and semantics. SSR and hydration are covered; each component documents its behavior and limitations.
+
+- **Context for coding agents** — MCP, Agent Skills and Markdown expose real imports, state bindings, examples and licenses so coding agents can work with existing components.
+
+<a id="import-components"></a>
+
+<a id="copy-source"></a>
+
+<a id="installation"></a>
+
+## Choose how to get started
+
+The package and copied source share the same public APIs. Choose how you want to maintain your components, then follow Quick Start for the complete setup.
+
+- [Install the package](https://orvui.efu.me/en/docs/installation#package): Use prebuilt entrypoints and complete styles, importing the components you need.
+- [Copy the source](https://orvui.efu.me/en/docs/installation#source-setup): Install individual components with shadcn-vue and keep the implementation and relative helpers in your project.
 <a id="nuxt"></a>
 
-## Use Nuxt and SSR
+<a id="ecosystem"></a>
 
-Use orvui in Nuxt projects with explicit component imports. When using the package, add `"@orvui/vue/style.css"` to `css` in `nuxt.config.ts` to load styles globally. This documentation runs on Nuxt SSR.
+## The orvui ecosystem
+
+- [Vue and Nuxt](https://orvui.efu.me/en/docs/installation#package): Import components and styles in Vue. In Nuxt, load the stylesheet through css and keep explicit component imports.
+- [Themes and motion](https://orvui.efu.me/en/docs/theme): Choose a palette, set the appearance mode and work with semantic variables and shared motion conventions.
+- [MCP Server](https://orvui.efu.me/en/docs/mcp-server): Let development tools query component APIs, examples, source and theme variables.
+- [Agent Skills](https://orvui.efu.me/en/docs/agent-skills): Install component references and usage guidance that coding agents can read on demand.
+- [Components](https://orvui.efu.me/en/components): Browse interactions, application blocks, AI components and charts by use case.
+- [Application templates](https://orvui.efu.me/en/templates): Explore independent Dashboard, Mail, Chat, Finances and CRM demos.
+<a id="faq"></a>
+
+## FAQ
+
+### Can I use orvui commercially?
+
+orvui is available under MIT. Preserve copyright, LICENSE and NOTICE when using or distributing it. Separate shader and font resources retain their own licenses; consult the license inventory.
+
+### Do I need Tailwind CSS?
+
+The package includes compiled styles and needs no additional Tailwind setup. Copied source requires Tailwind CSS 4 and the stylesheet and alias setup in Quick Start.
+
+### Does it work with Vue, Nuxt and TypeScript?
+
+Vue and Nuxt use explicit imports, with TypeScript declarations included. Load package styles in nuxt.config.ts and consult component SSR notes for browser-dependent features.
+
+### How can I try Vue 3.6?
+
+Switch to Beta in the header, then follow its Quick Start to install the local archive and pin Vue RC dependencies. The Beta uses virtual DOM rendering; Vapor compilation is not enabled.
 
 <a id="attribution"></a>
 
-## Keep notices and continue
+## Get involved
 
-Keep MIT, NOTICE and applicable shader and font licenses with copied source. Continue with [theme setup](/en/docs/theme) or browse the [component catalog](/en/components).
+Explore the source, report issues or contribute improvements on [GitHub](https://github.com/everfu/orvui). Keep copyright and applicable licenses with copied or distributed components.
+
+- [Source and issues](https://github.com/everfu/orvui): Include reproduction steps, versions and expected behavior when reporting a problem.
+- [Copyright and licenses](https://orvui.efu.me/licenses/orvui-NOTICE.txt): Review provenance and licenses for components, shaders and font resources.
+## Next steps
+
+- [Quick Start](/en/docs/installation)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

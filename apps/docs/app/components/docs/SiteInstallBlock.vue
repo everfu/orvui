@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { betaArchiveName } from "../../../../../tools/release-channels";
+import { useDocsVersion } from "../../composables/docs-version";
+const { beta } = useDocsVersion();
 import { computed } from "vue";
 import SiteInstallCommand from "./SiteInstallCommand.vue";
 import CodePanel from "./CodePanel.vue";
@@ -14,7 +17,9 @@ const props = withDefaults(
   }>(),
   { mode: "registry" },
 );
-const packageInstall = `pnpm add ${packageName}`;
+const packageInstall = computed(() =>
+  beta.value ? `pnpm add ./${betaArchiveName}` : `pnpm add ${packageName}`,
+);
 const packageStyle = `import '${packageName}/style.css';`;
 const dependencyCommand = (dependencies: string[] = []) => {
   const packages: string[] = [];
@@ -35,9 +40,13 @@ const packageDependencyCommand = computed(() =>
   <div v-if="mode === 'package'" class="package-install">
     <p class="install-note">
       {{
-        en
-          ? "Install the published component package from npm in your application directory."
-          : "在你的应用目录从 npm 安装已发布的组件包。"
+        beta
+          ? en
+            ? "Install the local Beta archive. See the Beta installation guide to build it."
+            : "安装本地 Beta 归档，制作方法见 Beta 安装指南。"
+          : en
+            ? "Install the published component package from npm in your application directory."
+            : "在你的应用目录从 npm 安装已发布的组件包。"
       }}
     </p>
     <CodePanel :en="en" :code="packageInstall" label="Terminal" />

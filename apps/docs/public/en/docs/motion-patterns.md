@@ -124,7 +124,7 @@ const target = { opacity: 1, y: 0 };
 ## Next steps
 
 - [Theme setup](/en/docs/theme)
-- [Installation](/en/docs/installation)
+- [Quick Start](/en/docs/installation)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

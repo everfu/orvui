@@ -31,6 +31,8 @@ const shell = createSiteShell(
 provideSiteShell(shell);
 const {
   home,
+  channel,
+  locale,
   en,
   category,
   entry,
@@ -66,8 +68,25 @@ const outline = computed(() =>
     :style="{ '--header-height': (home ? 56 : DOCS_HEADER_HEIGHT) + 'px' }"
   >
     <SiteChrome />
+    <div v-if="channel === 'beta'" class="beta-notice" role="status">
+      {{
+        t(
+          "开发版 Beta · Vue 3.6 RC · 本地组件包",
+          "Development Beta · Vue 3.6 RC · Local package",
+        )
+      }}
+      <a :href="locale + '/docs/installation'"
+        >{{ t("安装说明", "Installation") }} ↗</a
+      >
+    </div>
     <slot v-if="home" />
-    <main v-else-if="pageLayout === 'templates'" id="docs-content" class="templates-wide-main"><slot /></main>
+    <main
+      v-else-if="pageLayout === 'templates'"
+      id="docs-content"
+      class="templates-wide-main"
+    >
+      <slot />
+    </main>
     <div v-else class="docs-frame">
       <aside
         class="docs-sidebar"
@@ -111,3 +130,20 @@ const outline = computed(() =>
     <SiteFooter v-if="home" :en="en" />
   </div>
 </template>
+
+<style scoped>
+.beta-notice {
+  padding: 9px 16px;
+  text-align: center;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 20px;
+}
+.beta-notice a {
+  margin-left: 8px;
+  color: var(--foreground);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+</style>

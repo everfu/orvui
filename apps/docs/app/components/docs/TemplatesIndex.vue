@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { href: docsHref } = useDocsVersion();
 import { ArrowUpRight } from "lucide-vue-next";
 import DocsCatalogHeader from "./DocsCatalogHeader.vue";
 import { ButtonLink } from "../../../../../packages/vue/src/motion/button";
@@ -29,7 +31,9 @@ defineProps<{ en: boolean }>();
           class="template-gallery-card"
         >
           <a
-            :href="template.previewUrl + '?lang=' + (en ? 'en' : 'zh')"
+            :href="
+              docsHref(template.previewUrl + '?lang=' + (en ? 'en' : 'zh'))
+            "
             class="template-screenshot-link"
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +48,9 @@ defineProps<{ en: boolean }>();
           <p>{{ template.description[en ? "en" : "zh"] }}</p>
           <div class="template-gallery-actions">
             <ButtonLink
-              :href="template.previewUrl + '?lang=' + (en ? 'en' : 'zh')"
+              :href="
+                docsHref(template.previewUrl + '?lang=' + (en ? 'en' : 'zh'))
+              "
               target="_blank"
               rel="noopener noreferrer"
               variant="secondary"

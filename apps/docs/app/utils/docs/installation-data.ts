@@ -47,10 +47,10 @@ export const webInstallationPage: SitePageDefinition = {
   slug: "installation",
   path: "/docs/installation",
   eyebrow: bi("Web · 安装", "Web · Installation"),
-  title: bi("安装指南", "Installation"),
+  title: bi("快速开始", "Quick Start"),
   description: bi(
-    "为 Vue Web 项目选择组件包或 shadcn-vue 安装。各组件页的用法切换与这里的安装方式对应。",
-    "Choose the component package or shadcn-vue for a Vue Web application. Component-page Usage modes correspond to these installation paths.",
+    "安装第一个组件，加载样式，然后连接你的应用状态。",
+    "Install your first component, load its styles and connect your application state.",
   ),
   sections: [
     section("requirements", "准备项目", "Prepare your project", [

@@ -1,18 +1,14 @@
-# Installation
+# Quick Start
 
-Choose the component package or shadcn-vue for a Vue Web application. Component-page Usage modes correspond to these installation paths.
+Install your first component, load its styles and connect your application state.
 
 
 <a id="choose-path"></a>
 
-## Choose your installation path
+## Choose an installation path
 
-1. **Copy the source** — Install individual components into your project and edit them directly. Requires Tailwind CSS 4.
-
-2. **Use the package** — Install prebuilt components from npm and import the package stylesheet once.
-
-> **Tip**: Install the package from npm, or copy source with shadcn-vue to edit the implementation in your project.
-
+- [Component package](#package): Prebuilt components and complete styles, with no additional Tailwind setup.
+- [Copy source](#source-setup): Install individual components with shadcn-vue and edit their implementation. Requires Tailwind CSS 4.
 <a id="requirements"></a>
 
 ## Prepare your project

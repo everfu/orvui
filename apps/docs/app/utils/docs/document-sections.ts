@@ -60,17 +60,17 @@ export const guideGroups: {
 }[] = [
   {
     id: "start",
-    zh: "开始使用",
-    en: "Getting started",
+    zh: "概览",
+    en: "Overview",
     pages: [
       { path: "/guide", zh: "介绍", en: "Introduction" },
-      { path: "/docs/installation", zh: "安装指南", en: "Installation" },
+      { path: "/docs/installation", zh: "快速开始", en: "Quick Start" },
     ],
   },
   {
     id: "design",
-    zh: "设计与交互",
-    en: "Design and interaction",
+    zh: "使用手册",
+    en: "Handbook",
     pages: [
       { path: "/docs/theme", zh: "主题配置", en: "Theming" },
       { path: "/docs/motion-patterns", zh: "动效指南", en: "Animation" },

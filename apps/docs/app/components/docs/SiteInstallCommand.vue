@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { beta } = useDocsVersion();
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { Copy, Check } from "lucide-vue-next";
 import {
@@ -55,8 +57,11 @@ const encodeSlug = (value: string) =>
     /[!'()*]/g,
     (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`,
   );
+const activeRegistryBase = computed(() =>
+  registryBase.value.replace(/\/r$/, beta.value ? "/beta/r" : "/r"),
+);
 const url = (value: string) =>
-  `${registryBase.value}/${encodeSlug(value)}.json`;
+  `${activeRegistryBase.value}/${encodeSlug(value)}.json`;
 const shellArgument = (value: string) =>
   /^[a-zA-Z0-9_./:%~+-]+$/.test(value)
     ? value
@@ -118,7 +123,9 @@ onBeforeUnmount(() => clearInterval(timer));
         ><span class="command-tool">{{ ` shadcn-vue@${shadcnVersion} ` }}</span
         ><span class="command-add">add</span
         ><template v-if="animatedSingle"
-          ><span class="command-prefix">{{ " " + registryBase + "/" }}</span
+          ><span class="command-prefix">{{
+            " " + activeRegistryBase + "/"
+          }}</span
           ><ActionSwapCascadeText :value="slug" class="command-slug">{{
             slug
           }}</ActionSwapCascadeText

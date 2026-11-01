@@ -45,6 +45,12 @@ export default defineNuxtConfig({
         "Cache-Control": "public, max-age=300, must-revalidate",
       },
     },
+    "/beta/r/**": {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=300, must-revalidate",
+      },
+    },
     "/_nuxt/**": {
       headers: { "cache-control": "public, max-age=31536000, immutable" },
     },

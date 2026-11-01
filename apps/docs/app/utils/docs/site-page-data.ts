@@ -1,3 +1,5 @@
+import { betaPage } from "./beta-page";
+import type { ReleaseChannel } from "../../../../../tools/release-channels";
 import {
   documentationOrigin,
   registryBaseForSite,
@@ -24,6 +26,11 @@ export type SitePageSlug =
 export type Localized = { zh: string; en: string };
 export const bi = (zh: string, en: string): Localized => ({ zh, en });
 export type SiteBlock =
+  | { kind: "features"; items: { title: Localized; text: Localized }[] }
+  | {
+      kind: "faq";
+      items: { id: string; question: Localized; answer: Localized }[];
+    }
   | { kind: "callout"; tone: "info" | "warning"; text: Localized }
   | { kind: "steps"; items: { title: Localized; text: Localized }[] }
   | { kind: "paragraph"; text: Localized; small?: boolean; space?: 2 | 4 | 6 }
@@ -36,6 +43,7 @@ export type SiteBlock =
     }
   | {
       kind: "links";
+      layout?: "cards";
       items: {
         label: Localized;
         url: string;
@@ -45,6 +53,7 @@ export type SiteBlock =
     };
 export interface SiteSection {
   id: string;
+  legacyIds?: string[];
   title: Localized;
   blocks: SiteBlock[];
 }
@@ -55,6 +64,8 @@ export interface SitePageDefinition {
   eyebrow: Localized;
   description: Localized;
   sections: SiteSection[];
+  lead?: Localized;
+  illustration?: "components";
   status?: "preview";
 }
 export const SITE_VERSION = catalog.product.version;
@@ -668,14 +679,27 @@ export const sitePages: SitePageDefinition[] = [
 sitePages.push(...aiGuidePages);
 applyGuideEditorial(sitePages, themeCss);
 
-export function getSitePage(slug: SitePageSlug) {
+export function getSitePage(
+  slug: SitePageSlug,
+  channel: ReleaseChannel = "stable",
+) {
   const page = sitePages.find((page) => page.slug === slug);
   if (!page) throw new Error(`No documentation page for ${slug}`);
-  return page;
+  return channel === "beta" ? betaPage(page) : page;
 }
-export function resolveSiteCode(value: string, origin?: string) {
+export function resolveSiteCode(
+  value: string,
+  origin?: string,
+  channel: ReleaseChannel = "stable",
+) {
   return value
-    .replaceAll("{{registry}}", registryBaseForSite(origin))
+    .replaceAll(
+      "{{registry}}",
+      registryBaseForSite(origin).replace(
+        /\/r$/,
+        channel === "beta" ? "/beta/r" : "/r",
+      ),
+    )
     .replaceAll("{{origin}}", siteOrigin(origin));
 }
 export function localSiteHtml(value: string, en = false) {
@@ -731,6 +755,7 @@ export function sitePageToc(slug: SitePageSlug) {
 /** Reading continuations use the same definitions as the rendered guides. */
 export function guideNextPages(slug: SitePageSlug) {
   const next: Partial<Record<SitePageSlug, SitePageSlug[]>> = {
+    introduction: ["installation"],
     installation: ["theme", "motion-patterns"],
     "ai-agents": ["installation", "openui"],
     "llms-txt": ["mcp-server", "agent-skills"],
@@ -741,5 +766,5 @@ export function guideNextPages(slug: SitePageSlug) {
     openui: ["ai-agents", "theme"],
     "motion-patterns": ["theme", "installation"],
   };
-  return (next[slug] ?? []).map(getSitePage);
+  return (next[slug] ?? []).map((slug) => getSitePage(slug));
 }

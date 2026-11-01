@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { unversionedPath } from "../../../../../tools/release-channels";
+import { useDocsVersion } from "../../composables/docs-version";
+const { prefix: versionPrefix } = useDocsVersion();
 import { computed, reactive, watch } from "vue";
 import {
   Collapsible,
@@ -59,7 +62,7 @@ type Item = {
   launchedAt?: string;
 };
 const groups = computed<{ id: string; label: string; items: Item[] }[]>(() => {
-  const prefix = props.en ? "/en" : "";
+  const prefix = versionPrefix.value + (props.en ? "/en" : "");
   if (section.value === "guides")
     return guideGroups.map((group) => ({
       id: group.id,
@@ -152,7 +155,9 @@ watch(
     for (const group of groups.value) {
       if (
         opened[`${section.value}-${group.id}`] === undefined ||
-        group.items.some((item) => item.href === props.pathname)
+        group.items.some(
+          (item) => unversionedPath(item.href) === props.pathname,
+        )
       )
         opened[`${section.value}-${group.id}`] = true;
     }
@@ -196,7 +201,7 @@ watch(
             :href="item.href"
             variant="ghost"
             size="sm"
-            :aria-current="pathname === item.href ? 'page' : undefined"
+            :aria-current="pathname === unversionedPath(item.href) ? 'page' : undefined"
             class="docs-nav-link"
             @click="emit('navigate')"
           >

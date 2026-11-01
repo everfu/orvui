@@ -49,3 +49,9 @@ Read `LICENSE` and `NOTICE` before redistributing source. Existing copyright
 attributions and third-party licenses remain applicable. In particular, the
 Paper Design shader implementation retains its separate PolyForm Shield
 license; the package's MIT license does not replace third-party terms.
+
+## Vue 3.6 Beta
+
+The local `0.2.0-beta.1` development release uses Vue `3.6.0-rc.14`, retaining virtual DOM rendering and the existing APIs. Switch between stable and `/beta/` docs in the header.
+
+Run `pnpm beta:pack` to create `artifacts/packages/0.2.0-beta.1/orvui-vue-0.2.0-beta.1.tgz`. Copy it into a consumer project and run `pnpm add ./orvui-vue-0.2.0-beta.1.tgz`. This Beta is not published to npm. Vapor compilation is not enabled.

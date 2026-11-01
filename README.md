@@ -114,3 +114,9 @@ pnpm docs:dev
 Copyright (c) 2026 **everfu**。orvui 项目代码采用 [MIT](./LICENSE) 许可。
 
 第三方代码和资源保留各自的版权及许可。Paper Design Shader 使用独立的 PolyForm Shield 许可，字体使用 SIL OFL；图标和演示素材的来源与条款见 [NOTICE](./NOTICE)。
+
+## Vue 3.6 Beta
+
+本地开发版 `0.2.0-beta.1` 使用 Vue `3.6.0-rc.14`，沿用常规渲染模式与现有 API。文档顶部可切换稳定版和 `/beta/` 开发版。
+
+运行 `pnpm beta:pack`，生成 `artifacts/packages/0.2.0-beta.1/orvui-vue-0.2.0-beta.1.tgz`；将归档复制到消费项目后用 `pnpm add ./orvui-vue-0.2.0-beta.1.tgz` 安装。Beta 尚未发布到 npm；未启用 Vapor。

@@ -16,7 +16,14 @@ export interface SearchRecord {
   status?: NewBadgeEntry;
 }
 const setupAliases = ["setup", "getting started", "开始使用", "介绍"];
-const installAliases = ["install", "installation", "安装", "安装指南"];
+const installAliases = [
+  "install",
+  "installation",
+  "quick start",
+  "安装",
+  "安装指南",
+  "快速开始",
+];
 export function buildSiteSearchIndex(
   categories: CatalogCategory[],
   en: boolean,
@@ -140,7 +147,7 @@ export function buildSiteSearchIndex(
           step.zh,
           step.en,
         ]),
-        ...template.pages.flatMap(page => [page.zh, page.en]),
+        ...template.pages.flatMap((page) => [page.zh, page.en]),
         "template",
         "模板",
       ],

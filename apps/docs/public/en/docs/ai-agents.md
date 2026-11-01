@@ -109,7 +109,7 @@ Want the model to compose these components into a live interface? Follow the [Op
 
 ## Next steps
 
-- [Installation](/en/docs/installation)
+- [Quick Start](/en/docs/installation)
 - [Use orvui with OpenUI](/en/docs/openui)
 
 

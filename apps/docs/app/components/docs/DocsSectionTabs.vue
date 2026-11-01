@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { href: docsHref } = useDocsVersion();
 import { useId, ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { motion } from "motion-v";
 import { BookOpen, Shapes, PanelsTopLeft, Rocket } from "lucide-vue-next";
@@ -70,7 +72,7 @@ const icons = {
     <ButtonLink
       v-for="item in documentationSections"
       :key="item.id"
-      :href="(en ? '/en' : '') + item.path"
+      :href="docsHref((en ? '/en' : '') + item.path)"
       variant="ghost"
       size="sm"
       :aria-current="section === item.id ? 'page' : undefined"

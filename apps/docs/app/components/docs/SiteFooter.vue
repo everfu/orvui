@@ -1,20 +1,40 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { prefix: versionPrefix } = useDocsVersion();
 import { computed } from "vue";
 import SiteLogo from "./SiteLogo.vue";
 import catalog from "../../../../../tools/catalog/components.json";
 import type { CatalogCategory } from "../../../../../tools/registry/types";
 const props = withDefaults(defineProps<{ en?: boolean }>(), { en: false });
 const t = (zh: string, en: string) => (props.en ? en : zh);
-const prefix = computed(() => (props.en ? "/en" : ""));
+const prefix = computed(() => versionPrefix.value + (props.en ? "/en" : ""));
 const columns = computed(() => {
-  const bySlug = new Map((catalog.categories as CatalogCategory[]).map(category => [category.slug, category.components]));
-  const labels = [["motion", "组件", "Components"], ["blocks", "组合模块", "Blocks"], ["agents", "AI 代理", "AI Agents"], ["charts", "图表", "Charts"]];
+  const bySlug = new Map(
+    (catalog.categories as CatalogCategory[]).map((category) => [
+      category.slug,
+      category.components,
+    ]),
+  );
+  const labels = [
+    ["motion", "组件", "Components"],
+    ["blocks", "组合模块", "Blocks"],
+    ["agents", "AI 代理", "AI Agents"],
+    ["charts", "图表", "Charts"],
+  ];
   const result = [];
   for (const [category, zh, en] of labels) {
     const entries = bySlug.get(category!) ?? [];
     const items = [];
-    for (const entry of entries) { if (items.length === 7) break; items.push(entry); }
-    result.push({ category: category!, title: t(zh!, en!), total: entries.length, items });
+    for (const entry of entries) {
+      if (items.length === 7) break;
+      items.push(entry);
+    }
+    result.push({
+      category: category!,
+      title: t(zh!, en!),
+      total: entries.length,
+      items,
+    });
   }
   return result;
 });

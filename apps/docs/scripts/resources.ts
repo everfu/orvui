@@ -1,4 +1,10 @@
 import {
+  betaRelease,
+  stableRelease,
+  betaArchiveName,
+  versionHref,
+} from "../../../tools/release-channels";
+import {
   existsSync,
   mkdirSync,
   readFileSync,
@@ -36,6 +42,28 @@ import {
   componentsIndexMarkdown,
 } from "../app/utils/docs/section-markdown";
 
+function betaMarkdown(content: string) {
+  return content
+    .replaceAll(stableRelease.version, betaRelease.version)
+    .replaceAll("pnpm add @orvui/vue", `pnpm add ./${betaArchiveName}`)
+    .replaceAll(
+      "Install the published component package from npm in your application directory.",
+      "Install the local Beta archive; see the Beta installation guide to build it.",
+    )
+    .replaceAll(
+      "在你的应用目录从 npm 安装已发布的组件包。",
+      "安装本地 Beta 归档，制作方法见 Beta 安装指南。",
+    )
+    .replaceAll(
+      `${"https://orvui.efu.me"}/r/`,
+      `${"https://orvui.efu.me"}/beta/r/`,
+    )
+    .replace(
+      /\]\((\/[^)]+)\)/g,
+      (_, href: string) => `](${versionHref(href, "beta")})`,
+    );
+}
+
 export function buildSitePages(
   options: { root?: string; origin?: string } = {},
 ) {
@@ -48,6 +76,23 @@ export function buildSitePages(
     mkdirSync(dirname(path), { recursive: true });
     writeFileSync(path, content);
     artifacts.push(file);
+    if (
+      file.endsWith(".md") &&
+      !file.startsWith("beta/") &&
+      !file.startsWith("orvui-agent/")
+    ) {
+      const slug = sitePages.find(
+        (page) =>
+          `${file.replace(/^en\//, "").replace(/\.md$/, "")}` ===
+          page.path.slice(1),
+      )?.slug;
+      const beta = slug
+        ? sitePageMarkdown(slug, file.startsWith("en/"), origin, "beta")
+        : betaMarkdown(content);
+      const target = resolve(output, "beta", file);
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, beta);
+    }
   };
   for (const template of templateDefinitions)
     for (const filename of ["source.json", "source.zip"])
@@ -288,6 +333,13 @@ export function buildMarkdownPages(
         });
         mkdirSync(dirname(file), { recursive: true });
         writeFileSync(file, markdown);
+        const betaFile = resolve(
+          root,
+          "apps/docs/public/beta",
+          path.replace(/^\//, ""),
+        );
+        mkdirSync(dirname(betaFile), { recursive: true });
+        writeFileSync(betaFile, betaMarkdown(markdown));
         paths.push(path);
       }
     }

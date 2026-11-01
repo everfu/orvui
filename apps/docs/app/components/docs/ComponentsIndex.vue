@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { href: docsHref } = useDocsVersion();
 import {
   componentGroups,
   groupedComponentPath,
@@ -44,7 +46,7 @@ const exampleCount = entries.reduce(
       <ButtonLink
         v-for="group in componentGroups"
         :key="group.id"
-        :href="'#' + group.id"
+        :href="docsHref('#' + group.id)"
         variant="secondary"
         size="sm"
         class="catalog-jump-link"
@@ -65,7 +67,7 @@ const exampleCount = entries.reduce(
         <a
           v-for="entry in group.entries"
           :key="entry.slug"
-          :href="groupedComponentPath(entry, en)"
+          :href="docsHref(groupedComponentPath(entry, en))"
           class="docs-catalog-card"
         >
           <span class="catalog-component-icon" aria-hidden="true"
@@ -128,12 +130,12 @@ const exampleCount = entries.reduce(
             </dl>
             <div class="docs-inline-links">
               <ButtonLink
-                :href="(en ? '/en' : '') + '/docs/installation'"
+                :href="docsHref((en ? '/en' : '') + '/docs/installation')"
                 variant="secondary"
                 size="sm"
                 >{{ en ? "Installation guide" : "安装指南" }}</ButtonLink
               ><ButtonLink
-                :href="(en ? '/en' : '') + '/templates'"
+                :href="docsHref((en ? '/en' : '') + '/templates')"
                 variant="ghost"
                 size="sm"
                 >{{ en ? "Application templates" : "应用模板" }} ↗</ButtonLink

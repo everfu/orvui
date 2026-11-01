@@ -183,3 +183,38 @@ it.each(
     /hydration|mismatch|injection.*not found|Unhandled error/i,
   );
 });
+
+it.each([false, true])(
+  "hydrates the Beta guide and versioned anchors en=%s",
+  async (en) => {
+    const props = {
+      frontmatter: {
+        layout: "site-page",
+        sitePage: "installation",
+        docsSection: "guides",
+        channel: "beta",
+      },
+      route: { path: `/beta${en ? "/en" : ""}/docs/installation` },
+      router: { go: async () => {} },
+    };
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    host = document.createElement("div");
+    host.innerHTML = await renderToString(createSSRApp(Layout, props));
+    expect(host.textContent).toContain("pnpm beta:pack");
+    expect(host.querySelector(".version-trigger")?.textContent).toContain(
+      "0.2.0-beta.1",
+    );
+    expect(
+      host.querySelector(".docs-section-tab")?.getAttribute("href"),
+    ).toMatch(/^\/beta\//);
+    document.body.append(host);
+    app = createSSRApp(Layout, props);
+    app.mount(host);
+    await flushPromises();
+    await nextTick();
+    expect(
+      [...warn.mock.calls, ...error.mock.calls].flat().map(String).join("\n"),
+    ).not.toMatch(/hydration|mismatch|injection.*not found|Unhandled error/i);
+  },
+);

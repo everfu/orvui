@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { href: docsHref } = useDocsVersion();
 import { useId } from "vue";
 import { ArrowRight } from "lucide-vue-next";
 import { ButtonLink } from "../../../../../packages/vue/src/motion/button";
@@ -27,7 +29,7 @@ const path = (value: string) => `${props.en ? "/en" : ""}${value}`;
         </p>
       </div>
       <ButtonLink
-        :href="path('/docs/installation')"
+        :href="docsHref(path('/docs/installation'))"
         class="docs-install-link site-action site-action--lg site-action--primary"
       >
         <span class="docs-install-link-inner">

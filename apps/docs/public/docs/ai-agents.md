@@ -109,7 +109,7 @@ npx shadcn-vue@2.8.2 add https://orvui.efu.me/r/animated-toast-stack.json
 
 ## 下一步
 
-- [安装指南](/docs/installation)
+- [快速开始](/docs/installation)
 - [将 orvui 与 OpenUI 结合使用](/docs/openui)
 
 

@@ -1,4 +1,9 @@
 import {
+  betaRelease,
+  versionHref,
+  type ReleaseChannel,
+} from "../../../../../tools/release-channels";
+import {
   getSitePage,
   guideNextPages,
   SITE_VERSION,
@@ -41,8 +46,9 @@ export function sitePageMarkdown(
   slug: SitePageSlug,
   en = false,
   origin?: string,
+  channel: ReleaseChannel = "stable",
 ) {
-  const page = getSitePage(slug),
+  const page = getSitePage(slug, channel),
     tr = (zh: string, english: string) => (en ? english : zh);
   const out = [
     `# ${localize(page.title, en)}${page.status === "preview" ? " · Preview" : ""}`,
@@ -51,10 +57,16 @@ export function sitePageMarkdown(
     "",
     ...(["introduction", "installation"].includes(slug)
       ? []
-      : [`> ${tr("产品版本", "Product version")}: ${SITE_VERSION}`]),
+      : [
+          `> ${tr("产品版本", "Product version")}: ${channel === "beta" ? betaRelease.version : SITE_VERSION}`,
+        ]),
     "",
   ];
+  if (page.lead)
+    out.push(markdownHtml(localSiteHtml(localize(page.lead, en), en)), "");
   for (const section of page.sections) {
+    for (const id of section.legacyIds ?? [])
+      out.push(`<a id="${id}"></a>`, "");
     out.push(
       `<a id="${section.id}"></a>`,
       "",
@@ -62,6 +74,20 @@ export function sitePageMarkdown(
       "",
     );
     for (const block of section.blocks) {
+      if (block.kind === "features")
+        for (const item of block.items)
+          out.push(
+            `- **${localize(item.title, en)}** — ${markdownHtml(localSiteHtml(localize(item.text, en), en))}`,
+            "",
+          );
+      if (block.kind === "faq")
+        for (const item of block.items)
+          out.push(
+            `### ${localize(item.question, en)}`,
+            "",
+            markdownHtml(localSiteHtml(localize(item.answer, en), en)),
+            "",
+          );
       if (block.kind === "paragraph")
         out.push(markdownHtml(localSiteHtml(localize(block.text, en), en)), "");
       if (block.kind === "code")
@@ -70,6 +96,7 @@ export function sitePageMarkdown(
           resolveSiteCode(
             en && block.codeEn ? block.codeEn : block.code,
             origin,
+            channel,
           ),
           "```",
           "",
@@ -89,7 +116,7 @@ export function sitePageMarkdown(
       if (block.kind === "links")
         for (const item of block.items)
           out.push(
-            `- [${localize(item.label, en)}](${item.url.includes("{") ? item.url : item.url.startsWith("/") ? siteOrigin(origin) + item.url : item.url}): ${localize(item.description, en)}`,
+            `- [${localize(item.label, en)}](${item.url.includes("{") ? item.url : item.url.startsWith("/") ? siteOrigin(origin) + (item.endpoint ? item.url : versionHref((en ? "/en" : "") + item.url, channel)) : item.url}): ${localize(item.description, en)}`,
           );
     }
   }
@@ -195,5 +222,10 @@ export function sitePageMarkdown(
     ),
     "",
   );
-  return out.join("\n");
+  return out
+    .join("\n")
+    .replace(
+      /\]\((\/[^)]+)\)/g,
+      (_, href: string) => `](${versionHref(href, channel)})`,
+    );
 }

@@ -7,7 +7,8 @@ import {
 import { createDocsPages } from "../../apps/docs/app/utils/docs/route-manifest";
 import routePaths from "../fixtures/docs-route-paths.json";
 
-const pages = createDocsPages();
+const allPages = createDocsPages();
+const pages = allPages.filter((page) => !page.path.startsWith("/beta/"));
 
 describe("shared documentation route metadata", () => {
   it("covers every current bilingual page without including public downloads", () => {
@@ -57,8 +58,9 @@ describe("shared documentation route metadata", () => {
       "/components/motion/button",
       "/en/components/motion/button",
       "/",
+      "/beta/en/guide",
     ]) {
-      const page = pages.find((candidate) => candidate.path === path)!;
+      const page = allPages.find((candidate) => candidate.path === path)!;
       const request = { ...page, frontmatter: { ...page.frontmatter } };
       applySocialMetadata(request);
       const head = request.frontmatter as {
@@ -67,7 +69,7 @@ describe("shared documentation route metadata", () => {
       expect(
         head.head.find(([, attrs]) => attrs.property === "og:locale")?.[1]
           .content,
-      ).toBe(path.startsWith("/en/") ? "en_US" : "zh_CN");
+      ).toBe(path.includes("/en/") ? "en_US" : "zh_CN");
       expect(
         head.head.find(([, attrs]) => attrs.rel === "canonical")?.[1].href,
       ).toBe("https://orvui.efu.me" + path);

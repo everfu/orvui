@@ -78,5 +78,13 @@ export function createDocsPages(): DocsPage[] {
         });
     }
   }
+  pages.push(
+    ...pages.map((page) => ({
+      ...page,
+      path: "/beta" + page.path,
+      relativePath: "beta/" + page.relativePath,
+      frontmatter: { ...page.frontmatter, channel: "beta" },
+    })),
+  );
   return pages.sort((a, b) => a.path.localeCompare(b.path));
 }

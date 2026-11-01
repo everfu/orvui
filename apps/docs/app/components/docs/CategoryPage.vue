@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { href: docsHref } = useDocsVersion();
 import { computed } from "vue";
 import type { CatalogCategory } from "../../../../../tools/registry/types";
 import NewBadge from "./NewBadge.vue";
@@ -33,7 +35,7 @@ const content = computed(() => projection.value.content),
           <a
             v-for="item in group.items"
             :key="item.slug"
-            :href="item.href"
+            :href="docsHref(item.href)"
             class="category-component-card"
           >
             <div>

@@ -1,3 +1,4 @@
+import { betaRelease } from "../../../../tools/release-channels";
 import {
   computed,
   nextTick,
@@ -22,10 +23,15 @@ import type { SiteShell } from "./site-shell-state";
 const docs = docsData as unknown as ComponentDocs;
 // Source panels load after navigation in the browser. Keeping raw source out of
 // SSR also prevents server bundlers from rewriting environment checks in copy.
-const sourceLoaders = import.meta.env.SSR ? {} : import.meta.glob(
-  ["../../../../packages/vue/src/**/*.{ts,vue,css}", "!../../../../packages/vue/src/**/tests/**"],
-  { query: "?raw", import: "default" },
-) as Record<string, () => Promise<string>>;
+const sourceLoaders = import.meta.env.SSR
+  ? {}
+  : (import.meta.glob(
+      [
+        "../../../../packages/vue/src/**/*.{ts,vue,css}",
+        "!../../../../packages/vue/src/**/tests/**",
+      ],
+      { query: "?raw", import: "default" },
+    ) as Record<string, () => Promise<string>>);
 type InstallMode = "registry" | "package";
 const sourceKey = (path: string) => `../../../../${path}`;
 const unique = (items: string[]) => [...new Set(items)];
@@ -170,9 +176,12 @@ export function createComponentDocument(
     );
     await Promise.allSettled(
       absent.map(async (slug) => {
-        const response = await fetch(`/r/${encodeURIComponent(slug)}.json`, {
-          signal: controller.signal,
-        });
+        const response = await fetch(
+          `${shell.channel.value === "beta" ? "/beta" : ""}/r/${encodeURIComponent(slug)}.json`,
+          {
+            signal: controller.signal,
+          },
+        );
         if (!response.ok) return;
         const data: unknown = await response.json();
         const list = (data as { dependencies?: unknown })?.dependencies;
@@ -187,9 +196,10 @@ export function createComponentDocument(
     );
   };
   watch(
-    () => `${category().slug}/${entry().slug}`,
+    () => `${shell.channel.value}/${category().slug}/${entry().slug}`,
     () => {
       ++revision;
+      dependencies.clear();
       tabs.value = {};
       selected.value = {};
       closeExpanded();
@@ -210,7 +220,7 @@ export function createComponentDocument(
     request?.abort();
   });
   const pageUrl = computed(
-    () => shell.origin.value + shell.pathname.value.replace(/\/$/, ""),
+    () => shell.origin.value + shell.addressPath.value.replace(/\/$/, ""),
   );
   const pageMarkdown = computed(() => {
     if (
@@ -244,14 +254,20 @@ export function createComponentDocument(
         shell.en.value,
       ),
       pageUrl: pageUrl.value,
-      registryBaseUrl: shell.origin.value,
+      registryBaseUrl:
+        shell.origin.value +
+        (shell.channel.value === "beta" ? "/beta/r" : "/r"),
       demoDependencies: allPreviewDependencies.value,
       dependencies: unique(
         allInstallSlugs.value.flatMap((slug) => dependencies.get(slug) ?? []),
       ),
       description: shell.description(entry().slug, entry().description),
       locale: shell.en.value ? "en" : "zh",
-      productVersion: shell.catalog.product.version,
+      productVersion:
+        shell.channel.value === "beta"
+          ? betaRelease.version
+          : shell.catalog.product.version,
+      channel: shell.channel.value,
     });
   });
   return {

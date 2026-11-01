@@ -2,6 +2,8 @@
 
 ## Documentation content
 
+Getting Started follows the introduction-first reading structure of the HeroUI reference: a concise title and lead, an interactive component illustration, capability descriptions, package/source entry points, ecosystem links, FAQ and contribution guidance. Keep installation commands in Quick Start. Group its navigation as Overview, Handbook, UI for Agents and Integrations using existing routes. Preserve legacy introduction anchor IDs as aliases, shared bilingual/Markdown content and both release channels.
+
 The Getting Started navigation includes a bilingual UI for Agents group in this order: LLMs.txt, MCP Server, Agent Skills, AGENTS.md and DESIGN.md. The last two carry quiet outlined Preview labels and provide usable consumer guidance downloads, separate from repository maintainer instructions. Keep the existing registry workflow route and anchors; OpenUI and the registry workflow belong to Integrations.
 
 Agent Skills uses `npx skills add everfu/orvui --skill orvui` as the primary installation command, with project/global scope and agent selection examples. Version the complete generated `skills/orvui` references and notices so Git-based installs work without a build. Website resources, offline ZIP and Git skill files share the same generator and canonical entrypoint.
@@ -11,6 +13,8 @@ The Components top-level route is browse-first. The Templates index references t
 Component indexes explain when to choose related controls in each functional group. Component articles document state bindings from actual paired props and update events across default and registered variant APIs, without inventing models for slot-only compositions. Preserve existing API and example anchors.
 
 Every application template has its own use case, three-step interaction walkthrough and page inventory. Five independent private repositories own the complete multi-page Vue applications; Netlify hosts their public demos. Public documentation embeds those deployments and supports locale, appearance and palette synchronization with validated parent/child messages. Keep bilingual pages, Markdown, search and outlines synchronized. Do not generate complete template source JSON, ZIP archives, source panels or source maps in public artifacts. Homepage scenes remain available independently.
+
+The header places a compact version dropdown beside the orvui brand. Stable documentation retains its existing URLs and 0.1.1 installation guidance; `/beta/` provides the 0.2.0-beta.1 development channel for Vue 3.6 RC. Switching preserves the locale, document, query and anchor. Both channels share the frozen component APIs; Beta uses its own registry and local archive installation instructions, without claiming npm publication or Vapor support. The dropdown supports keyboard navigation, Escape, outside dismissal, current-version indication and reduced motion on desktop and mobile.
 
 ## Product behavior
 

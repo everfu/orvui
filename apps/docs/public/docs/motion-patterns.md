@@ -124,7 +124,7 @@ const target = { opacity: 1, y: 0 };
 ## 下一步
 
 - [主题设置](/docs/theme)
-- [安装指南](/docs/installation)
+- [快速开始](/docs/installation)
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

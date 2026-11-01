@@ -32,7 +32,7 @@ import { useSiteShell } from "../../composables/site-shell-state";
 import { createComponentDocument } from "../../composables/component-document-state";
 const props = defineProps<{ category: CatalogCategory; entry: CatalogEntry }>();
 const shell = useSiteShell();
-const { en, t, pathname, catalog, description } = shell;
+const { en, t, pathname, addressPath, catalog, description } = shell;
 const {
   tabs,
   selected,
@@ -85,7 +85,7 @@ const modeLabels = [
     </div>
     <CopyPage
       :page-url="pageUrl"
-      :markdown-path="pathname.replace(/\/$/, '') + '.md'"
+      :markdown-path="addressPath.replace(/\/$/, '') + '.md'"
       :component-name="entry.name"
       :markdown="pageMarkdown"
       :en="en"

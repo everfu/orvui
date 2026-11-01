@@ -76,14 +76,20 @@ describe("Web installation instructions", () => {
 
 it("keeps previous getting-started anchors while moving complete setup into a separate installation guide", () => {
   expect(getSitePage("introduction").path).toBe("/guide");
-  expect(sitePageToc("introduction").map((item) => item.id)).toEqual([
+  const page = getSitePage("introduction");
+  const anchors = page.sections.flatMap((section) => [
+    section.id,
+    ...(section.legacyIds ?? []),
+  ]);
+  for (const id of [
     "installation",
     "import-components",
     "copy-source",
     "state",
     "nuxt",
     "attribution",
-  ]);
+  ])
+    expect(anchors).toContain(id);
   const intro = sitePageMarkdown("introduction", true);
   expect(intro).toContain("/en/docs/installation");
   expect(intro).not.toContain("pnpm add");

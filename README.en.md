@@ -114,3 +114,9 @@ Contributions to components, examples and documentation are welcome. Read the [c
 Copyright (c) 2026 **everfu**. orvui project code is licensed under [MIT](./LICENSE).
 
 Third-party code and assets retain their own copyright and terms. Paper Design shaders use a separate PolyForm Shield license, and fonts use SIL OFL. See [NOTICE](./NOTICE) for icon licenses and demo media sources.
+
+## Vue 3.6 Beta
+
+The local `0.2.0-beta.1` development release uses Vue `3.6.0-rc.14`, retaining virtual DOM rendering and the existing APIs. Switch between stable and `/beta/` docs in the header.
+
+Run `pnpm beta:pack` to create `artifacts/packages/0.2.0-beta.1/orvui-vue-0.2.0-beta.1.tgz`. Copy it into a consumer project and run `pnpm add ./orvui-vue-0.2.0-beta.1.tgz`. This Beta is not published to npm. Vapor compilation is not enabled.

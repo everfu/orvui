@@ -1,3 +1,7 @@
+import {
+  channelFromPath,
+  versionHref,
+} from "../../../../tools/release-channels";
 import { clearError, defineNuxtPlugin } from "#imports";
 
 /** Shared docs use ordinary anchors; enhance only registered documentation URLs. */
@@ -24,6 +28,11 @@ export default defineNuxtPlugin((app) => {
     )
       return;
     const target = new URL(anchor.href, location.href);
+    if (!anchor.closest(".version-panel"))
+      target.pathname = versionHref(
+        target.pathname,
+        channelFromPath(location.pathname),
+      );
     if (
       target.origin !== location.origin ||
       !router.resolve(target.pathname).meta.orvuiPage

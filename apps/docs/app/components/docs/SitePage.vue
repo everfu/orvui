@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import { useDocsVersion } from "../../composables/docs-version";
+const { href: docsHref, prefix: versionPrefix, channel } = useDocsVersion();
 import { computed } from "vue";
 import { ArrowUpRight, Rss } from "lucide-vue-next";
 import CodePanel from "./CodePanel.vue";
 import CopyPage from "./CopyPage.vue";
+import GuideIntroductionPreview from "./GuideIntroductionPreview.vue";
+import GuideInstallCommand from "./GuideInstallCommand.vue";
+import { BouncyAccordion } from "../../../../../packages/vue/src/motion/bouncy-accordion";
 import SiteMotionGuide from "./SiteMotionGuide.vue";
 import {
   getSitePage,
@@ -26,17 +31,29 @@ const props = withDefaults(
   }>(),
   { en: false },
 );
-const data = computed(() => getSitePage(props.page));
+const data = computed(() => getSitePage(props.page, channel.value));
 const locale = computed(() => (props.en ? "/en" : ""));
-const markdownPath = computed(() => `${locale.value}${data.value.path}.md`);
+const markdownPath = computed(
+  () => `${versionPrefix.value}${locale.value}${data.value.path}.md`,
+);
 const pageUrl = computed(
-  () => siteOrigin(props.siteUrl) + locale.value + data.value.path,
+  () =>
+    siteOrigin(props.siteUrl) +
+    versionPrefix.value +
+    locale.value +
+    data.value.path,
 );
 const markdown = computed(() =>
-  sitePageMarkdown(props.page, props.en, props.siteUrl),
+  sitePageMarkdown(props.page, props.en, props.siteUrl, channel.value),
 );
 const t = (zh: string, en: string) => (props.en ? en : zh);
-const html = (value: string) => localSiteHtml(value, props.en);
+const html = (value: string) =>
+  localSiteHtml(value, props.en).replace(
+    /href="([^"\s]+)"/g,
+    (_, href: string) => `href="${docsHref(href)}"`,
+  );
+const isInstallCommand = (code: string) =>
+  code.startsWith("pnpm add ") && !code.includes("\n");
 const dateLabel = (date: string) =>
   new Intl.DateTimeFormat(props.en ? "en" : "zh-CN", {
     dateStyle: "long",
@@ -51,7 +68,9 @@ const entryHref = (href: string) =>
     class="site-changelog mx-auto max-w-3xl px-4 py-16"
   >
     <header class="max-w-2xl">
-      <p class="site-eyebrow">{{ localize(data.eyebrow, en) }}</p>
+      <p class="site-eyebrow">
+        {{ localize(data.eyebrow, en) }}
+      </p>
       <h1 class="mt-2 text-4xl font-semibold tracking-tight text-foreground">
         {{ localize(data.title, en) }}
       </h1>
@@ -82,7 +101,7 @@ const entryHref = (href: string) =>
         <div class="mt-2 min-w-0 sm:mt-0">
           <h2 class="text-lg font-medium tracking-tight text-foreground">
             <a
-              :href="'#' + changelogAnchor(week.date)"
+              :href="docsHref('#' + changelogAnchor(week.date))"
               class="rounded-sm hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >{{ localize(week.title, en) }}</a
             >
@@ -115,7 +134,7 @@ const entryHref = (href: string) =>
                 }}<template v-if="item.href"
                   >{{ " "
                   }}<a
-                    :href="entryHref(item.href)"
+                    :href="docsHref(entryHref(item.href))"
                     class="whitespace-nowrap text-foreground underline decoration-border underline-offset-2 hover:decoration-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     >{{
                       item.label
@@ -133,7 +152,14 @@ const entryHref = (href: string) =>
   </article>
   <article
     v-else
-    :class="['support-page min-w-0', page === 'theme' && 'max-w-3xl']"
+    :class="[
+      'support-page min-w-0',
+      page === 'theme' && 'max-w-3xl',
+      {
+        'getting-started-page':
+          page === 'introduction' || page === 'installation',
+      },
+    ]"
   >
     <header
       id="overview"
@@ -142,7 +168,12 @@ const entryHref = (href: string) =>
         page === 'motion-patterns' && 'border-b border-border pb-10',
       ]"
     >
-      <p class="site-eyebrow">{{ localize(data.eyebrow, en) }}</p>
+      <p
+        v-if="page !== 'introduction' && page !== 'installation'"
+        class="site-eyebrow"
+      >
+        {{ localize(data.eyebrow, en) }}
+      </p>
       <div
         class="mt-2 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
       >
@@ -173,9 +204,25 @@ const entryHref = (href: string) =>
         v-html="html(localize(data.description, en))"
       />
     </header>
+    <p
+      v-if="data.lead"
+      class="guide-lead guide-copy"
+      v-html="html(localize(data.lead, en))"
+    />
+    <GuideIntroductionPreview
+      v-if="data.illustration === 'components'"
+      :en="en"
+    />
     <SiteMotionGuide v-if="page === 'motion-patterns'" :en="en" />
     <template v-for="section in data.sections" :key="section.id"
-      ><h2
+      ><span
+        v-for="id in section.legacyIds"
+        :id="id"
+        :key="id"
+        class="guide-legacy-anchor"
+        aria-hidden="true"
+      />
+      <h2
         :id="section.id"
         :class="[
           'mt-10 scroll-mt-24 text-xl tracking-tight text-foreground',
@@ -193,6 +240,46 @@ const entryHref = (href: string) =>
             block.small && 'text-sm',
           ]"
           v-html="html(localize(block.text, en))" />
+        <dl v-else-if="block.kind === 'features'" class="guide-features">
+          <div v-for="item in block.items" :key="item.title.en">
+            <dt>{{ localize(item.title, en) }}</dt>
+            <dd v-html="html(localize(item.text, en))" />
+          </div>
+        </dl>
+        <BouncyAccordion
+          v-else-if="block.kind === 'faq'"
+          class="guide-faq"
+          :items="
+            block.items.map((item) => ({
+              id: item.id,
+              title: localize(item.question, en),
+              description: localize(item.answer, en),
+            }))
+          " />
+        <div
+          v-else-if="block.kind === 'links' && block.layout === 'cards'"
+          class="guide-link-cards"
+        >
+          <a
+            v-for="item in block.items"
+            :key="item.url"
+            :href="
+              docsHref((en && item.url.startsWith('/') ? '/en' : '') + item.url)
+            "
+            ><strong
+              >{{ localize(item.label, en)
+              }}<ArrowUpRight :size="16" aria-hidden="true" /></strong
+            ><span>{{ localize(item.description, en) }}</span></a
+          >
+        </div>
+        <GuideInstallCommand
+          v-else-if="
+            block.kind === 'code' &&
+            page === 'installation' &&
+            /^pnpm add [^\n]+$/.test(block.code)
+          "
+          :en="en"
+          :code="resolveSiteCode(block.code, siteUrl, channel)" />
         <div v-else-if="block.kind === 'code'" class="mt-4">
           <CodePanel
             :en="en"
@@ -200,6 +287,7 @@ const entryHref = (href: string) =>
               resolveSiteCode(
                 en && block.codeEn ? block.codeEn : block.code,
                 siteUrl,
+                channel,
               )
             "
             :lang="block.lang"
@@ -278,7 +366,7 @@ const entryHref = (href: string) =>
       ><a
         v-for="next in guideNextPages(page)"
         :key="next.slug"
-        :href="`${locale}${next.path}`"
+        :href="docsHref(`${locale}${next.path}`)"
         >{{ localize(next.title, en) }}
         <ArrowUpRight :size="14" aria-hidden="true"
       /></a>
@@ -286,6 +374,103 @@ const entryHref = (href: string) =>
   </article>
 </template>
 <style scoped>
+.getting-started-page > header > div {
+  margin-top: 0;
+}
+.getting-started-page > header h1 {
+  font-weight: 600;
+}
+.getting-started-page > header > .guide-copy {
+  margin-top: 20px;
+  max-width: none;
+  font-size: 17px;
+}
+.guide-lead {
+  margin-top: 26px;
+  color: var(--foreground);
+}
+.guide-legacy-anchor {
+  display: block;
+  height: 0;
+  scroll-margin-top: 140px;
+}
+.guide-features {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0 0;
+}
+.guide-features > div {
+  font-size: 16px;
+  line-height: 27px;
+}
+.guide-features dt {
+  display: inline;
+  font-weight: 500;
+}
+.guide-features dt::after {
+  content: " — ";
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+.guide-features dd {
+  display: inline;
+  margin: 0;
+  color: var(--muted-foreground);
+}
+.guide-link-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.guide-link-cards > a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--background);
+  color: var(--foreground);
+  text-decoration: none;
+}
+.guide-link-cards > a:hover {
+  background: var(--muted);
+}
+.guide-link-cards > a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+.guide-link-cards strong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+}
+.guide-link-cards strong > svg {
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+}
+.guide-link-cards span {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 24px;
+}
+.guide-faq {
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  .guide-link-cards {
+    grid-template-columns: 1fr;
+  }
+  .getting-started-page > header > .guide-copy {
+    font-size: 16px;
+  }
+}
+
 .site-eyebrow {
   font-size: 0.75rem;
   font-weight: 600;

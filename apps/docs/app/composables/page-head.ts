@@ -1,6 +1,10 @@
+import { unversionedPath } from "../../../../tools/release-channels";
 import { useHead } from "#imports";
 import type { DocsPage } from "../utils/docs/route-manifest";
-import { applySocialMetadata, documentTitle } from "../utils/docs/page-metadata";
+import {
+  applySocialMetadata,
+  documentTitle,
+} from "../utils/docs/page-metadata";
 
 /** Each request and each client navigation receives its own metadata object. */
 export function useDocsHead(
@@ -9,7 +13,9 @@ export function useDocsHead(
 ) {
   useHead(() => {
     const doc = page();
-    const en = doc ? doc.path.startsWith("/en/") : (errorLocale?.() ?? false);
+    const en = doc
+      ? unversionedPath(doc.path).startsWith("/en/")
+      : (errorLocale?.() ?? false);
     if (!doc)
       return {
         title: `${en ? "Page not found" : "页面未找到"} | orvui`,

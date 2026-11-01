@@ -1,3 +1,4 @@
+import { getSitePage } from "../../apps/docs/app/utils/docs/site-page-data";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import DocsNavigation from "../../apps/docs/app/components/docs/DocsNavigation.vue";
@@ -59,7 +60,7 @@ it.each([false, true])(
       en ? "Introduction" : "介绍",
     );
     expect(wrapper.get(`a[href="${prefix}/docs/installation"]`).text()).toBe(
-      en ? "Installation" : "安装指南",
+      getSitePage("installation").title[en ? "en" : "zh"],
     );
     expect(
       wrapper

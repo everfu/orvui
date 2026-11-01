@@ -17,10 +17,21 @@ import { categoryNames, descriptions } from "../utils/docs/i18n";
 import { componentPath } from "../utils/docs/docs-routes";
 import { useThemeToggle } from "../../../../packages/vue/src/motion/theme-toggle";
 import type { SitePageSlug } from "../utils/docs/site-page-data";
-import { appearance, readStoredAppearance, type Appearance } from "../utils/docs/appearance";
+import {
+  appearance,
+  readStoredAppearance,
+  type Appearance,
+} from "../utils/docs/appearance";
 import { provideSitePreferences } from "./preferences";
 import { resolveDocsSection } from "../utils/docs/document-sections";
 import { provideTemplateContext } from "../templates/context";
+
+import {
+  channelFromPath,
+  unversionedPath,
+  versionHref,
+} from "../../../../tools/release-channels";
+import { docsVersionKey } from "./docs-version";
 
 type Frontmatter = Record<string, unknown>;
 const catalog = catalogData as ProductCatalog;
@@ -32,12 +43,19 @@ export function createSiteShell(
   router: { go: (href: string) => unknown },
 ) {
   provideSitePreferences();
-  const en = computed(() => route.path.startsWith("/en/"));
+  const channel = computed(() => channelFromPath(route.path));
+  provide(docsVersionKey, channel);
+  const canonicalPath = computed(() => unversionedPath(route.path));
+  const en = computed(() => canonicalPath.value.startsWith("/en/"));
   provideTemplateContext(en, "");
   const docsSection = computed(() => resolveDocsSection(frontmatter.value));
   const pageLayout = computed(() => String(frontmatter.value.layout ?? ""));
-  const templateSlug = computed(() => String(frontmatter.value.templateSlug ?? ""));
-  const locale = computed(() => (en.value ? "/en" : ""));
+  const templateSlug = computed(() =>
+    String(frontmatter.value.templateSlug ?? ""),
+  );
+  const locale = computed(
+    () => (channel.value === "beta" ? "/beta" : "") + (en.value ? "/en" : ""),
+  );
   const home = computed(() => frontmatter.value.layout === "home");
   const category = computed(() =>
     catalog.categories.find((item) => item.slug === frontmatter.value.category),
@@ -58,14 +76,18 @@ export function createSiteShell(
       ? fallback.replace(/\bReact\b/g, "Vue")
       : (descriptions[slug] ?? fallback);
   const routeTo = (section: string, component?: string) =>
-    componentPath(section, component, en.value);
-  const pathname = computed(() => route.path);
+    versionHref(componentPath(section, component, en.value), channel.value);
+  const pathname = canonicalPath;
   const suffix = ref("");
   const origin = ref(documentationOrigin);
   const alternate = computed(
     () =>
-      (en.value ? route.path.slice(3) || "/" : "/en" + route.path) +
-      suffix.value,
+      versionHref(
+        en.value
+          ? canonicalPath.value.slice(3) || "/"
+          : "/en" + canonicalPath.value,
+        channel.value,
+      ) + suffix.value,
   );
   const mobileMenu = ref(false);
   const searchOpen = ref(false);
@@ -98,7 +120,6 @@ export function createSiteShell(
       } catch {
         /* The in-memory control still works when storage is unavailable. */
       }
-
     }
     renderAppearance();
   };
@@ -108,7 +129,7 @@ export function createSiteShell(
     preferencesOpen.value = false;
   };
   const navigate = async (href: string) => {
-    await router.go(href);
+    await router.go(versionHref(href, channel.value));
     if (alive) syncAddress();
   };
   watch(pathname, () => {
@@ -191,6 +212,8 @@ export function createSiteShell(
   });
   return {
     catalog,
+    channel,
+    addressPath: computed(() => route.path),
     docsSection,
     pageLayout,
     templateSlug,
