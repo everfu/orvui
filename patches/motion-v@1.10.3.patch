@@ -1,0 +1,26 @@
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index 4e8d0be686d386456a14294e3fada1ee9783b34e..75caacdacdff5f2d125607b622eda0dfe6178760 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -9325,7 +9325,7 @@ class ProjectionFeature extends Feature {
+       onExitComplete: () => {
+         var _a2, _b;
+         if (!((_a2 = this.state.visualElement.projection) == null ? void 0 : _a2.isPresent) && this.state.options.layoutId && !this.state.isExiting) {
+-          (_b = this.state.options.animatePresenceContext) == null ? void 0 : _b.onMotionExitComplete(this.state.presenceContainer, this.state);
++          (_b = this.state.options.animatePresenceContext) == null ? void 0 : _b.onMotionExitComplete?.(this.state.presenceContainer, this.state);
+         }
+       }
+     });
+diff --git a/dist/es/features/layout/projection.mjs b/dist/es/features/layout/projection.mjs
+index 8efbc0fad204a587331b072e55b84a847b30c366..6679c80e7da5ea11a8fb8e939aacd6db0ef10213 100644
+--- a/dist/es/features/layout/projection.mjs
++++ b/dist/es/features/layout/projection.mjs
+@@ -37,7 +37,7 @@ class ProjectionFeature extends Feature {
+       onExitComplete: () => {
+         var _a, _b;
+         if (!((_a = this.state.visualElement.projection) == null ? void 0 : _a.isPresent) && this.state.options.layoutId && !this.state.isExiting) {
+-          (_b = this.state.options.animatePresenceContext) == null ? void 0 : _b.onMotionExitComplete(this.state.presenceContainer, this.state);
++          (_b = this.state.options.animatePresenceContext) == null ? void 0 : _b.onMotionExitComplete?.(this.state.presenceContainer, this.state);
+         }
+       }
+     });
