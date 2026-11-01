@@ -71,6 +71,34 @@ it.each([false, true])(
       ).toBe(`${en ? "/en" : ""}/templates/${template.slug}`);
   },
 );
+it("groups the five AI entry points and indexes both locales without losing legacy routes", () => {
+  const ai = guideGroups.find((group) => group.id === "ai-guides")!;
+  const slugs = [
+    "llms-txt",
+    "mcp-server",
+    "agent-skills",
+    "agents-md",
+    "design-md",
+  ];
+  expect(ai.pages.map((page) => page.path)).toEqual(
+    slugs.map((slug) => `/docs/${slug}`),
+  );
+  expect(
+    ai.pages
+      .filter((page) => page.status === "preview")
+      .map((page) => page.path),
+  ).toEqual(["/docs/agents-md", "/docs/design-md"]);
+  const pages = createDocsPages();
+  for (const en of [false, true]) {
+    const prefix = en ? "/en" : "";
+    const search = buildSiteSearchIndex(catalog.categories, en);
+    for (const slug of [...slugs, "ai-agents", "openui"]) {
+      const href = `${prefix}/docs/${slug}`;
+      expect(pages.some((page) => page.path === href)).toBe(true);
+      expect(search.some((record) => record.href === href)).toBe(true);
+    }
+  }
+});
 it("publishes only gallery metadata and no private source payloads", () => {
   const manifest = JSON.parse(
     readFileSync("apps/docs/public/templates/manifest.json", "utf8"),

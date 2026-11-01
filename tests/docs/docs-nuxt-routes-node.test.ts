@@ -19,6 +19,9 @@ describe("shared documentation route metadata", () => {
         ...["", "/en"].flatMap((prefix) => [
           prefix + "/docs/mcp-server",
           prefix + "/docs/agent-skills",
+          prefix + "/docs/llms-txt",
+          prefix + "/docs/agents-md",
+          prefix + "/docs/design-md",
           prefix + "/components",
           prefix + "/templates",
           ...["dashboard", "mail", "chat", "finances", "crm"].map(

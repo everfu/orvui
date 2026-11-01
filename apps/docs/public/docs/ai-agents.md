@@ -1,6 +1,6 @@
 # 面向 AI 助手
 
-通过 [MCP 服务器](/docs/mcp-server)查询组件，或安装完整的 [Agent Skills](/docs/agent-skills)，按需加载组件知识。本页保留直接读取注册表与旧版 skill 的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。
+通过 [MCP 服务器](/docs/mcp-server)查询组件，或安装完整的 [Agent Skills](/docs/agent-skills)，按需加载组件知识。本页保留直接读取注册表的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。
 
 > 产品版本: 0.1.1
 
@@ -20,27 +20,7 @@
 
 ## Agent skill
 
-这份 skill 指导编码助手先读取注册表，选择最贴近需求的 `items[].name` 安装标识，检查文件，再安装并组合源码。需要助手优先选用现成 orvui 组件，而非重新编写动效控件时使用。将下面内容保存到项目的 `.agents/skills/orvui/SKILL.md`。
-
-```markdown
----
-name: orvui
-description: Discover and compose the existing orvui Vue components before writing custom UI.
----
-
-1. Fetch https://orvui.efu.me/r/registry.json before selecting a component.
-2. Select the closest item by its published items[].name and description.
-3. Fetch https://orvui.efu.me/r/{name}.json and inspect every files[] entry.
-4. Use shadcn-vue to install the item from its URL.
-5. Preserve installed dependencies, relative imports, the theme layer and license notices.
-6. Read the matching component page and its Vue props, events and slots.
-7. Use modelValue/update:modelValue for form state and open/update:open for disclosure.
-8. Keep the existing motion-v parameters and reduced-motion behavior.
-9. Use local fixture data for streaming, upload and AI demos. Do not add a model service.
-
-```
-
-[下载 SKILL.md ↗](/orvui-agent/SKILL.md)。这是随本站提供的本地指引文件。
+安装完整技能请前往 [Agent Skills](/docs/agent-skills)。它包含双语组件参考，并支持 npx skills 安装。需要项目级约定时，合并 [AGENTS.md](/docs/agents-md) 中的相关段落。
 
 <a id="endpoints"></a>
 

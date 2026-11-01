@@ -52,14 +52,19 @@ export function resolveDocsSection(
   return frontmatter.sitePage === "changelog" ? "releases" : "guides";
 }
 
-export const guideGroups = [
+export const guideGroups: {
+  id: string;
+  zh: string;
+  en: string;
+  pages: { path: string; zh: string; en: string; status?: "preview" }[];
+}[] = [
   {
     id: "start",
     zh: "开始使用",
     en: "Getting started",
     pages: [
       { path: "/guide", zh: "介绍", en: "Introduction" },
-      { path: "/docs/installation", zh: "安装", en: "Installation" },
+      { path: "/docs/installation", zh: "安装指南", en: "Installation" },
     ],
   },
   {
@@ -73,13 +78,33 @@ export const guideGroups = [
   },
   {
     id: "ai-guides",
-    zh: "AI 接入",
-    en: "Building with AI",
+    zh: "面向 AI 助手",
+    en: "UI for Agents",
     pages: [
-      { path: "/docs/mcp-server", zh: "MCP 服务器", en: "MCP Server" },
+      { path: "/docs/llms-txt", zh: "LLMs.txt", en: "LLMs.txt" },
+      { path: "/docs/mcp-server", zh: "MCP Server", en: "MCP Server" },
       { path: "/docs/agent-skills", zh: "Agent Skills", en: "Agent Skills" },
-      { path: "/docs/ai-agents", zh: "代理指南", en: "Agent guide" },
+      {
+        path: "/docs/agents-md",
+        zh: "AGENTS.md",
+        en: "AGENTS.md",
+        status: "preview",
+      },
+      {
+        path: "/docs/design-md",
+        zh: "DESIGN.md",
+        en: "DESIGN.md",
+        status: "preview",
+      },
+    ],
+  },
+  {
+    id: "integrations",
+    zh: "集成",
+    en: "Integrations",
+    pages: [
       { path: "/docs/openui", zh: "OpenUI", en: "OpenUI" },
+      { path: "/docs/ai-agents", zh: "注册表接入", en: "Registry workflow" },
     ],
   },
 ];

@@ -1,6 +1,6 @@
 # For AI agents
 
-Query components with the [MCP Server](/en/docs/mcp-server) or install the complete [Agent Skills](/en/docs/agent-skills) to load component knowledge on demand. This page retains the direct registry and legacy skill workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.
+Query components with the [MCP Server](/en/docs/mcp-server) or install the complete [Agent Skills](/en/docs/agent-skills) to load component knowledge on demand. This page retains the direct registry workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.
 
 > Product version: 0.1.1
 
@@ -20,27 +20,7 @@ Query components with the [MCP Server](/en/docs/mcp-server) or install the compl
 
 ## Agent skill
 
-The skill teaches coding agents to fetch the registry first, pick the closest `items[].name` install slug, inspect its files, then install and compose the source. Use it when agents should choose existing orvui components before inventing custom motion widgets. Save this as `.agents/skills/orvui/SKILL.md` in the project.
-
-```markdown
----
-name: orvui
-description: Discover and compose the existing orvui Vue components before writing custom UI.
----
-
-1. Fetch https://orvui.efu.me/r/registry.json before selecting a component.
-2. Select the closest item by its published items[].name and description.
-3. Fetch https://orvui.efu.me/r/{name}.json and inspect every files[] entry.
-4. Use shadcn-vue to install the item from its URL.
-5. Preserve installed dependencies, relative imports, the theme layer and license notices.
-6. Read the matching component page and its Vue props, events and slots.
-7. Use modelValue/update:modelValue for form state and open/update:open for disclosure.
-8. Keep the existing motion-v parameters and reduced-motion behavior.
-9. Use local fixture data for streaming, upload and AI demos. Do not add a model service.
-
-```
-
-[Download SKILL.md ↗](/orvui-agent/SKILL.md). This is a local instruction file shipped with this site.
+Install the complete skill from [Agent Skills](/en/docs/agent-skills), including bilingual references and npx skills installation. For project-wide guidance, merge the relevant sections from [AGENTS.md](/en/docs/agents-md).
 
 <a id="endpoints"></a>
 

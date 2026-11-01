@@ -1,0 +1,237 @@
+# Fixtures · orvui 0.1.1
+
+## Selection and composition
+
+Match the content structure: Table for tabular data, File Tree for nested files and Collapsible for optional details. Use Bouncy Accordion for a single-open set of sections.
+
+## SSR, motion and application boundaries
+
+Use explicit imports in Vue / Nuxt and consistent initial data and IDs during SSR and hydration. Create browser resources after mount and release them on unmount. Preserve reduced motion, keyboard access and semantic theme overrides. Use state bindings only for pairs in the actual API below. Example data and demo actions do not provide application services; the app owns requests, permissions and persistence. See the FAQ below for component-specific limitations.
+
+## Complete component reference
+
+---
+title: "Fixtures"
+description: "Browse elimination rounds or a radial bracket with team and match metadata."
+category: "Blocks"
+publishedAt: "2026-10-26"
+updatedAt: "2026-10-26"
+documentation: "https://orvui.efu.me/en/components/blocks/knockout-bracket"
+markdown: "https://orvui.efu.me/en/components/blocks/knockout-bracket.md"
+license: "MIT"
+productVersion: "0.1.1"
+---
+
+<a id="overview"></a>
+# Fixtures
+
+> Browse elimination rounds or a radial bracket with team and match metadata.
+
+<a id="when-to-use"></a>
+
+## When to use it
+
+- Use Fixtures when the interface needs this behavior: browse elimination rounds or a radial bracket with team and match metadata.
+
+<a id="install"></a>
+## Install
+
+### Fixtures — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/knockout-bracket.json
+```
+
+### Knockout Wheel — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/knockout-wheel.json
+```
+
+### Knockout Bracket — Registry source
+
+```bash
+pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/knockout-bracket.json
+```
+
+Import `src/components/orvui/styles.css` once in your application's stylesheet entry after a registry installation.
+
+### Component package
+
+Install the published component package from npm in your application directory.
+
+```bash
+pnpm add @orvui/vue
+```
+
+```typescript
+import '@orvui/vue/style.css';
+```
+
+## Dependencies
+
+- `@floating-ui/dom@^1.7.0`
+- `clsx@^2.1.1`
+- `lucide-vue-next@^0.468.0`
+- `motion-v@^1.10.0`
+- `tailwind-merge@^3.0.0`
+- `tailwindcss@^4.0.0`
+
+<a id="examples"></a>
+## Usage
+
+<a id="default"></a>
+### Fixtures
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { KnockoutBracket, ROUNDS, THIRD_PLACE } from "@/components/orvui/blocks/knockout-bracket";
+const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
+</script>
+<template>
+  <div class="w-full py-8"><KnockoutBracket v-bind="season" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { KnockoutBracket, ROUNDS, THIRD_PLACE } from "@orvui/vue/blocks/knockout-bracket";
+const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
+</script>
+<template>
+  <div class="w-full py-8"><KnockoutBracket v-bind="season" /></div>
+</template>
+```
+
+<a id="knockout-wheel"></a>
+### Knockout Wheel
+
+Arrange elimination matches around a radial wheel with the winner at its center.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { KnockoutWheel, WHEEL_ROUNDS } from "@/components/orvui/blocks/knockout-bracket";
+const season = { rounds: WHEEL_ROUNDS, initialRound: 0 };
+</script>
+<template>
+  <div class="w-full py-8"><KnockoutWheel v-bind="season" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { KnockoutWheel, WHEEL_ROUNDS } from "@orvui/vue/blocks/knockout-bracket";
+const season = { rounds: WHEEL_ROUNDS, initialRound: 0 };
+</script>
+<template>
+  <div class="w-full py-8"><KnockoutWheel v-bind="season" /></div>
+</template>
+```
+
+<a id="knockout-bracket"></a>
+### Knockout Bracket
+
+Navigate tournament rounds with team metadata and an optional third-place match.
+
+**Registry source**
+
+```vue
+<script setup lang="ts">
+import { KnockoutBracket, ROUNDS, THIRD_PLACE } from "@/components/orvui/blocks/knockout-bracket";
+const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
+</script>
+<template>
+  <div class="w-full py-8"><KnockoutBracket v-bind="season" /></div>
+</template>
+```
+
+**Package**
+
+```vue
+<script setup lang="ts">
+import { KnockoutBracket, ROUNDS, THIRD_PLACE } from "@orvui/vue/blocks/knockout-bracket";
+const season = { rounds: ROUNDS, thirdPlace: THIRD_PLACE, initialRound: 1 };
+</script>
+<template>
+  <div class="w-full py-8"><KnockoutBracket v-bind="season" /></div>
+</template>
+```
+
+<a id="state-and-events"></a>
+## State and events
+
+This example composition declares no paired controlled prop and update event. Compose it through the documented props, native events and slots; do not add an undocumented v-model.
+
+<a id="api-reference"></a>
+## API Reference
+
+### KnockoutBracket
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `rounds` | `Round[]` | — | Yes | — |
+| `initialRound` | `number` | `1` | No | — |
+| `thirdPlace` | `Match` | — | No | — |
+| `thirdPlaceLabel` | `string` | `"Third place play-off"` | No | — |
+
+### KnockoutWheel
+
+#### Props
+
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `rounds` | `Round[]` | — | Yes | — |
+| `initialRound` | `number` | `0` | No | — |
+
+<a id="about"></a>
+## About Fixtures
+
+<a id="accessibility"></a>
+### Accessibility
+
+Keep a meaningful accessible name on interactive controls. Preserve the documented keyboard path, visible focus and reduced-motion presentation; custom slots must retain the semantics of the parts they replace.
+
+<a id="faq"></a>
+### FAQ
+
+**How do I configure Fixtures?**
+
+Configure Fixtures through rounds, initialRound, thirdPlace, thirdPlaceLabel. The API table describes their types and defaults.
+
+**How does it connect to application state?**
+
+Provide content through the documented composition; application effects remain with the consumer.
+
+**Can I render it on the server?**
+
+Render the component normally in a Vue SSR application. Keep initial props the same on the server and client; browser measurements and interactive resources start after mounting.
+
+<a id="related-components"></a>
+## Related components
+
+- [OTP Input](https://orvui.efu.me/en/components/blocks/otp-input): Enter or paste a fixed-length code through grouped fields with completion feedback.
+- [404 / Not Found](https://orvui.efu.me/en/components/blocks/not-found): Present a missing destination with an animated visual and a route back to useful content.
+- [Dynamic Island](https://orvui.efu.me/en/components/blocks/dynamic-island): Switch a compact capsule between live activity views without changing its identity.
+
+<a id="licenses"></a>
+## Source
+
+- Registry detail: https://orvui.efu.me/r/knockout-bracket.json
+- Documentation: https://orvui.efu.me/en/components/blocks/knockout-bracket
+- `packages/vue/src/blocks/knockout-bracket/src/KnockoutBracket.vue`
+- `packages/vue/src/blocks/knockout-bracket/src/KnockoutWheel.vue`
+
+Copyright (c) 2026 everfu. Copyright notices and third-party terms are provided in LICENSE and NOTICE.
+- [LICENSE](https://orvui.efu.me/licenses/MIT.txt)
+- [NOTICE](https://orvui.efu.me/licenses/orvui-NOTICE.txt)
+

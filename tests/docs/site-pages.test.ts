@@ -22,6 +22,7 @@ import type { ComponentDocs } from "../../apps/docs/app/utils/docs/component-doc
 import metadata from "../../apps/docs/app/data/component-docs.json";
 import { buildSitePages } from "../../apps/docs/scripts/resources";
 import { changelogEntries } from "../../apps/docs/app/utils/docs/site-changelog-data";
+import { consumerDocument } from "../../tools/ai/consumer-documents";
 
 const mounted: VueWrapper[] = [];
 const media = new Map<string, Set<(event: { matches: boolean }) => void>>();
@@ -146,6 +147,7 @@ describe("public support pages", () => {
       copyFileSync(source, file);
     };
     try {
+      putCopy(resolve("skills/orvui/SKILL.md"), "skills/orvui/SKILL.md");
       putCopy(
         resolve("apps/docs/public/r/registry.json"),
         "apps/docs/public/r/registry.json",
@@ -205,8 +207,35 @@ describe("public support pages", () => {
         "http://localhost:6111/docs/motion-patterns.md",
       );
       expect(read("orvui-agent/SKILL.md")).toContain(
-        "http://localhost:6111/r/registry.json",
+        "https://orvui.efu.me/r/registry.json",
       );
+      expect(read("orvui-agent/SKILL.md")).toBe(
+        readFileSync(resolve("skills/orvui/SKILL.md"), "utf8"),
+      );
+      for (const filename of ["AGENTS.md", "DESIGN.md"] as const)
+        for (const en of [false, true]) {
+          const path = `orvui-agent/${en ? "en/" : ""}${filename}`;
+          expect(read(path)).toBe(
+            consumerDocument(filename, en, "http://localhost:6111"),
+          );
+          const page = sitePages.find(
+            (page) =>
+              page.slug ===
+              (filename === "AGENTS.md" ? "agents-md" : "design-md"),
+          )!;
+          const download = page.sections[0].blocks.find(
+            (block) => block.kind === "code",
+          )!;
+          if (download.kind === "code")
+            expect(en ? download.codeEn : download.code).toContain(`/${path}`);
+          const preview = page.sections.find(
+            (section) => section.id === "preview",
+          )!.blocks[0];
+          if (preview.kind === "code")
+            expect(en ? preview.codeEn : preview.code).toBe(
+              consumerDocument(filename, en),
+            );
+        }
       expect(read("theme.css")).toContain("--background: oklch(99% 0 0)");
       const rss = read("changelog/rss.xml");
       expect(rss.match(/<item>/g)).toHaveLength(changelogEntries.length);

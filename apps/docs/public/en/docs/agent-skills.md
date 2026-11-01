@@ -1,57 +1,90 @@
 # Agent Skills
 
-One orvui skill entrypoint with component knowledge loaded on demand. References share their APIs, examples and version with the website and MCP.
+Give your coding assistant knowledge of orvui components, composition and themes. One skill loads complete bilingual component references on demand.
 
 > Product version: 0.1.1
 
 <a id="install"></a>
 
-## Install the complete skill
+## Installation
 
-Download the [complete offline skill](/orvui-agent/orvui-skill.zip) and extract its `orvui` folder into your project’s `.agents/skills/`. From a checkout, run `pnpm ai:build`, then copy the entire `skills/orvui` folder. Keep all references and license files.
+Run this command in your project and select your coding assistant when prompted. References are included; no orvui build is needed after installation.
 
-Use `.agents/skills/orvui` for Codex, `.cursor/skills/orvui` for Cursor or `.claude/skills/orvui` for Claude Code. Choose the location used by your assistant.
-
-```text
-orvui/
-  SKILL.md
-  LICENSE
-  NOTICE
-  references/
-    index.md
-    zh/button.md
-    en/button.md
-    …
+```bash
+npx skills add everfu/orvui --skill orvui
 ```
 
-The existing [SKILL.md URL](/orvui-agent/SKILL.md) remains available. If you save only the entrypoint, follow its online index; offline use requires the complete folder.
+Supports Codex, Claude Code, Cursor and other assistants through the [Skills CLI](https://github.com/vercel-labs/skills). The skill provides guidance; install components using the [installation guide](/en/docs/installation).
+
+Alternatively, download the [complete offline ZIP](/orvui-agent/orvui-skill.zip) and extract the orvui folder into your assistant’s skills directory. Keep references, LICENSE and NOTICE. [View SKILL.md](/orvui-agent/SKILL.md) separately.
+
+<a id="install-scope"></a>
+
+## Install scope
+
+Installation defaults to the current project, suitable for shared team guidance. Add -g to install in your user directory for multiple projects. Select assistants interactively or specify them explicitly.
+
+```bash
+npx skills add everfu/orvui --skill orvui -g
+```
+
+```bash
+npx skills add everfu/orvui --skill orvui --agent codex
+npx skills add everfu/orvui --skill orvui --agent claude-code
+npx skills add everfu/orvui --skill orvui --agent cursor
+```
+
+In a project, Codex uses .agents/skills, Claude Code uses .claude/skills and Cursor uses .cursor/skills. The CLI manages the shared copy and agent links, so you need not maintain multiple copies manually.
 
 <a id="workflow"></a>
 
-## Load component knowledge on demand
+## Usage
 
-Ask the assistant to read the index, then only the component references needed for the task. Each reference includes selection guidance, related controls, package imports, source installation, actual state bindings, variants, accessibility, SSR, motion and limitations.
+After installation, ask your assistant to use the orvui skill. Read references/index.md first, then load only the components needed for the task.
 
 ```text
-使用 orvui 的 Popover 和 Button 构建一个设置面板。
-先读取对应组件参考，保持现有动效，使用真实的 open 状态绑定。
+Use the orvui skill to build a settings panel with Popover and Button.
+Read their references first, preserve existing motion and use Popover’s actual open binding.
+```
 
-Build a settings panel with orvui Popover and Button.
-Read the matching references first, preserve motion and use the actual open binding.
+<a id="included"></a>
+
+## What’s included
+
+Component selection and related controls, actual props/events/slots, state bindings, registered variants and composition examples.
+
+Package imports and registry source installation, themes and styles, keyboard and focus, reduced motion, SSR/hydration and limitations. Bilingual references share API and version data with the website and MCP.
+
+<a id="structure"></a>
+
+## Structure
+
+```text
+orvui/
+├── SKILL.md
+├── LICENSE
+├── NOTICE
+└── references/
+    ├── index.md
+    ├── zh/
+    │   └── button.md
+    └── en/
+        └── button.md
+    …
 ```
 
 <a id="mcp"></a>
 
 ## Use with MCP
 
-The skill teaches component selection and composition. The [online MCP](/en/docs/mcp-server) supplies docs, full source, styles and themes for the deployed version; connect with its URL. Complete references remain readable offline without MCP; installing dependencies or downloading online registry source may require a network.
+The skill provides selection and composition guidance. [MCP Server](/en/docs/mcp-server) supplies documentation, complete source, styles and themes for the deployed version. Bundled references remain readable offline; downloading components and dependencies requires a network.
 
-Compare the reference index’s product version with the consuming app. The skill does not automatically upgrade components, change client configuration or authorize publication.
+Compare the index’s product version with your app before use. For persistent project guidance, see [AGENTS.md](/en/docs/agents-md) and [DESIGN.md](/en/docs/design-md).
 
 ## Next steps
 
+- [AGENTS.md](/en/docs/agents-md)
 - [MCP Server](/en/docs/mcp-server)
-- [Installation](/en/docs/installation)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

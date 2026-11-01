@@ -41,6 +41,19 @@ url = "https://orvui.efu.me/mcp"
 claude mcp add --transport http orvui https://orvui.efu.me/mcp
 ```
 
+<a id="usage"></a>
+
+## Usage
+
+Discover components first, then read the APIs, theme or guide you need. Use actual catalog slugs; documentation queries support Chinese and English.
+
+```text
+list_components({})
+get_component_docs({ "slug": "popover", "locale": "zh" })
+get_theme_variables({ "palette": "violet", "mode": "dark" })
+get_docs({ "path": "/docs/installation", "locale": "en" })
+```
+
 <a id="tools"></a>
 
 ## Component queries
@@ -60,12 +73,6 @@ claude mcp add --transport http orvui https://orvui.efu.me/mcp
 `get_component_skill`: Read component selection and composition guidance on demand.
 
 Use catalog slugs such as `button` and `popover`. Documentation queries accept `locale: zh | en`, defaulting to Chinese. The `variant` argument to `get_component_docs` uses a catalog example slug. Responses include product version and source.
-
-```text
-get_component_docs({ "slug": "popover", "locale": "zh" })
-get_theme_variables({ "palette": "violet", "mode": "dark" })
-get_docs({ "path": "/docs/installation", "locale": "en" })
-```
 
 <a id="versions"></a>
 
@@ -91,7 +98,7 @@ pnpm mcp:pack
 ## Next steps
 
 - [Agent Skills](/en/docs/agent-skills)
-- [For AI agents](/en/docs/ai-agents)
+- [LLMs.txt](/en/docs/llms-txt)
 
 
 © 2026 everfu · orvui · See [LICENSE](/licenses/MIT.txt) and [NOTICE](/licenses/orvui-NOTICE.txt) for copyright and third-party licenses.

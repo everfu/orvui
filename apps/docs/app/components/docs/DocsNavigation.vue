@@ -55,6 +55,7 @@ type Item = {
   label: string;
   icon?: Component;
   badge?: string;
+  status?: "preview";
   launchedAt?: string;
 };
 const groups = computed<{ id: string; label: string; items: Item[] }[]>(() => {
@@ -67,6 +68,7 @@ const groups = computed<{ id: string; label: string; items: Item[] }[]>(() => {
         href: prefix + page.path,
         label: props.en ? page.en : page.zh,
         icon: guideIcon(page.path),
+        status: page.status,
       })),
     }));
   if (section.value === "components")
@@ -204,6 +206,8 @@ watch(
               :size="16"
               aria-hidden="true"
             /><span>{{ item.label }}</span
+            ><span v-if="item.status === 'preview'" class="docs-preview-badge"
+              >Preview</span
             ><NewBadge
               v-if="item.badge === 'new'"
               :launched-at="item.launchedAt"

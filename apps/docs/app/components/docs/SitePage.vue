@@ -13,7 +13,10 @@ import {
   siteOrigin,
   type SitePageSlug,
 } from "../../utils/docs/site-page-data";
-import { changelogAnchor, changelogEntries } from "../../utils/docs/site-changelog-data";
+import {
+  changelogAnchor,
+  changelogEntries,
+} from "../../utils/docs/site-changelog-data";
 import { sitePageMarkdown } from "../../utils/docs/site-page-markdown";
 const props = withDefaults(
   defineProps<{
@@ -150,6 +153,11 @@ const entryHref = (href: string) =>
           ]"
         >
           {{ localize(data.title, en) }}
+          <span
+            v-if="data.status === 'preview'"
+            class="docs-preview-badge align-middle"
+            >Preview</span
+          >
         </h1>
         <CopyPage
           v-if="page !== 'theme'"
@@ -188,7 +196,12 @@ const entryHref = (href: string) =>
         <div v-else-if="block.kind === 'code'" class="mt-4">
           <CodePanel
             :en="en"
-            :code="resolveSiteCode(block.code, siteUrl)"
+            :code="
+              resolveSiteCode(
+                en && block.codeEn ? block.codeEn : block.code,
+                siteUrl,
+              )
+            "
             :lang="block.lang"
             :filename="block.filename"
           />

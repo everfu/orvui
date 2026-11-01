@@ -213,6 +213,10 @@ it("packages one offline skill with resolvable bilingual references and original
     NOTICE: read("NOTICE"),
   });
   const archive = unzipSync(zipSync(files));
+  for (const [path, content] of Object.entries(files)) {
+    const relative = path.slice("orvui/".length);
+    expect(read(`skills/orvui/${relative}`)).toBe(strFromU8(content));
+  }
   expect(strFromU8(archive["orvui/SKILL.md"])).toBe(skill);
   expect(strFromU8(archive["orvui/NOTICE"])).toBe(read("NOTICE"));
   for (const path of ["orvui/SKILL.md", "orvui/references/index.md"]) {

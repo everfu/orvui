@@ -11,6 +11,17 @@
 - [Motion that explains, not distracts](https://orvui.efu.me/docs/motion-patterns.md)
 - [MCP Server](https://orvui.efu.me/docs/mcp-server.md)
 - [Agent Skills](https://orvui.efu.me/docs/agent-skills.md)
+- [LLMs.txt](https://orvui.efu.me/docs/llms-txt.md)
+- [AGENTS.md](https://orvui.efu.me/docs/agents-md.md)
+- [DESIGN.md](https://orvui.efu.me/docs/design-md.md)
+
+## UI for Agents
+- [Agent Skills](https://orvui.efu.me/docs/agent-skills.md)
+- [MCP Server](https://orvui.efu.me/docs/mcp-server.md)
+- [AGENTS.md](https://orvui.efu.me/orvui-agent/AGENTS.md)
+- [DESIGN.md](https://orvui.efu.me/orvui-agent/DESIGN.md)
+- [AGENTS.md (English)](https://orvui.efu.me/orvui-agent/en/AGENTS.md)
+- [DESIGN.md (English)](https://orvui.efu.me/orvui-agent/en/DESIGN.md)
 
 ## Registry
 - [Registry index](https://orvui.efu.me/r/registry.json)

@@ -15,22 +15,13 @@ import type {
 } from "../../../../tools/registry/types";
 import { useReducedMotion } from "../../../../packages/vue/src/lib/composables";
 import { categoryNames } from "../utils/docs/i18n";
+import { guideGroups } from "../utils/docs/document-sections";
 import { useNewBadgeClock } from "./new-badge";
 interface Props {
   category?: string;
   pathname: string;
   en: boolean;
 }
-const guideDefinitions = [
-  ["/guide", "介绍", "Introduction"],
-  ["/docs/installation", "安装指南", "Installation"],
-  ["/docs/theme", "主题配置", "Theme Setup"],
-  ["/docs/motion-patterns", "动效指南", "Motion Guides"],
-  ["/docs/ai-agents", "代理指南", "Agent Guide"],
-  ["/docs/mcp-server", "MCP 服务器", "MCP Server"],
-  ["/docs/agent-skills", "Agent Skills", "Agent Skills"],
-  ["/docs/openui", "OpenUI", "OpenUI"],
-] as const;
 export function useSiteNavigation(props: Props) {
   const filter = ref("all"),
     tooltip = ref<string | null>(null),
@@ -40,10 +31,12 @@ export function useSiteNavigation(props: Props) {
   const prefix = computed(() => (props.en ? "/en" : "")),
     charts = computed(() => props.category === "charts");
   const guides = computed(() =>
-    guideDefinitions.map(([path, zh, en]) => ({
-      path,
-      label: props.en ? en : zh,
-    })),
+    guideGroups
+      .flatMap((group) => group.pages)
+      .map((page) => ({
+        path: page.path,
+        label: props.en ? page.en : page.zh,
+      })),
   );
   const filters = computed(() => [
     { value: "all", label: props.en ? "All" : "全部", icon: LayoutGrid },

@@ -16,10 +16,8 @@ import { getLocalizedDetails } from "../app/utils/docs/details";
 import { descriptions } from "../app/utils/docs/i18n";
 import type { ComponentDocs } from "../app/utils/docs/component-docs-types";
 import {
-  agentSkill,
   getSitePage,
   localize,
-  resolveSiteCode,
   siteOrigin,
   sitePages,
   themeCss,
@@ -29,6 +27,7 @@ import {
   changelogEntries,
   excludedChangelogItems,
 } from "../app/utils/docs/site-changelog-data";
+import { consumerDocument } from "../../../tools/ai/consumer-documents";
 import { sitePageMarkdown } from "../app/utils/docs/site-page-markdown";
 import { templateDefinitions } from "../app/utils/docs/template-definitions";
 import {
@@ -93,7 +92,16 @@ export function buildSitePages(
     "theme.css",
     `/* orvui design system. MIT; product version ${catalog.product.version}. */\n${themeCss}`,
   );
-  put("orvui-agent/SKILL.md", resolveSiteCode(agentSkill, origin));
+  put(
+    "orvui-agent/SKILL.md",
+    readFileSync(resolve(root, "skills/orvui/SKILL.md"), "utf8"),
+  );
+  for (const filename of ["AGENTS.md", "DESIGN.md"] as const)
+    for (const en of [false, true])
+      put(
+        `orvui-agent/${en ? "en/" : ""}${filename}`,
+        consumerDocument(filename, en, origin),
+      );
   const registryFile = resolve(output, "r/registry.json");
   if (!existsSync(registryFile))
     throw new Error(
@@ -122,6 +130,14 @@ export function buildSitePages(
       .map(
         (page) => `- [${localize(page.title, true)}](${origin}${page.path}.md)`,
       ),
+    "",
+    "## UI for Agents",
+    `- [Agent Skills](${origin}/docs/agent-skills.md)`,
+    `- [MCP Server](${origin}/docs/mcp-server.md)`,
+    `- [AGENTS.md](${origin}/orvui-agent/AGENTS.md)`,
+    `- [DESIGN.md](${origin}/orvui-agent/DESIGN.md)`,
+    `- [AGENTS.md (English)](${origin}/orvui-agent/en/AGENTS.md)`,
+    `- [DESIGN.md (English)](${origin}/orvui-agent/en/DESIGN.md)`,
     "",
     "## Registry",
     `- [Registry index](${origin}/r/registry.json)`,

@@ -20,10 +20,8 @@ logs/
 *.log
 
 # Rebuilt by docs:resources / ai:build from the canonical catalog and registry.
+# skills/orvui references and notices are generated but versioned for skills installation.
 /packages/mcp/data/
-/skills/orvui/references/
-/skills/orvui/LICENSE
-/skills/orvui/NOTICE
 /apps/docs/public/orvui-agent/references/
 /apps/docs/public/orvui-agent/orvui-skill.zip
 /apps/docs/public/orvui-agent/LICENSE

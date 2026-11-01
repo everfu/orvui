@@ -1,0 +1,116 @@
+# orvui component references
+
+Product version: 0.1.1
+
+Load only the components needed for the task. 中文 / English:
+
+- Timeline (motion): [中文](zh/timeline.md) · [English](en/timeline.md) — Browse dated milestones on a draggable track that keeps the selected event in focus.
+- Animated Alert (motion): [中文](zh/alert.md) · [English](en/alert.md) — Present feedback in a compact message row with optional actions and dismissal.
+- Animated Collapsible (motion): [中文](zh/collapsible.md) · [English](en/collapsible.md) — Connect a trigger to an expandable region while preserving the surrounding layout.
+- Aspect Ratio (motion): [中文](zh/aspect-ratio.md) · [English](en/aspect-ratio.md) — Reserve a chosen width-to-height ratio for media and animate changes to that ratio.
+- Arc Picker (motion): [中文](zh/arc-picker.md) · [English](en/arc-picker.md) — Move a curved list of labels through a fixed selection point using gestures or keys.
+- Sortable List (motion): [中文](zh/sortable-stack.md) · [English](en/sortable-stack.md) — Reorder a list with pointer or keyboard input and offer an undo operation.
+- Image Viewer (motion): [中文](zh/image-viewer.md) · [English](en/image-viewer.md) — Open a gallery image from its thumbnail and navigate, zoom or pan the enlarged view.
+- Date Range Picker (motion): [中文](zh/date-range-picker.md) · [English](en/date-range-picker.md) — Choose the beginning and end of a date interval in an inline or floating calendar.
+- Card (motion): [中文](zh/card.md) · [English](en/card.md) — Assemble a card from heading, content, actions and footer parts with optional selection.
+- Color Picker (motion): [中文](zh/color-picker.md) · [English](en/color-picker.md) — Edit a color with a two-dimensional field, channel inputs, presets and an eye dropper.
+- Animated Color Selector (motion): [中文](zh/color-selector.md) · [English](en/color-selector.md) — Choose one named swatch with a moving selection outline and native radio behavior.
+- Animated Breadcrumb (motion): [中文](zh/breadcrumb.md) · [English](en/breadcrumb.md) — Show the current location in a hierarchy and collapse intermediate links when space is limited.
+- Table of Contents (motion): [中文](zh/table-of-contents.md) · [English](en/table-of-contents.md) — Navigate article sections with accessible anchor links and an indicator that follows the reading position.
+- Tilt Card (motion): [中文](zh/tilt-card.md) · [English](en/tilt-card.md) — Tilt a card toward the pointer and move a highlight over its surface.
+- Button (motion): [中文](zh/button.md) · [English](en/button.md) — Use a pressable action surface with magnetic, stateful and metallic alternatives.
+- Animated CTA Buttons (motion): [中文](zh/expanding-arrow-button.md) · [English](en/expanding-arrow-button.md) — Confirm an action through an expanding arrow, a deliberate hold or a slide gesture.
+- Expandable Control (motion): [中文](zh/expandable-control.md) · [English](en/expandable-control.md) — Expand a compact control to reveal a label or trailing action without losing its position.
+- Adaptive Stepper (motion): [中文](zh/adaptive-stepper.md) · [English](en/adaptive-stepper.md) — Adjust a bounded number while the value uses the space released by unavailable actions.
+- Marquee (motion): [中文](zh/marquee.md) · [English](en/marquee.md) — Repeat a horizontal or vertical content strip with optional pause on hover.
+- Tabs (motion): [中文](zh/tabs.md) · [English](en/tabs.md) — Switch between associated panels using a moving indicator and accessible tab controls.
+- Switch (motion): [中文](zh/switch.md) · [English](en/switch.md) — Toggle a binary setting with a moving thumb and optional descriptive label.
+- Input (motion): [中文](zh/input.md) · [English](en/input.md) — Edit text with optional labels, icons and validation feedback in a single field.
+- Select (motion): [中文](zh/select.md) · [English](en/select.md) — Choose from a floating list whose panel can expand continuously from its trigger.
+- Combobox (motion): [中文](zh/combobox.md) · [English](en/combobox.md) — Filter a grouped option list from an input while keeping keyboard focus in the field.
+- Multi Select (motion): [中文](zh/multi-select.md) · [English](en/multi-select.md) — Select several options and manage the resulting tags inside a searchable control.
+- Checkbox (motion): [中文](zh/checkbox.md) · [English](en/checkbox.md) — Represent checked, unchecked and mixed values with an animated check mark.
+- Radio Group (motion): [中文](zh/radio.md) · [English](en/radio.md) — Choose one value from a keyboard-navigable group of labeled options.
+- Bottom Sheet (motion): [中文](zh/bottom-sheet.md) · [English](en/bottom-sheet.md) — Open a panel from the lower edge and move it between snap positions with a drag.
+- Pull to Refresh (motion): [中文](zh/pull-to-refresh.md) · [English](en/pull-to-refresh.md) — Turn a downward pull into a deliberate asynchronous refresh with visible progress.
+- Shared Layout Background (motion): [中文](zh/shared-layout-bg.md) · [English](en/shared-layout-bg.md) — Move one background surface between registered items to indicate a current selection.
+- Bounce Sidebar (motion): [中文](zh/bounce-sidebar.md) · [English](en/bounce-sidebar.md) — Navigate a vertical list while an active marker follows a curved path between rows.
+- Animated Sidebar (motion): [中文](zh/animated-sidebar.md) · [English](en/animated-sidebar.md) — Compose nested navigation with expanded, icon-only and mobile drawer presentations.
+- File Tree (motion): [中文](zh/file-tree.md) · [English](en/file-tree.md) — Explore nested files and folders with expandable branches and keyboard selection.
+- Preview Rail (motion): [中文](zh/preview-rail.md) · [English](en/preview-rail.md) — Preview navigation targets from a compact rail that expands around the focused item.
+- Dock (motion): [中文](zh/dock.md) · [English](en/dock.md) — Group compact navigation actions around an indicator that follows the active item.
+- Tooltip (motion): [中文](zh/tooltip.md) · [English](en/tooltip.md) — Reveal a short contextual label on hover or focus without displacing nearby content.
+- Animated Context Menu (motion): [中文](zh/context-menu.md) · [English](en/context-menu.md) — Open a menu at a pointer position with checkbox, radio and submenu compositions.
+- Popover (motion): [中文](zh/popover.md) · [English](en/popover.md) — Attach a floating surface to a trigger with conventional or continuous morphing transitions.
+- Morphing Modal (motion): [中文](zh/morphing-modal.md) · [English](en/morphing-modal.md) — Change a dialog's content and height together while preserving the outer surface.
+- Center Morph Modal (motion): [中文](zh/center-morph-modal.md) · [English](en/center-morph-modal.md) — Expand a modal evenly around its center and return it to the same point on close.
+- Text Animation (motion): [中文](zh/text-animation.md) · [English](en/text-animation.md) — Reveal, shimmer, scramble or replace text while keeping a stable accessible reading.
+- Number Animation (motion): [中文](zh/number.md) · [English](en/number.md) — Animate numeric values with counting, rolling or position-preserving digit changes.
+- Animated Badge (motion): [中文](zh/animated-badge.md) · [English](en/animated-badge.md) — Pair a compact status label with an icon and optional pulse feedback.
+- Action Swap (motion): [中文](zh/action-swap.md) · [English](en/action-swap.md) — Replace short action text or icons using blur, rolling or staggered transitions.
+- Animated Toast Stack (motion): [中文](zh/animated-toast-stack.md) · [English](en/animated-toast-stack.md) — Manage transient notifications in a stack with actions and gesture dismissal.
+- Theme Toggle (motion): [中文](zh/theme-toggle.md) · [English](en/theme-toggle.md) — Reveal a new page theme with a circle, rectangle or blinds transition.
+- Bouncy Accordion (motion): [中文](zh/bouncy-accordion.md) · [English](en/bouncy-accordion.md) — Expand a section in a single-open group with connected spring layout movement.
+- Drawer (motion): [中文](zh/drawer.md) · [English](en/drawer.md) — Present a dialog from either side of the viewport with focus and scroll management.
+- Scroll Animation (motion): [中文](zh/scroll-animation.md) · [English](en/scroll-animation.md) — Connect scrolling to progress, parallax, reveal effects and deliberate navigation.
+- Range Slider (motion): [中文](zh/range-slider.md) · [English](en/range-slider.md) — Adjust a numeric value on a track using drag gestures or keyboard steps.
+- Wheel Picker (motion): [中文](zh/wheel-picker.md) · [English](en/wheel-picker.md) — Select a value from a rotating wheel with momentum and row snapping.
+- Table (motion): [中文](zh/table.md) · [English](en/table.md) — Inspect and edit rows with virtual scrolling, selection, sorting and adjustable columns.
+- Shader Background (motion): [中文](zh/shader-background.md) · [English](en/shader-background.md) — Render an animated background through a Vue adapter for the Paper Design shader runtime.
+- Cylinder Carousel (motion): [中文](zh/cylinder-carousel.md) · [English](en/cylinder-carousel.md) — Arrange gallery items on a concave or convex cylinder controlled by dragging.
+- Loader (motion): [中文](zh/loader.md) · [English](en/loader.md) — Choose a compact animated indicator for an operation whose result is still pending.
+- Sankey Chart (charts): [中文](zh/sankey-chart.md) · [English](en/sankey-chart.md) — Trace weighted flows across stages using connected nodes and proportional ribbons.
+- Treemap (charts): [中文](zh/treemap.md) · [English](en/treemap.md) — Compare hierarchical values using nested rectangles whose area follows each value.
+- Candlestick Chart (charts): [中文](zh/candlestick-chart.md) · [English](en/candlestick-chart.md) — Inspect open, high, low, close and volume values with pointer or keyboard crosshairs.
+- Donut Chart (charts): [中文](zh/donut-chart.md) · [English](en/donut-chart.md) — Compare parts of a total with a ring, selectable legend and central value.
+- Volume Profile (charts): [中文](zh/volume-profile.md) · [English](en/volume-profile.md) — Compare traded volume by price level with horizontal bidirectional bars.
+- Status Bar (charts): [中文](zh/status-bar.md) · [English](en/status-bar.md) — Summarize counts across named states in a proportional segmented bar.
+- Composition Chart (charts): [中文](zh/composition-chart.md) · [English](en/composition-chart.md) — Compare contributions across categories with normalized bars or stacked areas.
+- Funnel Chart (charts): [中文](zh/funnel-chart.md) · [English](en/funnel-chart.md) — Follow successive stages and inspect conversion or loss between adjacent steps.
+- Liquidity Heatmap (charts): [中文](zh/liquidity-heatmap.md) · [English](en/liquidity-heatmap.md) — Inspect liquidity across time and price through a grid with selectable intensity bands.
+- Bump Chart (charts): [中文](zh/bump-chart.md) · [English](en/bump-chart.md) — Follow changes in series rank over time and pin a series for closer inspection.
+- Order Book (charts): [中文](zh/order-book.md) · [English](en/order-book.md) — Inspect bid and ask levels, cumulative depth and price selections in a live book.
+- Heat Calendar (charts): [中文](zh/heat-calendar.md) · [English](en/heat-calendar.md) — Show daily activity in a compact calendar grid with exact values available on inspection.
+- Returns Calendar (charts): [中文](zh/returns-calendar.md) · [English](en/returns-calendar.md) — Compare signed daily returns with a calendar, month totals and optional day content.
+- Price Target Fan (charts): [中文](zh/price-target-fan.md) · [English](en/price-target-fan.md) — Compare price forecasts around a shared origin using projected target paths.
+- Voice Orb (agents): [中文](zh/voice-orb.md) · [English](en/voice-orb.md) — Display a moving spherical field whose surface responds to activity or audio input.
+- Message Bubble (agents): [中文](zh/message-bubble.md) · [English](en/message-bubble.md) — Render a compact conversation bubble with an avatar, metadata and optional controls.
+- Message (agents): [中文](zh/message.md) · [English](en/message.md) — Build a conversation entry from content, attachments, sources and action parts.
+- Message Scroller (agents): [中文](zh/message-scroller.md) · [English](en/message-scroller.md) — Follow appended messages while letting readers leave and return to the latest content.
+- Prompt Input (agents): [中文](zh/prompt-input.md) · [English](en/prompt-input.md) — Compose and submit a prompt with a growing textarea, attachments and keyboard handling.
+- Todo List (agents): [中文](zh/todo-list.md) · [English](en/todo-list.md) — Show a sequence of work items with expandable details and explicit task states.
+- Code Block (agents): [中文](zh/code-block.md) · [English](en/code-block.md) — Present highlighted code with line controls, file labels and a copy operation.
+- Approval Card (agents): [中文](zh/approval-card.md) · [English](en/approval-card.md) — Guide a person through one or more decisions before an assistant proceeds.
+- File Diff (agents): [中文](zh/file-diff.md) · [English](en/file-diff.md) — Inspect additions and removals with aligned line numbers and expandable context.
+- Tool Result (agents): [中文](zh/tool-result.md) · [English](en/tool-result.md) — Present a tool call's status, summary and expandable result in one surface.
+- Streaming Response (agents): [中文](zh/streaming-response.md) · [English](en/streaming-response.md) — Compose a changing assistant response with text, attachments, references and actions.
+- Image Generation (agents): [中文](zh/image-generation.md) · [English](en/image-generation.md) — Show image creation states, preview the output and offer result actions.
+- Tool Approval (agents): [中文](zh/tool-approval.md) · [English](en/tool-approval.md) — Ask for an explicit decision on a pending tool action with explanatory context.
+- Citations (agents): [中文](zh/citations.md) · [English](en/citations.md) — Connect inline reference markers to inspectable source entries and links.
+- Agent Activity (agents): [中文](zh/agent-activity.md) · [English](en/agent-activity.md) — Group changing assistant activity into expandable steps and a completed summary.
+- Agent Loading States (agents): [中文](zh/loading-states.md) · [English](en/loading-states.md) — Communicate pending assistant work with progress, reasoning and shimmer displays.
+- AI Sidebar (agents): [中文](zh/ai-sidebar.md) · [English](en/ai-sidebar.md) — Organize assistant resources in a searchable tree with selection and move operations.
+- Chat App (agents): [中文](zh/chat-app.md) · [English](en/chat-app.md) — Compose navigation, conversation content and a prompt area into an assistant workspace.
+- Infinite Masonry (blocks): [中文](zh/infinite-masonry.md) · [English](en/infinite-masonry.md) — Lay out variable-height items in columns and request more as the visible range advances.
+- Notification Stack (blocks): [中文](zh/notification-stack.md) · [English](en/notification-stack.md) — Expand a compact stack of notifications into separately readable entries.
+- Project Folder (blocks): [中文](zh/project-folder.md) · [English](en/project-folder.md) — Fan out document previews and expand a selected folder into a focused surface.
+- Card Folder (blocks): [中文](zh/card-folder.md) · [English](en/card-folder.md) — Reveal a group of cards from a folded pocket with a coordinated opening movement.
+- Fixtures (blocks): [中文](zh/knockout-bracket.md) · [English](en/knockout-bracket.md) — Browse elimination rounds or a radial bracket with team and match metadata.
+- Availability Scheduler (blocks): [中文](zh/availability-scheduler.md) · [English](en/availability-scheduler.md) — Edit weekly availability as time ranges and copy a schedule to selected days.
+- Multi-chain Swap (blocks): [中文](zh/swap.md) · [English](en/swap.md) — Compose an asset exchange with token choices, amounts and destination information.
+- Dynamic Island (blocks): [中文](zh/dynamic-island.md) · [English](en/dynamic-island.md) — Switch a compact capsule between live activity views without changing its identity.
+- Command Palette (blocks): [中文](zh/command-palette.md) · [English](en/command-palette.md) — Find and activate grouped commands in a keyboard-operated search panel.
+- Morphing Search (blocks): [中文](zh/morphing-search.md) · [English](en/morphing-search.md) — Expand a search field into suggestions, recent items or editable filter chips.
+- Expandable Action Bar (blocks): [中文](zh/expandable-action-bar.md) · [English](en/expandable-action-bar.md) — Reveal labels around the active action in a compact row of icon controls.
+- Overflow Actions (blocks): [中文](zh/overflow-actions.md) · [English](en/overflow-actions.md) — Expand a compact action track to expose controls that do not fit its resting width.
+- Expandable Tabs (blocks): [中文](zh/expandable-tabs.md) · [English](en/expandable-tabs.md) — Navigate an icon strip whose selected item expands to display its label.
+- Morphing Tabs (blocks): [中文](zh/morphing-tabs.md) · [English](en/morphing-tabs.md) — Switch and reorder tabs while their surfaces follow a continuous layout transition.
+- Swipeable List (blocks): [中文](zh/swipeable-list.md) · [English](en/swipeable-list.md) — Reveal actions on either side of a list row with pointer or keyboard input.
+- File Upload (blocks): [中文](zh/file-upload.md) · [English](en/file-upload.md) — Manage files, previews, progress and retry actions in a queue or attachment workspace.
+- Prediction Market (blocks): [中文](zh/prediction-market.md) · [English](en/prediction-market.md) — Inspect a market and compose a buy or sell ticket with outcomes and return estimates.
+- Wallet Card (blocks): [中文](zh/wallet-card.md) · [English](en/wallet-card.md) — Inspect an account balance, change accounts and hide sensitive amounts in a compact card.
+- OTP Input (blocks): [中文](zh/otp-input.md) · [English](en/otp-input.md) — Enter or paste a fixed-length code through grouped fields with completion feedback.
+- Sign Up Form (blocks): [中文](zh/signup-form.md) · [English](en/signup-form.md) — Move through registration fields with local validation and explicit submission states.
+- Bloom Menu (blocks): [中文](zh/bloom-menu.md) · [English](en/bloom-menu.md) — Open a group of actions around a shared center and restore focus when it closes.
+- Feedback Widget (blocks): [中文](zh/feedback-widget.md) · [English](en/feedback-widget.md) — Expand a feedback trigger into a form with sending, success and retry states.
+- 404 / Not Found (blocks): [中文](zh/not-found.md) · [English](en/not-found.md) — Present a missing destination with an animated visual and a route back to useful content.

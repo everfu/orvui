@@ -1,4 +1,4 @@
-# MCP 服务器
+# MCP Server
 
 通过线上 MCP 查询 orvui 的真实组件 API、源码、样式和主题。公开只读，填入服务器 URL 即可连接，无需安装本地服务或配置令牌。
 
@@ -41,6 +41,19 @@ url = "https://orvui.efu.me/mcp"
 claude mcp add --transport http orvui https://orvui.efu.me/mcp
 ```
 
+<a id="usage"></a>
+
+## 使用示例
+
+先查找组件，再读取所需 API、主题或指南。使用目录中的真实 slug；文档查询支持中文与英文。
+
+```text
+list_components({})
+get_component_docs({ "slug": "popover", "locale": "zh" })
+get_theme_variables({ "palette": "violet", "mode": "dark" })
+get_docs({ "path": "/docs/installation", "locale": "en" })
+```
+
 <a id="tools"></a>
 
 ## 组件级查询
@@ -60,12 +73,6 @@ claude mcp add --transport http orvui https://orvui.efu.me/mcp
 `get_component_skill`：按需读取组件选用与组合指导。
 
 使用目录中的 slug 查询组件，例如 `button`、`popover`。文档查询支持 `locale: zh | en`，默认中文；`get_component_docs` 的 `variant` 使用组件目录的示例 slug。响应注明产品版本和来源。
-
-```text
-get_component_docs({ "slug": "popover", "locale": "zh" })
-get_theme_variables({ "palette": "violet", "mode": "dark" })
-get_docs({ "path": "/docs/installation", "locale": "en" })
-```
 
 <a id="versions"></a>
 
@@ -91,7 +98,7 @@ pnpm mcp:pack
 ## 下一步
 
 - [Agent Skills](/docs/agent-skills)
-- [面向 AI 助手](/docs/ai-agents)
+- [LLMs.txt](/docs/llms-txt)
 
 
 © 2026 everfu · orvui · 版权和第三方许可见 [LICENSE](/licenses/MIT.txt) 与 [NOTICE](/licenses/orvui-NOTICE.txt)。

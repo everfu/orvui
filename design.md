@@ -2,6 +2,10 @@
 
 ## Documentation content
 
+The Getting Started navigation includes a bilingual UI for Agents group in this order: LLMs.txt, MCP Server, Agent Skills, AGENTS.md and DESIGN.md. The last two carry quiet outlined Preview labels and provide usable consumer guidance downloads, separate from repository maintainer instructions. Keep the existing registry workflow route and anchors; OpenUI and the registry workflow belong to Integrations.
+
+Agent Skills uses `npx skills add everfu/orvui --skill orvui` as the primary installation command, with project/global scope and agent selection examples. Version the complete generated `skills/orvui` references and notices so Git-based installs work without a build. Website resources, offline ZIP and Git skill files share the same generator and canonical entrypoint.
+
 The Components top-level route is browse-first. The Templates index references the HeroUI Templates gallery with a wide frame, no side rails, and a three/two/one-column responsive grid of real application screenshots, names, summaries, noninteractive source-availability labels and live-preview links. Keep orvui branding and existing component APIs.
 
 Component indexes explain when to choose related controls in each functional group. Component articles document state bindings from actual paired props and update events across default and registered variant APIs, without inventing models for slot-only compositions. Preserve existing API and example anchors.

@@ -15,6 +15,9 @@ export type SitePageSlug =
   | "ai-agents"
   | "mcp-server"
   | "agent-skills"
+  | "llms-txt"
+  | "agents-md"
+  | "design-md"
   | "motion-patterns"
   | "openui"
   | "changelog";
@@ -24,7 +27,13 @@ export type SiteBlock =
   | { kind: "callout"; tone: "info" | "warning"; text: Localized }
   | { kind: "steps"; items: { title: Localized; text: Localized }[] }
   | { kind: "paragraph"; text: Localized; small?: boolean; space?: 2 | 4 | 6 }
-  | { kind: "code"; code: string; lang: string; filename: string }
+  | {
+      kind: "code";
+      code: string;
+      codeEn?: string;
+      lang: string;
+      filename: string;
+    }
   | {
       kind: "links";
       items: {
@@ -46,6 +55,7 @@ export interface SitePageDefinition {
   eyebrow: Localized;
   description: Localized;
   sections: SiteSection[];
+  status?: "preview";
 }
 export const SITE_VERSION = catalog.product.version;
 export const themeCss = designSystemCss();
@@ -69,22 +79,6 @@ const code = (
   filename = "terminal",
 ): SiteBlock => ({ kind: "code", code: content, lang, filename });
 const link = (href: string, label: string) => `<a href="${href}">${label}</a>`;
-
-export const agentSkill = `---
-name: orvui
-description: Discover and compose the existing orvui Vue components before writing custom UI.
----
-
-1. Fetch {{origin}}/r/registry.json before selecting a component.
-2. Select the closest item by its published items[].name and description.
-3. Fetch {{origin}}/r/{name}.json and inspect every files[] entry.
-4. Use shadcn-vue to install the item from its URL.
-5. Preserve installed dependencies, relative imports, the theme layer and license notices.
-6. Read the matching component page and its Vue props, events and slots.
-7. Use modelValue/update:modelValue for form state and open/update:open for disclosure.
-8. Keep the existing motion-v parameters and reduced-motion behavior.
-9. Use local fixture data for streaming, upload and AI demos. Do not add a model service.
-`;
 
 const fetchExample = `// 1. Discover what exists
 const index = await fetch('{{origin}}/r/registry.json').then(r => r.json());
@@ -360,8 +354,8 @@ export const sitePages: SitePageDefinition[] = [
     eyebrow: bi("助手指南", "Agent guide"),
     title: bi("面向 AI 助手", "For AI agents"),
     description: bi(
-      '通过 <a href="/docs/mcp-server">MCP 服务器</a>查询组件，或安装完整的 <a href="/docs/agent-skills">Agent Skills</a>，按需加载组件知识。本页保留直接读取注册表与旧版 skill 的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。',
-      'Query components with the <a href="/docs/mcp-server">MCP Server</a> or install the complete <a href="/docs/agent-skills">Agent Skills</a> to load component knowledge on demand. This page retains the direct registry and legacy skill workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.',
+      '通过 <a href="/docs/mcp-server">MCP 服务器</a>查询组件，或安装完整的 <a href="/docs/agent-skills">Agent Skills</a>，按需加载组件知识。本页保留直接读取注册表的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。',
+      'Query components with the <a href="/docs/mcp-server">MCP Server</a> or install the complete <a href="/docs/agent-skills">Agent Skills</a> to load component knowledge on demand. This page retains the direct registry workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.',
     ),
     sections: [
       {
@@ -369,14 +363,8 @@ export const sitePages: SitePageDefinition[] = [
         title: bi("Agent skill", "Agent skill"),
         blocks: [
           paragraph(
-            "这份 skill 指导编码助手先读取注册表，选择最贴近需求的 <code>items[].name</code> 安装标识，检查文件，再安装并组合源码。需要助手优先选用现成 orvui 组件，而非重新编写动效控件时使用。将下面内容保存到项目的 <code>.agents/skills/orvui/SKILL.md</code>。",
-            "The skill teaches coding agents to fetch the registry first, pick the closest <code>items[].name</code> install slug, inspect its files, then install and compose the source. Use it when agents should choose existing orvui components before inventing custom motion widgets. Save this as <code>.agents/skills/orvui/SKILL.md</code> in the project.",
-          ),
-          code(agentSkill, "markdown", ".agents/skills/orvui/SKILL.md"),
-          paragraph(
-            `${link("/orvui-agent/SKILL.md", "下载 SKILL.md ↗")}。这是随本站提供的本地指引文件。`,
-            `${link("/orvui-agent/SKILL.md", "Download SKILL.md ↗")}. This is a local instruction file shipped with this site.`,
-            true,
+            '安装完整技能请前往 <a href="/docs/agent-skills">Agent Skills</a>。它包含双语组件参考，并支持 npx skills 安装。需要项目级约定时，合并 <a href="/docs/agents-md">AGENTS.md</a> 中的相关段落。',
+            'Install the complete skill from <a href="/docs/agent-skills">Agent Skills</a>, including bilingual references and npx skills installation. For project-wide guidance, merge the relevant sections from <a href="/docs/agents-md">AGENTS.md</a>.',
           ),
         ],
       },
@@ -745,8 +733,11 @@ export function guideNextPages(slug: SitePageSlug) {
   const next: Partial<Record<SitePageSlug, SitePageSlug[]>> = {
     installation: ["theme", "motion-patterns"],
     "ai-agents": ["installation", "openui"],
-    "mcp-server": ["agent-skills", "ai-agents"],
-    "agent-skills": ["mcp-server", "installation"],
+    "llms-txt": ["mcp-server", "agent-skills"],
+    "mcp-server": ["agent-skills", "llms-txt"],
+    "agent-skills": ["agents-md", "mcp-server"],
+    "agents-md": ["design-md", "agent-skills"],
+    "design-md": ["theme", "motion-patterns"],
     openui: ["ai-agents", "theme"],
     "motion-patterns": ["theme", "installation"],
   };

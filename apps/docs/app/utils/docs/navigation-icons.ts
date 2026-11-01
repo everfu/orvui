@@ -54,6 +54,11 @@ const guides: Record<string, Component> = {
   "/docs/theme": Palette,
   "/docs/motion-patterns": WandSparkles,
   "/docs/ai-agents": Bot,
+  "/docs/llms-txt": BookOpen,
+  "/docs/mcp-server": Braces,
+  "/docs/agent-skills": Sparkles,
+  "/docs/agents-md": Bot,
+  "/docs/design-md": Palette,
   "/docs/openui": Braces,
   "/changelog": History,
 };

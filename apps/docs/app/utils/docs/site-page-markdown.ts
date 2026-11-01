@@ -45,7 +45,7 @@ export function sitePageMarkdown(
   const page = getSitePage(slug),
     tr = (zh: string, english: string) => (en ? english : zh);
   const out = [
-    `# ${localize(page.title, en)}`,
+    `# ${localize(page.title, en)}${page.status === "preview" ? " · Preview" : ""}`,
     "",
     markdownHtml(localSiteHtml(localize(page.description, en), en)),
     "",
@@ -67,7 +67,10 @@ export function sitePageMarkdown(
       if (block.kind === "code")
         out.push(
           `\`\`\`${block.lang}`,
-          resolveSiteCode(block.code, origin),
+          resolveSiteCode(
+            en && block.codeEn ? block.codeEn : block.code,
+            origin,
+          ),
           "```",
           "",
         );
