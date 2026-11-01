@@ -10,11 +10,11 @@
 
 下载[DESIGN.md](/orvui-agent/DESIGN.md)，作为项目视觉与交互约定。主题定制后，同步本文件中的相关说明。
 
-```bash
-curl -fsSL https://orvui.efu.me/orvui-agent/DESIGN.md -o orvui-DESIGN.md
-```
+在项目根目录保存为标准文件名，与下方提示词和文件内引用保持一致。如果已有同名文件，请先打开上面的下载链接，合并需要的内容。
 
-命令先保存为带 orvui- 前缀的文件，方便阅读与合并。确认后再按项目需要命名，避免覆盖已有规则。
+```bash
+curl -fsSL https://orvui.efu.me/orvui-agent/DESIGN.md -o DESIGN.md
+```
 
 <a id="usage"></a>
 

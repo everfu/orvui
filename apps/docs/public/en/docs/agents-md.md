@@ -10,11 +10,11 @@ Add clear component selection, installation and verification guidance to project
 
 Download [AGENTS.md](/orvui-agent/en/AGENTS.md), review it and merge relevant sections into your existing project rules, preserving your team’s instructions.
 
-```bash
-curl -fsSL https://orvui.efu.me/orvui-agent/en/AGENTS.md -o orvui-AGENTS.md
-```
+Save the file under its standard name in the project root, matching the prompts and references below. If the file already exists, open the download link above and merge the sections you need.
 
-The command saves an orvui-prefixed file for review and merging. Rename it for your project after review to preserve existing instructions.
+```bash
+curl -fsSL https://orvui.efu.me/orvui-agent/en/AGENTS.md -o AGENTS.md
+```
 
 <a id="usage"></a>
 

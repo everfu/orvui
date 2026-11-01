@@ -384,16 +384,16 @@ function consumerPage(filename: ConsumerDocument): SitePageDefinition {
               ? 'Download <a href="/orvui-agent/en/AGENTS.md" download="AGENTS.md">AGENTS.md</a>, review it and merge relevant sections into your existing project rules, preserving your team’s instructions.'
               : 'Download <a href="/orvui-agent/en/DESIGN.md" download="DESIGN.md">DESIGN.md</a> for visual and interaction guidance. Update the relevant sections when customizing your theme.',
           ),
+          paragraph(
+            "在项目根目录保存为标准文件名，与下方提示词和文件内引用保持一致。如果已有同名文件，请先打开上面的下载链接，合并需要的内容。",
+            "Save the file under its standard name in the project root, matching the prompts and references below. If the file already exists, open the download link above and merge the sections you need.",
+          ),
           code(
             bi(
-              `curl -fsSL {{origin}}/orvui-agent/${filename} -o orvui-${filename}`,
-              `curl -fsSL {{origin}}/orvui-agent/en/${filename} -o orvui-${filename}`,
+              `curl -fsSL {{origin}}/orvui-agent/${filename} -o ${filename}`,
+              `curl -fsSL {{origin}}/orvui-agent/en/${filename} -o ${filename}`,
             ),
-            "download for review",
-          ),
-          paragraph(
-            "命令先保存为带 orvui- 前缀的文件，方便阅读与合并。确认后再按项目需要命名，避免覆盖已有规则。",
-            "The command saves an orvui-prefixed file for review and merging. Rename it for your project after review to preserve existing instructions.",
+            "terminal",
           ),
         ],
       },

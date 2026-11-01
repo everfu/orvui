@@ -226,8 +226,12 @@ describe("public support pages", () => {
           const download = page.sections[0].blocks.find(
             (block) => block.kind === "code",
           )!;
-          if (download.kind === "code")
+          if (download.kind === "code") {
             expect(en ? download.codeEn : download.code).toContain(`/${path}`);
+            expect(en ? download.codeEn : download.code).toMatch(
+              new RegExp(` -o ${filename.replace(".", "\\.")}$`),
+            );
+          }
           const preview = page.sections.find(
             (section) => section.id === "preview",
           )!.blocks[0];

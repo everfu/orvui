@@ -10,11 +10,11 @@ Guide your coding assistant with orvui’s semantic themes, component compositio
 
 Download [DESIGN.md](/orvui-agent/en/DESIGN.md) for visual and interaction guidance. Update the relevant sections when customizing your theme.
 
-```bash
-curl -fsSL https://orvui.efu.me/orvui-agent/en/DESIGN.md -o orvui-DESIGN.md
-```
+Save the file under its standard name in the project root, matching the prompts and references below. If the file already exists, open the download link above and merge the sections you need.
 
-The command saves an orvui-prefixed file for review and merging. Rename it for your project after review to preserve existing instructions.
+```bash
+curl -fsSL https://orvui.efu.me/orvui-agent/en/DESIGN.md -o DESIGN.md
+```
 
 <a id="usage"></a>
 

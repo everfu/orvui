@@ -10,11 +10,11 @@
 
 下载[AGENTS.md](/orvui-agent/AGENTS.md)，阅读后将相关段落合并到项目已有规则中，保留团队自己的约束。
 
-```bash
-curl -fsSL https://orvui.efu.me/orvui-agent/AGENTS.md -o orvui-AGENTS.md
-```
+在项目根目录保存为标准文件名，与下方提示词和文件内引用保持一致。如果已有同名文件，请先打开上面的下载链接，合并需要的内容。
 
-命令先保存为带 orvui- 前缀的文件，方便阅读与合并。确认后再按项目需要命名，避免覆盖已有规则。
+```bash
+curl -fsSL https://orvui.efu.me/orvui-agent/AGENTS.md -o AGENTS.md
+```
 
 <a id="usage"></a>
 
