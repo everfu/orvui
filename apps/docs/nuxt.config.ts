@@ -11,6 +11,7 @@ const pages = createDocsPages();
 export default defineNuxtConfig({
   compatibilityDate: "2026-10-27",
   ssr: true,
+  experimental: { viewTransition: true },
   telemetry: false,
   devtools: { enabled: false },
   components: false,
@@ -71,7 +72,10 @@ export default defineNuxtConfig({
           name: `docs:${page.path}`,
           path: page.path,
           file: path("./app/pages/[...slug].vue"),
-          meta: { orvuiPage: page },
+          meta: {
+            orvuiPage: page,
+            viewTransition: page.frontmatter.layout !== "home",
+          },
         });
     },
   },

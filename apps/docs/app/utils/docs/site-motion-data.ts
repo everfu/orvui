@@ -1,28 +1,237 @@
 import { bi } from "./site-page-data";
 
 export const motionDecisions = [
-  { number: "01", title: bi("先说明变化", "Identify the change"), body: bi("指出用户刚刚操作的对象，以及操作后需要看见的位置或状态。", "Identify the object the user acted on and the state or destination they need to see next."), note: bi("用连续的位置关系帮助理解，避免无关元素一起移动。", "Keep motion attached to that relationship; leave unrelated elements still.") },
-  { number: "02", title: bi("控制等待", "Budget the wait"), body: bi("高频控件立即响应。弹层可以解释来源，但不应阻塞用户继续输入。", "Frequent controls respond immediately. A panel can explain where it came from without delaying the next input."), note: bi("反复切换时也要支持中断，不能等待上一段动画播完。", "Repeated input must interrupt a transition rather than queue behind it.") },
-  { number: "03", title: bi("保持物理连续", "Keep movement continuous"), body: bi("同一个对象移动或变形时，共享布局和弹簧用于衔接当前位置与新目标。", "For a moving or resizing object, shared layout and springs connect its current position to its next target."), note: bi("进度条使用线性时间；手势从释放时的位置和速度继续。", "Use linear time for progress; gestures continue from their release position and velocity.") },
-  { number: "04", title: bi("提供静态路径", "Provide a steady path"), body: bi("减少动态效果时仍需显示状态、焦点和操作结果，移除装饰性的位移与循环。", "Reduced motion must still communicate state, focus and results while removing decorative travel and repetition."), note: bi("不要让可访问性设置改变功能或键盘操作。", "Accessibility settings must not change functionality or keyboard operation.") },
+  {
+    number: "01",
+    title: bi("先说明变化", "Identify the change"),
+    body: bi(
+      "指出用户刚刚操作的对象，以及操作后需要看见的位置或状态。",
+      "Identify the object the user acted on and the state or destination they need to see next.",
+    ),
+    note: bi(
+      "用连续的位置关系帮助理解，避免无关元素一起移动。",
+      "Keep motion attached to that relationship; leave unrelated elements still.",
+    ),
+  },
+  {
+    number: "02",
+    title: bi("控制等待", "Budget the wait"),
+    body: bi(
+      "高频控件立即响应。弹层可以解释来源，但不应阻塞用户继续输入。",
+      "Frequent controls respond immediately. A panel can explain where it came from without delaying the next input.",
+    ),
+    note: bi(
+      "反复切换时也要支持中断，不能等待上一段动画播完。",
+      "Repeated input must interrupt a transition rather than queue behind it.",
+    ),
+  },
+  {
+    number: "03",
+    title: bi("保持物理连续", "Keep movement continuous"),
+    body: bi(
+      "同一个对象移动或变形时，共享布局和弹簧用于衔接当前位置与新目标。",
+      "For a moving or resizing object, shared layout and springs connect its current position to its next target.",
+    ),
+    note: bi(
+      "进度条使用线性时间；手势从释放时的位置和速度继续。",
+      "Use linear time for progress; gestures continue from their release position and velocity.",
+    ),
+  },
+  {
+    number: "04",
+    title: bi("提供静态路径", "Provide a steady path"),
+    body: bi(
+      "减少动态效果时仍需显示状态、焦点和操作结果，移除装饰性的位移与循环。",
+      "Reduced motion must still communicate state, focus and results while removing decorative travel and repetition.",
+    ),
+    note: bi(
+      "不要让可访问性设置改变功能或键盘操作。",
+      "Accessibility settings must not change functionality or keyboard operation.",
+    ),
+  },
 ];
 export const motionTimings = [
-  { use: bi("按钮按压", "Button press"), range: bi("立即响应", "Immediate"), feel: bi("跟随输入", "Follows input") },
-  { use: bi("提示和菜单", "Hints and menus"), range: bi("120–180ms", "120–180ms"), feel: bi("快速到位", "Quick to settle") },
-  { use: bi("内容替换", "Content changes"), range: bi("180–240ms", "180–240ms"), feel: bi("保留上下文", "Preserves context") },
-  { use: bi("抽屉与对话框", "Drawers and dialogs"), range: bi("200–300ms", "200–300ms"), feel: bi("交代空间关系", "Explains position") },
-  { use: bi("拖动和滚动", "Dragging and scrolling"), range: bi("由手势决定", "Gesture driven"), feel: bi("连续、可中断", "Continuous and interruptible") },
+  {
+    use: bi("按钮按压", "Button press"),
+    range: bi("立即响应", "Immediate"),
+    feel: bi("跟随输入", "Follows input"),
+  },
+  {
+    use: bi("提示和菜单", "Hints and menus"),
+    range: bi("120–180ms", "120–180ms"),
+    feel: bi("快速到位", "Quick to settle"),
+  },
+  {
+    use: bi("内容替换", "Content changes"),
+    range: bi("180–240ms", "180–240ms"),
+    feel: bi("保留上下文", "Preserves context"),
+  },
+  {
+    use: bi("抽屉与对话框", "Drawers and dialogs"),
+    range: bi("200–300ms", "200–300ms"),
+    feel: bi("交代空间关系", "Explains position"),
+  },
+  {
+    use: bi("拖动和滚动", "Dragging and scrolling"),
+    range: bi("由手势决定", "Gesture driven"),
+    feel: bi("连续、可中断", "Continuous and interruptible"),
+  },
 ];
-type Recipe = { demo: "press" | "icon" | "reveal" | "layout" | "swap"; icon: "MousePointer2" | "Bell" | "Sparkles" | "PanelTopOpen" | "Rows3"; title: ReturnType<typeof bi>; eyebrow: ReturnType<typeof bi>; description: ReturnType<typeof bi>; purpose: ReturnType<typeof bi>; avoid: ReturnType<typeof bi>; code: string };
+type Recipe = {
+  demo: "press" | "icon" | "reveal" | "layout" | "swap";
+  icon: "MousePointer2" | "Bell" | "Sparkles" | "PanelTopOpen" | "Rows3";
+  title: ReturnType<typeof bi>;
+  eyebrow: ReturnType<typeof bi>;
+  description: ReturnType<typeof bi>;
+  purpose: ReturnType<typeof bi>;
+  avoid: ReturnType<typeof bi>;
+  code: string;
+};
 export const motionRecipes: Recipe[] = [
-  { demo: "press", icon: "MousePointer2", title: bi("按压反馈", "Press response"), eyebrow: bi("输入", "Input"), description: bi("让可按压表面在指针按下时轻微收缩，松开后回到原位。", "Let a pressable surface contract slightly on pointer down and return on release."), purpose: bi("在异步结果返回前确认操作已被接收。", "Acknowledge input before an asynchronous result arrives."), avoid: bi("把按压反馈绑定到操作完成，或把位移放大。", "Delaying feedback until completion or using large movement."), code: `<motion.button :while-press="reduce ? undefined : { scale: 0.97 }" :transition="SPRING_PRESS">Continue</motion.button>` },
-  { demo: "icon", icon: "Bell", title: bi("图标响应", "Icon response"), eyebrow: bi("动作", "Action"), description: bi("按操作含义选择短暂运动，并让键盘聚焦获得同等反馈。", "Choose a brief movement that suits the action and give keyboard focus equivalent feedback."), purpose: bi("让用户更容易辨认刚刚操作的控件。", "Help users recognize the control they just operated."), avoid: bi("所有图标都播放同一个循环，或把反馈只给鼠标用户。", "Repeating the same loop on every icon or limiting feedback to the mouse."), code: `<motion.span :animate="active && !reduce ? { rotate: [0, 10, -6, 0] } : { rotate: 0 }" :transition="{ duration: 0.24 }"><Bell /></motion.span>` },
-  { demo: "reveal", icon: "Sparkles", title: bi("新内容出现", "New content"), eyebrow: bi("出现", "Appearance"), description: bi("先让整体表面出现，再呈现内容，避免读者追逐多个运动目标。", "Introduce the surface as a unit so readers do not have to follow several moving targets."), purpose: bi("说明哪些内容是刚刚加入的。", "Show which content has just been added."), avoid: bi("对整个页面逐字逐项编排，延迟用户阅读。", "Sequencing every item on a page and delaying reading."), code: `<motion.section :initial="{ opacity: 0, y: reduce ? 0 : 8 }" :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 0.2 }"><slot /></motion.section>` },
-  { demo: "layout", icon: "PanelTopOpen", title: bi("表面展开", "Expanding surfaces"), eyebrow: bi("布局", "Layout"), description: bi("触发器与展开区域属于同一个对象时，用共享布局保留这条联系。", "Use shared layout when the trigger and expanded region represent the same object."), purpose: bi("在不同尺寸之间保留对象身份。", "Preserve the identity of an object across sizes."), avoid: bi("缩放长段文字，或在容器到位前显示全部内容。", "Scaling long text or showing all content before the container has room."), code: `<motion.div layout :transition="CONTINUITY_SPRING"><button @click="open = !open">Toggle</button><div v-if="open">Panel content</div></motion.div>` },
-  { demo: "swap", icon: "Rows3", title: bi("视图切换", "View changes"), eyebrow: bi("状态", "State"), description: bi("保持外层布局稳定，在内部用短距离和透明度切换两种视图。", "Keep the outer layout stable and change internal views with a short offset and opacity."), purpose: bi("说明内容已变化，同时保留操作位置。", "Show that content changed while keeping controls in place."), avoid: bi("让频繁切换的标签页触发整页转场。", "Using a full page transition for a frequently changed tab."), code: `<div class="grid rounded-xl bg-background p-4"><motion.div v-for="current in views" :key="current" class="col-start-1 row-start-1" :aria-hidden="current !== view" :inert="current !== view" :initial="false" :animate="{ opacity: current === view ? 1 : 0 }" :transition="{ duration: reduce ? 0.08 : 0.18 }"><slot :view="current" /></motion.div></div>` },
+  {
+    demo: "press",
+    icon: "MousePointer2",
+    title: bi("按压反馈", "Press response"),
+    eyebrow: bi("输入", "Input"),
+    description: bi(
+      "让可按压表面在指针按下时轻微收缩，松开后回到原位。",
+      "Let a pressable surface contract slightly on pointer down and return on release.",
+    ),
+    purpose: bi(
+      "在异步结果返回前确认操作已被接收。",
+      "Acknowledge input before an asynchronous result arrives.",
+    ),
+    avoid: bi(
+      "把按压反馈绑定到操作完成，或把位移放大。",
+      "Delaying feedback until completion or using large movement.",
+    ),
+    code: `<motion.button :while-press="reduce ? undefined : { scale: 0.97 }" :transition="SPRING_PRESS">Continue</motion.button>`,
+  },
+  {
+    demo: "icon",
+    icon: "Bell",
+    title: bi("图标响应", "Icon response"),
+    eyebrow: bi("动作", "Action"),
+    description: bi(
+      "按操作含义选择短暂运动，并让键盘聚焦获得同等反馈。",
+      "Choose a brief movement that suits the action and give keyboard focus equivalent feedback.",
+    ),
+    purpose: bi(
+      "让用户更容易辨认刚刚操作的控件。",
+      "Help users recognize the control they just operated.",
+    ),
+    avoid: bi(
+      "所有图标都播放同一个循环，或把反馈只给鼠标用户。",
+      "Repeating the same loop on every icon or limiting feedback to the mouse.",
+    ),
+    code: `<motion.span :animate="active && !reduce ? { rotate: [0, 10, -6, 0] } : { rotate: 0 }" :transition="{ duration: 0.24 }"><Bell /></motion.span>`,
+  },
+  {
+    demo: "reveal",
+    icon: "Sparkles",
+    title: bi("新内容出现", "New content"),
+    eyebrow: bi("出现", "Appearance"),
+    description: bi(
+      "先让整体表面出现，再呈现内容，避免读者追逐多个运动目标。",
+      "Introduce the surface as a unit so readers do not have to follow several moving targets.",
+    ),
+    purpose: bi(
+      "说明哪些内容是刚刚加入的。",
+      "Show which content has just been added.",
+    ),
+    avoid: bi(
+      "对整个页面逐字逐项编排，延迟用户阅读。",
+      "Sequencing every item on a page and delaying reading.",
+    ),
+    code: `<motion.section :initial="{ opacity: 0, y: reduce ? 0 : 8 }" :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 0.2 }"><slot /></motion.section>`,
+  },
+  {
+    demo: "layout",
+    icon: "PanelTopOpen",
+    title: bi("表面展开", "Expanding surfaces"),
+    eyebrow: bi("布局", "Layout"),
+    description: bi(
+      "触发器与展开区域属于同一个对象时，用共享布局保留这条联系。",
+      "Use shared layout when the trigger and expanded region represent the same object.",
+    ),
+    purpose: bi(
+      "在不同尺寸之间保留对象身份。",
+      "Preserve the identity of an object across sizes.",
+    ),
+    avoid: bi(
+      "缩放长段文字，或在容器到位前显示全部内容。",
+      "Scaling long text or showing all content before the container has room.",
+    ),
+    code: `<motion.div layout :transition="CONTINUITY_SPRING"><button @click="open = !open">Toggle</button><div v-if="open">Panel content</div></motion.div>`,
+  },
+  {
+    demo: "swap",
+    icon: "Rows3",
+    title: bi("视图切换", "View changes"),
+    eyebrow: bi("状态", "State"),
+    description: bi(
+      "保持外层布局稳定，在内部用短距离和透明度切换两种视图。",
+      "Keep the outer layout stable and change internal views with a short offset and opacity.",
+    ),
+    purpose: bi(
+      "说明内容已变化，同时保留操作位置。",
+      "Show that content changed while keeping controls in place.",
+    ),
+    avoid: bi(
+      "让频繁切换的标签页触发整页转场。",
+      "Using a full page transition for a frequently changed tab.",
+    ),
+    code: `<div class="grid rounded-xl bg-background p-4"><motion.div v-for="current in views" :key="current" class="col-start-1 row-start-1" :aria-hidden="current !== view" :inert="current !== view" :initial="false" :animate="{ opacity: current === view ? 1 : 0 }" :transition="{ duration: reduce ? 0.08 : 0.18 }"><slot :view="current" /></motion.div></div>`,
+  },
 ];
 export const reducedMotionCode = `const reduce = useReducedMotion();
 const start = computed(() => ({ opacity: 0, y: reduce.value ? 0 : 8 }));
 const target = { opacity: 1, y: 0 };`;
-export const CONTINUITY_SPRING = { type: "spring", stiffness: 220, damping: 17, mass: 0.85 } as const;
-export const CONTINUITY_LABEL = { hidden: { opacity: 0, filter: "blur(4px)" }, visible: { opacity: 1, filter: "blur(0px)" }, exit: { opacity: 0, filter: "blur(4px)" } };
+export const CONTINUITY_SPRING = {
+  type: "spring",
+  stiffness: 220,
+  damping: 17,
+  mass: 0.85,
+} as const;
+export const CONTINUITY_LABEL = {
+  hidden: { opacity: 0, filter: "blur(4px)" },
+  visible: { opacity: 1, filter: "blur(0px)" },
+  exit: { opacity: 0, filter: "blur(4px)" },
+};
+
+export const documentationMotion = [
+  {
+    title: bi("页面切换", "Page changes"),
+    timing: "120ms / 220ms",
+    body: bi(
+      "只切换阅读区域，保留导航框架。旧正文淡出，新正文轻移 8px 后落稳；快速切换以最后一次选择为准。",
+      "Transition only the reading pane and keep navigation in place. Fade out the old page and settle the new page over 8px. The latest navigation wins.",
+    ),
+  },
+  {
+    title: bi("预览、用法与源码", "Preview, Usage and Code"),
+    timing: "180ms",
+    body: bi(
+      "保持操作栏位置稳定，在当前示例内切换视图。隐藏内容不能接收键盘焦点，也不重新播放整页入场。",
+      "Keep the toolbar stable and switch views within the current example. Hidden content cannot receive focus and does not replay the page entrance.",
+    ),
+  },
+  {
+    title: bi(
+      "锚点、查询与减少动态效果",
+      "Anchors, queries and reduced motion",
+    ),
+    timing: "0ms / 80ms",
+    body: bi(
+      "同页锚点和查询更新不触发整页转场；减少动态效果时只保留 80ms 淡入，取消位移。首次 SSR 与水合直接显示正文。",
+      "Same-page anchors and query updates do not trigger page transitions. Reduced motion uses an 80ms fade without movement. Initial SSR and hydration show the content immediately.",
+    ),
+  },
+];
+export const documentationMotionCode = `export default defineNuxtConfig({
+  experimental: { viewTransition: true },
+})`;
+export const documentationMotionPageCode = `<template>
+  <!-- Query and anchor changes keep the existing page. -->
+  <NuxtPage :page-key="route => route.path" />
+</template>`;

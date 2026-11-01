@@ -37,6 +37,35 @@ Accessibility settings must not change functionality or keyboard operation.
 - SPRING_PRESS: Fast, weighted feedback for pressable surfaces.
 - SPRING_LAYOUT: Continuous spatial movement for shared surfaces and indicators.
 
+<a id="page-transitions"></a>
+
+## Documentation transitions
+
+### Page changes
+
+**120ms / 220ms** — Transition only the reading pane and keep navigation in place. Fade out the old page and settle the new page over 8px. The latest navigation wins.
+
+### Preview, Usage and Code
+
+**180ms** — Keep the toolbar stable and switch views within the current example. Hidden content cannot receive focus and does not replay the page entrance.
+
+### Anchors, queries and reduced motion
+
+**0ms / 80ms** — Same-page anchors and query updates do not trigger page transitions. Reduced motion uses an 80ms fade without movement. Initial SSR and hydration show the content immediately.
+
+```typescript
+export default defineNuxtConfig({
+  experimental: { viewTransition: true },
+})
+```
+
+```vue
+<template>
+  <!-- Query and anchor changes keep the existing page. -->
+  <NuxtPage :page-key="route => route.path" />
+</template>
+```
+
 ## Timing
 
 | Interaction | Range | Desired feel |

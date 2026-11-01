@@ -37,6 +37,35 @@
 - SPRING_PRESS: 可按压表面的快速、有分量反馈。
 - SPRING_LAYOUT: 共享表面与指示器的持续空间运动。
 
+<a id="page-transitions"></a>
+
+## 文档切换
+
+### 页面切换
+
+**120ms / 220ms** — 只切换阅读区域，保留导航框架。旧正文淡出，新正文轻移 8px 后落稳；快速切换以最后一次选择为准。
+
+### 预览、用法与源码
+
+**180ms** — 保持操作栏位置稳定，在当前示例内切换视图。隐藏内容不能接收键盘焦点，也不重新播放整页入场。
+
+### 锚点、查询与减少动态效果
+
+**0ms / 80ms** — 同页锚点和查询更新不触发整页转场；减少动态效果时只保留 80ms 淡入，取消位移。首次 SSR 与水合直接显示正文。
+
+```typescript
+export default defineNuxtConfig({
+  experimental: { viewTransition: true },
+})
+```
+
+```vue
+<template>
+  <!-- Query and anchor changes keep the existing page. -->
+  <NuxtPage :page-key="route => route.path" />
+</template>
+```
+
 ## 时长
 
 | 交互 | 范围 | 期望感受 |

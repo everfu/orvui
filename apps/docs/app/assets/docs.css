@@ -4,6 +4,7 @@
 @import "./css/site-controls.css";
 @import "./css/docs-redesign.css";
 @import "./css/docs-sections.css";
+@import "./css/docs-motion.css";
 
 @source "../**/*.{vue,ts}";
 @source not "../**/tests/**";

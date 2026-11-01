@@ -1,0 +1,55 @@
+/* Only the reading pane participates; header and both navigation rails stay live. */
+html[data-docs-route-motion="native"] {
+  view-transition-name: none;
+}
+html[data-docs-route-motion="native"] #docs-content {
+  view-transition-name: orvui-docs;
+}
+html[data-docs-route-motion="native"]::view-transition {
+  pointer-events: none;
+}
+html[data-docs-route-motion="native"]::view-transition-old(orvui-docs),
+html[data-docs-route-motion="native"]::view-transition-new(orvui-docs) {
+  object-fit: none;
+  object-position: top left;
+}
+html[data-docs-route-motion="native"]::view-transition-group(orvui-docs) {
+  animation: none;
+}
+html[data-docs-route-motion="native"]::view-transition-old(orvui-docs) {
+  animation: docs-reading-out 120ms ease-out both;
+  mix-blend-mode: normal;
+}
+html[data-docs-route-motion="native"]::view-transition-new(orvui-docs) {
+  animation: docs-reading-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  mix-blend-mode: normal;
+}
+@keyframes docs-reading-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes docs-reading-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-docs-route-motion="native"]::view-transition-old(orvui-docs),
+  html[data-docs-route-motion="native"]::view-transition-new(orvui-docs) {
+    animation-duration: 80ms;
+  }
+  @keyframes docs-reading-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

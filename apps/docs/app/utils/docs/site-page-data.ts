@@ -736,6 +736,7 @@ export function localSiteHtml(value: string, en = false) {
 const motionToc = [
   ["decision-framework", "判断框架", "Decision framework"],
   ["motion-tokens", "动效令牌", "Motion tokens"],
+  ["page-transitions", "文档切换", "Documentation transitions"],
   ["timing", "时长", "Timing"],
   ["recipes", "配方", "Recipes"],
   ["accessibility", "可访问性", "Accessibility"],

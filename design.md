@@ -42,6 +42,8 @@ Showcase scene changes preload the target module before the current scene leaves
 
 Below the showcase, show at most four recent releases in catalog launch order, then FAQ and the existing footer. FAQ uses an introduction beside the accordion on desktop and a single column below 768px. Keep the homepage styles scoped to its own composition. Reuse canonical semantic colors and Geist fonts; `tokens.css` exports only homepage layout tokens and aliases, without replacing the generated library theme. Do not restore the long featured-component inventory on the homepage.
 
+Documentation route changes animate only the reading pane, retaining header and navigation positions. Use native view transitions when supported (120ms old-content fade, 220ms new-content fade with an 8px settle), with an entry-only fallback. Initial SSR/hydration and same-page query/hash changes remain immediate. Reduced motion uses an 80ms fade without displacement. Cancel obsolete transitions on new navigation, failures, preference changes and disposal; the final route stays readable and interactive. Extend the bilingual motion guide and Markdown with a keyboard-operable documentation-transition example. Existing public component geometry, tab APIs and animations remain unchanged.
+
 ## Documentation prose and code
 
 Guides use purpose, steps, copyable examples, notes and next actions. Component pages present overview and use cases, installation, examples, composition and state, API, accessibility and FAQ, then related components and notices. Chinese and English use the same content definitions; Markdown exports retain the same information and stable anchors.

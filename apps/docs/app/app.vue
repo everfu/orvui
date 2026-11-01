@@ -24,6 +24,6 @@ useDocsHead(() => page.value);
     :route="address"
     :router="navigation"
   >
-    <NuxtPage />
+    <NuxtPage :page-key="(pageRoute) => pageRoute.path" />
   </SiteLayout>
 </template>

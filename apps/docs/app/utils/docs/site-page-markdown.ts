@@ -15,6 +15,9 @@ import {
 } from "./site-page-data";
 import { changelogAnchor, changelogEntries } from "./site-changelog-data";
 import {
+  documentationMotion,
+  documentationMotionCode,
+  documentationMotionPageCode,
   motionDecisions,
   motionRecipes,
   motionTimings,
@@ -142,6 +145,31 @@ export function sitePageMarkdown(
       `- SPRING_PRESS: ${tr("可按压表面的快速、有分量反馈。", "Fast, weighted feedback for pressable surfaces.")}`,
       `- SPRING_LAYOUT: ${tr("共享表面与指示器的持续空间运动。", "Continuous spatial movement for shared surfaces and indicators.")}`,
       "",
+    );
+    out.push(
+      '<a id="page-transitions"></a>',
+      "",
+      `## ${tr("文档切换", "Documentation transitions")}`,
+      "",
+    );
+    for (const item of documentationMotion)
+      out.push(
+        `### ${localize(item.title, en)}`,
+        "",
+        `**${item.timing}** — ${localize(item.body, en)}`,
+        "",
+      );
+    out.push(
+      "```typescript",
+      documentationMotionCode,
+      "```",
+      "",
+      "```vue",
+      documentationMotionPageCode,
+      "```",
+      "",
+    );
+    out.push(
       `## ${tr("时长", "Timing")}`,
       "",
       `| ${tr("交互", "Interaction")} | ${tr("范围", "Range")} | ${tr("期望感受", "Desired feel")} |`,

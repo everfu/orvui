@@ -20,11 +20,16 @@ import {
 } from "../../../../../packages/vue/src/lib/ease";
 import { localize, bi } from "../../utils/docs/site-page-data";
 import {
+  documentationMotion,
+  documentationMotionCode,
+  documentationMotionPageCode,
   motionDecisions,
   motionRecipes,
   motionTimings,
   reducedMotionCode,
 } from "../../utils/docs/site-motion-data";
+import CodePanel from "./CodePanel.vue";
+import SitePageTransitionDemo from "./SitePageTransitionDemo.vue";
 import SiteMotionDemo from "./SiteMotionDemo.vue";
 const props = withDefaults(defineProps<{ en?: boolean }>(), { en: false });
 const t = (zh: string, en: string) => (props.en ? en : zh);
@@ -205,6 +210,57 @@ const icons = { MousePointer2, Bell, Sparkles, PanelTopOpen, Rows3 };
           </div>
         </div>
       </div>
+    </section>
+    <section id="page-transitions" class="scroll-mt-24">
+      <p class="guide-eyebrow">
+        {{ t("文档中的切换", "Documentation transitions") }}
+      </p>
+      <h2 class="guide-title">
+        {{
+          t("内容变化，阅读位置不变", "Change the content, keep the context")
+        }}
+      </h2>
+      <p class="guide-description">
+        {{
+          t(
+            "页面导航与局部视图使用不同节奏。切换下面的章节，观察正文变化与稳定的导航框架。",
+            "Navigation and local views use different rhythms. Switch chapters below to see the content change inside a steady navigation frame.",
+          )
+        }}
+      </p>
+      <SitePageTransitionDemo :en="en" class="mt-6" />
+      <dl class="mt-6 divide-y divide-border border-y border-border">
+        <div
+          v-for="item in documentationMotion"
+          :key="item.title.en"
+          class="grid gap-2 py-5 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-6"
+        >
+          <dt class="text-sm font-medium text-foreground">
+            {{ localize(item.title, en)
+            }}<span
+              class="mt-1 block font-mono text-xs text-muted-foreground"
+              >{{ item.timing }}</span
+            >
+          </dt>
+          <dd class="text-sm leading-6 text-muted-foreground">
+            {{ localize(item.body, en) }}
+          </dd>
+        </div>
+      </dl>
+      <CodePanel
+        :code="documentationMotionCode"
+        :en="en"
+        lang="typescript"
+        filename="nuxt.config.ts"
+        class="mt-6"
+      />
+      <CodePanel
+        :code="documentationMotionPageCode"
+        :en="en"
+        lang="vue"
+        filename="app.vue"
+        class="mt-4"
+      />
     </section>
     <section id="timing" class="scroll-mt-24">
       <p class="guide-eyebrow">{{ t("时长", "Timing") }}</p>
