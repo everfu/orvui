@@ -10,7 +10,7 @@ Every application template has its own use case, three-step interaction walkthro
 
 ## Product behavior
 
-Retain all 109 existing components and 72 registered examples, and add the public Table of Contents component (110 components total), the existing Web routes, public exports, Vue props/events/slots/composables, and installation slugs. Chinese remains the default, with matching English routes. Nuxt SSR is the sole documentation application. Component-library Nuxt module support and native platform support remain deferred.
+Retain all 109 existing components and 72 registered examples, and add the public Table of Contents component (110 components total), the existing Web routes, public exports, Vue props/events/slots/composables, and installation slugs. Chinese remains the default, with matching English routes. Nuxt SSR is the sole documentation application. The component library supports Vue and Nuxt projects through explicit imports. Native platform support remains deferred.
 
 ## Appearance
 

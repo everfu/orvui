@@ -11,7 +11,7 @@ orvui is a Vue 3.5 component library. The active contract is in `design.md`; the
 - Package exports and the copy-source registry use the same source. Follow all relative dependencies and preserve real third-party notices, including the separate Paper Design shader license and font OFL.
 - Run `pnpm typecheck`, `pnpm test`, `pnpm build` and `pnpm exec tsx tools/registry/build.ts --strict`. Declaration emission, browser behavior, visual acceptance, SSR, hydration and real package/registry consumption are separate checks.
 - Builds and tests must be self-contained within this project. Generated coverage reports belong in `artifacts/reports/`; local package archives belong in `artifacts/packages/<version>/`.
-- Web only. Nuxt module support remains deferred. No npm publication, push or deployment is authorized by local commands.
+- Web only. Components support Vue and Nuxt projects through explicit imports. No npm publication, push or deployment is authorized by local commands.
 
 ## Git 提交规范
 

@@ -55,7 +55,7 @@ Form components use `v-model`; overlays typically use `v-model:open`. Compose re
 
 ## Use Nuxt and SSR
 
-This documentation uses Nuxt SSR. Examples explicitly import Vue components; a dedicated Nuxt module and auto-imports remain deferred. Check measurement, browser APIs and animation after hydration.
+Use orvui in Nuxt projects with explicit component imports. When using the package, add `"@orvui/vue/style.css"` to `css` in `nuxt.config.ts` to load styles globally. This documentation runs on Nuxt SSR.
 
 <a id="attribution"></a>
 

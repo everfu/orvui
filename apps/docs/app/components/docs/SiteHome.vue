@@ -80,12 +80,12 @@ const faqCopy = [
   },
   {
     id: "nuxt",
-    zh: "Nuxt 支持进度如何？",
-    en: "What about Nuxt?",
+    zh: "可以在 Nuxt 项目中使用吗？",
+    en: "Can I use orvui with Nuxt?",
     answerZh:
-      "本期提供确定的 SSR 初始结构、浏览器资源清理及 hydration 检查。Nuxt 专用模块与自动导入将在后续阶段提供。",
+      "可以。组件库已支持在 Nuxt 项目中使用，按需显式导入组件并加载样式即可。当前文档站也使用 Nuxt SSR。",
     answerEn:
-      "This release includes deterministic server structure, browser resource cleanup and hydration checks. A dedicated Nuxt module and auto-imports are planned separately.",
+      "Yes. Use orvui in Nuxt projects by explicitly importing components and loading their styles. This documentation also runs on Nuxt SSR.",
   },
 ];
 const faqs = computed(() =>

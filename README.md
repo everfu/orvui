@@ -107,7 +107,7 @@ import "@orvui/vue/style.css";
 </template>
 ```
 
-目前面向 Web，Nuxt 模块支持仍在后续计划中。
+支持在 Vue 和 Nuxt 项目中使用。在 Nuxt 页面或组件中按上述方式显式导入组件，并在 `nuxt.config.ts` 的 `css` 中添加 `"@orvui/vue/style.css"`，统一加载组件包样式。
 
 ## 本地开发
 

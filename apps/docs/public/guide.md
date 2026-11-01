@@ -55,7 +55,7 @@ import { Button } from '@/components/orvui/motion/button'
 
 ## 在 Nuxt 与 SSR 中使用
 
-当前文档站使用 Nuxt SSR。组件示例显式导入 Vue 组件；Nuxt 专用模块和自动导入仍暂缓。涉及尺寸测量、浏览器 API 和动画的行为需要在水合后检查。
+组件库支持在 Nuxt 项目中使用。按需显式导入组件；使用组件包时，在 `nuxt.config.ts` 的 `css` 中添加 `"@orvui/vue/style.css"`，统一加载样式。当前文档站使用 Nuxt SSR。
 
 <a id="attribution"></a>
 

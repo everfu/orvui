@@ -107,7 +107,7 @@ import "@orvui/vue/style.css";
 </template>
 ```
 
-Web is the current target. Nuxt module support remains deferred.
+Supports Vue and Nuxt projects. Explicitly import components in Nuxt pages or components as shown above, and add `"@orvui/vue/style.css"` to `css` in `nuxt.config.ts` to load the package styles globally.
 
 ## Local development
 

@@ -291,8 +291,8 @@ export const sitePages: SitePageDefinition[] = [
         title: bi("SSR 与 Nuxt", "SSR and Nuxt"),
         blocks: [
           paragraph(
-            "组件以 SSR 安全为目标设计；SSR、hydration、浏览器行为与视觉验收分别验证。Nuxt 专用模块与自动导入暂缓，不属于当前安装流程。",
-            "Components are designed for SSR safety. SSR, hydration, browser behavior and visual acceptance are verified separately. A dedicated Nuxt module and auto-imports are deferred.",
+            '组件库支持在 Nuxt 项目中使用。按需显式导入组件；使用组件包时，在 <code>nuxt.config.ts</code> 的 <code>css</code> 中添加 <code>"@orvui/vue/style.css"</code>，统一加载样式。当前文档站使用 Nuxt SSR。',
+            'Use orvui in Nuxt projects with explicit component imports. When using the package, add <code>"@orvui/vue/style.css"</code> to <code>css</code> in <code>nuxt.config.ts</code> to load styles globally. This documentation runs on Nuxt SSR.',
           ),
         ],
       },
