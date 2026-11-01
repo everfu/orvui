@@ -1,17 +1,18 @@
-import type { ComponentInternalInstance } from "vue";
+// Only ancestry is required; Vue 3.6 parents can also be generic component instances.
+type ComponentOwner = { readonly parent: ComponentOwner | null };
 
 type Surface = () => HTMLElement | null;
 export interface Layer {
   key: symbol;
   modal: boolean;
-  owner: ComponentInternalInstance | null;
+  owner: ComponentOwner | null;
   surface: Surface;
   returnTo: HTMLElement | null;
 }
 const active: Layer[] = [];
-const portals = new Set<{ owner: ComponentInternalInstance | null; surface: Surface }>();
+const portals = new Set<{ owner: ComponentOwner | null; surface: Surface }>();
 
-function belongsTo(child: ComponentInternalInstance | null, parent: ComponentInternalInstance | null) {
+function belongsTo(child: ComponentOwner | null, parent: ComponentOwner | null) {
   if (!parent) return false;
   for (let node = child; node; node = node.parent) if (node === parent) return true;
   return false;
@@ -49,12 +50,12 @@ export const layerManager = {
     for (const entry of later(layer)) if (!entry.modal && belongsTo(entry.owner, layer.owner)) result.push(entry.surface());
     return result.filter((surface): surface is HTMLElement => surface !== null);
   },
-  portal(owner: ComponentInternalInstance | null, surface: Surface) {
+  portal(owner: ComponentOwner | null, surface: Surface) {
     const portal = { owner, surface };
     portals.add(portal);
     return () => portals.delete(portal);
   },
-  containsPortal(owner: ComponentInternalInstance | null, target: HTMLElement) {
+  containsPortal(owner: ComponentOwner | null, target: HTMLElement) {
     for (const portal of portals) {
       const node = portal.surface();
       if (node && belongsTo(portal.owner, owner) && target.contains(node)) return true;

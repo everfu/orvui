@@ -1,6 +1,6 @@
 # orvui development
 
-orvui is a Vue 3.5 component library. The active contract is in `design.md`; the product catalog and public API compatibility baseline live in `tools/catalog/`.
+orvui is a Vue 3.5 component library with a Vue 3.6 RC development Beta. The active contract is in `design.md`; the product catalog and public API compatibility baseline live in `tools/catalog/`.
 
 - Preserve the existing geometry, motion, 11 palette values and semantic CSS override behavior. Generate CSS with `pnpm theme:build`.
 - Implement internals independently against the frozen public behavior contract. Preserve actual implementation provenance and applicable copyright and license notices with the code and assets that use them.

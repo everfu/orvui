@@ -19,7 +19,7 @@
     "nuxt": "4.6.3",
     "shiki": "^3.23.0",
     "tailwindcss": "^4.0.0",
-    "vue": "^3.5.44",
+    "vue": "3.6.0-rc.14",
     "@fontsource/geist": "^5.3.0",
     "@fontsource/geist-mono": "5.3.0",
     "zod": "^4.6.7"

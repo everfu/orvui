@@ -1,3 +1,4 @@
+import { betaRelease, type ReleaseChannel } from "../release-channels";
 import {
   readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, rmSync,
 } from "node:fs";
@@ -72,7 +73,9 @@ export function validateRegistryItem(value: unknown): asserts value is RegistryI
 }
 
 /** Assemble once in memory so the published package and docs receive identical bytes. */
-export function createRegistry(options: { directory?: string; catalog?: ProductCatalog; strict?: boolean } = {}) {
+export function createRegistry(options: { directory?: string; catalog?: ProductCatalog; strict?: boolean; channel?: ReleaseChannel } = {}) {
+  const version = options.channel === "beta" ? betaRelease.version : packageVersion;
+  const itemUrl = (slug: string) => registryItemUrl(slug, options.channel === "beta" ? `${documentationOrigin}/beta/r` : registryBaseUrl);
   const directory = resolve(options.directory ?? "."),
     catalog = options.catalog ?? catalogData as ProductCatalog,
     root = resolve(directory, "packages/vue/src"),
@@ -130,8 +133,8 @@ export function createRegistry(options: { directory?: string; catalog?: ProductC
       title: item.name, description: item.description, ...bundle,
       files: [...bundle.files, ...noticeFiles],
       meta: {
-        product: "orvui", version: packageVersion, package: packageName,
-        category: category.slug, registry: registryItemUrl(item.slug),
+        product: "orvui", version, package: packageName,
+        category: category.slug, registry: itemUrl(item.slug),
       },
     };
     addItem(registryItem);
@@ -141,14 +144,14 @@ export function createRegistry(options: { directory?: string; catalog?: ProductC
       if (!alias || alias === item.slug || componentAliases.has(alias)) continue;
       componentAliases.add(alias);
       addItem({ ...registryItem, name: alias, title: example.name,
-        meta: { ...registryItem.meta, registry: registryItemUrl(alias) } });
+        meta: { ...registryItem.meta, registry: itemUrl(alias) } });
     }
   }
   const themeBundle = sourceClosure([resolve(root, "styles.css")], closureOptions);
   addItem({
     $schema: itemSchema, name: "orvui-theme", type: "registry:style", title: "orvui theme",
     ...themeBundle, files: [...themeBundle.files, ...noticeFiles],
-    meta: { product: "orvui", version: packageVersion, package: packageName, registry: registryItemUrl("orvui-theme") },
+    meta: { product: "orvui", version, package: packageName, registry: itemUrl("orvui-theme") },
   });
   if (options.strict && coverage.some((entry) => !entry.implemented || !entry.demo
     || entry.variants.some((variant) => !variant.implemented)))
@@ -174,6 +177,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   try {
     const result = createRegistry({ strict: process.argv.includes("--strict") });
     writeRegistryOutputs(result.documents, [resolve("apps/docs/public/r"), resolve("packages/vue/registry")]);
+    const beta = createRegistry({ strict: process.argv.includes("--strict"), channel: "beta" });
+    writeRegistryOutputs(beta.documents, [resolve("apps/docs/public/beta/r")]);
     const reports = resolve("artifacts/reports");
     mkdirSync(reports, { recursive: true });
     writeFileSync(resolve(reports, "coverage.json"), JSON.stringify({
