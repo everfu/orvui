@@ -1,14 +1,6 @@
-<p align="center">
-  <a href="https://orvui.efu.me">
-    <img src="./assets/readme-logo.svg" width="112" height="112" alt="orvui" />
-  </a>
-</p>
-
 <h1 align="center">orvui</h1>
 
-<p align="center">一个 Vue 3.5 动效组件库</p>
-<p align="center"><b>组合式 API · 主题可调 · TypeScript · 组件级源码安装</b></p>
-<p align="center">让界面更生动，让开发更轻松。</p>
+<p align="center">为 Vue 打造的动效组件库。可组合、可定制，源码由你掌控。</p>
 
 <p align="center">
   <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-3.5%2B-42b883?logo=vuedotjs&amp;logoColor=white" alt="Vue 3.5+" /></a>
@@ -16,60 +8,50 @@
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-18181b" alt="MIT License" /></a>
 </p>
 
-<p align="center">简体中文 · <a href="./README.en.md">English</a></p>
 <p align="center">
-  <a href="https://orvui.efu.me">在线文档</a> ·
-  <a href="https://orvui.efu.me/docs/installation">开始使用</a> ·
-  <a href="./CONTRIBUTING.md">参与贡献</a>
+  <a href="https://orvui.efu.me/">文档</a> ·
+  <a href="https://orvui.efu.me/components">组件</a> ·
+  <a href="https://orvui.efu.me/templates">模板</a> ·
+  <a href="https://orvui.efu.me/docs/installation">快速开始</a>
 </p>
 
-## 文档
+<p align="center">简体中文 · <a href="./README.en.md">English</a></p>
 
-[orvui.efu.me](https://orvui.efu.me) · [English documentation](https://orvui.efu.me/en/)
-
-从[安装指南](https://orvui.efu.me/docs/installation)开始，或了解[主题配置](https://orvui.efu.me/docs/theme)、[动效](https://orvui.efu.me/docs/motion-patterns)和 [AI 代理界面](https://orvui.efu.me/docs/ai-agents)。每个组件页面提供交互演示、使用代码、API 和可复制源码。
+<a href="https://orvui.efu.me/">
+  <img src="./apps/docs/public/social/orvui-v2.png" alt="orvui — Animated components for Vue. Motion, Blocks, AI Agents, Charts." width="1200" />
+</a>
 
 ## 特性
 
-### 从交互控件到完整界面
+- **丰富的组件** — 动效交互、组合模块、AI 代理界面与数据图表，提供交互演示、用法和 API。
+- **可定制主题** — 11 套配色、明暗模式与语义 CSS 变量，适配产品风格。
+- **自然的动效** — 共享弹簧与过渡参数，支持减少动态效果偏好。
+- **为 Vue 编写** — Vue 3.5、Composition API 与 TypeScript，支持 Vue 和 Nuxt 显式导入，可安装组件包或按需复制源码。
 
-110 个组件、72 个注册示例，覆盖四类常见界面需求。
+## 快速开始
 
-| 分类                                                | 内容                                 | 组件数 |
-| --------------------------------------------------- | ------------------------------------ | -----: |
-| [Motion](https://orvui.efu.me/components/motion)    | 按钮、选择器、浮层与动效交互         |     55 |
-| [Blocks](https://orvui.efu.me/components/blocks)    | 表单、文件上传、命令面板与组合模块   |     23 |
-| [AI Agents](https://orvui.efu.me/components/agents) | 消息、提示输入、工具调用与代理工作区 |     18 |
-| [Charts](https://orvui.efu.me/charts)               | 交互图表与数据可视化                 |     14 |
+需要 Vue 3.5+ 与 TypeScript 项目。完整环境要求与配置见[安装指南](https://orvui.efu.me/docs/installation)。
 
-### 主题可调，动效有回应
+### 安装组件源码
 
-内置 11 套配色，支持明暗主题和语义 CSS 变量覆盖。组件使用共享弹簧与过渡参数，并支持减少动态效果偏好。
-
-### 为 Vue 编写
-
-基于 Vue 3.5、Composition API 和 TypeScript，使用 `v-model`、slots 与组合函数组织交互。可以从包根入口、分类入口或组件入口导入；项目分别验证类型声明、SSR 和 hydration。
-
-### 按组件安装源码
-
-通过 shadcn-vue CLI 安装所需组件及其实际依赖，直接在项目中修改。组件包与源码注册表使用同一份 Vue 实现，保留适用的版权和许可证。
-
-## 安装
-
-### 组件源码
-
-在已配置 Tailwind CSS 4 和 `components.json` 的 Vue 项目中运行：
+先按[源码配置](https://orvui.efu.me/docs/installation#source-setup)设置 Tailwind CSS 4、`@` 路径别名和 `components.json`，然后添加组件：
 
 ```sh
 pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
 ```
 
-从安装后的公共入口导入组件，并在应用入口导入一次主题样式：
+在应用的样式入口（如 `src/style.css`）导入 Tailwind 和组件主题，并确保 `src/main.ts` 已导入该样式文件：
+
+```css
+@import "tailwindcss";
+@import "./components/orvui/styles.css";
+```
+
+在页面中使用：
 
 ```vue
 <script setup lang="ts">
 import { Button } from "@/components/orvui/motion/button";
-import "@/components/orvui/styles.css";
 </script>
 
 <template>
@@ -77,24 +59,17 @@ import "@/components/orvui/styles.css";
 </template>
 ```
 
-其他组件的安装命令见各自文档页面，完整初始化步骤见[安装指南](https://orvui.efu.me/docs/installation)。
+其他组件及变体的安装命令见各自[文档页面](https://orvui.efu.me/components)。
 
-### 本地组件包
+### 使用组件包
 
-`@orvui/vue` 当前尚未发布到 npm。可以先在 orvui 仓库根目录打包：
+组件包自带预编译样式，无需额外配置 Tailwind。安装方式见[组件包指南](https://orvui.efu.me/docs/installation#package)；发布前使用本地归档。
 
-```sh
-pnpm install
-pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
-```
-
-然后在你的 Vue 项目中安装生成的归档，将路径替换为实际位置：
+将路径替换为实际归档位置：
 
 ```sh
-pnpm add /path/to/orvui-vue-0.1.0.tgz
+pnpm add /absolute/path/to/output/orvui-vue-0.1.0.tgz
 ```
-
-使用组件包时导入一次预编译样式，无需在消费项目中配置 Tailwind：
 
 ```vue
 <script setup lang="ts">
@@ -107,26 +82,28 @@ import "@orvui/vue/style.css";
 </template>
 ```
 
-支持在 Vue 和 Nuxt 项目中使用。在 Nuxt 页面或组件中按上述方式显式导入组件，并在 `nuxt.config.ts` 的 `css` 中添加 `"@orvui/vue/style.css"`，统一加载组件包样式。
+在应用入口导入一次组件包样式。Nuxt 项目通过 `nuxt.config.ts` 的 `css` 加载该样式，组件仍显式导入。
+
+## 文档
+
+[安装指南](https://orvui.efu.me/docs/installation) · [主题配置](https://orvui.efu.me/docs/theme) · [动效指南](https://orvui.efu.me/docs/motion-patterns) · [AI 代理界面](https://orvui.efu.me/docs/ai-agents)
+
+浏览 [Motion](https://orvui.efu.me/components/motion)、[Blocks](https://orvui.efu.me/components/blocks)、[AI Agents](https://orvui.efu.me/components/agents) 和 [Charts](https://orvui.efu.me/charts)，或体验[应用模板](https://orvui.efu.me/templates)。
 
 ## 本地开发
 
-使用 `package.json` 指定的 pnpm 版本：
+使用 `package.json` 指定的 pnpm 版本，在仓库根目录运行：
 
 ```sh
 pnpm install
 pnpm docs:dev
 ```
 
-文档站使用 Nuxt SSR，开发地址以 Nuxt 启动时的输出为准，通常为 `http://localhost:3000`。运行 `pnpm docs:build` 构建文档站，使用 `pnpm docs:preview` 预览；`pnpm build` 构建整个工作区。
-
-`pnpm docs:dev`、`pnpm docs:build`、`pnpm docs:preview` 和 `pnpm docs:typecheck` 直接调用 Nuxt 原生命令。新增组件或修改 API、演示导入及生成资源来源后，运行 `pnpm docs:resources`；完整工作区构建 `pnpm build` 会自动生成。使用 `pnpm check` 依次执行构建、类型检查和测试。
-
-开发、测试与构建配置见 [文档站说明](./apps/docs/README.md)。
+打开 Nuxt 输出的开发地址。构建与检查命令见[文档站说明](./apps/docs/README.md)。
 
 ## 贡献
 
-欢迎改进组件、示例和文档。请先阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)，了解目录约定、兼容要求、基础检查与本地分发构建；外观和行为约定见 [design.md](./design.md)。
+欢迎贡献组件、示例和文档。请先阅读[贡献指南](./CONTRIBUTING.md)与[设计约定](./design.md)。
 
 ## 许可
 

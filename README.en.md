@@ -1,14 +1,6 @@
-<p align="center">
-  <a href="https://orvui.efu.me/en/">
-    <img src="./assets/readme-logo.svg" width="112" height="112" alt="orvui" />
-  </a>
-</p>
-
 <h1 align="center">orvui</h1>
 
-<p align="center">An animated component library for Vue 3.5</p>
-<p align="center"><b>Composable APIs · Customizable themes · TypeScript · Component source installation</b></p>
-<p align="center">Bring interfaces to life and make development easier.</p>
+<p align="center">Animated components for Vue. Composable, customizable, with source you own.</p>
 
 <p align="center">
   <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-3.5%2B-42b883?logo=vuedotjs&amp;logoColor=white" alt="Vue 3.5+" /></a>
@@ -16,60 +8,50 @@
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-18181b" alt="MIT License" /></a>
 </p>
 
-<p align="center"><a href="./README.md">简体中文</a> · English</p>
 <p align="center">
   <a href="https://orvui.efu.me/en/">Documentation</a> ·
-  <a href="https://orvui.efu.me/en/docs/installation">Getting started</a> ·
-  <a href="./CONTRIBUTING.md">Contributing</a>
+  <a href="https://orvui.efu.me/en/components">Components</a> ·
+  <a href="https://orvui.efu.me/en/templates">Templates</a> ·
+  <a href="https://orvui.efu.me/en/docs/installation">Quick start</a>
 </p>
 
-## Documentation
+<p align="center"><a href="./README.md">简体中文</a> · English</p>
 
-[orvui.efu.me/en](https://orvui.efu.me/en/) · [中文文档](https://orvui.efu.me)
-
-Start with the [installation guide](https://orvui.efu.me/en/docs/installation), or explore [themes](https://orvui.efu.me/en/docs/theme), [motion](https://orvui.efu.me/en/docs/motion-patterns) and [AI agent interfaces](https://orvui.efu.me/en/docs/ai-agents). Each component page includes interactive demos, usage examples, API documentation and copyable source.
+<a href="https://orvui.efu.me/en/">
+  <img src="./apps/docs/public/social/orvui-v2.png" alt="orvui — Animated components for Vue. Motion, Blocks, AI Agents, Charts." width="1200" />
+</a>
 
 ## Features
 
-### From interactive controls to complete interfaces
+- **Components for everyday interfaces** — Animated controls, composed blocks, AI agent interfaces and charts, with interactive demos, usage examples and API documentation.
+- **Customizable themes** — Eleven palettes, light and dark modes, and semantic CSS variables to match your product.
+- **Responsive motion** — Shared springs and transitions that respect reduced-motion preferences.
+- **Built for Vue** — Vue 3.5, the Composition API and TypeScript. Use explicit imports in Vue and Nuxt, install the package or copy individual component sources.
 
-110 components and 72 registered examples cover four categories.
+## Quick start
 
-| Category                                               | Contents                                                 | Components |
-| ------------------------------------------------------ | -------------------------------------------------------- | ---------: |
-| [Motion](https://orvui.efu.me/en/components/motion)    | Buttons, pickers, overlays and animated interactions     |         55 |
-| [Blocks](https://orvui.efu.me/en/components/blocks)    | Forms, uploads, command palettes and composed interfaces |         23 |
-| [AI Agents](https://orvui.efu.me/en/components/agents) | Messages, prompt inputs, tool calls and agent workspaces |         18 |
-| [Charts](https://orvui.efu.me/en/charts)               | Interactive charts and data visualization                |         14 |
-
-### Customizable themes and responsive motion
-
-Eleven palettes support light and dark themes, with semantic CSS variables for overrides. Components share spring and transition parameters and respect reduced-motion preferences.
-
-### Written for Vue
-
-Built with Vue 3.5, the Composition API and TypeScript. Compose interactions with `v-model`, slots and composables, and import from the package root, a category or an individual component entry. Type declarations, SSR and hydration are verified separately.
+Use a Vue 3.5+ TypeScript project. See the [installation guide](https://orvui.efu.me/en/docs/installation) for environment requirements and complete setup.
 
 ### Install component source
 
-Use the shadcn-vue CLI to install individual components and their actual dependencies, then adapt them in your own project. Package exports and registry items use the same Vue implementation and carry the applicable copyright and license notices.
-
-## Installation
-
-### Component source
-
-In a Vue project with Tailwind CSS 4 and a configured `components.json`, run:
+Follow [source setup](https://orvui.efu.me/en/docs/installation#source-setup) to configure Tailwind CSS 4, the `@` alias and `components.json`, then add a component:
 
 ```sh
 pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
 ```
 
-Import from the installed public entry and load the theme stylesheet once in your application:
+Import Tailwind and the component theme in your application stylesheet (such as `src/style.css`), and ensure `src/main.ts` imports that stylesheet:
+
+```css
+@import "tailwindcss";
+@import "./components/orvui/styles.css";
+```
+
+Use it in your page:
 
 ```vue
 <script setup lang="ts">
 import { Button } from "@/components/orvui/motion/button";
-import "@/components/orvui/styles.css";
 </script>
 
 <template>
@@ -77,24 +59,17 @@ import "@/components/orvui/styles.css";
 </template>
 ```
 
-Find other installation commands on the component pages. See the [installation guide](https://orvui.efu.me/en/docs/installation) for the complete setup.
+Find installation commands for other components and variants on their [documentation pages](https://orvui.efu.me/en/components).
 
-### Local package
+### Use the component package
 
-`@orvui/vue` has not been published to npm yet. Build a local archive from the orvui repository root:
+The package includes compiled styles and requires no additional Tailwind setup. Follow the [package guide](https://orvui.efu.me/en/docs/installation#package) to install it; use a local archive before publication.
 
-```sh
-pnpm install
-pnpm --filter @orvui/vue pack --pack-destination "$PWD/artifacts/packages/0.1.0"
-```
-
-Then install that archive in your Vue project, replacing the path with its actual location:
+Replace the path with your archive location:
 
 ```sh
-pnpm add /path/to/orvui-vue-0.1.0.tgz
+pnpm add /absolute/path/to/output/orvui-vue-0.1.0.tgz
 ```
-
-Import the precompiled stylesheet once. Package consumers do not need to configure Tailwind:
 
 ```vue
 <script setup lang="ts">
@@ -107,24 +82,28 @@ import "@orvui/vue/style.css";
 </template>
 ```
 
-Supports Vue and Nuxt projects. Explicitly import components in Nuxt pages or components as shown above, and add `"@orvui/vue/style.css"` to `css` in `nuxt.config.ts` to load the package styles globally.
+Import the package stylesheet once in your application entry. In Nuxt, load it through `css` in `nuxt.config.ts` and import components explicitly.
+
+## Documentation
+
+[Installation](https://orvui.efu.me/en/docs/installation) · [Theming](https://orvui.efu.me/en/docs/theme) · [Motion](https://orvui.efu.me/en/docs/motion-patterns) · [AI agent interfaces](https://orvui.efu.me/en/docs/ai-agents)
+
+Explore [Motion](https://orvui.efu.me/en/components/motion), [Blocks](https://orvui.efu.me/en/components/blocks), [AI Agents](https://orvui.efu.me/en/components/agents) and [Charts](https://orvui.efu.me/en/charts), or try the [application templates](https://orvui.efu.me/en/templates).
 
 ## Local development
 
-Use the pnpm version specified in `package.json`:
+Use the pnpm version specified in `package.json` and run from the repository root:
 
 ```sh
 pnpm install
 pnpm docs:dev
 ```
 
-The Nuxt SSR documentation uses the development address printed by Nuxt, normally `http://localhost:3000`. Use `pnpm docs:build` to build the docs, `pnpm docs:preview` to preview them, and `pnpm build` to build the whole workspace. See the [docs README](./apps/docs/README.md) for basic checks and build configuration.
-
-`pnpm docs:dev`, `pnpm docs:build`, `pnpm docs:preview` and `pnpm docs:typecheck` call Nuxt directly. Run `pnpm docs:resources` after adding components or changing APIs, demo imports or other generated resource inputs; the full workspace build (`pnpm build`) generates them automatically. `pnpm check` runs the build, type checks and tests in sequence.
+Open the development URL printed by Nuxt. See the [docs README](./apps/docs/README.md) for build and validation commands.
 
 ## Contributing
 
-Contributions to components, examples and documentation are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) (Chinese) for layout conventions, compatibility requirements, basic checks and local package builds. See [design.md](./design.md) for visual and behavioral contracts.
+Contributions to components, examples and documentation are welcome. Read the [contributing guide](./CONTRIBUTING.md) (Chinese) and [design contract](./design.md) first.
 
 ## License
 
