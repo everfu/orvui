@@ -6,12 +6,15 @@ import catalog from "../../../../../tools/catalog/components.json";
 import { designSystemCss } from "../../../../../packages/vue/src/theme/stylesheet";
 import { applyGuideEditorial } from "./guide-editorial";
 import { webInstallationPage } from "./installation-data";
+import { aiGuidePages } from "./ai-guide-data";
 
 export type SitePageSlug =
   | "introduction"
   | "installation"
   | "theme"
   | "ai-agents"
+  | "mcp-server"
+  | "agent-skills"
   | "motion-patterns"
   | "openui"
   | "changelog";
@@ -357,8 +360,8 @@ export const sitePages: SitePageDefinition[] = [
     eyebrow: bi("助手指南", "Agent guide"),
     title: bi("面向 AI 助手", "For AI agents"),
     description: bi(
-      "orvui 提供静态、便于助手读取的接口。将 orvui 指引保存为本地 skill，或直接读取注册表。编码助手（Claude、Codex、Cursor、Amp）可以列出组件、检查源码与依赖，再通过 shadcn-vue 安装到用户项目。",
-      "orvui exposes a static, agent-friendly surface. Save the orvui instructions as a local skill, or use the registry directly. Coding agents (Claude, Codex, Cursor, Amp) can list components, inspect source and dependencies, then install into the user's project with shadcn-vue.",
+      '通过 <a href="/docs/mcp-server">MCP 服务器</a>查询组件，或安装完整的 <a href="/docs/agent-skills">Agent Skills</a>，按需加载组件知识。本页保留直接读取注册表与旧版 skill 的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。',
+      'Query components with the <a href="/docs/mcp-server">MCP Server</a> or install the complete <a href="/docs/agent-skills">Agent Skills</a> to load component knowledge on demand. This page retains the direct registry and legacy skill workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.',
     ),
     sections: [
       {
@@ -674,6 +677,7 @@ export const sitePages: SitePageDefinition[] = [
   },
 ];
 
+sitePages.push(...aiGuidePages);
 applyGuideEditorial(sitePages, themeCss);
 
 export function getSitePage(slug: SitePageSlug) {
@@ -741,6 +745,8 @@ export function guideNextPages(slug: SitePageSlug) {
   const next: Partial<Record<SitePageSlug, SitePageSlug[]>> = {
     installation: ["theme", "motion-patterns"],
     "ai-agents": ["installation", "openui"],
+    "mcp-server": ["agent-skills", "ai-agents"],
+    "agent-skills": ["mcp-server", "installation"],
     openui: ["ai-agents", "theme"],
     "motion-patterns": ["theme", "installation"],
   };

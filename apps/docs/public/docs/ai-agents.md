@@ -1,6 +1,6 @@
 # 面向 AI 助手
 
-orvui 提供静态、便于助手读取的接口。将 orvui 指引保存为本地 skill，或直接读取注册表。编码助手（Claude、Codex、Cursor、Amp）可以列出组件、检查源码与依赖，再通过 shadcn-vue 安装到用户项目。
+通过 [MCP 服务器](/docs/mcp-server)查询组件，或安装完整的 [Agent Skills](/docs/agent-skills)，按需加载组件知识。本页保留直接读取注册表与旧版 skill 的流程。编码助手可以检查源码与依赖，再通过 shadcn-vue 安装到用户项目。
 
 > 产品版本: 0.1.0
 

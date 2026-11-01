@@ -27,6 +27,8 @@ const guideDefinitions = [
   ["/docs/theme", "主题配置", "Theme Setup"],
   ["/docs/motion-patterns", "动效指南", "Motion Guides"],
   ["/docs/ai-agents", "代理指南", "Agent Guide"],
+  ["/docs/mcp-server", "MCP 服务器", "MCP Server"],
+  ["/docs/agent-skills", "Agent Skills", "Agent Skills"],
   ["/docs/openui", "OpenUI", "OpenUI"],
 ] as const;
 export function useSiteNavigation(props: Props) {

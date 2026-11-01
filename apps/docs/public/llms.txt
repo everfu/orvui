@@ -9,6 +9,8 @@
 - [For AI agents](https://orvui.efu.me/docs/ai-agents.md)
 - [Use orvui with OpenUI](https://orvui.efu.me/docs/openui.md)
 - [Motion that explains, not distracts](https://orvui.efu.me/docs/motion-patterns.md)
+- [MCP Server](https://orvui.efu.me/docs/mcp-server.md)
+- [Agent Skills](https://orvui.efu.me/docs/agent-skills.md)
 
 ## Registry
 - [Registry index](https://orvui.efu.me/r/registry.json)

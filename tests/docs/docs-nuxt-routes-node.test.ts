@@ -11,13 +11,14 @@ const pages = createDocsPages();
 
 describe("shared documentation route metadata", () => {
   it("covers every current bilingual page without including public downloads", () => {
-    expect(pages).toHaveLength(258);
     expect(pages.map((page) => page.path).sort()).toEqual(
       [
         ...routePaths,
         "/components/motion/table-of-contents",
         "/en/components/motion/table-of-contents",
         ...["", "/en"].flatMap((prefix) => [
+          prefix + "/docs/mcp-server",
+          prefix + "/docs/agent-skills",
           prefix + "/components",
           prefix + "/templates",
           ...["dashboard", "mail", "chat", "finances", "crm"].map(

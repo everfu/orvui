@@ -19,6 +19,16 @@ artifacts/
 logs/
 *.log
 
+# Rebuilt by docs:resources / ai:build from the canonical catalog and registry.
+/packages/mcp/data/
+/skills/orvui/references/
+/skills/orvui/LICENSE
+/skills/orvui/NOTICE
+/apps/docs/public/orvui-agent/references/
+/apps/docs/public/orvui-agent/orvui-skill.zip
+/apps/docs/public/orvui-agent/LICENSE
+/apps/docs/public/orvui-agent/NOTICE
+
 # Local design QA notes
 /design-qa.md
 

@@ -76,6 +76,8 @@ export const guideGroups = [
     zh: "AI 接入",
     en: "Building with AI",
     pages: [
+      { path: "/docs/mcp-server", zh: "MCP 服务器", en: "MCP Server" },
+      { path: "/docs/agent-skills", zh: "Agent Skills", en: "Agent Skills" },
       { path: "/docs/ai-agents", zh: "代理指南", en: "Agent guide" },
       { path: "/docs/openui", zh: "OpenUI", en: "OpenUI" },
     ],

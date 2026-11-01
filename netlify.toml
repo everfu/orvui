@@ -3,6 +3,10 @@
   command = "pnpm --dir ../.. build"
   publish = "dist"
 
+[functions]
+  directory = ".netlify/functions-internal"
+  node_bundler = "esbuild"
+
 [build.environment]
   NITRO_PRESET = "netlify"
   NODE_VERSION = "24"

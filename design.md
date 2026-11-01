@@ -78,6 +78,18 @@ Popover keeps its trigger-to-panel liquid morph and existing springs, spacing an
 
 ## Implementation
 
+### AI access: MCP and component skills
+
+One versioned data pipeline derives component APIs, package/copy-source usage, guidance, source closures, styles, themes and licenses from the existing catalog and documentation/registry generators. It must cover every catalog component and registered variant, reject missing references or mismatched product versions, and never rewrite frozen compatibility fixtures. The documentation, MCP and skills share these sources.
+
+The default MCP connection is the public read-only Streamable HTTP endpoint at `https://orvui.efu.me/mcp`, hosted alongside the documentation on Netlify. It requires no token or local installation. Each request creates a fresh SDK v2 server and transport with JSON responses, no persistent sessions, a 64 KiB request body limit, public browser CORS and a platform limit of 100 requests per minute per IP/domain. GET/SSE connections are rejected. The function bundles the generated data at build time and logs tool names and product versions without user payloads. Documentation deployments update the online snapshot.
+
+`@orvui/vue-mcp` retains its independent Node.js 22.18+ stdio package and `orvui-mcp` executable as an offline fallback. Both transports reuse the same seven tools and data: `list_components`, `get_component_docs`, `get_component_source_code`, `get_component_source_styles`, `get_theme_variables`, `get_docs`, `get_component_skill`. Component queries use catalog slugs; documentation defaults to Chinese with English available. Responses identify the product version and source. Unknown components, variants and paths fail explicitly. Reads stay within generated data, stdio stdout contains only protocol messages, and no automatic app upgrades or client configuration edits occur. Verify real HTTP handshakes, all tools, parallel requests, legacy-client compatibility, CORS, malformed/oversized requests, the deployed function bundle and the public endpoint separately from local stdio checks.
+
+The `orvui` skill in `skills/orvui` has one concise entrypoint, a versioned index and per-component Chinese/English references loaded on demand. References reuse actual selection guidance, public imports, state bindings, variants, accessibility, SSR, motion and limitations. Package and copy-source workflows retain relative dependencies, semantic theme overrides and actual provenance/notices. Application services remain the consumer's responsibility. Provide a complete offline skill archive and retain `/orvui-agent/SKILL.md` with online fallback references. Bilingual MCP and Skills guides belong to the existing AI navigation group; preserve the legacy agent guide and synchronize Markdown, search, outlines and `llms.txt`.
+
+Validate coverage and version consistency, source/license fidelity, a real MCP client handshake and tool calls, offline packed-package startup from another directory, skill archive references, consumer examples and bilingual desktop/mobile SSR/hydration. Local archives belong in `artifacts/packages/<version>/`; reports belong in `artifacts/reports/`. Publication, push, deployment and client configuration changes require separate authorization.
+
 Maintain the public behavior contract across state, overlays, layout, renderers and examples. Preserve applicable copyright and license notices with the implementation and assets that use them. Documentation cleanup does not change implementation provenance.
 
 Builds and tests are self-contained within the project. Documentation describes current orvui behavior.

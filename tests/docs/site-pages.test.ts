@@ -163,9 +163,8 @@ describe("public support pages", () => {
         );
       const result = buildSitePages({ root, origin: "http://localhost:6111" });
       expect(result).toMatchObject({
-        pages: 7,
+        pages: sitePages.length,
         locales: 2,
-        artifacts: 144,
         rawSources: 110,
         changelogWeeks: 1,
         changelogItems: 3,

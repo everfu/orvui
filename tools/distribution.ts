@@ -6,6 +6,7 @@ export const packageVersion = library.version;
 export const packageArchiveName = `${packageName.replace(/^@/, "").replaceAll("/", "-")}-${packageVersion}.tgz`;
 export const shadcnVersion = "2.8.2";
 export const documentationOrigin = "https://orvui.efu.me";
+export const mcpEndpointUrl = `${documentationOrigin}/mcp`;
 export const registryBaseUrl = `${documentationOrigin}/r`;
 
 export function registryBaseForSite(siteUrl?: string): string {

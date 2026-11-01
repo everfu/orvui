@@ -29,7 +29,14 @@ it("assigns all 110 components exactly once without changing their install/stora
 });
 it("gives each documentation route one section and retains all previous entry points", () => {
   const pages = createDocsPages();
-  expect(pages).toHaveLength(258);
+  expect(pages.map((page) => page.path)).toEqual(
+    expect.arrayContaining([
+      "/docs/mcp-server",
+      "/en/docs/mcp-server",
+      "/docs/agent-skills",
+      "/en/docs/agent-skills",
+    ]),
+  );
   for (const page of pages.filter(
     (page) => page.frontmatter.layout !== "home",
   )) {

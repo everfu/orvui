@@ -1,6 +1,6 @@
 # For AI agents
 
-orvui exposes a static, agent-friendly surface. Save the orvui instructions as a local skill, or use the registry directly. Coding agents (Claude, Codex, Cursor, Amp) can list components, inspect source and dependencies, then install into the user's project with shadcn-vue.
+Query components with the [MCP Server](/en/docs/mcp-server) or install the complete [Agent Skills](/en/docs/agent-skills) to load component knowledge on demand. This page retains the direct registry and legacy skill workflow. Coding agents can inspect source and dependencies before installing into your project with shadcn-vue.
 
 > Product version: 0.1.0
 
