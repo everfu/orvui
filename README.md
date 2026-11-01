@@ -63,12 +63,10 @@ import { Button } from "@/components/orvui/motion/button";
 
 ### 使用组件包
 
-组件包自带预编译样式，无需额外配置 Tailwind。安装方式见[组件包指南](https://orvui.efu.me/docs/installation#package)；发布前使用本地归档。
-
-将路径替换为实际归档位置：
+组件包自带预编译样式，无需额外配置 Tailwind。直接从 npm 安装，完整步骤见[组件包指南](https://orvui.efu.me/docs/installation#package)。
 
 ```sh
-pnpm add /absolute/path/to/output/orvui-vue-0.1.0.tgz
+pnpm add @orvui/vue
 ```
 
 ```vue

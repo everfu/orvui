@@ -34,14 +34,10 @@ pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/tool-approval.json
 
 ### 组件包
 
-npm 发布后使用下方命令；发布前可安装验证后的本地归档。
+在你的应用目录从 npm 安装已发布的组件包。
 
 ```bash
 pnpm add @orvui/vue
-```
-
-```bash
-pnpm add ./orvui-vue-0.1.0.tgz
 ```
 
 ```bash

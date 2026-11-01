@@ -1,4 +1,4 @@
-import { packageName, packageArchiveName, packageVersion } from "../../../../../tools/distribution";
+import { packageName, packageVersion } from "../../../../../tools/distribution";
 import type {
   SiteBlock,
   SitePageDefinition,
@@ -67,24 +67,29 @@ export const webInstallationPage: SitePageDefinition = {
       ),
     ]),
     section("package", "方式一：组件包", "Option 1: component package", [
-      p("npm 发布后可直接安装组件包。发布前使用下方已验证的本地归档，或使用 shadcn-vue 安装源码。", "After npm publication, install the package directly. Before publication, use the verified local archive below or install source with shadcn-vue."),
+      p(
+        "组件包已发布到 npm，在你的 Vue 或 Nuxt 应用目录直接安装。它包含预构建组件和完整样式，无需额外配置 Tailwind。",
+        "The package is available on npm. Install it directly in your Vue or Nuxt application. It includes prebuilt components and complete styles, with no additional Tailwind setup.",
+      ),
       code(`pnpm add ${packageName}`),
       p(
-        "适合直接使用已构建组件。在 orvui 仓库根目录安装依赖、构建 Web 库，并将归档输出到你选择的目录。将下面的绝对路径替换为实际位置。",
-        "Use the built components directly. From the orvui repository root, install dependencies, build the Web library, and pack it into a directory of your choice. Replace the absolute paths below with your actual locations.",
+        `固定安装 ${packageVersion}，或将已有项目从旧版升级到 ${packageVersion}，使用以下命令。升级后保留现有导入与主题覆盖，并运行项目的类型检查和构建。`,
+        `To pin version ${packageVersion}, or upgrade an existing application from an earlier release to ${packageVersion}, use the command below. Keep your imports and theme overrides, then run your application's type check and build.`,
       ),
-      code(
-        "pnpm install\npnpm build:lib\npnpm --filter @orvui/vue pack --pack-destination /absolute/path/to/output",
-      ),
-      p(
-        `切回使用组件的 Vue 项目，安装本地归档。当前版本为 ${packageVersion}；以打包命令的实际输出为准。`,
-        `Back in the consuming Vue project, install the local archive for version ${packageVersion}; use the filename printed by the packing command.`,
-      ),
-      code(`pnpm add /absolute/path/to/output/${packageArchiveName}`),
+      code(`pnpm add ${packageName}@${packageVersion}`),
       code(webPackageApp, "src/App.vue", "vue"),
       p(
         "在应用入口或根组件导入一次 <code>@orvui/vue/style.css</code>。它已包含组件所需样式与 Tailwind 基础层；使用组件包无需另配 Tailwind。明暗模式由文档根节点上的 <code>.dark</code> 类控制。组件页选择“组件包”用法，使用 <code>@orvui/vue/…</code> 按需导入。",
         "Import <code>@orvui/vue/style.css</code> once in your application entry or root component. It includes component styles and the Tailwind base layer; the package path needs no separate Tailwind setup. A <code>.dark</code> class on the document root enables dark mode. Select Package Usage on a component page for <code>@orvui/vue/…</code> imports.",
+      ),
+      p(
+        "Nuxt 项目在 <code>nuxt.config.ts</code> 的 <code>css</code> 中加载样式，组件仍在页面或组件中显式导入，无需全局注册。",
+        "In Nuxt, load the stylesheet through <code>css</code> in <code>nuxt.config.ts</code>. Import components explicitly in your pages or components; global registration is not required.",
+      ),
+      code(
+        "export default defineNuxtConfig({\n  css: ['@orvui/vue/style.css'],\n})",
+        "nuxt.config.ts",
+        "typescript",
       ),
     ]),
     section(
@@ -108,13 +113,27 @@ export const webInstallationPage: SitePageDefinition = {
           "For a new project using the orvui registry, create components.json at the project root with the minimal configuration below. Leave baseColor empty because orvui supplies complete theme tokens. Existing shadcn-vue projects can retain their configuration.",
         ),
         code(
-          JSON.stringify({
-            $schema: "https://shadcn-vue.com/schema.json",
-            style: "new-york",
-            typescript: true,
-            tailwind: { css: "src/style.css", baseColor: "", cssVariables: true },
-            aliases: { components: "@/components", utils: "@/lib/utils", ui: "@/components/ui", lib: "@/lib", composables: "@/composables" },
-          }, null, 2),
+          JSON.stringify(
+            {
+              $schema: "https://shadcn-vue.com/schema.json",
+              style: "new-york",
+              typescript: true,
+              tailwind: {
+                css: "src/style.css",
+                baseColor: "",
+                cssVariables: true,
+              },
+              aliases: {
+                components: "@/components",
+                utils: "@/lib/utils",
+                ui: "@/components/ui",
+                lib: "@/lib",
+                composables: "@/composables",
+              },
+            },
+            null,
+            2,
+          ),
           "components.json",
           "json",
         ),
@@ -139,9 +158,7 @@ export const webInstallationPage: SitePageDefinition = {
           "源码注册表由 <code>orvui.efu.me</code> 提供。首次使用时先完成上面的源码配置，再运行组件页提供的完整命令；本地开发可以使用当前文档服务的 /r/ 地址。",
           "The source registry is served at <code>orvui.efu.me</code>. Complete the source setup above, then run the complete command from the component page. Local development can use the documentation server’s /r/ endpoint.",
         ),
-        code(
-          "pnpm dlx shadcn-vue@2.8.2 add {{origin}}/r/button.json",
-        ),
+        code("pnpm dlx shadcn-vue@2.8.2 add {{origin}}/r/button.json"),
         p(
           "安装项包含组件、相对依赖、主题样式和包依赖，文件默认位于 <code>src/components/orvui/</code>。某些变体需要同一条命令中的多个安装项；使用组件页所选示例给出的命令和“此示例还需要”依赖。",
           "An item includes component source, relative helpers, theme styles and package dependencies, under <code>src/components/orvui/</code>. Some variants need multiple items in one command. Use the command and “This example also needs” dependencies shown for the selected example.",

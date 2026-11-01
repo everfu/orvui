@@ -63,12 +63,10 @@ Find installation commands for other components and variants on their [documenta
 
 ### Use the component package
 
-The package includes compiled styles and requires no additional Tailwind setup. Follow the [package guide](https://orvui.efu.me/en/docs/installation#package) to install it; use a local archive before publication.
-
-Replace the path with your archive location:
+The package includes compiled styles and requires no additional Tailwind setup. Install directly from npm; follow the [package guide](https://orvui.efu.me/en/docs/installation#package) for the complete setup.
 
 ```sh
-pnpm add /absolute/path/to/output/orvui-vue-0.1.0.tgz
+pnpm add @orvui/vue
 ```
 
 ```vue

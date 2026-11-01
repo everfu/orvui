@@ -1,6 +1,6 @@
 # orvui updates
 
-Local orvui development notes and compatibility changes. This version remains in development and has not been published to npm.
+orvui release notes and compatibility changes. The component package is available on npm; see the installation guide to get started.
 
 > Product version: 0.1.0
 

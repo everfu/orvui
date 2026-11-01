@@ -128,7 +128,7 @@ it("installs Dock's real demo-only Lucide dependency alongside the registry CLI 
   expect(wrapper.findComponent({ name: "RegistryFiles" }).exists()).toBe(false);
   expect(fetcher).not.toHaveBeenCalled();
 });
-it("lists package demo imports separately from the unpublished tarball without fetching registry files", async () => {
+it("lists package demo imports separately from the published package without fetching registry files", async () => {
   const lucide = `lucide-vue-next@${packageManifest.dependencies["lucide-vue-next"]}`;
   const wrapper = mount(SiteInstallBlock, {
     props: {
@@ -141,7 +141,7 @@ it("lists package demo imports separately from the unpublished tarball without f
     global,
   });
   wrappers.push(wrapper);
-  expect(wrapper.text()).toContain("发布前");
+  expect(wrapper.text()).not.toMatch(/发布前|\.tgz/);
   expect(wrapper.text()).toContain("此示例还需要：");
   expect(wrapper.findAll("pre").map((block) => block.text())).toEqual([
     "pnpm add @orvui/vue",
@@ -151,13 +151,13 @@ it("lists package demo imports separately from the unpublished tarball without f
   expect(wrapper.text()).not.toContain("unused-registry-only");
   expect(fetcher).not.toHaveBeenCalled();
 });
-it("provides unpublished local-package installation and its one-time stylesheet without fetching registry files", async () => {
+it("provides npm package installation and its one-time stylesheet without fetching registry files", async () => {
   const wrapper = mount(SiteInstallBlock, {
     props: { slug: "button", mode: "package", en: true },
     global,
   });
   wrappers.push(wrapper);
-  expect(wrapper.text()).toContain("Before publication");
+  expect(wrapper.text()).not.toMatch(/Before publication|\.tgz/);
   expect(wrapper.findAll("pre").map((code) => code.text())).toEqual([
     "pnpm add @orvui/vue",
     "import '@orvui/vue/style.css';",

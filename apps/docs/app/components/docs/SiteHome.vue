@@ -56,18 +56,18 @@ const faqCopy = [
     zh: "如何安装组件？",
     en: "How do I install a component?",
     answerZh:
-      "进入组件页面，运行当前站点提供的 shadcn-vue 安装命令。npm 发布后也可以安装 @orvui/vue 组件包。",
+      "运行 pnpm add @orvui/vue 安装组件包，或进入组件页面使用 shadcn-vue 按需复制源码。",
     answerEn:
-      "Open a component page and run its shadcn-vue command. After npm publication, you can also install the @orvui/vue package.",
+      "Run pnpm add @orvui/vue to install the package, or open a component page to copy individual components with shadcn-vue.",
   },
   {
     id: "stack",
     zh: "项目需要哪些依赖？",
     en: "What does my project need?",
     answerZh:
-      "Vue 3.5、Tailwind CSS 4 和 Motion for Vue。组件所需的其他依赖会随注册表安装，公共主题与令牌请参考安装指南。",
+      "需要 Vue 3.5+。组件包自带预编译样式；复制源码需要 Tailwind CSS 4，组件依赖随注册表安装。公共主题与令牌请参考安装指南。",
     answerEn:
-      "Vue 3.5, Tailwind CSS 4 and Motion for Vue. Additional component dependencies are included by the registry; the setup guide covers shared theme tokens.",
+      "Vue 3.5+ is required. The package includes compiled styles; copied source requires Tailwind CSS 4, with component dependencies installed by the registry. See the setup guide for shared theme tokens.",
   },
   {
     id: "customize",

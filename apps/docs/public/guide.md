@@ -1,6 +1,6 @@
 # 开始使用 orvui
 
-为 Vue 3.5 应用添加可组合的交互组件。选择一个组件，安装源码或本地组件包，再按你的产品需求调整外观与行为。
+为 Vue 3.5 应用添加可组合的交互组件。选择一个组件，安装源码或 npm 组件包，再按你的产品需求调整外观与行为。
 
 
 <a id="installation"></a>
@@ -19,7 +19,7 @@
 pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
 ```
 
-> **提示**: 组件包尚未发布到 npm。组件包安装请使用安装指南中的本地归档流程。
+> **提示**: 组件包已发布到 npm；希望使用预构建组件时，可按安装指南直接安装 @orvui/vue。
 
 <a id="import-components"></a>
 

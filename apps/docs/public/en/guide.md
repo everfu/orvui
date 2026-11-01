@@ -1,6 +1,6 @@
 # Get started with orvui
 
-Add composable, interactive components to a Vue 3.5 application. Choose a component, install its source or a local package, and adapt its appearance and behavior to your product.
+Add composable, interactive components to a Vue 3.5 application. Choose a component, install its source or npm package, and adapt its appearance and behavior to your product.
 
 
 <a id="installation"></a>
@@ -19,7 +19,7 @@ Follow the [installation guide](/en/docs/installation). This example installs th
 pnpm dlx shadcn-vue@2.8.2 add https://orvui.efu.me/r/button.json
 ```
 
-> **Tip**: The package is not published to npm. Use the local archive workflow in the installation guide for package installation.
+> **Tip**: The package is available on npm. Follow the installation guide to install @orvui/vue for prebuilt components.
 
 <a id="import-components"></a>
 

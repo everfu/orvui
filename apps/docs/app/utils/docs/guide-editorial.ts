@@ -24,8 +24,8 @@ export function applyGuideEditorial(
   const intro = pages.find((page) => page.slug === "introduction")!;
   intro.title = bi("开始使用 orvui", "Get started with orvui");
   intro.description = bi(
-    "为 Vue 3.5 应用添加可组合的交互组件。选择一个组件，安装源码或本地组件包，再按你的产品需求调整外观与行为。",
-    "Add composable, interactive components to a Vue 3.5 application. Choose a component, install its source or a local package, and adapt its appearance and behavior to your product.",
+    "为 Vue 3.5 应用添加可组合的交互组件。选择一个组件，安装源码或 npm 组件包，再按你的产品需求调整外观与行为。",
+    "Add composable, interactive components to a Vue 3.5 application. Choose a component, install its source or npm package, and adapt its appearance and behavior to your product.",
   );
   intro.sections = [
     {
@@ -68,8 +68,8 @@ export function applyGuideEditorial(
           "bash",
         ),
         note(
-          "组件包尚未发布到 npm。组件包安装请使用安装指南中的本地归档流程。",
-          "The package is not published to npm. Use the local archive workflow in the installation guide for package installation.",
+          "组件包已发布到 npm；希望使用预构建组件时，可按安装指南直接安装 @orvui/vue。",
+          "The package is available on npm. Follow the installation guide to install @orvui/vue for prebuilt components.",
         ),
       ],
     },
@@ -262,16 +262,15 @@ export function applyGuideEditorial(
           {
             title: bi("使用组件包", "Use the package"),
             text: bi(
-              "通过本地归档安装预构建组件，并导入一次组件包样式。",
-              "Install prebuilt components from a local archive and import the package stylesheet once.",
+              "从 npm 安装预构建组件，并导入一次组件包样式。",
+              "Install prebuilt components from npm and import the package stylesheet once.",
             ),
           },
         ],
       },
       note(
-        "当前组件包未发布到 npm；先使用下方可验证的本地归档命令。",
-        "The package is not published to npm; use the verifiable local archive commands below.",
-        true,
+        "组件包从 npm 安装；希望在项目内编辑实现时，选择 shadcn-vue 复制源码。",
+        "Install the package from npm, or copy source with shadcn-vue to edit the implementation in your project.",
       ),
     ],
   });

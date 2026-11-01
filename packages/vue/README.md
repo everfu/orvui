@@ -5,7 +5,7 @@ Animated Vue 3.5 components with composable APIs, charts and copyable source.
 ## Package installation
 
 ```sh
-npm install @orvui/vue
+pnpm add @orvui/vue
 ```
 
 ```vue

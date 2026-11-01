@@ -246,7 +246,7 @@ export const sitePages: SitePageDefinition[] = [
     title: bi("Vue Web 简介", "Introduction to Vue Web"),
     description: bi(
       "使用 Vue 3.5 Composition API 构建带有原始几何与交互动效的 Web 界面。通过组件包或完整源码，将现成组件接入你的 Vue 项目。",
-      "Build Web interfaces with Vue 3.5 Composition API, original component geometry and interactive motion. Use a local package or complete source to add existing components to your Vue application.",
+      "Build Web interfaces with Vue 3.5 Composition API, original component geometry and interactive motion. Use the npm package or complete source to add existing components to your Vue application.",
     ),
     sections: [
       {
@@ -254,8 +254,8 @@ export const sitePages: SitePageDefinition[] = [
         title: bi("开始安装", "Start installation"),
         blocks: [
           paragraph(
-            '按照<a href="/docs/installation">Web 安装指南</a>选择本地组件包或 shadcn-vue。组件包尚未发布到 npm；指南提供实际可用的本地打包步骤。',
-            'Follow the <a href="/docs/installation">Web installation guide</a> for a local package or shadcn-vue. The package is not published to npm; the guide provides the current local packing steps.',
+            '按照<a href="/docs/installation">Web 安装指南</a>选择 npm 组件包或 shadcn-vue，按项目需要使用预构建组件或复制源码。',
+            'Follow the <a href="/docs/installation">Web installation guide</a> for the npm package or shadcn-vue, choosing prebuilt components or copied source for your project.',
           ),
         ],
       },
@@ -670,8 +670,8 @@ export const sitePages: SitePageDefinition[] = [
     eyebrow: bi("更新日志", "Changelog"),
     title: bi("orvui 更新记录", "orvui updates"),
     description: bi(
-      "这里记录 orvui 的本地开发进展与兼容性变化。当前版本仍在开发，未发布到 npm。",
-      "Local orvui development notes and compatibility changes. This version remains in development and has not been published to npm.",
+      "这里记录 orvui 的版本更新与兼容性变化。组件包已发布到 npm，安装方式见安装指南。",
+      "orvui release notes and compatibility changes. The component package is available on npm; see the installation guide to get started.",
     ),
     sections: [],
   },

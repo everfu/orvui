@@ -1,7 +1,4 @@
-import {
-  packageName,
-  packageArchiveName,
-} from "../../../../../tools/distribution";
+import { packageName } from "../../../../../tools/distribution";
 import type { ApiComponent, ApiEntry } from "./component-docs-types";
 import type { CatalogEntry } from "../../../../../tools/registry/types";
 import { componentBindings, componentStateCopy } from "./component-handbook";
@@ -181,12 +178,11 @@ export function buildComponentMarkdown(input: ComponentMarkdownInput): string {
     `### ${t("Component package", "组件包")}`,
     "",
     t(
-      "After npm publication, use the package command below. Before publication, install the verified local archive.",
-      "npm 发布后使用下方命令；发布前可安装验证后的本地归档。",
+      "Install the published component package from npm in your application directory.",
+      "在你的应用目录从 npm 安装已发布的组件包。",
     ),
     "",
     ...block(`pnpm add ${packageName}`, "bash"),
-    ...block(`pnpm add ./${packageArchiveName}`, "bash"),
     ...(input.demoDependencies?.length
       ? [...block(`pnpm add ${input.demoDependencies.join(" ")}`, "bash")]
       : []),

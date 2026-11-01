@@ -64,14 +64,10 @@ Import `src/components/orvui/styles.css` once in your application's stylesheet e
 
 ### Component package
 
-After npm publication, use the package command below. Before publication, install the verified local archive.
+Install the published component package from npm in your application directory.
 
 ```bash
 pnpm add @orvui/vue
-```
-
-```bash
-pnpm add ./orvui-vue-0.1.0.tgz
 ```
 
 ```bash

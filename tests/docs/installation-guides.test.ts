@@ -7,6 +7,7 @@ import {
   sitePageToc,
 } from "../../apps/docs/app/utils/docs/site-page-data";
 import { sitePageMarkdown } from "../../apps/docs/app/utils/docs/site-page-markdown";
+import { packageVersion } from "../../tools/distribution";
 
 describe("Web installation instructions", () => {
   for (const en of [false, true]) {
@@ -50,7 +51,10 @@ describe("Web installation instructions", () => {
         expect(markdown).not.toMatch(
           /manual-source|manual source|manual copying|手动/i,
         );
-        expect(markdown).toContain("orvui-vue-0.1.0.tgz");
+        expect(markdown).toContain("pnpm add @orvui/vue");
+        expect(markdown).toContain(`pnpm add @orvui/vue@${packageVersion}`);
+        expect(markdown).not.toMatch(/\.tgz|Before publication|发布前|未发布/);
+        expect(markdown).toContain("nuxt.config.ts");
         expect(markdown).toContain("@orvui/vue/style.css");
         expect(markdown).toContain("import './style.css'");
         expect(markdown).toContain(

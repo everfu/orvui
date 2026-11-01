@@ -9,9 +9,9 @@ Choose the component package or shadcn-vue for a Vue Web application. Component-
 
 1. **Copy the source** — Install individual components into your project and edit them directly. Requires Tailwind CSS 4.
 
-2. **Use the package** — Install prebuilt components from a local archive and import the package stylesheet once.
+2. **Use the package** — Install prebuilt components from npm and import the package stylesheet once.
 
-> **Note**: The package is not published to npm; use the verifiable local archive commands below.
+> **Tip**: Install the package from npm, or copy source with shadcn-vue to edit the implementation in your project.
 
 <a id="requirements"></a>
 
@@ -31,24 +31,16 @@ pnpm install
 
 ## Option 1: component package
 
-After npm publication, install the package directly. Before publication, use the verified local archive below or install source with shadcn-vue.
+The package is available on npm. Install it directly in your Vue or Nuxt application. It includes prebuilt components and complete styles, with no additional Tailwind setup.
 
 ```bash
 pnpm add @orvui/vue
 ```
 
-Use the built components directly. From the orvui repository root, install dependencies, build the Web library, and pack it into a directory of your choice. Replace the absolute paths below with your actual locations.
+To pin version 0.1.0, or upgrade an existing application from an earlier release to 0.1.0, use the command below. Keep your imports and theme overrides, then run your application's type check and build.
 
 ```bash
-pnpm install
-pnpm build:lib
-pnpm --filter @orvui/vue pack --pack-destination /absolute/path/to/output
-```
-
-Back in the consuming Vue project, install the local archive for version 0.1.0; use the filename printed by the packing command.
-
-```bash
-pnpm add /absolute/path/to/output/orvui-vue-0.1.0.tgz
+pnpm add @orvui/vue@0.1.0
 ```
 
 ```vue
@@ -61,6 +53,14 @@ import '@orvui/vue/style.css'
 ```
 
 Import `@orvui/vue/style.css` once in your application entry or root component. It includes component styles and the Tailwind base layer; the package path needs no separate Tailwind setup. A `.dark` class on the document root enables dark mode. Select Package Usage on a component page for `@orvui/vue/…` imports.
+
+In Nuxt, load the stylesheet through `css` in `nuxt.config.ts`. Import components explicitly in your pages or components; global registration is not required.
+
+```typescript
+export default defineNuxtConfig({
+  css: ['@orvui/vue/style.css'],
+})
+```
 
 <a id="source-setup"></a>
 

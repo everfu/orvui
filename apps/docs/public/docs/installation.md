@@ -9,9 +9,9 @@
 
 1. **复制源码** — 按组件安装到项目内，直接调整实现；需要 Tailwind CSS 4。
 
-2. **使用组件包** — 通过本地归档安装预构建组件，并导入一次组件包样式。
+2. **使用组件包** — 从 npm 安装预构建组件，并导入一次组件包样式。
 
-> **注意事项**: 当前组件包未发布到 npm；先使用下方可验证的本地归档命令。
+> **提示**: 组件包从 npm 安装；希望在项目内编辑实现时，选择 shadcn-vue 复制源码。
 
 <a id="requirements"></a>
 
@@ -31,24 +31,16 @@ pnpm install
 
 ## 方式一：组件包
 
-npm 发布后可直接安装组件包。发布前使用下方已验证的本地归档，或使用 shadcn-vue 安装源码。
+组件包已发布到 npm，在你的 Vue 或 Nuxt 应用目录直接安装。它包含预构建组件和完整样式，无需额外配置 Tailwind。
 
 ```bash
 pnpm add @orvui/vue
 ```
 
-适合直接使用已构建组件。在 orvui 仓库根目录安装依赖、构建 Web 库，并将归档输出到你选择的目录。将下面的绝对路径替换为实际位置。
+固定安装 0.1.0，或将已有项目从旧版升级到 0.1.0，使用以下命令。升级后保留现有导入与主题覆盖，并运行项目的类型检查和构建。
 
 ```bash
-pnpm install
-pnpm build:lib
-pnpm --filter @orvui/vue pack --pack-destination /absolute/path/to/output
-```
-
-切回使用组件的 Vue 项目，安装本地归档。当前版本为 0.1.0；以打包命令的实际输出为准。
-
-```bash
-pnpm add /absolute/path/to/output/orvui-vue-0.1.0.tgz
+pnpm add @orvui/vue@0.1.0
 ```
 
 ```vue
@@ -61,6 +53,14 @@ import '@orvui/vue/style.css'
 ```
 
 在应用入口或根组件导入一次 `@orvui/vue/style.css`。它已包含组件所需样式与 Tailwind 基础层；使用组件包无需另配 Tailwind。明暗模式由文档根节点上的 `.dark` 类控制。组件页选择“组件包”用法，使用 `@orvui/vue/…` 按需导入。
+
+Nuxt 项目在 `nuxt.config.ts` 的 `css` 中加载样式，组件仍在页面或组件中显式导入，无需全局注册。
+
+```typescript
+export default defineNuxtConfig({
+  css: ['@orvui/vue/style.css'],
+})
+```
 
 <a id="source-setup"></a>
 

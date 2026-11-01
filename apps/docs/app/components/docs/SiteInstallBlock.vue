@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import SiteInstallCommand from "./SiteInstallCommand.vue";
 import CodePanel from "./CodePanel.vue";
-import { packageName, packageArchiveName } from "../../../../../tools/distribution";
+import { packageName } from "../../../../../tools/distribution";
 const props = withDefaults(
   defineProps<{
     slug: string;
@@ -36,8 +36,8 @@ const packageDependencyCommand = computed(() =>
     <p class="install-note">
       {{
         en
-          ? `Use the npm command after publication. Before publication, install the verified local archive with pnpm add ./` + packageArchiveName + "."
-          : `npm 发布后使用下方命令；发布前可安装验证后的本地归档：pnpm add ./` + packageArchiveName + "。"
+          ? "Install the published component package from npm in your application directory."
+          : "在你的应用目录从 npm 安装已发布的组件包。"
       }}
     </p>
     <CodePanel :en="en" :code="packageInstall" label="Terminal" />
@@ -54,7 +54,12 @@ const packageDependencyCommand = computed(() =>
           : "在应用入口导入一次组件包样式。"
       }}
     </p>
-    <CodePanel :en="en" :code="packageStyle" filename="src/main.ts" lang="typescript" />
+    <CodePanel
+      :en="en"
+      :code="packageStyle"
+      filename="src/main.ts"
+      lang="typescript"
+    />
   </div>
   <div v-else>
     <SiteInstallCommand :slug="slug" :slugs="installSlugs" :en="en" />

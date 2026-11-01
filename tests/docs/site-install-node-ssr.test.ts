@@ -5,7 +5,7 @@ import { renderToString } from "@vue/server-renderer";
 import SiteInstallBlock from "../../apps/docs/app/components/docs/SiteInstallBlock.vue";
 import SiteInstallCommand from "../../apps/docs/app/components/docs/SiteInstallCommand.vue";
 
-it("renders local package installation without browser globals or registry requests", async () => {
+it("renders published package installation without browser globals or registry requests", async () => {
   expect(typeof window).toBe("undefined");
   const fetch = vi.spyOn(globalThis, "fetch");
   try {
@@ -15,8 +15,8 @@ it("renders local package installation without browser globals or registry reque
           h(SiteInstallBlock, { slug: "button", en: true, mode: "package" }),
       }),
     );
-    expect(html).toContain("Before publication");
-    expect(html).toContain("pnpm add ./orvui-vue-0.1.0.tgz");
+    expect(html).toContain("pnpm add @orvui/vue");
+    expect(html).not.toMatch(/Before publication|\.tgz/);
     expect(html).toContain("@orvui/vue/style.css");
     expect(fetch).not.toHaveBeenCalled();
   } finally {
